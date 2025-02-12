@@ -1,0 +1,50 @@
+{
+  "title": "/packages/mermaid/src/diagrams/git",
+  "files": [
+    {
+      "type": "blob",
+      "title": "gitGraph.spec.ts",
+      "href": "gitGraph.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraphAst.ts",
+      "href": "gitGraphAst.ts"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraphDetector.ts",
+      "href": "gitGraphDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraphDiagram.ts",
+      "href": "gitGraphDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraphParser.ts",
+      "href": "gitGraphParser.ts"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraphRenderer.ts",
+      "href": "gitGraphRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraphTypes.ts",
+      "href": "gitGraphTypes.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    }
+  ]
+}

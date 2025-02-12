@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/img.shields.io/bundlephobia",
+  "files": [
+    {
+      "type": "folder",
+      "title": "minzip",
+      "href": "minzip"
+    }
+  ]
+}

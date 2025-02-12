@@ -1,0 +1,55 @@
+{
+  "title": "/docs",
+  "files": [
+    {
+      "type": "blob",
+      "title": "adding-new-shape.html",
+      "href": "adding-new-shape.html"
+    },
+    {
+      "type": "blob",
+      "title": "adding-new-shape.md",
+      "href": "adding-new-shape.md"
+    },
+    {
+      "type": "folder",
+      "title": "community",
+      "href": "community"
+    },
+    {
+      "type": "folder",
+      "title": "config",
+      "href": "config"
+    },
+    {
+      "type": "folder",
+      "title": "ecosystem",
+      "href": "ecosystem"
+    },
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "folder",
+      "title": "intro",
+      "href": "intro"
+    },
+    {
+      "type": "folder",
+      "title": "news",
+      "href": "news"
+    },
+    {
+      "type": "folder",
+      "title": "public",
+      "href": "public"
+    },
+    {
+      "type": "folder",
+      "title": "syntax",
+      "href": "syntax"
+    }
+  ]
+}

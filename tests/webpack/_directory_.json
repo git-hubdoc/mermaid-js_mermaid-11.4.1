@@ -1,0 +1,25 @@
+{
+  "title": "/tests/webpack",
+  "files": [
+    {
+      "type": "blob",
+      "title": "package.json",
+      "href": "package.json"
+    },
+    {
+      "type": "folder",
+      "title": "public",
+      "href": "public"
+    },
+    {
+      "type": "folder",
+      "title": "src",
+      "href": "src"
+    },
+    {
+      "type": "blob",
+      "title": "webpack.config.js",
+      "href": "webpack.config.js"
+    }
+  ]
+}

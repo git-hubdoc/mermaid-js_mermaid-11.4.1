@@ -1,0 +1,70 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="tutorials"><a aria-hidden="true" tabindex="-1" href="#tutorials"><span class="icon icon-link"></span></a>Tutorials</h1>
+          <p>This is a list of publicly available Tutorials for using Mermaid.JS and is intended as a basic introduction for the use of the Live Editor for generating diagrams, and deploying Mermaid.JS through HTML.</p>
+          <p><strong>Note that these tutorials might display an older interface, but the usage of the live-editor will largely be the same.</strong></p>
+          <p>For most purposes, you can use the <a href="https://mermaid.live/">Live Editor</a>, to quickly and easily render a diagram.</p>
+          <h2 id="live-editor-tutorials"><a aria-hidden="true" tabindex="-1" href="#live-editor-tutorials"><span class="icon icon-link"></span></a>Live-Editor Tutorials</h2>
+          <p>The definitions that can be generated the Live-Editor are also backwards-compatible as of version 8.7.0.</p>
+          <p><a href="https://www.youtube.com/watch?v=4_LdV1cs2sA">Chris Chinchilla: Hands on - Text-based diagrams with Mermaid</a></p>
+          <p><a href="https://www.youtube.com/watch?v=SQ9QmuTHuSI&#x26;t=438s">GitLab Unfiltered: How to Create Mermaid Diagrams</a></p>
+          <p><a href="https://www.youtube.com/watch?v=5RQqht3NNSE">GitLab Unfiltered: Emilie adds a mermaid diagram to the handbook</a></p>
+          <p><a href="https://www.youtube.com/watch?v=7_2IroEs6Is&#x26;t=207s">World of Zero: I Learn How To Build Flowcharts and Signal Diagram's in Mermaid.JS</a></p>
+          <p><a href="https://www.youtube.com/watch?v=9HZzKkAqrX8">Eddie Jaoude: Can you code your diagrams?</a></p>
+          <h2 id="mermaid-with-openai"><a aria-hidden="true" tabindex="-1" href="#mermaid-with-openai"><span class="icon icon-link"></span></a>Mermaid with OpenAI</h2>
+          <p><a href="https://medium.com/@elle.neal_71064/mind-mapping-with-ai-an-accessible-approach-for-neurodiverse-learners-1a74767359ff">Elle Neal: Mind Mapping with AI: An Accessible Approach for Neurodiverse Learners Tutorial:</a>, <a href="https://databutton.com/v/jk9vrghc">Demo:</a></p>
+          <h2 id="mermaid-with-html"><a aria-hidden="true" tabindex="-1" href="#mermaid-with-html"><span class="icon icon-link"></span></a>Mermaid with HTML</h2>
+          <p>Examples are provided in <a href="intro/getting-started.html">Getting Started</a></p>
+          <p><strong>CodePen Examples:</strong></p>
+          <p><a href="https://codepen.io/CarlBoneri/pen/BQwZzq">https://codepen.io/CarlBoneri/pen/BQwZzq</a></p>
+          <p><a href="https://codepen.io/tdkn/pen/vZxQzd">https://codepen.io/tdkn/pen/vZxQzd</a></p>
+          <p><a href="https://codepen.io/janzeteachesit/pen/OWWZKN">https://codepen.io/janzeteachesit/pen/OWWZKN</a></p>
+          <h2 id="mermaid-with-text-area"><a aria-hidden="true" tabindex="-1" href="#mermaid-with-text-area"><span class="icon icon-link"></span></a>Mermaid with Text Area</h2>
+          <p><a href="https://codepen.io/Ryuno-Ki/pen/LNxwgR">https://codepen.io/Ryuno-Ki/pen/LNxwgR</a></p>
+          <h2 id="mermaid-in-open-source-docs"><a aria-hidden="true" tabindex="-1" href="#mermaid-in-open-source-docs"><span class="icon icon-link"></span></a>Mermaid in open source docs</h2>
+          <p><a href="https://kubernetes.io/docs/contribute/style/diagram-guide/">K8s.io Diagram Guide</a></p>
+          <p><a href="https://www.kubernetes.dev/blog/2021/12/01/improve-your-documentation-with-mermaid.js-diagrams/">K8s.dev blog: Improve your documentation with Mermaid.js diagrams</a></p>
+          <h2 id="jupyter-integration-with-mermaid-js"><a aria-hidden="true" tabindex="-1" href="#jupyter-integration-with-mermaid-js"><span class="icon icon-link"></span></a>Jupyter Integration with mermaid-js</h2>
+          <p>Here's an example of Python integration with mermaid-js which uses the mermaid.ink service, that displays the graph in a Jupyter notebook.</p>
+          <pre><code class="language-python"><span class="pl-k">import</span> base64
+<span class="pl-k">from</span> IPython.display <span class="pl-k">import</span> Image, display
+<span class="pl-k">import</span> matplotlib.pyplot <span class="pl-k">as</span> plt
+
+<span class="pl-k">def</span> <span class="pl-en">mm</span>(<span class="pl-smi">graph</span>):
+    graphbytes <span class="pl-k">=</span> graph.encode(<span class="pl-s"><span class="pl-pds">"</span>utf8<span class="pl-pds">"</span></span>)
+    base64_bytes <span class="pl-k">=</span> base64.urlsafe_b64encode(graphbytes)
+    base64_string <span class="pl-k">=</span> base64_bytes.decode(<span class="pl-s"><span class="pl-pds">"</span>ascii<span class="pl-pds">"</span></span>)
+    display(Image(<span class="pl-v">url</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://mermaid.ink/img/<span class="pl-pds">"</span></span> <span class="pl-k">+</span> base64_string))
+
+mm(<span class="pl-s"><span class="pl-pds">"""</span></span>
+<span class="pl-s">graph LR;</span>
+<span class="pl-s">    A--> B &#x26; C &#x26; D;</span>
+<span class="pl-s">    B--> A &#x26; E;</span>
+<span class="pl-s">    C--> A &#x26; E;</span>
+<span class="pl-s">    D--> A &#x26; E;</span>
+<span class="pl-s">    E--> B &#x26; C &#x26; D;</span>
+<span class="pl-s"><span class="pl-pds">"""</span></span>)
+</code></pre>
+          <p><strong>Output</strong></p>
+          <p>
+            <img src="img/python-mermaid-integration.png" alt="Example graph of the Python integration">
+          </p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

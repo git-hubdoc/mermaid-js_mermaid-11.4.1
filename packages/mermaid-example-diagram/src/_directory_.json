@@ -1,0 +1,50 @@
+{
+  "title": "/packages/mermaid-example-diagram/src",
+  "files": [
+    {
+      "type": "blob",
+      "title": "detector.ts",
+      "href": "detector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "diagram-definition.ts",
+      "href": "diagram-definition.ts"
+    },
+    {
+      "type": "blob",
+      "title": "exampleDiagram.spec.js",
+      "href": "exampleDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "exampleDiagramDb.js",
+      "href": "exampleDiagramDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "exampleDiagramRenderer.js",
+      "href": "exampleDiagramRenderer.js"
+    },
+    {
+      "type": "blob",
+      "title": "mermaidUtils.ts",
+      "href": "mermaidUtils.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    },
+    {
+      "type": "folder",
+      "title": "types",
+      "href": "types"
+    }
+  ]
+}

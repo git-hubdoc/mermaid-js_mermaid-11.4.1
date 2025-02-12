@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/block/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "block.jison",
+      "href": "block.jison"
+    },
+    {
+      "type": "blob",
+      "title": "block.spec.ts",
+      "href": "block.spec.ts"
+    }
+  ]
+}

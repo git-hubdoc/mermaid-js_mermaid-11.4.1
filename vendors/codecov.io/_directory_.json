@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/codecov.io",
+  "files": [
+    {
+      "type": "folder",
+      "title": "github",
+      "href": "github"
+    }
+  ]
+}

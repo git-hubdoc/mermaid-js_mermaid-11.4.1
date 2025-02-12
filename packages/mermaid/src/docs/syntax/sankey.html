@@ -1,0 +1,178 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="sankey-diagram-v1030"><a aria-hidden="true" tabindex="-1" href="#sankey-diagram-v1030"><span class="icon icon-link"></span></a>Sankey diagram (v10.3.0+)</h1>
+          <blockquote>
+            <p>A sankey diagram is a visualization used to depict a flow from one set of values to another.</p>
+          </blockquote>
+          <pre><code class="language-warning">This is an experimental diagram. Its syntax are very close to plain CSV, but it is to be extended in the nearest future.
+</code></pre>
+          <p>The things being connected are called nodes and the connections are called links.</p>
+          <h2 id="example"><a aria-hidden="true" tabindex="-1" href="#example"><span class="icon icon-link"></span></a>Example</h2>
+          <p>This example taken from <a href="https://observablehq.com/@d3/sankey/2?collection=@d3/d3-sankey">observable</a>. It may be rendered a little bit differently, though, in terms of size and colors.</p>
+          <pre><code class="language-mermaid-example">---
+config:
+  sankey:
+    showValues: false
+---
+sankey-beta
+
+Agricultural 'waste',Bio-conversion,124.729
+Bio-conversion,Liquid,0.597
+Bio-conversion,Losses,26.862
+Bio-conversion,Solid,280.322
+Bio-conversion,Gas,81.144
+Biofuel imports,Liquid,35
+Biomass imports,Solid,35
+Coal imports,Coal,11.606
+Coal reserves,Coal,63.965
+Coal,Solid,75.571
+District heating,Industry,10.639
+District heating,Heating and cooling - commercial,22.505
+District heating,Heating and cooling - homes,46.184
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+Electricity grid,Industry,342.165
+Electricity grid,Road transport,37.797
+Electricity grid,Agriculture,4.412
+Electricity grid,Heating and cooling - commercial,40.858
+Electricity grid,Losses,56.691
+Electricity grid,Rail transport,7.863
+Electricity grid,Lighting &#x26; appliances - commercial,90.008
+Electricity grid,Lighting &#x26; appliances - homes,93.494
+Gas imports,Ngas,40.719
+Gas reserves,Ngas,82.233
+Gas,Heating and cooling - commercial,0.129
+Gas,Losses,1.401
+Gas,Thermal generation,151.891
+Gas,Agriculture,2.096
+Gas,Industry,48.58
+Geothermal,Electricity grid,7.013
+H2 conversion,H2,20.897
+H2 conversion,Losses,6.242
+H2,Road transport,20.897
+Hydro,Electricity grid,6.995
+Liquid,Industry,121.066
+Liquid,International shipping,128.69
+Liquid,Road transport,135.835
+Liquid,Domestic aviation,14.458
+Liquid,International aviation,206.267
+Liquid,Agriculture,3.64
+Liquid,National navigation,33.218
+Liquid,Rail transport,4.413
+Marine algae,Bio-conversion,4.375
+Ngas,Gas,122.952
+Nuclear,Thermal generation,839.978
+Oil imports,Oil,504.287
+Oil reserves,Oil,107.703
+Oil,Liquid,611.99
+Other waste,Solid,56.587
+Other waste,Bio-conversion,77.81
+Pumped heat,Heating and cooling - homes,193.026
+Pumped heat,Heating and cooling - commercial,70.672
+Solar PV,Electricity grid,59.901
+Solar Thermal,Heating and cooling - homes,19.263
+Solar,Solar Thermal,19.263
+Solar,Solar PV,59.901
+Solid,Agriculture,0.882
+Solid,Thermal generation,400.12
+Solid,Industry,46.477
+Thermal generation,Electricity grid,525.531
+Thermal generation,Losses,787.129
+Thermal generation,District heating,79.329
+Tidal,Electricity grid,9.452
+UK land based bioenergy,Bio-conversion,182.01
+Wave,Electricity grid,19.013
+Wind,Electricity grid,289.366
+</code></pre>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <p>The idea behind syntax is that a user types <code>sankey-beta</code> keyword first, then pastes raw CSV below and get the result.</p>
+          <p>It implements CSV standard as <a href="https://www.ietf.org/rfc/rfc4180.txt">described here</a> with subtle <strong>differences</strong>:</p>
+          <ul>
+            <li>CSV must contain <strong>3 columns only</strong></li>
+            <li>It is <strong>allowed</strong> to have <strong>empty lines</strong> without comma separators for visual purposes</li>
+          </ul>
+          <h3 id="basic"><a aria-hidden="true" tabindex="-1" href="#basic"><span class="icon icon-link"></span></a>Basic</h3>
+          <p>It is implied that 3 columns inside CSV should represent <code>source</code>, <code>target</code> and <code>value</code> accordingly:</p>
+          <pre><code class="language-mermaid-example">sankey-beta
+
+%% source,target,value
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+</code></pre>
+          <h3 id="empty-lines"><a aria-hidden="true" tabindex="-1" href="#empty-lines"><span class="icon icon-link"></span></a>Empty Lines</h3>
+          <p>CSV does not support empty lines without comma delimiters by default. But you can add them if needed:</p>
+          <pre><code class="language-mermaid-example">sankey-beta
+
+Bio-conversion,Losses,26.862
+
+Bio-conversion,Solid,280.322
+
+Bio-conversion,Gas,81.144
+</code></pre>
+          <h3 id="commas"><a aria-hidden="true" tabindex="-1" href="#commas"><span class="icon icon-link"></span></a>Commas</h3>
+          <p>If you need to have a comma, wrap it in double quotes:</p>
+          <pre><code class="language-mermaid-example">sankey-beta
+
+Pumped heat,"Heating and cooling, homes",193.026
+Pumped heat,"Heating and cooling, commercial",70.672
+</code></pre>
+          <h3 id="double-quotes"><a aria-hidden="true" tabindex="-1" href="#double-quotes"><span class="icon icon-link"></span></a>Double Quotes</h3>
+          <p>If you need to have double quote, put a pair of them inside quoted string:</p>
+          <pre><code class="language-mermaid-example">sankey-beta
+
+Pumped heat,"Heating and cooling, ""homes""",193.026
+Pumped heat,"Heating and cooling, ""commercial""",70.672
+</code></pre>
+          <h2 id="configuration"><a aria-hidden="true" tabindex="-1" href="#configuration"><span class="icon icon-link"></span></a>Configuration</h2>
+          <p>You can customize link colors, node alignments and diagram dimensions.</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span>>
+  <span class="pl-k">const</span> <span class="pl-c1">config</span> <span class="pl-k">=</span> {
+    startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+    securityLevel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>loose<span class="pl-pds">'</span></span>,
+    sankey<span class="pl-k">:</span> {
+      width<span class="pl-k">:</span> <span class="pl-c1">800</span>,
+      height<span class="pl-k">:</span> <span class="pl-c1">400</span>,
+      linkColor<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>source<span class="pl-pds">'</span></span>,
+      nodeAlignment<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>left<span class="pl-pds">'</span></span>,
+    },
+  };
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>(config);
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <h3 id="links-coloring"><a aria-hidden="true" tabindex="-1" href="#links-coloring"><span class="icon icon-link"></span></a>Links Coloring</h3>
+          <p>You can adjust links' color by setting <code>linkColor</code> to one of those:</p>
+          <ul>
+            <li><code>source</code> - link will be of a source node color</li>
+            <li><code>target</code> - link will be of a target node color</li>
+            <li><code>gradient</code> - link color will be smoothly transient between source and target node colors</li>
+            <li>hex code of color, like <code>#a1a1a1</code></li>
+          </ul>
+          <h3 id="node-alignment"><a aria-hidden="true" tabindex="-1" href="#node-alignment"><span class="icon icon-link"></span></a>Node Alignment</h3>
+          <p>Graph layout can be changed by setting <code>nodeAlignment</code> to:</p>
+          <ul>
+            <li><code>justify</code></li>
+            <li><code>center</code></li>
+            <li><code>left</code></li>
+            <li><code>right</code></li>
+          </ul>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="requirement-diagram"><a aria-hidden="true" tabindex="-1" href="#requirement-diagram"><span class="icon icon-link"></span></a>Requirement Diagram</h1>
+          <blockquote>
+            <p>A Requirement diagram provides a visualization for requirements and their connections, to each other and other documented elements. The modeling specs follow those defined by SysML v1.6.</p>
+          </blockquote>
+          <p>Rendering requirements is straightforward.</p>
+          <pre><code class="language-mermaid-example">    requirementDiagram
+
+    requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+    }
+
+    element test_entity {
+    type: simulation
+    }
+
+    test_entity - satisfies -> test_req
+</code></pre>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <p>There are three types of components to a requirement diagram: requirement, element, and relationship.</p>
+          <p>The grammar for defining each is defined below. Words denoted in angle brackets, such as <code>&#x3C;word></code>, are enumerated keywords that have options elaborated in a table. <code>user_defined_...</code> is use in any place where user input is expected.</p>
+          <p>An important note on user text: all input can be surrounded in quotes or not. For example, both <code>Id: "here is an example"</code> and <code>Id: here is an example</code> are both valid. However, users must be careful with unquoted input. The parser will fail if another keyword is detected.</p>
+          <h3 id="requirement"><a aria-hidden="true" tabindex="-1" href="#requirement"><span class="icon icon-link"></span></a>Requirement</h3>
+          <p>A requirement definition contains a requirement type, name, id, text, risk, and verification method. The syntax follows:</p>
+          <pre><code>&#x3C;type> user_defined_name {
+    id: user_defined_id
+    text: user_defined text
+    risk: &#x3C;risk>
+    verifymethod: &#x3C;method>
+}
+</code></pre>
+          <p>Type, risk, and method are enumerations defined in SysML.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Keyword</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Type</td>
+                <td>requirement, functionalRequirement, interfaceRequirement, performanceRequirement, physicalRequirement, designConstraint</td>
+              </tr>
+              <tr>
+                <td>Risk</td>
+                <td>Low, Medium, High</td>
+              </tr>
+              <tr>
+                <td>VerificationMethod</td>
+                <td>Analysis, Inspection, Test, Demonstration</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="element"><a aria-hidden="true" tabindex="-1" href="#element"><span class="icon icon-link"></span></a>Element</h3>
+          <p>An element definition contains an element name, type, and document reference. These three are all user defined. The element feature is intended to be lightweight but allow requirements to be connected to portions of other documents.</p>
+          <pre><code>element user_defined_name {
+    type: user_defined_type
+    docref: user_defined_ref
+}
+</code></pre>
+          <h3 id="relationship"><a aria-hidden="true" tabindex="-1" href="#relationship"><span class="icon icon-link"></span></a>Relationship</h3>
+          <p>Relationships are comprised of a source node, destination node, and relationship type.</p>
+          <p>Each follows the definition format of</p>
+          <pre><code>{name of source} - &#x3C;type> -> {name of destination}
+</code></pre>
+          <p>or</p>
+          <pre><code>{name of destination} &#x3C;- &#x3C;type> - {name of source}
+</code></pre>
+          <p>"name of source" and "name of destination" should be names of requirement or element nodes defined elsewhere.</p>
+          <p>A relationship type can be one of contains, copies, derives, satisfies, verifies, refines, or traces.</p>
+          <p>Each relationship is labeled in the diagram.</p>
+          <h2 id="larger-example"><a aria-hidden="true" tabindex="-1" href="#larger-example"><span class="icon icon-link"></span></a>Larger Example</h2>
+          <p>This example uses all features of the diagram.</p>
+          <pre><code class="language-mermaid-example">    requirementDiagram
+
+    requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+    }
+
+    functionalRequirement test_req2 {
+    id: 1.1
+    text: the second test text.
+    risk: low
+    verifymethod: inspection
+    }
+
+    performanceRequirement test_req3 {
+    id: 1.2
+    text: the third test text.
+    risk: medium
+    verifymethod: demonstration
+    }
+
+    interfaceRequirement test_req4 {
+    id: 1.2.1
+    text: the fourth test text.
+    risk: medium
+    verifymethod: analysis
+    }
+
+    physicalRequirement test_req5 {
+    id: 1.2.2
+    text: the fifth test text.
+    risk: medium
+    verifymethod: analysis
+    }
+
+    designConstraint test_req6 {
+    id: 1.2.3
+    text: the sixth test text.
+    risk: medium
+    verifymethod: analysis
+    }
+
+    element test_entity {
+    type: simulation
+    }
+
+    element test_entity2 {
+    type: word doc
+    docRef: reqs/test_entity
+    }
+
+    element test_entity3 {
+    type: "test suite"
+    docRef: github.com/all_the_tests
+    }
+
+
+    test_entity - satisfies -> test_req2
+    test_req - traces -> test_req2
+    test_req - contains -> test_req3
+    test_req3 - contains -> test_req4
+    test_req4 - derives -> test_req5
+    test_req5 - refines -> test_req6
+    test_entity3 - verifies -> test_req5
+    test_req &#x3C;- copies - test_entity2
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

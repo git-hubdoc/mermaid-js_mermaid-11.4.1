@@ -1,0 +1,25 @@
+{
+  "title": "/docs/news",
+  "files": [
+    {
+      "type": "blob",
+      "title": "announcements.html",
+      "href": "announcements.html"
+    },
+    {
+      "type": "blob",
+      "title": "announcements.md",
+      "href": "announcements.md"
+    },
+    {
+      "type": "blob",
+      "title": "blog.html",
+      "href": "blog.html"
+    },
+    {
+      "type": "blob",
+      "title": "blog.md",
+      "href": "blog.md"
+    }
+  ]
+}

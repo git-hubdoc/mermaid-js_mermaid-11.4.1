@@ -1,0 +1,35 @@
+{
+  "title": "/packages/mermaid/src/diagrams/common",
+  "files": [
+    {
+      "type": "blob",
+      "title": "common.spec.ts",
+      "href": "common.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "common.ts",
+      "href": "common.ts"
+    },
+    {
+      "type": "blob",
+      "title": "commonDb.ts",
+      "href": "commonDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "commonTypes.ts",
+      "href": "commonTypes.ts"
+    },
+    {
+      "type": "blob",
+      "title": "populateCommonDb.ts",
+      "href": "populateCommonDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "svgDrawCommon.ts",
+      "href": "svgDrawCommon.ts"
+    }
+  ]
+}

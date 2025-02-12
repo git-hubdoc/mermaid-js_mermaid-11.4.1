@@ -1,0 +1,342 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <p>
+            <a href="https://www.npmjs.com/package/mermaid"><img src="/vendors/img.shields.io/npm/v/mermaid" alt="NPM"></a>
+            <a href="https://github.com/mermaid-js/mermaid/actions/workflows/build.yml"><img src="/vendors/github.com/mermaid-js/mermaid/actions/workflows/build.yml/badge.svg" alt="Build CI Status"></a>
+            <a href="https://bundlephobia.com/package/mermaid"><img src="/vendors/img.shields.io/bundlephobia/minzip/mermaid" alt="npm minified gzipped bundle size"></a>
+            <a href="https://app.codecov.io/github/mermaid-js/mermaid/tree/develop"><img src="/vendors/codecov.io/github/mermaid-js/mermaid/branch/develop/graph/badge.svg" alt="Coverage Status"></a>
+            <a href="https://www.jsdelivr.com/package/npm/mermaid"><img src="/vendors/img.shields.io/jsdelivr/npm/hm/mermaid" alt="CDN Status"></a>
+            <a href="https://www.npmjs.com/package/mermaid"><img src="/vendors/img.shields.io/npm/dm/mermaid" alt="NPM Downloads"></a>
+            <a href="https://discord.gg/AgrbSrBer3"><img src="/vendors/img.shields.io/static/v1%25(63)message=join%20chat&#x26;color=9cf&#x26;logo=discord&#x26;label=discord" alt="Join our Discord!"></a>
+            <a href="https://twitter.com/mermaidjs_"><img src="/vendors/img.shields.io/badge/Social-mermaidjs__-blue%25(63)style=social&#x26;logo=X" alt="Twitter Follow"></a>
+            <a href="https://argos-ci.com/?utm_source=mermaid&#x26;utm_campaign=oss"><img src="/vendors/argos-ci.com/badge.svg" alt="Covered by Argos Visual Testing"></a>
+            <a href="https://securityscorecards.dev/viewer/?uri=github.com/mermaid-js/mermaid"><img src="https://api.securityscorecards.dev/projects/github.com/mermaid-js/mermaid/badge" alt="OpenSSF Scorecard"></a>
+          </p>
+          <p>:trophy: <strong>Mermaid was nominated and won the <a href="https://osawards.com/javascript/2019">JS Open Source Awards (2019)</a> in the category "The most exciting use of technology"!!!</strong></p>
+          <p><strong>Thanks to all involved, people committing pull requests, people answering questions! 🙏</strong></p>
+          <p></p>
+          <h2 id="table-of-content"><a aria-hidden="true" tabindex="-1" href="#table-of-content"><span class="icon icon-link"></span></a>Table of content</h2>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#release">Release</a></li>
+            <li><a href="#related-projects">Related projects</a></li>
+            <li><a href="#contributors---">Contributors</a></li>
+            <li><a href="#security-and-safe-diagrams">Security and safe diagrams</a></li>
+            <li><a href="#reporting-vulnerabilities">Reporting vulnerabilities</a></li>
+            <li><a href="#appreciation">Appreciation</a></li>
+          </ul>
+          <h2 id="about"><a aria-hidden="true" tabindex="-1" href="#about"><span class="icon icon-link"></span></a>About</h2>
+          <p>Mermaid is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development.</p>
+          <blockquote>
+            <p>Doc-Rot is a Catch-22 that Mermaid helps to solve.</p>
+          </blockquote>
+          <p>
+            Diagramming and documentation costs precious developer time and gets outdated quickly.
+            But not having diagrams or docs ruins productivity and hurts organizational learning.
+            Mermaid addresses this problem by enabling users to create easily modifiable diagrams. It can also be made part of production scripts (and other pieces of code).
+          </p>
+          <p>
+            Mermaid allows even non-programmers to easily create detailed diagrams through the <a href="https://mermaid.live/">Mermaid Live Editor</a>.
+            For video tutorials, visit our <a href="https://mermaid.js.org/ecosystem/tutorials.html">Tutorials</a> page.
+            Use Mermaid with your favorite applications, check out the list of <a href="https://mermaid.js.org/ecosystem/integrations-community.html">Integrations and Usages of Mermaid</a>.
+          </p>
+          <p>You can also use Mermaid within <a href="https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/">GitHub</a> as well many of your other favorite applications—check out the list of <a href="https://mermaid.js.org/ecosystem/integrations-community.html">Integrations and Usages of Mermaid</a>.</p>
+          <p>For a more detailed introduction to Mermaid and some of its more basic uses, look to the <a href="https://mermaid.js.org/intro/getting-started.html">Beginner's Guide</a>, <a href="https://mermaid.js.org/config/usage.html">Usage</a> and <a href="https://mermaid.js.org/ecosystem/tutorials.html">Tutorials</a>.</p>
+          <p>Our PR Visual Regression Testing is powered by <a href="https://argos-ci.com/?utm_source=mermaid&#x26;utm_campaign=oss">Argos</a> with their generous Open Source plan. It makes the process of reviewing PRs with visual changes a breeze.</p>
+          <p><a href="https://argos-ci.com/?utm_source=mermaid&#x26;utm_campaign=oss"><img src="/vendors/argos-ci.com/badge-large.svg" alt="Covered by Argos Visual Testing"></a></p>
+          <p>In our release process we rely heavily on visual regression tests using <a href="https://applitools.com/">applitools</a>. Applitools is a great service which has been easy to use and integrate with our tests.</p>
+          <h2 id="examples"><a aria-hidden="true" tabindex="-1" href="#examples"><span class="icon icon-link"></span></a>Examples</h2>
+          <p><strong>The following are some examples of the diagrams, charts and graphs that can be made using Mermaid. Click here to jump into the <a href="https://mermaid.js.org/intro/syntax-reference.html">text syntax</a>.</strong></p>
+          <h3 id="flowchart-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#flowchart-docs---live-editor"><span class="icon icon-link"></span></a>Flowchart [docs - live editor]</h3>
+          <pre><code>flowchart LR
+
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+</code></pre>
+          <pre><code class="language-mermaid">flowchart LR
+
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+</code></pre>
+          <h3 id="sequence-diagram-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#sequence-diagram-docs---live-editor"><span class="icon icon-link"></span></a>Sequence diagram [docs - live editor]</h3>
+          <pre><code>sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop HealthCheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!
+</code></pre>
+          <pre><code class="language-mermaid">sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop HealthCheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!
+</code></pre>
+          <h3 id="gantt-chart-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#gantt-chart-docs---live-editor"><span class="icon icon-link"></span></a>Gantt chart [docs - live editor]</h3>
+          <pre><code>gantt
+    section Section
+    Completed :done,    des1, 2014-01-06,2014-01-08
+    Active        :active,  des2, 2014-01-07, 3d
+    Parallel 1   :         des3, after des1, 1d
+    Parallel 2   :         des4, after des1, 1d
+    Parallel 3   :         des5, after des3, 1d
+    Parallel 4   :         des6, after des4, 1d
+</code></pre>
+          <pre><code class="language-mermaid">gantt
+    section Section
+    Completed :done,    des1, 2014-01-06,2014-01-08
+    Active        :active,  des2, 2014-01-07, 3d
+    Parallel 1   :         des3, after des1, 1d
+    Parallel 2   :         des4, after des1, 1d
+    Parallel 3   :         des5, after des3, 1d
+    Parallel 4   :         des6, after des4, 1d
+</code></pre>
+          <h3 id="class-diagram-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#class-diagram-docs---live-editor"><span class="icon icon-link"></span></a>Class diagram [docs - live editor]</h3>
+          <pre><code>classDiagram
+Class01 &#x3C;|-- AveryLongClass : Cool
+&#x3C;&#x3C;Interface>> Class01
+Class09 --> C2 : Where am I?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+class Class10 {
+  &#x3C;&#x3C;service>>
+  int id
+  size()
+}
+
+</code></pre>
+          <pre><code class="language-mermaid">classDiagram
+Class01 &#x3C;|-- AveryLongClass : Cool
+&#x3C;&#x3C;Interface>> Class01
+Class09 --> C2 : Where am I?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+class Class10 {
+  &#x3C;&#x3C;service>>
+  int id
+  size()
+}
+
+</code></pre>
+          <h3 id="state-diagram-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#state-diagram-docs---live-editor"><span class="icon icon-link"></span></a>State diagram [docs - live editor]</h3>
+          <pre><code>stateDiagram-v2
+[*] --> Still
+Still --> [*]
+Still --> Moving
+Moving --> Still
+Moving --> Crash
+Crash --> [*]
+</code></pre>
+          <pre><code class="language-mermaid">stateDiagram-v2
+[*] --> Still
+Still --> [*]
+Still --> Moving
+Moving --> Still
+Moving --> Crash
+Crash --> [*]
+</code></pre>
+          <h3 id="pie-chart-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#pie-chart-docs---live-editor"><span class="icon icon-link"></span></a>Pie chart [docs - live editor]</h3>
+          <pre><code>pie
+"Dogs" : 386
+"Cats" : 85.9
+"Rats" : 15
+</code></pre>
+          <pre><code class="language-mermaid">pie
+"Dogs" : 386
+"Cats" : 85.9
+"Rats" : 15
+</code></pre>
+          <h3 id="git-graph-experimental---live-editor"><a aria-hidden="true" tabindex="-1" href="#git-graph-experimental---live-editor"><span class="icon icon-link"></span></a>Git graph [experimental - live editor]</h3>
+          <h3 id="bar-chart-using-gantt-chart-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#bar-chart-using-gantt-chart-docs---live-editor"><span class="icon icon-link"></span></a>Bar chart (using gantt chart) [docs - live editor]</h3>
+          <pre><code>gantt
+    title Git Issues - days since last update
+    dateFormat  X
+    axisFormat %s
+
+    section Issue19062
+    71   : 0, 71
+    section Issue19401
+    36   : 0, 36
+    section Issue193
+    34   : 0, 34
+    section Issue7441
+    9    : 0, 9
+    section Issue1300
+    5    : 0, 5
+</code></pre>
+          <pre><code class="language-mermaid">gantt
+    title Git Issues - days since last update
+    dateFormat  X
+    axisFormat %s
+
+    section Issue19062
+    71   : 0, 71
+    section Issue19401
+    36   : 0, 36
+    section Issue193
+    34   : 0, 34
+    section Issue7441
+    9    : 0, 9
+    section Issue1300
+    5    : 0, 5
+</code></pre>
+          <h3 id="user-journey-diagram-docs---live-editor"><a aria-hidden="true" tabindex="-1" href="#user-journey-diagram-docs---live-editor"><span class="icon icon-link"></span></a>User Journey diagram [docs - live editor]</h3>
+          <pre><code>  journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 3: Me
+</code></pre>
+          <pre><code class="language-mermaid">  journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 3: Me
+</code></pre>
+          <h3 id="c4-diagram-docs"><a aria-hidden="true" tabindex="-1" href="#c4-diagram-docs"><span class="icon icon-link"></span></a>C4 diagram [docs]</h3>
+          <pre><code>C4Context
+title System Context diagram for Internet Banking System
+
+Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
+Person(customerB, "Banking Customer B")
+Person_Ext(customerC, "Banking Customer C")
+System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+
+Person(customerD, "Banking Customer D", "A customer of the bank, &#x3C;br/> with personal bank accounts.")
+
+Enterprise_Boundary(b1, "BankBoundary") {
+
+  SystemDb_Ext(SystemE, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+  System_Boundary(b2, "BankBoundary2") {
+    System(SystemA, "Banking System A")
+    System(SystemB, "Banking System B", "A system of the bank, with personal bank accounts.")
+  }
+
+  System_Ext(SystemC, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+  SystemDb(SystemD, "Banking System D Database", "A system of the bank, with personal bank accounts.")
+
+  Boundary(b3, "BankBoundary3", "boundary") {
+    SystemQueue(SystemF, "Banking System F Queue", "A system of the bank, with personal bank accounts.")
+    SystemQueue_Ext(SystemG, "Banking System G Queue", "A system of the bank, with personal bank accounts.")
+  }
+}
+
+BiRel(customerA, SystemAA, "Uses")
+BiRel(SystemAA, SystemE, "Uses")
+Rel(SystemAA, SystemC, "Sends e-mails", "SMTP")
+Rel(SystemC, customerA, "Sends e-mails to")
+</code></pre>
+          <pre><code class="language-mermaid">C4Context
+title System Context diagram for Internet Banking System
+
+Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
+Person(customerB, "Banking Customer B")
+Person_Ext(customerC, "Banking Customer C")
+System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+
+Person(customerD, "Banking Customer D", "A customer of the bank, &#x3C;br/> with personal bank accounts.")
+
+Enterprise_Boundary(b1, "BankBoundary") {
+
+  SystemDb_Ext(SystemE, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+  System_Boundary(b2, "BankBoundary2") {
+    System(SystemA, "Banking System A")
+    System(SystemB, "Banking System B", "A system of the bank, with personal bank accounts.")
+  }
+
+  System_Ext(SystemC, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+  SystemDb(SystemD, "Banking System D Database", "A system of the bank, with personal bank accounts.")
+
+  Boundary(b3, "BankBoundary3", "boundary") {
+    SystemQueue(SystemF, "Banking System F Queue", "A system of the bank, with personal bank accounts.")
+    SystemQueue_Ext(SystemG, "Banking System G Queue", "A system of the bank, with personal bank accounts.")
+  }
+}
+
+BiRel(customerA, SystemAA, "Uses")
+BiRel(SystemAA, SystemE, "Uses")
+Rel(SystemAA, SystemC, "Sends e-mails", "SMTP")
+Rel(SystemC, customerA, "Sends e-mails to")
+</code></pre>
+          <h2 id="release"><a aria-hidden="true" tabindex="-1" href="#release"><span class="icon icon-link"></span></a>Release</h2>
+          <p>For those who have the permission to do so:</p>
+          <p>Update version number in <code>package.json</code>.</p>
+          <pre><code class="language-sh">npm publish
+</code></pre>
+          <p>The above command generates files into the <code>dist</code> folder and publishes them to <a href="https://www.npmjs.com/">https://www.npmjs.com</a>.</p>
+          <h2 id="related-projects"><a aria-hidden="true" tabindex="-1" href="#related-projects"><span class="icon icon-link"></span></a>Related projects</h2>
+          <ul>
+            <li><a href="https://github.com/mermaid-js/mermaid-cli">Command Line Interface</a></li>
+            <li><a href="https://github.com/mermaid-js/mermaid-live-editor">Live Editor</a></li>
+            <li><a href="https://github.com/TomWright/mermaid-server">HTTP Server</a></li>
+          </ul>
+          <h2 id="contributors---"><a aria-hidden="true" tabindex="-1" href="#contributors---"><span class="icon icon-link"></span></a>Contributors <a href="https://github.com/mermaid-js/mermaid/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+first+issue%21%22"><img src="/vendors/img.shields.io/github/labels/mermaid-js/mermaid/Good%20first%20issue%21" alt="Good first issue"></a> <a href="https://github.com/mermaid-js/mermaid/graphs/contributors"><img src="/vendors/img.shields.io/github/contributors/mermaid-js/mermaid" alt="Contributors"></a> <a href="https://github.com/mermaid-js/mermaid/graphs/contributors"><img src="/vendors/img.shields.io/github/commit-activity/m/mermaid-js/mermaid" alt="Commits"></a></h2>
+          <p>Mermaid is a growing community and is always accepting new contributors. There's a lot of different ways to help out and we're always looking for extra hands! Look at <a href="https://github.com/mermaid-js/mermaid/issues/866">this issue</a> if you want to know where to start helping out.</p>
+          <p>Detailed information about how to contribute can be found in the <a href="https://mermaid.js.org/community/contributing.html">contribution guide</a></p>
+          <h2 id="security-and-safe-diagrams"><a aria-hidden="true" tabindex="-1" href="#security-and-safe-diagrams"><span class="icon icon-link"></span></a>Security and safe diagrams</h2>
+          <p>For public sites, it can be precarious to retrieve text from users on the internet, storing that content for presentation in a browser at a later stage. The reason is that the user content can contain embedded malicious scripts that will run when the data is presented. For Mermaid this is a risk, specially as mermaid diagrams contain many characters that are used in html which makes the standard sanitation unusable as it also breaks the diagrams. We still make an effort to sanitize the incoming code and keep refining the process but it is hard to guarantee that there are no loop holes.</p>
+          <p>As an extra level of security for sites with external users we are happy to introduce a new security level in which the diagram is rendered in a sandboxed iframe preventing javascript in the code from being executed. This is a great step forward for better security.</p>
+          <p><em>Unfortunately you can not have a cake and eat it at the same time which in this case means that some of the interactive functionality gets blocked along with the possible malicious code.</em></p>
+          <h2 id="reporting-vulnerabilities"><a aria-hidden="true" tabindex="-1" href="#reporting-vulnerabilities"><span class="icon icon-link"></span></a>Reporting vulnerabilities</h2>
+          <p>To report a vulnerability, please e-mail <a href="mailto:security@mermaid.live">security@mermaid.live</a> with a description of the issue, the steps you took to create the issue, affected versions, and if known, mitigations for the issue.</p>
+          <h2 id="appreciation"><a aria-hidden="true" tabindex="-1" href="#appreciation"><span class="icon icon-link"></span></a>Appreciation</h2>
+          <p>A quick note from Knut Sveidqvist:</p>
+          <blockquote>
+            <p><em>Many thanks to the <a href="https://d3js.org/">d3</a> and <a href="https://github.com/cpettitt/dagre-d3">dagre-d3</a> projects for providing the graphical layout and drawing libraries!</em></p>
+            <p><em>Thanks also to the <a href="https://bramp.github.io/js-sequence-diagrams">js-sequence-diagram</a> project for usage of the grammar for the sequence diagrams. Thanks to Jessica Peter for inspiration and starting point for gantt rendering.</em></p>
+            <p><em>Thank you to <a href="https://github.com/tylerlong">Tyler Long</a> who has been a collaborator since April 2017.</em></p>
+            <p><em>Thank you to the ever-growing list of <a href="https://github.com/knsv/mermaid/graphs/contributors">contributors</a> that brought the project this far!</em></p>
+          </blockquote>
+          <hr>
+          <p><em>Mermaid was created by Knut Sveidqvist for easier documentation.</em></p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

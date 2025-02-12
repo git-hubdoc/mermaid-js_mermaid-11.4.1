@@ -1,0 +1,55 @@
+{
+  "title": "/.github",
+  "files": [
+    {
+      "type": "blob",
+      "title": "codecov.yaml",
+      "href": "codecov.yaml"
+    },
+    {
+      "type": "folder",
+      "title": "codeql",
+      "href": "codeql"
+    },
+    {
+      "type": "blob",
+      "title": "FUNDING.yml",
+      "href": "FUNDING.yml"
+    },
+    {
+      "type": "folder",
+      "title": "ISSUE_TEMPLATE",
+      "href": "ISSUE_TEMPLATE"
+    },
+    {
+      "type": "blob",
+      "title": "lychee.toml",
+      "href": "lychee.toml"
+    },
+    {
+      "type": "blob",
+      "title": "pr-labeler.yml",
+      "href": "pr-labeler.yml"
+    },
+    {
+      "type": "blob",
+      "title": "pull_request_template.html",
+      "href": "pull_request_template.html"
+    },
+    {
+      "type": "blob",
+      "title": "pull_request_template.md",
+      "href": "pull_request_template.md"
+    },
+    {
+      "type": "blob",
+      "title": "stale.yml",
+      "href": "stale.yml"
+    },
+    {
+      "type": "folder",
+      "title": "workflows",
+      "href": "workflows"
+    }
+  ]
+}

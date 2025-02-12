@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid/src/rendering-util/layout-algorithms/dagre",
+  "files": [
+    {
+      "type": "blob",
+      "title": "index.js",
+      "href": "index.js"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-graphlib.js",
+      "href": "mermaid-graphlib.js"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-graphlib.spec.js",
+      "href": "mermaid-graphlib.spec.js"
+    }
+  ]
+}

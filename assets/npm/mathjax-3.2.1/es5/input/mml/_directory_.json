@@ -1,0 +1,15 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/input/mml",
+  "files": [
+    {
+      "type": "blob",
+      "title": "entities.js",
+      "href": "entities.js"
+    },
+    {
+      "type": "folder",
+      "title": "extensions",
+      "href": "extensions"
+    }
+  ]
+}

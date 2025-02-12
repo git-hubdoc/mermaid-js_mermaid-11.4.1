@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid/src/diagrams/sankey/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "energy.csv",
+      "href": "energy.csv"
+    },
+    {
+      "type": "blob",
+      "title": "sankey.jison",
+      "href": "sankey.jison"
+    },
+    {
+      "type": "blob",
+      "title": "sankey.spec.ts",
+      "href": "sankey.spec.ts"
+    }
+  ]
+}

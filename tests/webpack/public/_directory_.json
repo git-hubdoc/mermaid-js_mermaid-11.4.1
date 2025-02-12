@@ -1,0 +1,10 @@
+{
+  "title": "/tests/webpack/public",
+  "files": [
+    {
+      "type": "blob",
+      "title": "index.html",
+      "href": "index.html"
+    }
+  ]
+}

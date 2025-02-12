@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/error",
+  "files": [
+    {
+      "type": "blob",
+      "title": "errorDiagram.ts",
+      "href": "errorDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "errorRenderer.ts",
+      "href": "errorRenderer.ts"
+    }
+  ]
+}

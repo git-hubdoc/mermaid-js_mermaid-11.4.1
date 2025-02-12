@@ -1,0 +1,230 @@
+{
+  "title": "/docs/syntax",
+  "files": [
+    {
+      "type": "blob",
+      "title": "architecture.html",
+      "href": "architecture.html"
+    },
+    {
+      "type": "blob",
+      "title": "architecture.md",
+      "href": "architecture.md"
+    },
+    {
+      "type": "blob",
+      "title": "block.html",
+      "href": "block.html"
+    },
+    {
+      "type": "blob",
+      "title": "block.md",
+      "href": "block.md"
+    },
+    {
+      "type": "blob",
+      "title": "c4.html",
+      "href": "c4.html"
+    },
+    {
+      "type": "blob",
+      "title": "c4.md",
+      "href": "c4.md"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram.html",
+      "href": "classDiagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram.md",
+      "href": "classDiagram.md"
+    },
+    {
+      "type": "blob",
+      "title": "entityRelationshipDiagram.html",
+      "href": "entityRelationshipDiagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "entityRelationshipDiagram.md",
+      "href": "entityRelationshipDiagram.md"
+    },
+    {
+      "type": "blob",
+      "title": "examples.html",
+      "href": "examples.html"
+    },
+    {
+      "type": "blob",
+      "title": "examples.md",
+      "href": "examples.md"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart.html",
+      "href": "flowchart.html"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart.md",
+      "href": "flowchart.md"
+    },
+    {
+      "type": "blob",
+      "title": "gantt.html",
+      "href": "gantt.html"
+    },
+    {
+      "type": "blob",
+      "title": "gantt.md",
+      "href": "gantt.md"
+    },
+    {
+      "type": "blob",
+      "title": "gitgraph.html",
+      "href": "gitgraph.html"
+    },
+    {
+      "type": "blob",
+      "title": "gitgraph.md",
+      "href": "gitgraph.md"
+    },
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "blob",
+      "title": "kanban.html",
+      "href": "kanban.html"
+    },
+    {
+      "type": "blob",
+      "title": "kanban.md",
+      "href": "kanban.md"
+    },
+    {
+      "type": "blob",
+      "title": "mindmap.html",
+      "href": "mindmap.html"
+    },
+    {
+      "type": "blob",
+      "title": "mindmap.md",
+      "href": "mindmap.md"
+    },
+    {
+      "type": "blob",
+      "title": "packet.html",
+      "href": "packet.html"
+    },
+    {
+      "type": "blob",
+      "title": "packet.md",
+      "href": "packet.md"
+    },
+    {
+      "type": "blob",
+      "title": "pie.html",
+      "href": "pie.html"
+    },
+    {
+      "type": "blob",
+      "title": "pie.md",
+      "href": "pie.md"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantChart.html",
+      "href": "quadrantChart.html"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantChart.md",
+      "href": "quadrantChart.md"
+    },
+    {
+      "type": "blob",
+      "title": "requirementDiagram.html",
+      "href": "requirementDiagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "requirementDiagram.md",
+      "href": "requirementDiagram.md"
+    },
+    {
+      "type": "blob",
+      "title": "sankey.html",
+      "href": "sankey.html"
+    },
+    {
+      "type": "blob",
+      "title": "sankey.md",
+      "href": "sankey.md"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceDiagram.html",
+      "href": "sequenceDiagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceDiagram.md",
+      "href": "sequenceDiagram.md"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram.html",
+      "href": "stateDiagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram.md",
+      "href": "stateDiagram.md"
+    },
+    {
+      "type": "blob",
+      "title": "timeline.html",
+      "href": "timeline.html"
+    },
+    {
+      "type": "blob",
+      "title": "timeline.md",
+      "href": "timeline.md"
+    },
+    {
+      "type": "blob",
+      "title": "userJourney.html",
+      "href": "userJourney.html"
+    },
+    {
+      "type": "blob",
+      "title": "userJourney.md",
+      "href": "userJourney.md"
+    },
+    {
+      "type": "blob",
+      "title": "xyChart.html",
+      "href": "xyChart.html"
+    },
+    {
+      "type": "blob",
+      "title": "xyChart.md",
+      "href": "xyChart.md"
+    },
+    {
+      "type": "blob",
+      "title": "zenuml.html",
+      "href": "zenuml.html"
+    },
+    {
+      "type": "blob",
+      "title": "zenuml.md",
+      "href": "zenuml.md"
+    }
+  ]
+}

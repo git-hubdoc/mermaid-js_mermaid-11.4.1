@@ -1,0 +1,20 @@
+{
+  "title": "/docs/intro/img",
+  "files": [
+    {
+      "type": "blob",
+      "title": "book-banner-post-release.jpg",
+      "href": "book-banner-post-release.jpg"
+    },
+    {
+      "type": "blob",
+      "title": "Code-Preview-Config.png",
+      "href": "Code-Preview-Config.png"
+    },
+    {
+      "type": "blob",
+      "title": "Live-Editor-Choices.png",
+      "href": "Live-Editor-Choices.png"
+    }
+  ]
+}

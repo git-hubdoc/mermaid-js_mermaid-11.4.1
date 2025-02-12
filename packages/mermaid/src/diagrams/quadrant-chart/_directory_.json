@@ -1,0 +1,45 @@
+{
+  "title": "/packages/mermaid/src/diagrams/quadrant-chart",
+  "files": [
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantBuilder.ts",
+      "href": "quadrantBuilder.ts"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantDb.spec.ts",
+      "href": "quadrantDb.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantDb.ts",
+      "href": "quadrantDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantDetector.ts",
+      "href": "quadrantDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantDiagram.ts",
+      "href": "quadrantDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantRenderer.ts",
+      "href": "quadrantRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "utils.ts",
+      "href": "utils.ts"
+    }
+  ]
+}

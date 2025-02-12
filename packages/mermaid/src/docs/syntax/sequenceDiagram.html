@@ -1,0 +1,683 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="sequence-diagrams"><a aria-hidden="true" tabindex="-1" href="#sequence-diagrams"><span class="icon icon-link"></span></a>Sequence diagrams</h1>
+          <blockquote>
+            <p>A Sequence diagram is an interaction diagram that shows how processes operate with one another and in what order.</p>
+          </blockquote>
+          <p>Mermaid can render sequence diagrams.</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+</code></pre>
+          <pre><code class="language-note">A note on nodes, the word "end" could potentially break the diagram, due to the way that the mermaid language is scripted.
+
+If unavoidable, one must use parentheses(), quotation marks "", or brackets {},[], to enclose the word "end". i.e : (end), [end], {end}.
+</code></pre>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <h3 id="participants"><a aria-hidden="true" tabindex="-1" href="#participants"><span class="icon icon-link"></span></a>Participants</h3>
+          <p>
+            The participants can be defined implicitly as in the first example on this page. The participants or actors are
+            rendered in order of appearance in the diagram source text. Sometimes you might want to show the participants in a
+            different order than how they appear in the first message. It is possible to specify the actor's order of
+            appearance by doing the following:
+          </p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant Alice
+    participant Bob
+    Bob->>Alice: Hi Alice
+    Alice->>Bob: Hi Bob
+</code></pre>
+          <h3 id="actors"><a aria-hidden="true" tabindex="-1" href="#actors"><span class="icon icon-link"></span></a>Actors</h3>
+          <p>If you specifically want to use the actor symbol instead of a rectangle with text you can do so by using actor statements as per below.</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    actor Alice
+    actor Bob
+    Alice->>Bob: Hi Bob
+    Bob->>Alice: Hi Alice
+</code></pre>
+          <h3 id="aliases"><a aria-hidden="true" tabindex="-1" href="#aliases"><span class="icon icon-link"></span></a>Aliases</h3>
+          <p>The actor can have a convenient identifier and a descriptive label.</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant A as Alice
+    participant J as John
+    A->>J: Hello John, how are you?
+    J->>A: Great!
+</code></pre>
+          <h3 id="actor-creation-and-destruction-v1030"><a aria-hidden="true" tabindex="-1" href="#actor-creation-and-destruction-v1030"><span class="icon icon-link"></span></a>Actor Creation and Destruction (v10.3.0+)</h3>
+          <p>It is possible to create and destroy actors by messages. To do so, add a create or destroy directive before the message.</p>
+          <pre><code>create participant B
+A --> B: Hello
+</code></pre>
+          <p>Create directives support actor/participant distinction and aliases. The sender or the recipient of a message can be destroyed but only the recipient can be created.</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you ?
+    Bob->>Alice: Fine, thank you. And you?
+    create participant Carl
+    Alice->>Carl: Hi Carl!
+    create actor D as Donald
+    Carl->>D: Hi!
+    destroy Carl
+    Alice-xCarl: We are too many
+    destroy Bob
+    Bob->>Alice: I agree
+</code></pre>
+          <h4 id="unfixable-actorparticipant-creationdeletion-error"><a aria-hidden="true" tabindex="-1" href="#unfixable-actorparticipant-creationdeletion-error"><span class="icon icon-link"></span></a>Unfixable actor/participant creation/deletion error</h4>
+          <p>If an error of the following type occurs when creating or deleting an actor/participant:</p>
+          <blockquote>
+            <p>The destroyed participant <strong>participant-name</strong> does not have an associated destroying message after its declaration. Please check the sequence diagram.</p>
+          </blockquote>
+          <p>And fixing diagram code does not get rid of this error and rendering of all other diagrams results in the same error, then you need to update the mermaid version to (v10.7.0+).</p>
+          <h3 id="grouping--box"><a aria-hidden="true" tabindex="-1" href="#grouping--box"><span class="icon icon-link"></span></a>Grouping / Box</h3>
+          <p>The actor(s) can be grouped in vertical boxes. You can define a color (if not, it will be transparent) and/or a descriptive label using the following notation:</p>
+          <pre><code>box Aqua Group Description
+... actors ...
+end
+box Group without description
+... actors ...
+end
+box rgb(33,66,99)
+... actors ...
+end
+box rgba(33,66,99,0.5)
+... actors ...
+end
+</code></pre>
+          <pre><code class="language-note">If your group name is a color you can force the color to be transparent:
+</code></pre>
+          <pre><code>box transparent Aqua
+... actors ...
+end
+</code></pre>
+          <pre><code class="language-mermaid-example">    sequenceDiagram
+    box Purple Alice &#x26; John
+    participant A
+    participant J
+    end
+    box Another Group
+    participant B
+    participant C
+    end
+    A->>J: Hello John, how are you?
+    J->>A: Great!
+    A->>B: Hello Bob, how is Charley?
+    B->>C: Hello Charley, how are you?
+</code></pre>
+          <h2 id="messages"><a aria-hidden="true" tabindex="-1" href="#messages"><span class="icon icon-link"></span></a>Messages</h2>
+          <p>Messages can be of two displayed either solid or with a dotted line.</p>
+          <pre><code>[Actor][Arrow][Actor]:Message text
+</code></pre>
+          <p>There are ten types of arrows currently supported:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>-></code></td>
+                <td>Solid line without arrow</td>
+              </tr>
+              <tr>
+                <td><code>--></code></td>
+                <td>Dotted line without arrow</td>
+              </tr>
+              <tr>
+                <td><code>->></code></td>
+                <td>Solid line with arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>-->></code></td>
+                <td>Dotted line with arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;&#x3C;->></code></td>
+                <td>Solid line with bidirectional arrowheads (v11.0.0+)</td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;&#x3C;-->></code></td>
+                <td>Dotted line with bidirectional arrowheads (v11.0.0+)</td>
+              </tr>
+              <tr>
+                <td><code>-x</code></td>
+                <td>Solid line with a cross at the end</td>
+              </tr>
+              <tr>
+                <td><code>--x</code></td>
+                <td>Dotted line with a cross at the end</td>
+              </tr>
+              <tr>
+                <td><code>-)</code></td>
+                <td>Solid line with an open arrow at the end (async)</td>
+              </tr>
+              <tr>
+                <td><code>--)</code></td>
+                <td>Dotted line with a open arrow at the end (async)</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="activations"><a aria-hidden="true" tabindex="-1" href="#activations"><span class="icon icon-link"></span></a>Activations</h2>
+          <p>It is possible to activate and deactivate an actor. (de)activation can be dedicated declarations:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    activate John
+    John-->>Alice: Great!
+    deactivate John
+</code></pre>
+          <p>There is also a shortcut notation by appending <code>+</code>/<code>-</code> suffix to the message arrow:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->>+John: Hello John, how are you?
+    John-->>-Alice: Great!
+</code></pre>
+          <p>Activations can be stacked for same actor:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->>+John: Hello John, how are you?
+    Alice->>+John: John, can you hear me?
+    John-->>-Alice: Hi Alice, I can hear you!
+    John-->>-Alice: I feel great!
+</code></pre>
+          <h2 id="notes"><a aria-hidden="true" tabindex="-1" href="#notes"><span class="icon icon-link"></span></a>Notes</h2>
+          <p>
+            It is possible to add notes to a sequence diagram. This is done by the notation
+            Note [ right of | left of | over ] [Actor]: Text in note content
+          </p>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant John
+    Note right of John: Text in note
+</code></pre>
+          <p>It is also possible to create notes spanning two participants:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->John: Hello John, how are you?
+    Note over Alice,John: A typical interaction
+</code></pre>
+          <h2 id="line-breaks"><a aria-hidden="true" tabindex="-1" href="#line-breaks"><span class="icon icon-link"></span></a>Line breaks</h2>
+          <p>Line break can be added to Note and Message:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->John: Hello John,&#x3C;br/>how are you?
+    Note over Alice,John: A typical interaction&#x3C;br/>But now in two lines
+</code></pre>
+          <p>Line breaks in Actor names requires aliases:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant Alice as Alice&#x3C;br/>Johnson
+    Alice->John: Hello John,&#x3C;br/>how are you?
+    Note over Alice,John: A typical interaction&#x3C;br/>But now in two lines
+</code></pre>
+          <h2 id="loops"><a aria-hidden="true" tabindex="-1" href="#loops"><span class="icon icon-link"></span></a>Loops</h2>
+          <p>It is possible to express loops in a sequence diagram. This is done by the notation</p>
+          <pre><code>loop Loop text
+... statements ...
+end
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->John: Hello John, how are you?
+    loop Every minute
+        John-->Alice: Great!
+    end
+</code></pre>
+          <h2 id="alt"><a aria-hidden="true" tabindex="-1" href="#alt"><span class="icon icon-link"></span></a>Alt</h2>
+          <p>It is possible to express alternative paths in a sequence diagram. This is done by the notation</p>
+          <pre><code>alt Describing text
+... statements ...
+else
+... statements ...
+end
+</code></pre>
+          <p>or if there is sequence that is optional (if without else).</p>
+          <pre><code>opt Describing text
+... statements ...
+end
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    alt is sick
+        Bob->>Alice: Not so good :(
+    else is well
+        Bob->>Alice: Feeling fresh like a daisy
+    end
+    opt Extra response
+        Bob->>Alice: Thanks for asking
+    end
+</code></pre>
+          <h2 id="parallel"><a aria-hidden="true" tabindex="-1" href="#parallel"><span class="icon icon-link"></span></a>Parallel</h2>
+          <p>It is possible to show actions that are happening in parallel.</p>
+          <p>This is done by the notation</p>
+          <pre><code>par [Action 1]
+... statements ...
+and [Action 2]
+... statements ...
+and [Action N]
+... statements ...
+end
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    par Alice to Bob
+        Alice->>Bob: Hello guys!
+    and Alice to John
+        Alice->>John: Hello guys!
+    end
+    Bob-->>Alice: Hi Alice!
+    John-->>Alice: Hi Alice!
+</code></pre>
+          <p>It is also possible to nest parallel blocks.</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    par Alice to Bob
+        Alice->>Bob: Go help John
+    and Alice to John
+        Alice->>John: I want this done today
+        par John to Charlie
+            John->>Charlie: Can we do this today?
+        and John to Diana
+            John->>Diana: Can you help us today?
+        end
+    end
+</code></pre>
+          <h2 id="critical-region"><a aria-hidden="true" tabindex="-1" href="#critical-region"><span class="icon icon-link"></span></a>Critical Region</h2>
+          <p>It is possible to show actions that must happen automatically with conditional handling of circumstances.</p>
+          <p>This is done by the notation</p>
+          <pre><code>critical [Action that must be performed]
+... statements ...
+option [Circumstance A]
+... statements ...
+option [Circumstance B]
+... statements ...
+end
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    critical Establish a connection to the DB
+        Service-->DB: connect
+    option Network timeout
+        Service-->Service: Log error
+    option Credentials rejected
+        Service-->Service: Log different error
+    end
+</code></pre>
+          <p>It is also possible to have no options at all</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    critical Establish a connection to the DB
+        Service-->DB: connect
+    end
+</code></pre>
+          <p>This critical block can also be nested, equivalently to the <code>par</code> statement as seen above.</p>
+          <h2 id="break"><a aria-hidden="true" tabindex="-1" href="#break"><span class="icon icon-link"></span></a>Break</h2>
+          <p>It is possible to indicate a stop of the sequence within the flow (usually used to model exceptions).</p>
+          <p>This is done by the notation</p>
+          <pre><code>break [something happened]
+... statements ...
+end
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Consumer-->API: Book something
+    API-->BookingService: Start booking process
+    break when the booking process fails
+        API-->Consumer: show failure
+    end
+    API-->BillingService: Start billing process
+</code></pre>
+          <h2 id="background-highlighting"><a aria-hidden="true" tabindex="-1" href="#background-highlighting"><span class="icon icon-link"></span></a>Background Highlighting</h2>
+          <p>It is possible to highlight flows by providing colored background rects. This is done by the notation</p>
+          <pre><code>rect COLOR
+... content ...
+end
+</code></pre>
+          <p>The colors are defined using rgb and rgba syntax.</p>
+          <pre><code>rect rgb(0, 255, 0)
+... content ...
+end
+</code></pre>
+          <pre><code>rect rgba(0, 0, 255, .1)
+... content ...
+end
+</code></pre>
+          <p>See the examples below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant Alice
+    participant John
+
+    rect rgb(191, 223, 255)
+    note right of Alice: Alice calls John.
+    Alice->>+John: Hello John, how are you?
+    rect rgb(200, 150, 255)
+    Alice->>+John: John, can you hear me?
+    John-->>-Alice: Hi Alice, I can hear you!
+    end
+    John-->>-Alice: I feel great!
+    end
+    Alice ->>+ John: Did you want to go to the game tonight?
+    John -->>- Alice: Yeah! See you there.
+
+</code></pre>
+          <h2 id="comments"><a aria-hidden="true" tabindex="-1" href="#comments"><span class="icon icon-link"></span></a>Comments</h2>
+          <p>Comments can be entered within a sequence diagram, which will be ignored by the parser. Comments need to be on their own line, and must be prefaced with <code>%%</code> (double percent signs). Any text after the start of the comment to the next newline will be treated as a comment, including any diagram syntax</p>
+          <pre><code class="language-mermaid">sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    %% this is a comment
+    John-->>Alice: Great!
+</code></pre>
+          <h2 id="entity-codes-to-escape-characters"><a aria-hidden="true" tabindex="-1" href="#entity-codes-to-escape-characters"><span class="icon icon-link"></span></a>Entity codes to escape characters</h2>
+          <p>It is possible to escape characters using the syntax exemplified here.</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    A->>B: I #9829; you!
+    B->>A: I #9829; you #infin; times more!
+</code></pre>
+          <p>Numbers given are base 10, so <code>#</code> can be encoded as <code>#35;</code>. It is also supported to use HTML character names.</p>
+          <p>Because semicolons can be used instead of line breaks to define the markup, you need to use <code>#59;</code> to include a semicolon in message text.</p>
+          <h2 id="sequencenumbers"><a aria-hidden="true" tabindex="-1" href="#sequencenumbers"><span class="icon icon-link"></span></a>sequenceNumbers</h2>
+          <p>It is possible to get a sequence number attached to each arrow in a sequence diagram. This can be configured when adding mermaid to the website as shown below:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span>>
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ sequence<span class="pl-k">:</span> { showSequenceNumbers<span class="pl-k">:</span> <span class="pl-c1">true</span> } });
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <p>It can also be turned on via the diagram code as in the diagram:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    autonumber
+    Alice->>John: Hello John, how are you?
+    loop HealthCheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+</code></pre>
+          <h2 id="actor-menus"><a aria-hidden="true" tabindex="-1" href="#actor-menus"><span class="icon icon-link"></span></a>Actor Menus</h2>
+          <p>Actors can have popup-menus containing individualized links to external pages. For example, if an actor represented a web service, useful links might include a link to the service health dashboard, repo containing the code for the service, or a wiki page describing the service.</p>
+          <p>This can be configured by adding one or more link lines with the format:</p>
+          <pre><code>link &#x3C;actor>: &#x3C;link-label> @ &#x3C;link-url>
+</code></pre>
+          <pre><code class="language-mermaid">sequenceDiagram
+    participant Alice
+    participant John
+    link Alice: Dashboard @ https://dashboard.contoso.com/alice
+    link Alice: Wiki @ https://wiki.contoso.com/alice
+    link John: Dashboard @ https://dashboard.contoso.com/john
+    link John: Wiki @ https://wiki.contoso.com/john
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+</code></pre>
+          <h4 id="advanced-menu-syntax"><a aria-hidden="true" tabindex="-1" href="#advanced-menu-syntax"><span class="icon icon-link"></span></a>Advanced Menu Syntax</h4>
+          <p>There is an advanced syntax that relies on JSON formatting. If you are comfortable with JSON format, then this exists as well.</p>
+          <p>This can be configured by adding the links lines with the format:</p>
+          <pre><code>links &#x3C;actor>: &#x3C;json-formatted link-name link-url pairs>
+</code></pre>
+          <p>An example is below:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant Alice
+    participant John
+    links Alice: {"Dashboard": "https://dashboard.contoso.com/alice", "Wiki": "https://wiki.contoso.com/alice"}
+    links John: {"Dashboard": "https://dashboard.contoso.com/john", "Wiki": "https://wiki.contoso.com/john"}
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+</code></pre>
+          <h2 id="styling"><a aria-hidden="true" tabindex="-1" href="#styling"><span class="icon icon-link"></span></a>Styling</h2>
+          <p>Styling of a sequence diagram is done by defining a number of css classes. During rendering these classes are extracted from the file located at src/themes/sequence.scss</p>
+          <h3 id="classes-used"><a aria-hidden="true" tabindex="-1" href="#classes-used"><span class="icon icon-link"></span></a>Classes used</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>actor</td>
+                <td>Styles for the actor box.</td>
+              </tr>
+              <tr>
+                <td>actor-top</td>
+                <td>Styles for the actor figure/ box at the top of the diagram.</td>
+              </tr>
+              <tr>
+                <td>actor-bottom</td>
+                <td>Styles for the actor figure/ box at the bottom of the diagram.</td>
+              </tr>
+              <tr>
+                <td>text.actor</td>
+                <td>Styles for text of all of the actors.</td>
+              </tr>
+              <tr>
+                <td>text.actor-box</td>
+                <td>Styles for text of the actor box.</td>
+              </tr>
+              <tr>
+                <td>text.actor-man</td>
+                <td>Styles for text of the actor figure.</td>
+              </tr>
+              <tr>
+                <td>actor-line</td>
+                <td>The vertical line for an actor.</td>
+              </tr>
+              <tr>
+                <td>messageLine0</td>
+                <td>Styles for the solid message line.</td>
+              </tr>
+              <tr>
+                <td>messageLine1</td>
+                <td>Styles for the dotted message line.</td>
+              </tr>
+              <tr>
+                <td>messageText</td>
+                <td>Defines styles for the text on the message arrows.</td>
+              </tr>
+              <tr>
+                <td>labelBox</td>
+                <td>Defines styles label to left in a loop.</td>
+              </tr>
+              <tr>
+                <td>labelText</td>
+                <td>Styles for the text in label for loops.</td>
+              </tr>
+              <tr>
+                <td>loopText</td>
+                <td>Styles for the text in the loop box.</td>
+              </tr>
+              <tr>
+                <td>loopLine</td>
+                <td>Defines styles for the lines in the loop box.</td>
+              </tr>
+              <tr>
+                <td>note</td>
+                <td>Styles for the note box.</td>
+              </tr>
+              <tr>
+                <td>noteText</td>
+                <td>Styles for the text on in the note boxes.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="sample-stylesheet"><a aria-hidden="true" tabindex="-1" href="#sample-stylesheet"><span class="icon icon-link"></span></a>Sample stylesheet</h3>
+          <pre><code class="language-css"><span class="pl-ent">body</span> {
+  <span class="pl-c1">background</span>: <span class="pl-c1">white</span>;
+}
+
+<span class="pl-e">.actor</span> {
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">#ccccff</span>;
+  <span class="pl-c1">fill</span>: <span class="pl-c1">#ececff</span>;
+}
+<span class="pl-ent">text</span><span class="pl-e">.actor</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">none</span>;
+  <span class="pl-c1">font-family</span>: <span class="pl-c1">Helvetica</span>;
+}
+
+<span class="pl-e">.actor-line</span> {
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">grey</span>;
+}
+
+<span class="pl-e">.messageLine0</span> {
+  <span class="pl-c1">stroke-width</span>: <span class="pl-c1">1.5</span>;
+  <span class="pl-c1">stroke-dasharray</span>: <span class="pl-s"><span class="pl-pds">'</span>2 2<span class="pl-pds">'</span></span>;
+  <span class="pl-c1">marker-end</span>: <span class="pl-s"><span class="pl-pds">'</span>url(#arrowhead)<span class="pl-pds">'</span></span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">black</span>;
+}
+
+<span class="pl-e">.messageLine1</span> {
+  <span class="pl-c1">stroke-width</span>: <span class="pl-c1">1.5</span>;
+  <span class="pl-c1">stroke-dasharray</span>: <span class="pl-s"><span class="pl-pds">'</span>2 2<span class="pl-pds">'</span></span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">black</span>;
+}
+
+<span class="pl-e">#arrowhead</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+}
+
+<span class="pl-e">.messageText</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">none</span>;
+  <span class="pl-c1">font-family</span>: <span class="pl-s"><span class="pl-pds">'</span>trebuchet ms<span class="pl-pds">'</span></span>, <span class="pl-c1">verdana</span>, <span class="pl-c1">arial</span>;
+  <span class="pl-c1">font-size</span>: <span class="pl-c1">14</span><span class="pl-k">px</span>;
+}
+
+<span class="pl-e">.labelBox</span> {
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">#ccccff</span>;
+  <span class="pl-c1">fill</span>: <span class="pl-c1">#ececff</span>;
+}
+
+<span class="pl-e">.labelText</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">none</span>;
+  <span class="pl-c1">font-family</span>: <span class="pl-s"><span class="pl-pds">'</span>trebuchet ms<span class="pl-pds">'</span></span>, <span class="pl-c1">verdana</span>, <span class="pl-c1">arial</span>;
+}
+
+<span class="pl-e">.loopText</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">none</span>;
+  <span class="pl-c1">font-family</span>: <span class="pl-s"><span class="pl-pds">'</span>trebuchet ms<span class="pl-pds">'</span></span>, <span class="pl-c1">verdana</span>, <span class="pl-c1">arial</span>;
+}
+
+<span class="pl-e">.loopLine</span> {
+  <span class="pl-c1">stroke-width</span>: <span class="pl-c1">2</span>;
+  <span class="pl-c1">stroke-dasharray</span>: <span class="pl-s"><span class="pl-pds">'</span>2 2<span class="pl-pds">'</span></span>;
+  <span class="pl-c1">marker-end</span>: <span class="pl-s"><span class="pl-pds">'</span>url(#arrowhead)<span class="pl-pds">'</span></span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">#ccccff</span>;
+}
+
+<span class="pl-e">.note</span> {
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">#decc93</span>;
+  <span class="pl-c1">fill</span>: <span class="pl-c1">#fff5ad</span>;
+}
+
+<span class="pl-e">.noteText</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">none</span>;
+  <span class="pl-c1">font-family</span>: <span class="pl-s"><span class="pl-pds">'</span>trebuchet ms<span class="pl-pds">'</span></span>, <span class="pl-c1">verdana</span>, <span class="pl-c1">arial</span>;
+  <span class="pl-c1">font-size</span>: <span class="pl-c1">14</span><span class="pl-k">px</span>;
+}
+</code></pre>
+          <h2 id="configuration"><a aria-hidden="true" tabindex="-1" href="#configuration"><span class="icon icon-link"></span></a>Configuration</h2>
+          <p>It is possible to adjust the margins for rendering the sequence diagram.</p>
+          <p>
+            This is done by defining <code>mermaid.sequenceConfig</code> or by the CLI to use a json file with the configuration.
+            How to use the CLI is described in the <a href="config/mermaidCLI.html">mermaidCLI</a> page.
+            <code>mermaid.sequenceConfig</code> can be set to a JSON string with config parameters or the corresponding object.
+          </p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-smi">sequenceConfig</span> <span class="pl-k">=</span> {
+  diagramMarginX<span class="pl-k">:</span> <span class="pl-c1">50</span>,
+  diagramMarginY<span class="pl-k">:</span> <span class="pl-c1">10</span>,
+  boxTextMargin<span class="pl-k">:</span> <span class="pl-c1">5</span>,
+  noteMargin<span class="pl-k">:</span> <span class="pl-c1">10</span>,
+  messageMargin<span class="pl-k">:</span> <span class="pl-c1">35</span>,
+  mirrorActors<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+};
+</code></pre>
+          <h3 id="possible-configuration-parameters"><a aria-hidden="true" tabindex="-1" href="#possible-configuration-parameters"><span class="icon icon-link"></span></a>Possible configuration parameters:</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Default value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>mirrorActors</td>
+                <td>Turns on/off the rendering of actors below the diagram as well as above it</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>bottomMarginAdj</td>
+                <td>Adjusts how far down the graph ended. Wide borders styles with css could generate unwanted clipping which is why this config param exists.</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>actorFontSize</td>
+                <td>Sets the font size for the actor's description</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td>actorFontFamily</td>
+                <td>Sets the font family for the actor's description</td>
+                <td>"Open Sans", sans-serif</td>
+              </tr>
+              <tr>
+                <td>actorFontWeight</td>
+                <td>Sets the font weight for the actor's description</td>
+                <td>"Open Sans", sans-serif</td>
+              </tr>
+              <tr>
+                <td>noteFontSize</td>
+                <td>Sets the font size for actor-attached notes</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td>noteFontFamily</td>
+                <td>Sets the font family for actor-attached notes</td>
+                <td>"trebuchet ms", verdana, arial</td>
+              </tr>
+              <tr>
+                <td>noteFontWeight</td>
+                <td>Sets the font weight for actor-attached notes</td>
+                <td>"trebuchet ms", verdana, arial</td>
+              </tr>
+              <tr>
+                <td>noteAlign</td>
+                <td>Sets the text alignment for text in actor-attached notes</td>
+                <td>center</td>
+              </tr>
+              <tr>
+                <td>messageFontSize</td>
+                <td>Sets the font size for actor&#x3C;->actor messages</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td>messageFontFamily</td>
+                <td>Sets the font family for actor&#x3C;->actor messages</td>
+                <td>"trebuchet ms", verdana, arial</td>
+              </tr>
+              <tr>
+                <td>messageFontWeight</td>
+                <td>Sets the font weight for actor&#x3C;->actor messages</td>
+                <td>"trebuchet ms", verdana, arial</td>
+              </tr>
+            </tbody>
+          </table>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/codecov.io/github",
+  "files": [
+    {
+      "type": "folder",
+      "title": "mermaid-js",
+      "href": "mermaid-js"
+    }
+  ]
+}

@@ -1,0 +1,937 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <table>
+            <thead>
+              <tr>
+                <th>title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div>Flowcharts Syntax</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 id="flowcharts---basic-syntax"><a aria-hidden="true" tabindex="-1" href="#flowcharts---basic-syntax"><span class="icon icon-link"></span></a>Flowcharts - Basic Syntax</h1>
+          <p>Flowcharts are composed of <strong>nodes</strong> (geometric shapes) and <strong>edges</strong> (arrows or lines). The Mermaid code defines how nodes and edges are made and accommodates different arrow types, multi-directional arrows, and any linking to and from subgraphs.</p>
+          <pre><code class="language-warning">If you are using the word "end" in a Flowchart node, capitalize the entire word or any of the letters (e.g., "End" or "END"), or apply this [workaround](https://github.com/mermaid-js/mermaid/issues/1444#issuecomment-639528897). Typing "end" in all lowercase letters will break the Flowchart.
+</code></pre>
+          <pre><code class="language-warning">If you are using the letter "o" or "x" as the first letter in a connecting Flowchart node, add a space before the letter or capitalize the letter (e.g., "dev--- ops", "dev---Ops").
+
+Typing "A---oB" will create a [circle edge](#circle-edge-example).
+
+Typing "A---xB" will create a [cross edge](#cross-edge-example).
+</code></pre>
+          <h3 id="a-node-default"><a aria-hidden="true" tabindex="-1" href="#a-node-default"><span class="icon icon-link"></span></a>A node (default)</h3>
+          <pre><code class="language-mermaid-example">---
+title: Node
+---
+flowchart LR
+    id
+</code></pre>
+          <pre><code class="language-note">The id is what is displayed in the box.
+</code></pre>
+          <pre><code class="language-tip">Instead of `flowchart` one can also use `graph`.
+</code></pre>
+          <h3 id="a-node-with-text"><a aria-hidden="true" tabindex="-1" href="#a-node-with-text"><span class="icon icon-link"></span></a>A node with text</h3>
+          <p>
+            It is also possible to set text in the box that differs from the id. If this is done several times, it is the last text
+            found for the node that will be used. Also if you define edges for the node later on, you can omit text definitions. The
+            one previously defined will be used when rendering the box.
+          </p>
+          <pre><code class="language-mermaid-example">---
+title: Node with text
+---
+flowchart LR
+    id1[This is the text in the box]
+</code></pre>
+          <h4 id="unicode-text"><a aria-hidden="true" tabindex="-1" href="#unicode-text"><span class="icon icon-link"></span></a>Unicode text</h4>
+          <p>Use <code>"</code> to enclose the unicode text.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id["This ❤ Unicode"]
+</code></pre>
+          <h4 id="markdown-formatting"><a aria-hidden="true" tabindex="-1" href="#markdown-formatting"><span class="icon icon-link"></span></a>Markdown formatting</h4>
+          <p>Use double quotes and backticks "` text `" to enclose the markdown text.</p>
+          <pre><code class="language-mermaid-example">%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart LR
+    markdown["`This **is** _Markdown_`"]
+    newLines["`Line1
+    Line 2
+    Line 3`"]
+    markdown --> newLines
+</code></pre>
+          <h3 id="direction"><a aria-hidden="true" tabindex="-1" href="#direction"><span class="icon icon-link"></span></a>Direction</h3>
+          <p>This statement declares the direction of the Flowchart.</p>
+          <p>This declares the flowchart is oriented from top to bottom (<code>TD</code> or <code>TB</code>).</p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    Start --> Stop
+</code></pre>
+          <p>This declares the flowchart is oriented from left to right (<code>LR</code>).</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    Start --> Stop
+</code></pre>
+          <p>Possible FlowChart orientations are:</p>
+          <ul>
+            <li>TB - Top to bottom</li>
+            <li>TD - Top-down/ same as top to bottom</li>
+            <li>BT - Bottom to top</li>
+            <li>RL - Right to left</li>
+            <li>LR - Left to right</li>
+          </ul>
+          <h2 id="node-shapes"><a aria-hidden="true" tabindex="-1" href="#node-shapes"><span class="icon icon-link"></span></a>Node shapes</h2>
+          <h3 id="a-node-with-round-edges"><a aria-hidden="true" tabindex="-1" href="#a-node-with-round-edges"><span class="icon icon-link"></span></a>A node with round edges</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1(This is the text in the box)
+</code></pre>
+          <h3 id="a-stadium-shaped-node"><a aria-hidden="true" tabindex="-1" href="#a-stadium-shaped-node"><span class="icon icon-link"></span></a>A stadium-shaped node</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1([This is the text in the box])
+</code></pre>
+          <h3 id="a-node-in-a-subroutine-shape"><a aria-hidden="true" tabindex="-1" href="#a-node-in-a-subroutine-shape"><span class="icon icon-link"></span></a>A node in a subroutine shape</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1[[This is the text in the box]]
+</code></pre>
+          <h3 id="a-node-in-a-cylindrical-shape"><a aria-hidden="true" tabindex="-1" href="#a-node-in-a-cylindrical-shape"><span class="icon icon-link"></span></a>A node in a cylindrical shape</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1[(Database)]
+</code></pre>
+          <h3 id="a-node-in-the-form-of-a-circle"><a aria-hidden="true" tabindex="-1" href="#a-node-in-the-form-of-a-circle"><span class="icon icon-link"></span></a>A node in the form of a circle</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1((This is the text in the circle))
+</code></pre>
+          <h3 id="a-node-in-an-asymmetric-shape"><a aria-hidden="true" tabindex="-1" href="#a-node-in-an-asymmetric-shape"><span class="icon icon-link"></span></a>A node in an asymmetric shape</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1>This is the text in the box]
+</code></pre>
+          <p>Currently only the shape above is possible and not its mirror. <em>This might change with future releases.</em></p>
+          <h3 id="a-node-rhombus"><a aria-hidden="true" tabindex="-1" href="#a-node-rhombus"><span class="icon icon-link"></span></a>A node (rhombus)</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1{This is the text in the box}
+</code></pre>
+          <h3 id="a-hexagon-node"><a aria-hidden="true" tabindex="-1" href="#a-hexagon-node"><span class="icon icon-link"></span></a>A hexagon node</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1{{This is the text in the box}}
+</code></pre>
+          <h3 id="parallelogram"><a aria-hidden="true" tabindex="-1" href="#parallelogram"><span class="icon icon-link"></span></a>Parallelogram</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    id1[/This is the text in the box/]
+</code></pre>
+          <h3 id="parallelogram-alt"><a aria-hidden="true" tabindex="-1" href="#parallelogram-alt"><span class="icon icon-link"></span></a>Parallelogram alt</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    id1[\This is the text in the box\]
+</code></pre>
+          <h3 id="trapezoid"><a aria-hidden="true" tabindex="-1" href="#trapezoid"><span class="icon icon-link"></span></a>Trapezoid</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A[/Christmas\]
+</code></pre>
+          <h3 id="trapezoid-alt"><a aria-hidden="true" tabindex="-1" href="#trapezoid-alt"><span class="icon icon-link"></span></a>Trapezoid alt</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    B[\Go shopping/]
+</code></pre>
+          <h3 id="double-circle"><a aria-hidden="true" tabindex="-1" href="#double-circle"><span class="icon icon-link"></span></a>Double circle</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    id1(((This is the text in the circle)))
+</code></pre>
+          <h2 id="expanded-node-shapes-in-mermaid-flowcharts-v1130"><a aria-hidden="true" tabindex="-1" href="#expanded-node-shapes-in-mermaid-flowcharts-v1130"><span class="icon icon-link"></span></a>Expanded Node Shapes in Mermaid Flowcharts (v11.3.0+)</h2>
+          <p>Mermaid introduces 30 new shapes to enhance the flexibility and precision of flowchart creation. These new shapes provide more options to represent processes, decisions, events, data storage visually, and other elements within your flowcharts, improving clarity and semantic meaning.</p>
+          <p>New Syntax for Shape Definition</p>
+          <p>Mermaid now supports a general syntax for defining shape types to accommodate the growing number of shapes. This syntax allows you to assign specific shapes to nodes using a clear and flexible format:</p>
+          <pre><code>A@{ shape: rect }
+</code></pre>
+          <p>This syntax creates a node A as a rectangle. It renders in the same way as <code>A["A"]</code>, or <code>A</code>.</p>
+          <h3 id="complete-list-of-new-shapes"><a aria-hidden="true" tabindex="-1" href="#complete-list-of-new-shapes"><span class="icon icon-link"></span></a>Complete List of New Shapes</h3>
+          <p>Below is a comprehensive list of the newly introduced shapes and their corresponding semantic meanings, short names, and aliases:</p>
+          <h3 id="example-flowchart-with-new-shapes"><a aria-hidden="true" tabindex="-1" href="#example-flowchart-with-new-shapes"><span class="icon icon-link"></span></a>Example Flowchart with New Shapes</h3>
+          <p>Here’s an example flowchart that utilizes some of the newly introduced shapes:</p>
+          <pre><code class="language-mermaid-example">flowchart RL
+    A@{ shape: manual-file, label: "File Handling"}
+    B@{ shape: manual-input, label: "User Input"}
+    C@{ shape: docs, label: "Multiple Documents"}
+    D@{ shape: procs, label: "Process Automation"}
+    E@{ shape: paper-tape, label: "Paper Records"}
+</code></pre>
+          <h3 id="process"><a aria-hidden="true" tabindex="-1" href="#process"><span class="icon icon-link"></span></a>Process</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: rect, label: "This is a process" }
+</code></pre>
+          <h3 id="event"><a aria-hidden="true" tabindex="-1" href="#event"><span class="icon icon-link"></span></a>Event</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: rounded, label: "This is an event" }
+</code></pre>
+          <h3 id="terminal-point-stadium"><a aria-hidden="true" tabindex="-1" href="#terminal-point-stadium"><span class="icon icon-link"></span></a>Terminal Point (Stadium)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: stadium, label: "Terminal point" }
+</code></pre>
+          <h3 id="subprocess"><a aria-hidden="true" tabindex="-1" href="#subprocess"><span class="icon icon-link"></span></a>Subprocess</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: subproc, label: "This is a subprocess" }
+</code></pre>
+          <h3 id="database-cylinder"><a aria-hidden="true" tabindex="-1" href="#database-cylinder"><span class="icon icon-link"></span></a>Database (Cylinder)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: cyl, label: "Database" }
+</code></pre>
+          <h3 id="start-circle"><a aria-hidden="true" tabindex="-1" href="#start-circle"><span class="icon icon-link"></span></a>Start (Circle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: circle, label: "Start" }
+</code></pre>
+          <h3 id="odd"><a aria-hidden="true" tabindex="-1" href="#odd"><span class="icon icon-link"></span></a>Odd</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: odd, label: "Odd shape" }
+</code></pre>
+          <h3 id="decision-diamond"><a aria-hidden="true" tabindex="-1" href="#decision-diamond"><span class="icon icon-link"></span></a>Decision (Diamond)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: diamond, label: "Decision" }
+</code></pre>
+          <h3 id="prepare-conditional-hexagon"><a aria-hidden="true" tabindex="-1" href="#prepare-conditional-hexagon"><span class="icon icon-link"></span></a>Prepare Conditional (Hexagon)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: hex, label: "Prepare conditional" }
+</code></pre>
+          <h3 id="data-inputoutput-lean-right"><a aria-hidden="true" tabindex="-1" href="#data-inputoutput-lean-right"><span class="icon icon-link"></span></a>Data Input/Output (Lean Right)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: lean-r, label: "Input/Output" }
+</code></pre>
+          <h3 id="data-inputoutput-lean-left"><a aria-hidden="true" tabindex="-1" href="#data-inputoutput-lean-left"><span class="icon icon-link"></span></a>Data Input/Output (Lean Left)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: lean-l, label: "Output/Input" }
+</code></pre>
+          <h3 id="priority-action-trapezoid-base-bottom"><a aria-hidden="true" tabindex="-1" href="#priority-action-trapezoid-base-bottom"><span class="icon icon-link"></span></a>Priority Action (Trapezoid Base Bottom)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: trap-b, label: "Priority action" }
+</code></pre>
+          <h3 id="manual-operation-trapezoid-base-top"><a aria-hidden="true" tabindex="-1" href="#manual-operation-trapezoid-base-top"><span class="icon icon-link"></span></a>Manual Operation (Trapezoid Base Top)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: trap-t, label: "Manual operation" }
+</code></pre>
+          <h3 id="stop-double-circle"><a aria-hidden="true" tabindex="-1" href="#stop-double-circle"><span class="icon icon-link"></span></a>Stop (Double Circle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: dbl-circ, label: "Stop" }
+</code></pre>
+          <h3 id="text-block"><a aria-hidden="true" tabindex="-1" href="#text-block"><span class="icon icon-link"></span></a>Text Block</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: text, label: "This is a text block" }
+</code></pre>
+          <h3 id="card-notched-rectangle"><a aria-hidden="true" tabindex="-1" href="#card-notched-rectangle"><span class="icon icon-link"></span></a>Card (Notched Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: notch-rect, label: "Card" }
+</code></pre>
+          <h3 id="linedshaded-process"><a aria-hidden="true" tabindex="-1" href="#linedshaded-process"><span class="icon icon-link"></span></a>Lined/Shaded Process</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: lin-rect, label: "Lined process" }
+</code></pre>
+          <h3 id="start-small-circle"><a aria-hidden="true" tabindex="-1" href="#start-small-circle"><span class="icon icon-link"></span></a>Start (Small Circle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: sm-circ, label: "Small start" }
+</code></pre>
+          <h3 id="stop-framed-circle"><a aria-hidden="true" tabindex="-1" href="#stop-framed-circle"><span class="icon icon-link"></span></a>Stop (Framed Circle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: framed-circle, label: "Stop" }
+</code></pre>
+          <h3 id="forkjoin-long-rectangle"><a aria-hidden="true" tabindex="-1" href="#forkjoin-long-rectangle"><span class="icon icon-link"></span></a>Fork/Join (Long Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: fork, label: "Fork or Join" }
+</code></pre>
+          <h3 id="collate-hourglass"><a aria-hidden="true" tabindex="-1" href="#collate-hourglass"><span class="icon icon-link"></span></a>Collate (Hourglass)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: hourglass, label: "Collate" }
+</code></pre>
+          <h3 id="comment-curly-brace"><a aria-hidden="true" tabindex="-1" href="#comment-curly-brace"><span class="icon icon-link"></span></a>Comment (Curly Brace)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: comment, label: "Comment" }
+</code></pre>
+          <h3 id="comment-right-curly-brace-right"><a aria-hidden="true" tabindex="-1" href="#comment-right-curly-brace-right"><span class="icon icon-link"></span></a>Comment Right (Curly Brace Right)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: brace-r, label: "Comment" }
+</code></pre>
+          <h3 id="comment-with-braces-on-both-sides"><a aria-hidden="true" tabindex="-1" href="#comment-with-braces-on-both-sides"><span class="icon icon-link"></span></a>Comment with braces on both sides</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: braces, label: "Comment" }
+</code></pre>
+          <h3 id="com-link-lightning-bolt"><a aria-hidden="true" tabindex="-1" href="#com-link-lightning-bolt"><span class="icon icon-link"></span></a>Com Link (Lightning Bolt)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: bolt, label: "Communication link" }
+</code></pre>
+          <h3 id="document"><a aria-hidden="true" tabindex="-1" href="#document"><span class="icon icon-link"></span></a>Document</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: doc, label: "Document" }
+</code></pre>
+          <h3 id="delay-half-rounded-rectangle"><a aria-hidden="true" tabindex="-1" href="#delay-half-rounded-rectangle"><span class="icon icon-link"></span></a>Delay (Half-Rounded Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: delay, label: "Delay" }
+</code></pre>
+          <h3 id="direct-access-storage-horizontal-cylinder"><a aria-hidden="true" tabindex="-1" href="#direct-access-storage-horizontal-cylinder"><span class="icon icon-link"></span></a>Direct Access Storage (Horizontal Cylinder)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: das, label: "Direct access storage" }
+</code></pre>
+          <h3 id="disk-storage-lined-cylinder"><a aria-hidden="true" tabindex="-1" href="#disk-storage-lined-cylinder"><span class="icon icon-link"></span></a>Disk Storage (Lined Cylinder)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: lin-cyl, label: "Disk storage" }
+</code></pre>
+          <h3 id="display-curved-trapezoid"><a aria-hidden="true" tabindex="-1" href="#display-curved-trapezoid"><span class="icon icon-link"></span></a>Display (Curved Trapezoid)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: curv-trap, label: "Display" }
+</code></pre>
+          <h3 id="divided-process-divided-rectangle"><a aria-hidden="true" tabindex="-1" href="#divided-process-divided-rectangle"><span class="icon icon-link"></span></a>Divided Process (Divided Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: div-rect, label: "Divided process" }
+</code></pre>
+          <h3 id="extract-small-triangle"><a aria-hidden="true" tabindex="-1" href="#extract-small-triangle"><span class="icon icon-link"></span></a>Extract (Small Triangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: tri, label: "Extract" }
+</code></pre>
+          <h3 id="internal-storage-window-pane"><a aria-hidden="true" tabindex="-1" href="#internal-storage-window-pane"><span class="icon icon-link"></span></a>Internal Storage (Window Pane)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: win-pane, label: "Internal storage" }
+</code></pre>
+          <h3 id="junction-filled-circle"><a aria-hidden="true" tabindex="-1" href="#junction-filled-circle"><span class="icon icon-link"></span></a>Junction (Filled Circle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: f-circ, label: "Junction" }
+</code></pre>
+          <h3 id="lined-document"><a aria-hidden="true" tabindex="-1" href="#lined-document"><span class="icon icon-link"></span></a>Lined Document</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: lin-doc, label: "Lined document" }
+</code></pre>
+          <h3 id="loop-limit-notched-pentagon"><a aria-hidden="true" tabindex="-1" href="#loop-limit-notched-pentagon"><span class="icon icon-link"></span></a>Loop Limit (Notched Pentagon)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: notch-pent, label: "Loop limit" }
+</code></pre>
+          <h3 id="manual-file-flipped-triangle"><a aria-hidden="true" tabindex="-1" href="#manual-file-flipped-triangle"><span class="icon icon-link"></span></a>Manual File (Flipped Triangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: flip-tri, label: "Manual file" }
+</code></pre>
+          <h3 id="manual-input-sloped-rectangle"><a aria-hidden="true" tabindex="-1" href="#manual-input-sloped-rectangle"><span class="icon icon-link"></span></a>Manual Input (Sloped Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: sl-rect, label: "Manual input" }
+</code></pre>
+          <h3 id="multi-document-stacked-document"><a aria-hidden="true" tabindex="-1" href="#multi-document-stacked-document"><span class="icon icon-link"></span></a>Multi-Document (Stacked Document)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: docs, label: "Multiple documents" }
+</code></pre>
+          <h3 id="multi-process-stacked-rectangle"><a aria-hidden="true" tabindex="-1" href="#multi-process-stacked-rectangle"><span class="icon icon-link"></span></a>Multi-Process (Stacked Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: processes, label: "Multiple processes" }
+</code></pre>
+          <h3 id="paper-tape-flag"><a aria-hidden="true" tabindex="-1" href="#paper-tape-flag"><span class="icon icon-link"></span></a>Paper Tape (Flag)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: flag, label: "Paper tape" }
+</code></pre>
+          <h3 id="stored-data-bow-tie-rectangle"><a aria-hidden="true" tabindex="-1" href="#stored-data-bow-tie-rectangle"><span class="icon icon-link"></span></a>Stored Data (Bow Tie Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: bow-rect, label: "Stored data" }
+</code></pre>
+          <h3 id="summary-crossed-circle"><a aria-hidden="true" tabindex="-1" href="#summary-crossed-circle"><span class="icon icon-link"></span></a>Summary (Crossed Circle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: cross-circ, label: "Summary" }
+</code></pre>
+          <h3 id="tagged-document"><a aria-hidden="true" tabindex="-1" href="#tagged-document"><span class="icon icon-link"></span></a>Tagged Document</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: tag-doc, label: "Tagged document" }
+</code></pre>
+          <h3 id="tagged-process-tagged-rectangle"><a aria-hidden="true" tabindex="-1" href="#tagged-process-tagged-rectangle"><span class="icon icon-link"></span></a>Tagged Process (Tagged Rectangle)</h3>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ shape: tag-rect, label: "Tagged process" }
+</code></pre>
+          <h2 id="special-shapes-in-mermaid-flowcharts-v1130"><a aria-hidden="true" tabindex="-1" href="#special-shapes-in-mermaid-flowcharts-v1130"><span class="icon icon-link"></span></a>Special shapes in Mermaid Flowcharts (v11.3.0+)</h2>
+          <p>Mermaid also introduces 2 special shapes to enhance your flowcharts: <strong>icon</strong> and <strong>image</strong>. These shapes allow you to include icons and images directly within your flowcharts, providing more visual context and clarity.</p>
+          <h3 id="icon-shape"><a aria-hidden="true" tabindex="-1" href="#icon-shape"><span class="icon icon-link"></span></a>Icon Shape</h3>
+          <p>You can use the <code>icon</code> shape to include an icon in your flowchart. To use icons, you need to register the icon pack first. Follow the instructions provided <a href="config/icons.html">here</a>. The syntax for defining an icon shape is as follows:</p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ icon: "fa:user", form: "square", label: "User Icon", pos: "t", h: 60 }
+</code></pre>
+          <h3 id="parameters"><a aria-hidden="true" tabindex="-1" href="#parameters"><span class="icon icon-link"></span></a>Parameters</h3>
+          <ul>
+            <li><strong>icon</strong>: The name of the icon from the registered icon pack.</li>
+            <li><strong>form</strong>: Specifies the background shape of the icon. If not defined there will be no background to icon. Options include:
+              <ul>
+                <li><code>square</code></li>
+                <li><code>circle</code></li>
+                <li><code>rounded</code></li>
+              </ul>
+            </li>
+            <li><strong>label</strong>: The text label associated with the icon. This can be any string. If not defined, no label will be displayed.</li>
+            <li><strong>pos</strong>: The position of the label. If not defined label will default to bottom of icon. Possible values are:
+              <ul>
+                <li><code>t</code></li>
+                <li><code>b</code></li>
+              </ul>
+            </li>
+            <li><strong>h</strong>: The height of the icon. If not defined this will default to 48 which is minimum.</li>
+          </ul>
+          <h3 id="image-shape"><a aria-hidden="true" tabindex="-1" href="#image-shape"><span class="icon icon-link"></span></a>Image Shape</h3>
+          <p>You can use the <code>image</code> shape to include an image in your flowchart. The syntax for defining an image shape is as follows:</p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A@{ img: "https://example.com/image.png", label: "Image Label", pos: "t", w: 60, h: 60, constraint: "off" }
+</code></pre>
+          <h3 id="parameters-1"><a aria-hidden="true" tabindex="-1" href="#parameters-1"><span class="icon icon-link"></span></a>Parameters</h3>
+          <ul>
+            <li><strong>img</strong>: The URL of the image to be displayed.</li>
+            <li><strong>label</strong>: The text label associated with the image. This can be any string. If not defined, no label will be displayed.</li>
+            <li><strong>pos</strong>: The position of the label. If not defined, the label will default to the bottom of the image. Possible values are:
+              <ul>
+                <li><code>t</code></li>
+                <li><code>b</code></li>
+              </ul>
+            </li>
+            <li><strong>w</strong>: The width of the image. If not defined, this will default to the natural width of the image.</li>
+            <li><strong>h</strong>: The height of the image. If not defined, this will default to the natural height of the image.</li>
+            <li><strong>constraint</strong>: Determines if the image should constrain the node size. This setting also ensures the image maintains its original aspect ratio, adjusting the height (<code>h</code>) accordingly to the width (<code>w</code>). If not defined, this will default to <code>off</code> Possible values are:
+              <ul>
+                <li><code>on</code></li>
+                <li><code>off</code></li>
+              </ul>
+            </li>
+          </ul>
+          <p>These new shapes provide additional flexibility and visual appeal to your flowcharts, making them more informative and engaging.</p>
+          <h2 id="links-between-nodes"><a aria-hidden="true" tabindex="-1" href="#links-between-nodes"><span class="icon icon-link"></span></a>Links between nodes</h2>
+          <p>Nodes can be connected with links/edges. It is possible to have different types of links or attach a text string to a link.</p>
+          <h3 id="a-link-with-arrow-head"><a aria-hidden="true" tabindex="-1" href="#a-link-with-arrow-head"><span class="icon icon-link"></span></a>A link with arrow head</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-->B
+</code></pre>
+          <h3 id="an-open-link"><a aria-hidden="true" tabindex="-1" href="#an-open-link"><span class="icon icon-link"></span></a>An open link</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A --- B
+</code></pre>
+          <h3 id="text-on-links"><a aria-hidden="true" tabindex="-1" href="#text-on-links"><span class="icon icon-link"></span></a>Text on links</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-- This is the text! ---B
+</code></pre>
+          <p>or</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A---|This is the text|B
+</code></pre>
+          <h3 id="a-link-with-arrow-head-and-text"><a aria-hidden="true" tabindex="-1" href="#a-link-with-arrow-head-and-text"><span class="icon icon-link"></span></a>A link with arrow head and text</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-->|text|B
+</code></pre>
+          <p>or</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-- text -->B
+</code></pre>
+          <h3 id="dotted-link"><a aria-hidden="true" tabindex="-1" href="#dotted-link"><span class="icon icon-link"></span></a>Dotted link</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+   A-.->B;
+</code></pre>
+          <h3 id="dotted-link-with-text"><a aria-hidden="true" tabindex="-1" href="#dotted-link-with-text"><span class="icon icon-link"></span></a>Dotted link with text</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+   A-. text .-> B
+</code></pre>
+          <h3 id="thick-link"><a aria-hidden="true" tabindex="-1" href="#thick-link"><span class="icon icon-link"></span></a>Thick link</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+   A ==> B
+</code></pre>
+          <h3 id="thick-link-with-text"><a aria-hidden="true" tabindex="-1" href="#thick-link-with-text"><span class="icon icon-link"></span></a>Thick link with text</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+   A == text ==> B
+</code></pre>
+          <h3 id="an-invisible-link"><a aria-hidden="true" tabindex="-1" href="#an-invisible-link"><span class="icon icon-link"></span></a>An invisible link</h3>
+          <p>This can be a useful tool in some instances where you want to alter the default positioning of a node.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A ~~~ B
+</code></pre>
+          <h3 id="chaining-of-links"><a aria-hidden="true" tabindex="-1" href="#chaining-of-links"><span class="icon icon-link"></span></a>Chaining of links</h3>
+          <p>It is possible declare many links in the same line as per below:</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+   A -- text --> B -- text2 --> C
+</code></pre>
+          <p>It is also possible to declare multiple nodes links in the same line as per below:</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+   a --> b &#x26; c--> d
+</code></pre>
+          <p>You can then describe dependencies in a very expressive way. Like the one-liner below:</p>
+          <pre><code class="language-mermaid-example">flowchart TB
+    A &#x26; B--> C &#x26; D
+</code></pre>
+          <p>
+            If you describe the same diagram using the basic syntax, it will take four lines. A
+            word of warning, one could go overboard with this making the flowchart harder to read in
+            markdown form. The Swedish word <code>lagom</code> comes to mind. It means, not too much and not too little.
+            This goes for expressive syntaxes as well.
+          </p>
+          <pre><code class="language-mermaid">flowchart TB
+    A --> C
+    A --> D
+    B --> C
+    B --> D
+</code></pre>
+          <h2 id="new-arrow-types"><a aria-hidden="true" tabindex="-1" href="#new-arrow-types"><span class="icon icon-link"></span></a>New arrow types</h2>
+          <p>There are new types of arrows supported:</p>
+          <ul>
+            <li>circle edge</li>
+            <li>cross edge</li>
+          </ul>
+          <h3 id="circle-edge-example"><a aria-hidden="true" tabindex="-1" href="#circle-edge-example"><span class="icon icon-link"></span></a>Circle edge example</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A --o B
+</code></pre>
+          <h3 id="cross-edge-example"><a aria-hidden="true" tabindex="-1" href="#cross-edge-example"><span class="icon icon-link"></span></a>Cross edge example</h3>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A --x B
+</code></pre>
+          <h2 id="multi-directional-arrows"><a aria-hidden="true" tabindex="-1" href="#multi-directional-arrows"><span class="icon icon-link"></span></a>Multi directional arrows</h2>
+          <p>There is the possibility to use multidirectional arrows.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A o--o B
+    B &#x3C;--> C
+    C x--x D
+</code></pre>
+          <h3 id="minimum-length-of-a-link"><a aria-hidden="true" tabindex="-1" href="#minimum-length-of-a-link"><span class="icon icon-link"></span></a>Minimum length of a link</h3>
+          <p>
+            Each node in the flowchart is ultimately assigned to a rank in the rendered
+            graph, i.e. to a vertical or horizontal level (depending on the flowchart
+            orientation), based on the nodes to which it is linked. By default, links
+            can span any number of ranks, but you can ask for any link to be longer
+            than the others by adding extra dashes in the link definition.
+          </p>
+          <p>
+            In the following example, two extra dashes are added in the link from node <em>B</em>
+            to node <em>E</em>, so that it spans two more ranks than regular links:
+          </p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A[Start] --> B{Is it?}
+    B -->|Yes| C[OK]
+    C --> D[Rethink]
+    D --> B
+    B ---->|No| E[End]
+</code></pre>
+          <blockquote>
+            <p>
+              <strong>Note</strong> Links may still be made longer than the requested number of ranks
+              by the rendering engine to accommodate other requests.
+            </p>
+          </blockquote>
+          <p>
+            When the link label is written in the middle of the link, the extra dashes must
+            be added on the right side of the link. The following example is equivalent to
+            the previous one:
+          </p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    A[Start] --> B{Is it?}
+    B -- Yes --> C[OK]
+    C --> D[Rethink]
+    D --> B
+    B -- No ----> E[End]
+</code></pre>
+          <p>
+            For dotted or thick links, the characters to add are equals signs or dots,
+            as summed up in the following table:
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th align="center">1</th>
+                <th align="center">2</th>
+                <th align="center">3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Normal</td>
+                <td align="center"><code>---</code></td>
+                <td align="center"><code>----</code></td>
+                <td align="center"><code>-----</code></td>
+              </tr>
+              <tr>
+                <td>Normal with arrow</td>
+                <td align="center"><code>--></code></td>
+                <td align="center"><code>---></code></td>
+                <td align="center"><code>----></code></td>
+              </tr>
+              <tr>
+                <td>Thick</td>
+                <td align="center"><code>===</code></td>
+                <td align="center"><code>====</code></td>
+                <td align="center"><code>=====</code></td>
+              </tr>
+              <tr>
+                <td>Thick with arrow</td>
+                <td align="center"><code>==></code></td>
+                <td align="center"><code>===></code></td>
+                <td align="center"><code>====></code></td>
+              </tr>
+              <tr>
+                <td>Dotted</td>
+                <td align="center"><code>-.-</code></td>
+                <td align="center"><code>-..-</code></td>
+                <td align="center"><code>-...-</code></td>
+              </tr>
+              <tr>
+                <td>Dotted with arrow</td>
+                <td align="center"><code>-.-></code></td>
+                <td align="center"><code>-..-></code></td>
+                <td align="center"><code>-...-></code></td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="special-characters-that-break-syntax"><a aria-hidden="true" tabindex="-1" href="#special-characters-that-break-syntax"><span class="icon icon-link"></span></a>Special characters that break syntax</h2>
+          <p>It is possible to put text within quotes in order to render more troublesome characters. As in the example below:</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1["This is the (text) in the box"]
+</code></pre>
+          <h3 id="entity-codes-to-escape-characters"><a aria-hidden="true" tabindex="-1" href="#entity-codes-to-escape-characters"><span class="icon icon-link"></span></a>Entity codes to escape characters</h3>
+          <p>It is possible to escape characters using the syntax exemplified here.</p>
+          <pre><code class="language-mermaid-example">    flowchart LR
+        A["A double quote:#quot;"] --> B["A dec char:#9829;"]
+</code></pre>
+          <p>Numbers given are base 10, so <code>#</code> can be encoded as <code>#35;</code>. It is also supported to use HTML character names.</p>
+          <h2 id="subgraphs"><a aria-hidden="true" tabindex="-1" href="#subgraphs"><span class="icon icon-link"></span></a>Subgraphs</h2>
+          <pre><code>subgraph title
+    graph definition
+end
+</code></pre>
+          <p>An example below:</p>
+          <pre><code class="language-mermaid-example">flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+</code></pre>
+          <p>You can also set an explicit id for the subgraph.</p>
+          <pre><code class="language-mermaid-example">flowchart TB
+    c1-->a2
+    subgraph ide1 [one]
+    a1-->a2
+    end
+</code></pre>
+          <h3 id="flowcharts"><a aria-hidden="true" tabindex="-1" href="#flowcharts"><span class="icon icon-link"></span></a>flowcharts</h3>
+          <p>With the graphtype flowchart it is also possible to set edges to and from subgraphs as in the flowchart below.</p>
+          <pre><code class="language-mermaid-example">flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
+</code></pre>
+          <h3 id="direction-in-subgraphs"><a aria-hidden="true" tabindex="-1" href="#direction-in-subgraphs"><span class="icon icon-link"></span></a>Direction in subgraphs</h3>
+          <p>With the graphtype flowcharts you can use the direction statement to set the direction which the subgraph will render like in this example.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+  subgraph TOP
+    direction TB
+    subgraph B1
+        direction RL
+        i1 -->f1
+    end
+    subgraph B2
+        direction BT
+        i2 -->f2
+    end
+  end
+  A --> TOP --> B
+  B1 --> B2
+</code></pre>
+          <h4 id="limitation"><a aria-hidden="true" tabindex="-1" href="#limitation"><span class="icon icon-link"></span></a>Limitation</h4>
+          <p>If any of a subgraph's nodes are linked to the outside, subgraph direction will be ignored. Instead the subgraph will inherit the direction of the parent graph:</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    subgraph subgraph1
+        direction TB
+        top1[top] --> bottom1[bottom]
+    end
+    subgraph subgraph2
+        direction TB
+        top2[top] --> bottom2[bottom]
+    end
+    %% ^ These subgraphs are identical, except for the links to them:
+
+    %% Link *to* subgraph1: subgraph1 direction is maintained
+    outside --> subgraph1
+    %% Link *within* subgraph2:
+    %% subgraph2 inherits the direction of the top-level graph (LR)
+    outside ---> top2
+</code></pre>
+          <h2 id="markdown-strings"><a aria-hidden="true" tabindex="-1" href="#markdown-strings"><span class="icon icon-link"></span></a>Markdown Strings</h2>
+          <p>The "Markdown Strings" feature enhances flowcharts and mind maps by offering a more versatile string type, which supports text formatting options such as bold and italics, and automatically wraps text within labels.</p>
+          <pre><code class="language-mermaid-example">%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart LR
+subgraph "One"
+  a("`The **cat**
+  in the hat`") -- "edge label" --> b{{"`The **dog** in the hog`"}}
+end
+subgraph "`**Two**`"
+  c("`The **cat**
+  in the hat`") -- "`Bold **edge label**`" --> d("The dog in the hog")
+end
+</code></pre>
+          <p>Formatting:</p>
+          <ul>
+            <li>For bold text, use double asterisks (<code>**</code>) before and after the text.</li>
+            <li>For italics, use single asterisks (<code>*</code>) before and after the text.</li>
+            <li>With traditional strings, you needed to add <code>&#x3C;br></code> tags for text to wrap in nodes. However, markdown strings automatically wrap text when it becomes too long and allows you to start a new line by simply using a newline character instead of a <code>&#x3C;br></code> tag.</li>
+          </ul>
+          <p>This feature is applicable to node labels, edge labels, and subgraph labels.</p>
+          <p>The auto wrapping can be disabled by using</p>
+          <pre><code>---
+config:
+  markdownAutoWrap: false
+---
+graph LR
+</code></pre>
+          <h2 id="interaction"><a aria-hidden="true" tabindex="-1" href="#interaction"><span class="icon icon-link"></span></a>Interaction</h2>
+          <p>It is possible to bind a click event to a node, the click can lead to either a javascript callback or to a link which will be opened in a new browser tab.</p>
+          <pre><code class="language-note">This functionality is disabled when using `securityLevel='strict'` and enabled when using `securityLevel='loose'`.
+</code></pre>
+          <pre><code>click nodeId callback
+click nodeId call callback()
+</code></pre>
+          <ul>
+            <li>nodeId is the id of the node</li>
+            <li>callback is the name of a javascript function defined on the page displaying the graph, the function will be called with the nodeId as parameter.</li>
+          </ul>
+          <p>Examples of tooltip usage below:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span>>
+  <span class="pl-c1">window</span>.<span class="pl-en">callback</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+    <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>A callback was triggered<span class="pl-pds">'</span></span>);
+  };
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <p>The tooltip text is surrounded in double quotes. The styles of the tooltip are set by the class <code>.mermaidTooltip</code>.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-->B
+    B-->C
+    C-->D
+    click A callback "Tooltip for a callback"
+    click B "https://www.github.com" "This is a tooltip for a link"
+    click C call callback() "Tooltip for a callback"
+    click D href "https://www.github.com" "This is a tooltip for a link"
+</code></pre>
+          <blockquote>
+            <p><strong>Success</strong> The tooltip functionality and the ability to link to urls are available from version 0.5.2.</p>
+          </blockquote>
+          <p>?> Due to limitations with how Docsify handles JavaScript callback functions, an alternate working demo for the above code can be viewed at <a href="https://jsfiddle.net/yk4h7qou/2/">this jsfiddle</a>.</p>
+          <p>Links are opened in the same browser tab/window by default. It is possible to change this by adding a link target to the click definition (<code>_self</code>, <code>_blank</code>, <code>_parent</code> and <code>_top</code> are supported):</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-->B
+    B-->C
+    C-->D
+    D-->E
+    click A "https://www.github.com" _blank
+    click B "https://www.github.com" "Open this in a new tab" _blank
+    click C href "https://www.github.com" _blank
+    click D href "https://www.github.com" "Open this in a new tab" _blank
+</code></pre>
+          <p>Beginner's tip—a full example using interactive links in a html context:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">body</span>>
+  &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+    flowchart LR
+        A-->B
+        B-->C
+        C-->D
+        click A callback "Tooltip"
+        click B "https://www.github.com" "This is a link"
+        click C call callback() "Tooltip"
+        click D href "https://www.github.com" "This is a link"
+  &#x3C;/<span class="pl-ent">pre</span>>
+
+  &#x3C;<span class="pl-ent">script</span>>
+    <span class="pl-c1">window</span>.<span class="pl-en">callback</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+      <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>A callback was triggered<span class="pl-pds">'</span></span>);
+    };
+    <span class="pl-k">const</span> <span class="pl-c1">config</span> <span class="pl-k">=</span> {
+      startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+      flowchart<span class="pl-k">:</span> { useMaxWidth<span class="pl-k">:</span> <span class="pl-c1">true</span>, htmlLabels<span class="pl-k">:</span> <span class="pl-c1">true</span>, curve<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>cardinal<span class="pl-pds">'</span></span> },
+      securityLevel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>loose<span class="pl-pds">'</span></span>,
+    };
+    <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>(config);
+  &#x3C;/<span class="pl-ent">script</span>>
+&#x3C;/<span class="pl-ent">body</span>>
+</code></pre>
+          <h3 id="comments"><a aria-hidden="true" tabindex="-1" href="#comments"><span class="icon icon-link"></span></a>Comments</h3>
+          <p>Comments can be entered within a flow diagram, which will be ignored by the parser. Comments need to be on their own line, and must be prefaced with <code>%%</code> (double percent signs). Any text after the start of the comment to the next newline will be treated as a comment, including any flow syntax</p>
+          <pre><code class="language-mermaid">flowchart LR
+%% this is a comment A -- text --> B{node}
+   A -- text --> B -- text2 --> C
+</code></pre>
+          <h2 id="styling-and-classes"><a aria-hidden="true" tabindex="-1" href="#styling-and-classes"><span class="icon icon-link"></span></a>Styling and classes</h2>
+          <h3 id="styling-links"><a aria-hidden="true" tabindex="-1" href="#styling-links"><span class="icon icon-link"></span></a>Styling links</h3>
+          <p>
+            It is possible to style links. For instance, you might want to style a link that is going backwards in the flow. As links
+            have no ids in the same way as nodes, some other way of deciding what style the links should be attached to is required.
+            Instead of ids, the order number of when the link was defined in the graph is used, or use default to apply to all links.
+            In the example below the style defined in the linkStyle statement will belong to the fourth link in the graph:
+          </p>
+          <pre><code>linkStyle 3 stroke:#ff3,stroke-width:4px,color:red;
+</code></pre>
+          <p>It is also possible to add style to multiple links in a single statement, by separating link numbers with commas:</p>
+          <pre><code>linkStyle 1,2,7 color:blue;
+</code></pre>
+          <h3 id="styling-line-curves"><a aria-hidden="true" tabindex="-1" href="#styling-line-curves"><span class="icon icon-link"></span></a>Styling line curves</h3>
+          <p>
+            It is possible to style the type of curve used for lines between items, if the default method does not meet your needs.
+            Available curve styles include <code>basis</code>, <code>bumpX</code>, <code>bumpY</code>, <code>cardinal</code>, <code>catmullRom</code>, <code>linear</code>, <code>monotoneX</code>, <code>monotoneY</code>,
+            <code>natural</code>, <code>step</code>, <code>stepAfter</code>, and <code>stepBefore</code>.
+          </p>
+          <p>In this example, a left-to-right graph uses the <code>stepBefore</code> curve style:</p>
+          <pre><code>%%{ init: { 'flowchart': { 'curve': 'stepBefore' } } }%%
+graph LR
+</code></pre>
+          <p>
+            For a full list of available curves, including an explanation of custom curves, refer to
+            the <a href="https://github.com/d3/d3-shape/blob/main/README.html#curves">Shapes</a> documentation in the
+            <a href="https://github.com/d3/d3-shape/">d3-shape</a> project.
+          </p>
+          <h3 id="styling-a-node"><a aria-hidden="true" tabindex="-1" href="#styling-a-node"><span class="icon icon-link"></span></a>Styling a node</h3>
+          <p>It is possible to apply specific styles such as a thicker border or a different background color to a node.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    id1(Start)-->id2(Stop)
+    style id1 fill:#f9f,stroke:#333,stroke-width:4px
+    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+</code></pre>
+          <h4 id="classes"><a aria-hidden="true" tabindex="-1" href="#classes"><span class="icon icon-link"></span></a>Classes</h4>
+          <p>
+            More convenient than defining the style every time is to define a class of styles and attach this class to the nodes that
+            should have a different look.
+          </p>
+          <p>A class definition looks like the example below:</p>
+          <pre><code>    classDef className fill:#f9f,stroke:#333,stroke-width:4px;
+</code></pre>
+          <p>Also, it is possible to define style to multiple classes in one statement:</p>
+          <pre><code>    classDef firstClassName,secondClassName font-size:12pt;
+</code></pre>
+          <p>Attachment of a class to a node is done as per below:</p>
+          <pre><code>    class nodeId1 className;
+</code></pre>
+          <p>It is also possible to attach a class to a list of nodes in one statement:</p>
+          <pre><code>    class nodeId1,nodeId2 className;
+</code></pre>
+          <p>A shorter form of adding a class is to attach the classname to the node using the <code>:::</code>operator as per below:</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A:::someclass --> B
+    classDef someclass fill:#f96
+</code></pre>
+          <p>This form can be used when declaring multiple links between nodes:</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A:::foo &#x26; B:::bar --> C:::foobar
+    classDef foo stroke:#f00
+    classDef bar stroke:#0f0
+    classDef foobar stroke:#00f
+</code></pre>
+          <h3 id="css-classes"><a aria-hidden="true" tabindex="-1" href="#css-classes"><span class="icon icon-link"></span></a>CSS classes</h3>
+          <p>
+            It is also possible to predefine classes in CSS styles that can be applied from the graph definition as in the example
+            below:
+          </p>
+          <p><strong>Example style</strong></p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">style</span>>
+  <span class="pl-e">.cssClass</span> <span class="pl-k">></span> <span class="pl-ent">rect</span> {
+    <span class="pl-c1">fill</span>: <span class="pl-c1">#ff0000</span>;
+    <span class="pl-c1">stroke</span>: <span class="pl-c1">#ffff00</span>;
+    <span class="pl-c1">stroke-width</span>: <span class="pl-c1">4</span><span class="pl-k">px</span>;
+  }
+&#x3C;/<span class="pl-ent">style</span>>
+</code></pre>
+          <p><strong>Example definition</strong></p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A-->B[AAA&#x3C;span>BBB&#x3C;/span>]
+    B-->D
+    class A cssClass
+</code></pre>
+          <h3 id="default-class"><a aria-hidden="true" tabindex="-1" href="#default-class"><span class="icon icon-link"></span></a>Default class</h3>
+          <p>If a class is named default it will be assigned to all classes without specific class definitions.</p>
+          <pre><code>    classDef default fill:#f9f,stroke:#333,stroke-width:4px;
+</code></pre>
+          <h2 id="basic-support-for-fontawesome"><a aria-hidden="true" tabindex="-1" href="#basic-support-for-fontawesome"><span class="icon icon-link"></span></a>Basic support for fontawesome</h2>
+          <p>It is possible to add icons from fontawesome.</p>
+          <p>The icons are accessed via the syntax fa:#icon class name#.</p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    B["fa:fa-twitter for peace"]
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner)
+    B-->E(A fa:fa-camera-retro perhaps?)
+</code></pre>
+          <p>
+            Mermaid supports Font Awesome if the CSS is included on the website.
+            Mermaid does not have any restriction on the version of Font Awesome that can be used.
+          </p>
+          <p>Please refer the <a href="https://fontawesome.com/start">Official Font Awesome Documentation</a> on how to include it in your website.</p>
+          <p>Adding this snippet in the <code>&#x3C;head></code> would add support for Font Awesome v6.5.1</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">link</span>
+  <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css<span class="pl-pds">"</span></span>
+  <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span>
+/>
+</code></pre>
+          <h3 id="custom-icons"><a aria-hidden="true" tabindex="-1" href="#custom-icons"><span class="icon icon-link"></span></a>Custom icons</h3>
+          <p>It is possible to use custom icons served from Font Awesome as long as the website imports the corresponding kit.</p>
+          <p>Note that this is currently a paid feature from Font Awesome.</p>
+          <p>For custom icons, you need to use the <code>fak</code> prefix.</p>
+          <p><strong>Example</strong></p>
+          <pre><code>flowchart TD
+    B[fa:fa-twitter] %% standard icon
+    B-->E(fak:fa-custom-icon-name) %% custom icon
+</code></pre>
+          <p>And trying to render it</p>
+          <pre><code class="language-mermaid-example">flowchart TD
+    B["fa:fa-twitter for peace"]
+    B-->C["fab:fa-truck-bold a custom icon"]
+</code></pre>
+          <h2 id="graph-declarations-with-spaces-between-vertices-and-link-and-without-semicolon"><a aria-hidden="true" tabindex="-1" href="#graph-declarations-with-spaces-between-vertices-and-link-and-without-semicolon"><span class="icon icon-link"></span></a>Graph declarations with spaces between vertices and link and without semicolon</h2>
+          <ul>
+            <li>
+              <p>In graph declarations, the statements also can now end without a semicolon. After release 0.2.16, ending a graph statement with semicolon is just optional. So the below graph declaration is also valid along with the old declarations of the graph.</p>
+            </li>
+            <li>
+              <p>A single space is allowed between vertices and the link. However there should not be any space between a vertex and its text and a link and its text. The old syntax of graph declaration will also work and hence this new feature is optional and is introduced to improve readability.</p>
+            </li>
+          </ul>
+          <p>Below is the new declaration of the graph edges which is also valid along with the old declaration of the graph edges.</p>
+          <pre><code class="language-mermaid-example">flowchart LR
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+</code></pre>
+          <h2 id="configuration"><a aria-hidden="true" tabindex="-1" href="#configuration"><span class="icon icon-link"></span></a>Configuration</h2>
+          <h3 id="renderer"><a aria-hidden="true" tabindex="-1" href="#renderer"><span class="icon icon-link"></span></a>Renderer</h3>
+          <p>The layout of the diagram is done with the renderer. The default renderer is dagre.</p>
+          <p>Starting with Mermaid version 9.4, you can use an alternate renderer named elk. The elk renderer is better for larger and/or more complex diagrams.</p>
+          <p>
+            The <em>elk</em> renderer is an experimental feature.
+            You can change the renderer to elk by adding this directive:
+          </p>
+          <pre><code>%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
+</code></pre>
+          <pre><code class="language-note">Note that the site needs to use mermaid version 9.4+ for this to work and have this featured enabled in the lazy-loading configuration.
+</code></pre>
+          <h3 id="width"><a aria-hidden="true" tabindex="-1" href="#width"><span class="icon icon-link"></span></a>Width</h3>
+          <p>It is possible to adjust the width of the rendered flowchart.</p>
+          <p>
+            This is done by defining <strong>mermaid.flowchartConfig</strong> or by the CLI to use a JSON file with the configuration. How to use the CLI is described in the mermaidCLI page.
+            mermaid.flowchartConfig can be set to a JSON string with config parameters or the corresponding object.
+          </p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-smi">flowchartConfig</span> <span class="pl-k">=</span> {
+    width<span class="pl-k">:</span> <span class="pl-c1">100</span><span class="pl-k">%</span>
+}
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

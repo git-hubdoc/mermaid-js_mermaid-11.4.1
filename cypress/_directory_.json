@@ -1,0 +1,45 @@
+{
+  "title": "/cypress",
+  "files": [
+    {
+      "type": "blob",
+      "title": ".eslintrc.json",
+      "href": ".eslintrc.json"
+    },
+    {
+      "type": "folder",
+      "title": "fixtures",
+      "href": "fixtures"
+    },
+    {
+      "type": "folder",
+      "title": "helpers",
+      "href": "helpers"
+    },
+    {
+      "type": "folder",
+      "title": "integration",
+      "href": "integration"
+    },
+    {
+      "type": "folder",
+      "title": "platform",
+      "href": "platform"
+    },
+    {
+      "type": "folder",
+      "title": "support",
+      "href": "support"
+    },
+    {
+      "type": "blob",
+      "title": "timings.json",
+      "href": "timings.json"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.json",
+      "href": "tsconfig.json"
+    }
+  ]
+}

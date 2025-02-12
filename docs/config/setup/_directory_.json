@@ -1,0 +1,30 @@
+{
+  "title": "/docs/config/setup",
+  "files": [
+    {
+      "type": "folder",
+      "title": "classes",
+      "href": "classes"
+    },
+    {
+      "type": "folder",
+      "title": "interfaces",
+      "href": "interfaces"
+    },
+    {
+      "type": "folder",
+      "title": "modules",
+      "href": "modules"
+    },
+    {
+      "type": "blob",
+      "title": "README.html",
+      "href": "README.html"
+    },
+    {
+      "type": "blob",
+      "title": "README.md",
+      "href": "README.md"
+    }
+  ]
+}

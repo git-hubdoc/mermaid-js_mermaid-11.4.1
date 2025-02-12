@@ -1,0 +1,30 @@
+{
+  "title": "/packages/parser/src/language/architecture",
+  "files": [
+    {
+      "type": "blob",
+      "title": "architecture.langium",
+      "href": "architecture.langium"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "module.ts",
+      "href": "module.ts"
+    },
+    {
+      "type": "blob",
+      "title": "tokenBuilder.ts",
+      "href": "tokenBuilder.ts"
+    },
+    {
+      "type": "blob",
+      "title": "valueConverter.ts",
+      "href": "valueConverter.ts"
+    }
+  ]
+}

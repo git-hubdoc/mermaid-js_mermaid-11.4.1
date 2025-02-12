@@ -1,0 +1,85 @@
+{
+  "title": "/packages/mermaid/src/dagre-wrapper",
+  "files": [
+    {
+      "type": "blob",
+      "title": "blockArrowHelper.ts",
+      "href": "blockArrowHelper.ts"
+    },
+    {
+      "type": "blob",
+      "title": "clusters.js",
+      "href": "clusters.js"
+    },
+    {
+      "type": "blob",
+      "title": "createLabel.js",
+      "href": "createLabel.js"
+    },
+    {
+      "type": "blob",
+      "title": "edgeMarker.spec.ts",
+      "href": "edgeMarker.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "edgeMarker.ts",
+      "href": "edgeMarker.ts"
+    },
+    {
+      "type": "blob",
+      "title": "edges.js",
+      "href": "edges.js"
+    },
+    {
+      "type": "blob",
+      "title": "edges.spec.js",
+      "href": "edges.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "GraphObjects.html",
+      "href": "GraphObjects.html"
+    },
+    {
+      "type": "blob",
+      "title": "GraphObjects.md",
+      "href": "GraphObjects.md"
+    },
+    {
+      "type": "blob",
+      "title": "index.js",
+      "href": "index.js"
+    },
+    {
+      "type": "folder",
+      "title": "intersect",
+      "href": "intersect"
+    },
+    {
+      "type": "blob",
+      "title": "markers.js",
+      "href": "markers.js"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-graphlib.js",
+      "href": "mermaid-graphlib.js"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-graphlib.spec.js",
+      "href": "mermaid-graphlib.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "nodes.js",
+      "href": "nodes.js"
+    },
+    {
+      "type": "folder",
+      "title": "shapes",
+      "href": "shapes"
+    }
+  ]
+}

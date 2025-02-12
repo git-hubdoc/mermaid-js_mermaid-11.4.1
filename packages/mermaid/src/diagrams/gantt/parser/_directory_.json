@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/gantt/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "gantt.jison",
+      "href": "gantt.jison"
+    },
+    {
+      "type": "blob",
+      "title": "gantt.spec.js",
+      "href": "gantt.spec.js"
+    }
+  ]
+}

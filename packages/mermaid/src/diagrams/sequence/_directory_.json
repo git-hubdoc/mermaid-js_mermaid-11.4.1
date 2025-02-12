@@ -1,0 +1,55 @@
+{
+  "title": "/packages/mermaid/src/diagrams/sequence",
+  "files": [
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceDb.ts",
+      "href": "sequenceDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceDetector.ts",
+      "href": "sequenceDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceDiagram.spec.js",
+      "href": "sequenceDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceDiagram.ts",
+      "href": "sequenceDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sequenceRenderer.ts",
+      "href": "sequenceRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.js",
+      "href": "svgDraw.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.spec.js",
+      "href": "svgDraw.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    }
+  ]
+}

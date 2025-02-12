@@ -1,0 +1,25 @@
+{
+  "title": "/packages/mermaid/src/diagrams/xychart/chartBuilder/components/axis",
+  "files": [
+    {
+      "type": "blob",
+      "title": "bandAxis.ts",
+      "href": "bandAxis.ts"
+    },
+    {
+      "type": "blob",
+      "title": "baseAxis.ts",
+      "href": "baseAxis.ts"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "linearAxis.ts",
+      "href": "linearAxis.ts"
+    }
+  ]
+}

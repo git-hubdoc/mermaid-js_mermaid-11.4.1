@@ -1,0 +1,120 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/output/chtml/fonts/woff-v2",
+  "files": [
+    {
+      "type": "blob",
+      "title": "MathJax_AMS-Regular.woff",
+      "href": "MathJax_AMS-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Calligraphic-Bold.woff",
+      "href": "MathJax_Calligraphic-Bold.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Calligraphic-Regular.woff",
+      "href": "MathJax_Calligraphic-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Fraktur-Bold.woff",
+      "href": "MathJax_Fraktur-Bold.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Fraktur-Regular.woff",
+      "href": "MathJax_Fraktur-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Main-Bold.woff",
+      "href": "MathJax_Main-Bold.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Main-Italic.woff",
+      "href": "MathJax_Main-Italic.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Main-Regular.woff",
+      "href": "MathJax_Main-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Math-BoldItalic.woff",
+      "href": "MathJax_Math-BoldItalic.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Math-Italic.woff",
+      "href": "MathJax_Math-Italic.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Math-Regular.woff",
+      "href": "MathJax_Math-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_SansSerif-Bold.woff",
+      "href": "MathJax_SansSerif-Bold.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_SansSerif-Italic.woff",
+      "href": "MathJax_SansSerif-Italic.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_SansSerif-Regular.woff",
+      "href": "MathJax_SansSerif-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Script-Regular.woff",
+      "href": "MathJax_Script-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Size1-Regular.woff",
+      "href": "MathJax_Size1-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Size2-Regular.woff",
+      "href": "MathJax_Size2-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Size3-Regular.woff",
+      "href": "MathJax_Size3-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Size4-Regular.woff",
+      "href": "MathJax_Size4-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Typewriter-Regular.woff",
+      "href": "MathJax_Typewriter-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Vector-Bold.woff",
+      "href": "MathJax_Vector-Bold.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Vector-Regular.woff",
+      "href": "MathJax_Vector-Regular.woff"
+    },
+    {
+      "type": "blob",
+      "title": "MathJax_Zero.woff",
+      "href": "MathJax_Zero.woff"
+    }
+  ]
+}

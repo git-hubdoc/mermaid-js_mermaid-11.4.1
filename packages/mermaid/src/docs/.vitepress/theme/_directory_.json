@@ -1,0 +1,35 @@
+{
+  "title": "/packages/mermaid/src/docs/.vitepress/theme",
+  "files": [
+    {
+      "type": "blob",
+      "title": "custom.css",
+      "href": "custom.css"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ts",
+      "href": "mermaid.ts"
+    },
+    {
+      "type": "blob",
+      "title": "Mermaid.vue",
+      "href": "Mermaid.vue"
+    },
+    {
+      "type": "blob",
+      "title": "redirect.spec.ts",
+      "href": "redirect.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "redirect.ts",
+      "href": "redirect.ts"
+    }
+  ]
+}

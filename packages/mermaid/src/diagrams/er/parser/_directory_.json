@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/er/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "erDiagram.jison",
+      "href": "erDiagram.jison"
+    },
+    {
+      "type": "blob",
+      "title": "erDiagram.spec.js",
+      "href": "erDiagram.spec.js"
+    }
+  ]
+}

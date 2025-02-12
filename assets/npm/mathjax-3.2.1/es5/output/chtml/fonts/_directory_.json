@@ -1,0 +1,15 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/output/chtml/fonts",
+  "files": [
+    {
+      "type": "blob",
+      "title": "tex.js",
+      "href": "tex.js"
+    },
+    {
+      "type": "folder",
+      "title": "woff-v2",
+      "href": "woff-v2"
+    }
+  ]
+}

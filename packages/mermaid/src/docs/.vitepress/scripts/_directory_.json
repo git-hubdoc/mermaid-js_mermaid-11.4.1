@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/docs/.vitepress/scripts",
+  "files": [
+    {
+      "type": "blob",
+      "title": "fetch-avatars.ts",
+      "href": "fetch-avatars.ts"
+    },
+    {
+      "type": "blob",
+      "title": "fetch-contributors.ts",
+      "href": "fetch-contributors.ts"
+    }
+  ]
+}

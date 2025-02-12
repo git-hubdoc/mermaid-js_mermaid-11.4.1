@@ -1,0 +1,10 @@
+{
+  "title": "/packages/mermaid-example-diagram/src/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "exampleDiagram.jison",
+      "href": "exampleDiagram.jison"
+    }
+  ]
+}

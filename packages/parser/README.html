@@ -1,0 +1,75 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <p><a href="https://www.npmjs.com/package/@mermaid-js/parser"><img src="/vendors/img.shields.io/npm/v/@mermaid-js/parser" alt="NPM"></a></p>
+          <h2 id="how-the-package-works"><a aria-hidden="true" tabindex="-1" href="#how-the-package-works"><span class="icon icon-link"></span></a>How the package works</h2>
+          <p>The package exports a <code>parse</code> function that has two parameters:</p>
+          <pre><code class="language-ts"><span class="pl-k">declare</span> <span class="pl-k">function</span> <span class="pl-en">parse</span>&#x3C;<span class="pl-en">T</span> <span class="pl-k">extends</span> <span class="pl-en">DiagramAST</span>>(
+  <span class="pl-v">diagramType</span><span class="pl-k">:</span> <span class="pl-k">keyof</span> <span class="pl-k">typeof</span> <span class="pl-smi">initializers</span>,
+  <span class="pl-v">text</span><span class="pl-k">:</span> <span class="pl-c1">string</span>
+)<span class="pl-k">:</span> <span class="pl-en">T</span>;
+</code></pre>
+          <h2 id="how-does-a-langium-based-parser-work"><a aria-hidden="true" tabindex="-1" href="#how-does-a-langium-based-parser-work"><span class="icon icon-link"></span></a>How does a Langium-based parser work?</h2>
+          <pre><code class="language-mermaid">sequenceDiagram
+actor Package
+participant Module
+participant TokenBuilder
+participant Lexer
+participant Parser
+participant ValueConverter
+
+
+Package ->> Module: Create services
+Module ->> TokenBuilder: Override or/and&#x3C;br>reorder rules
+TokenBuilder ->> Lexer: Read the string and transform&#x3C;br>it into a token stream
+Lexer ->> Parser: Parse token&#x3C;br>stream into AST
+Parser ->> ValueConverter: Clean/modify tokenized&#x3C;br>rules returned value
+ValueConverter -->> Package: Return AST
+</code></pre>
+          <ul>
+            <li>
+              <p>When to override <code>TokenBuilder</code>?</p>
+              <ul>
+                <li>To override keyword rules.</li>
+                <li>To override terminal rules that need a custom function.</li>
+                <li>To manually reorder the list of rules.</li>
+              </ul>
+            </li>
+            <li>
+              <p>When to override <code>Lexer</code>?</p>
+              <ul>
+                <li>To modify input before tokenizing.</li>
+                <li>To insert/modify tokens that cannot or have not been parsed.</li>
+              </ul>
+            </li>
+            <li>
+              <p>When to override <code>LangiumParser</code>?</p>
+              <ul>
+                <li>To insert or modify attributes that can't be parsed.</li>
+              </ul>
+            </li>
+            <li>
+              <p>When to override <code>ValueConverter</code>?</p>
+              <ul>
+                <li>To modify the returned value from the parser.</li>
+              </ul>
+            </li>
+          </ul>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

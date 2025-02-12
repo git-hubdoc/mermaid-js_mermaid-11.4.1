@@ -1,0 +1,281 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <table>
+            <thead>
+              <tr>
+                <th>outline</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div>deep</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 id="mermaid-user-guide"><a aria-hidden="true" tabindex="-1" href="#mermaid-user-guide"><span class="icon icon-link"></span></a>Mermaid User Guide</h1>
+          <h2 id="mermaid-is-composed-of-three-parts"><a aria-hidden="true" tabindex="-1" href="#mermaid-is-composed-of-three-parts"><span class="icon icon-link"></span></a>Mermaid is composed of three parts</h2>
+          <ol>
+            <li>Deployment</li>
+            <li>Syntax</li>
+            <li>Configuration</li>
+          </ol>
+          <p>This section talks about the different ways to <strong>deploy</strong> Mermaid.</p>
+          <p>If you are a beginner:</p>
+          <ul>
+            <li>Check out the <a href="syntax-reference.html">Diagram Syntax</a> page</li>
+            <li>Check out the <a href="ecosystem/tutorials.html">Tutorials</a> page</li>
+          </ul>
+          <h2 id="ways-to-use-mermaid"><a aria-hidden="true" tabindex="-1" href="#ways-to-use-mermaid"><span class="icon icon-link"></span></a>Ways to use Mermaid</h2>
+          <ol>
+            <li><a href="getting-started.html#_1-using-the-mermaid-live-editor">Using the Mermaid Live Editor</a></li>
+            <li><a href="getting-started.html#_2-using-the-mermaid-chart-editor">Using the Mermaid Chart Editor</a></li>
+            <li><a href="getting-started.html#_3-using-mermaid-plugins">Using Mermaid Plugins and Integrations</a></li>
+            <li><a href="getting-started.html#_4-calling-the-mermaid-javascript-api">Calling the Mermaid JavaScript API</a></li>
+            <li><a href="getting-started.html#_5-adding-mermaid-as-a-dependency">Adding Mermaid as a dependency</a></li>
+          </ol>
+          <p>To learn more, visit the <a href="config/usage.html">Usage</a> page.</p>
+          <h2 id="1-using-the-mermaid-live-editor"><a aria-hidden="true" tabindex="-1" href="#1-using-the-mermaid-live-editor"><span class="icon icon-link"></span></a>1. Using the Mermaid Live Editor</h2>
+          <p>Available at the <a href="https://mermaid.live/">Mermaid Live Editor</a> website.</p>
+          <h3 id="features"><a aria-hidden="true" tabindex="-1" href="#features"><span class="icon icon-link"></span></a>Features</h3>
+          <h4 id="-diagram-code"><a aria-hidden="true" tabindex="-1" href="#-diagram-code"><span class="icon icon-link"></span></a>• Diagram Code</h4>
+          <p>In the <code>Code</code> panel, write or edit Mermaid code, and instantly <code>Preview</code> the rendered result in the diagram panel.</p>
+          <p>Here is an example of Mermaid code and its rendered result:</p>
+          <pre><code class="language-mermaid">graph TD
+    A[Enter Chart Definition] --> B(Preview)
+    B --> C{decide}
+    C --> D[Keep]
+    C --> E[Edit Definition]
+    E --> B
+    D --> F[Save Image and Code]
+    F --> B
+</code></pre>
+          <h4 id="-configurations"><a aria-hidden="true" tabindex="-1" href="#-configurations"><span class="icon icon-link"></span></a>• Configurations</h4>
+          <p>Configuration options are available in the <code>Configuration</code> panel. The options are applied to the diagram in the <code>Preview</code> panel.</p>
+          <p>To learn more, visit the <a href="config/setup/README.html">Configuration Reference</a> page</p>
+          <p>
+            <img src="./img/Code-Preview-Config.png" alt="Code,Config and Preview">
+          </p>
+          <h4 id="-editing-history"><a aria-hidden="true" tabindex="-1" href="#-editing-history"><span class="icon icon-link"></span></a>• Editing History</h4>
+          <p>Your code will be autosaved and appear in the <code>Timeline</code> tab of the <code>History</code> section. Edits are saved every minute and only the last 30 edits are viewable.</p>
+          <p>Alternatively, you can manually save code by clicking on the <code>Save</code> icon from the <code>History</code> section.</p>
+          <pre><code class="language-note">History is stored in the browser storage only.
+</code></pre>
+          <h4 id="-saving-a-diagram"><a aria-hidden="true" tabindex="-1" href="#-saving-a-diagram"><span class="icon icon-link"></span></a>• Saving a diagram</h4>
+          <p>There are multiple ways of saving your diagram from the <code>Actions</code> section:</p>
+          <ul>
+            <li>export PNG</li>
+            <li>export SVG</li>
+            <li>export as Markdown</li>
+          </ul>
+          <p>
+            <img src="./img/Live-Editor-Choices.png" alt="Flowchart">
+          </p>
+          <h4 id="-editing-your-diagrams"><a aria-hidden="true" tabindex="-1" href="#-editing-your-diagrams"><span class="icon icon-link"></span></a>• Editing your diagrams</h4>
+          <p>To edit your diagram, you can copy paste existing Mermaid diagram code into the <code>Code</code> section of the <code>Live Editor</code>.</p>
+          <p>Or:</p>
+          <ul>
+            <li>create a new diagram from scratch</li>
+            <li>use a Sample Diagram from the <code>Sample Diagrams</code> section</li>
+          </ul>
+          <h4 id="-loading-from-gists"><a aria-hidden="true" tabindex="-1" href="#-loading-from-gists"><span class="icon icon-link"></span></a>• Loading from Gists</h4>
+          <p>The Gist you create should have a <code>code.mmd</code> file and optionally a <code>config.json</code>, similar to this <a href="https://gist.github.com/sidharthv96/6268a23e673a533dcb198f241fd7012a">example</a>.</p>
+          <pre><code class="language-note">To learn about Gists, visit the GitHub documentation page on [Creating gists](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists).
+</code></pre>
+          <p>Once you have created a Gist, copy paste the Gist URL into the respective field in the <code>Actions</code> section and click on the <code>Load Gist</code> button.</p>
+          <p>Here is an example of a Gist being loaded into the Editor:</p>
+          <p><a href="https://mermaid.live/edit?gist=https://gist.github.com/sidharthv96/6268a23e673a533dcb198f241fd7012a">https://mermaid.live/edit?gist=https://gist.github.com/sidharthv96/6268a23e673a533dcb198f241fd7012a</a></p>
+          <p>And, here is the diagram view from the above example:</p>
+          <p><a href="https://mermaid.live/view?gist=https://gist.github.com/sidharthv96/6268a23e673a533dcb198f241fd7012a">https://mermaid.live/view?gist=https://gist.github.com/sidharthv96/6268a23e673a533dcb198f241fd7012a</a></p>
+          <h2 id="2-using-the-mermaid-chart-editor"><a aria-hidden="true" tabindex="-1" href="#2-using-the-mermaid-chart-editor"><span class="icon icon-link"></span></a>2. Using the Mermaid Chart Editor</h2>
+          <p>Available at the <a href="https://www.mermaidchart.com/">Mermaid Chart</a> website.</p>
+          <p>Mermaid Chart is a web-based diagram editor that allows you to create and edit diagrams in your browser. It is built by the team behind Mermaid.</p>
+          <p>Features include:</p>
+          <ul>
+            <li>AI diagramming</li>
+            <li>Collaboration &#x26; multi-user editing</li>
+            <li>Storage</li>
+            <li>and more</li>
+          </ul>
+          <p>To learn more, visit the <a href="/ecosystem/mermaid-chart.html">Mermaid Chart page</a> in the Ecosystem section of the documentation.</p>
+          <p>Or go to the <a href="https://www.mermaidchart.com/app/sign-up">Mermaid Chart website</a> to sign up for a Free account.</p>
+          <h2 id="3-using-mermaid-plugins"><a aria-hidden="true" tabindex="-1" href="#3-using-mermaid-plugins"><span class="icon icon-link"></span></a>3. Using Mermaid Plugins</h2>
+          <h3 id="mermaid-plugins"><a aria-hidden="true" tabindex="-1" href="#mermaid-plugins"><span class="icon icon-link"></span></a>Mermaid Plugins</h3>
+          <p>You can generate Mermaid diagrams from within popular applications using plug-ins.</p>
+          <p>For a list of Mermaid Plugins and Integrations, visit the <a href="ecosystem/integrations-community.html">Integrations page</a>.</p>
+          <h3 id="mermaid-chart-plugins"><a aria-hidden="true" tabindex="-1" href="#mermaid-chart-plugins"><span class="icon icon-link"></span></a>Mermaid Chart Plugins</h3>
+          <p>Mermaid Chart plugins are available for:</p>
+          <ul>
+            <li><a href="https://docs.mermaidchart.com/plugins/mermaid-chart-gpt">ChatGPT</a></li>
+            <li><a href="https://docs.mermaidchart.com/plugins/jetbrains-ide">JetBrains IDE</a></li>
+            <li><a href="https://docs.mermaidchart.com/plugins/microsoft-powerpoint">Microsoft PowerPoint</a></li>
+            <li><a href="https://docs.mermaidchart.com/plugins/microsoft-word">Microsoft Word</a></li>
+            <li><a href="https://docs.mermaidchart.com/plugins/visual-studio-code">Visual Studio Code</a></li>
+          </ul>
+          <p>To learn more, visit the <a href="https://www.mermaidchart.com/plugins">Mermaid Chart Plugins</a> page.</p>
+          <h3 id="native-mermaid-support"><a aria-hidden="true" tabindex="-1" href="#native-mermaid-support"><span class="icon icon-link"></span></a>Native Mermaid Support</h3>
+          <p>For apps that support markdown (e.g. <a href="https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams">GitHub</a> and <a href="https://handbook.gitlab.com/handbook/tools-and-tips/mermaid/">GitLab</a>), you can add Mermaid diagrams by making a <code>mermaid</code> code block.</p>
+          <pre><code class="language-markdown">The following code-block will be rendered as a Mermaid diagram:
+
+<span class="pl-s">```</span><span class="pl-en">mermaid</span>
+<span class="pl-c1">flowchart LR</span>
+<span class="pl-c1">  A --> B</span>
+<span class="pl-s">```</span>
+</code></pre>
+          <h2 id="4-calling-the-mermaid-javascript-api"><a aria-hidden="true" tabindex="-1" href="#4-calling-the-mermaid-javascript-api"><span class="icon icon-link"></span></a>4. Calling the Mermaid JavaScript API</h2>
+          <p>This method can be used with any common web server like <code>Apache</code>, <code>IIS</code>, <code>Nginx</code>, and <code>Node Express</code>.</p>
+          <p>You will also need a text editing tool like <code>Notepad++</code> to generate an <code>html</code> file. It is then deployed by a web browser, i.e. <code>Firefox</code>, <code>Chrome</code>, <code>Safari</code>.</p>
+          <pre><code class="language-note">Internet Explorer is not supported.
+</code></pre>
+          <p>The API works by pulling rendering instructions from the source <code>mermaid.js</code> in order to render diagrams on the page.</p>
+          <h3 id="requirements-for-the-mermaid-api"><a aria-hidden="true" tabindex="-1" href="#requirements-for-the-mermaid-api"><span class="icon icon-link"></span></a>Requirements for the Mermaid API</h3>
+          <p>When writing the <code>html</code> file, we give two instructions inside the <code>html code</code> to the <code>web browser</code>:</p>
+          <p>a. The Mermaid code for the diagram we want to create.</p>
+          <p>b. The importing of the Mermaid library through the <code>mermaid.esm.mjs</code> or <code>mermaid.esm.min.mjs</code>, and the <code>mermaid.initialize()</code> call, which dictates the appearance of diagrams and also starts the rendering process.</p>
+          <h4 id="examples"><a aria-hidden="true" tabindex="-1" href="#examples"><span class="icon icon-link"></span></a>Examples</h4>
+          <ul>
+            <li>This is an example of an embedded Mermaid diagram definition inside a <code>&#x3C;pre class="mermaid"></code>:</li>
+          </ul>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">body</span>>
+  Here is a mermaid diagram:
+  &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+        graph TD
+        A[Client] --> B[Load Balancer]
+        B --> C[Server01]
+        B --> D[Server02]
+  &#x3C;/<span class="pl-ent">pre</span>>
+&#x3C;/<span class="pl-ent">body</span>>
+</code></pre>
+          <pre><code class="language-note">Every Mermaid chart/graph/diagram definition should have separate `&#x3C;pre>` tags.
+</code></pre>
+          <ul>
+            <li>This is an example of a Mermaid import and the <code>mermaid.initialize()</code> call.</li>
+          </ul>
+          <pre><code class="language-note">A `mermaid.initialize()` call takes all the definitions contained within `&#x3C;pre class="mermaid">` tags and renders them into diagrams.
+</code></pre>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">body</span>>
+  &#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+    <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+    <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span> });
+  &#x3C;/<span class="pl-ent">script</span>>
+&#x3C;/<span class="pl-ent">body</span>>
+</code></pre>
+          <pre><code class="language-note">Rendering in Mermaid is initialized by the `mermaid.initialize()` call. However, doing the opposite lets you control when it starts looking for `&#x3C;pre>` tags inside the web page with `mermaid.initialize()`. This is useful when you think that not all `&#x3C;pre>` tags may have loaded on the execution of `mermaid.esm.min.mjs` file.
+</code></pre>
+          <p><code>startOnLoad</code> is one of the parameters that can be defined by <code>mermaid.initialize()</code></p>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>startOnLoad</td>
+                <td>Toggle for Rendering upon loading</td>
+                <td>Boolean</td>
+                <td>true, false</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>In this example, the <code>mermaidAPI</code> is being called through the <code>CDN</code>:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">html</span>>
+  &#x3C;<span class="pl-ent">body</span>>
+    Here is one mermaid diagram:
+    &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+            graph TD
+            A[Client] --> B[Load Balancer]
+            B --> C[Server1]
+            B --> D[Server2]
+    &#x3C;/<span class="pl-ent">pre</span>>
+
+    And here is another:
+    &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+            graph TD
+            A[Client] -->|tcp_123| B
+            B(Load Balancer)
+            B -->|tcp_456| C[Server1]
+            B -->|tcp_456| D[Server2]
+    &#x3C;/<span class="pl-ent">pre</span>>
+
+    &#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+      <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+      <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span> });
+    &#x3C;/<span class="pl-ent">script</span>>
+  &#x3C;/<span class="pl-ent">body</span>>
+&#x3C;/<span class="pl-ent">html</span>>
+</code></pre>
+          <p>In this example, <code>mermaid.js</code> is referenced in <code>src</code> as a separate JavaScript file:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>>
+  &#x3C;<span class="pl-ent">head</span>>
+    &#x3C;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span> />
+  &#x3C;/<span class="pl-ent">head</span>>
+  &#x3C;<span class="pl-ent">body</span>>
+    &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+            graph LR
+            A --- B
+            B-->C[fa:fa-ban forbidden]
+            B-->D(fa:fa-spinner);
+    &#x3C;/<span class="pl-ent">pre</span>>
+    &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+            graph TD
+            A[Client] --> B[Load Balancer]
+            B --> C[Server1]
+            B --> D[Server2]
+    &#x3C;/<span class="pl-ent">pre</span>>
+    &#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+      <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>The/Path/In/Your/Package/mermaid.esm.mjs<span class="pl-pds">'</span></span>;
+      <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span> });
+    &#x3C;/<span class="pl-ent">script</span>>
+  &#x3C;/<span class="pl-ent">body</span>>
+&#x3C;/<span class="pl-ent">html</span>>
+</code></pre>
+          <h2 id="5-adding-mermaid-as-a-dependency"><a aria-hidden="true" tabindex="-1" href="#5-adding-mermaid-as-a-dependency"><span class="icon icon-link"></span></a>5. Adding Mermaid as a dependency</h2>
+          <p>Below are the steps for adding Mermaid as a dependency:</p>
+          <ol>
+            <li>Install <code>node v16</code></li>
+          </ol>
+          <pre><code class="language-note">To learn more about downloading and installing `Node.js` and `npm`, visit the [npm Docs website](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+</code></pre>
+          <ol>
+            <li>
+              <p>Install <code>yarn</code> using <code>npm</code> with this command:</p>
+              <p><code>npm install -g yarn</code></p>
+            </li>
+            <li>
+              <p>After yarn installs, enter this command:</p>
+              <p><code>yarn add mermaid</code></p>
+            </li>
+            <li>
+              <p>To add Mermaid as a dev dependency, enter this command:</p>
+              <p><code>yarn add --dev mermaid</code></p>
+            </li>
+          </ol>
+          <h2 id="closing-note"><a aria-hidden="true" tabindex="-1" href="#closing-note"><span class="icon icon-link"></span></a>Closing note</h2>
+          <pre><code class="language-note">Comments from Knut Sveidqvist, creator of Mermaid:
+
+- In early versions of Mermaid, the `&#x3C;script>` tag was invoked in the `&#x3C;head>` part of the web page. Nowadays, we can place it in the `&#x3C;body>` as seen above. Older parts of the documentation frequently reflect the previous way, which still works.
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

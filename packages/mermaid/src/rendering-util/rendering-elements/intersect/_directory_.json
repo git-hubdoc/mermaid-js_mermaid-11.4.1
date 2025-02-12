@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/rendering-util/rendering-elements/intersect",
+  "files": [
+    {
+      "type": "blob",
+      "title": "index.js",
+      "href": "index.js"
+    },
+    {
+      "type": "blob",
+      "title": "intersect-circle.js",
+      "href": "intersect-circle.js"
+    },
+    {
+      "type": "blob",
+      "title": "intersect-ellipse.js",
+      "href": "intersect-ellipse.js"
+    },
+    {
+      "type": "blob",
+      "title": "intersect-line.js",
+      "href": "intersect-line.js"
+    },
+    {
+      "type": "blob",
+      "title": "intersect-node.js",
+      "href": "intersect-node.js"
+    },
+    {
+      "type": "blob",
+      "title": "intersect-polygon.js",
+      "href": "intersect-polygon.js"
+    },
+    {
+      "type": "blob",
+      "title": "intersect-rect.js",
+      "href": "intersect-rect.js"
+    }
+  ]
+}

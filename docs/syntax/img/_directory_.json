@@ -1,0 +1,20 @@
+{
+  "title": "/docs/syntax/img",
+  "files": [
+    {
+      "type": "blob",
+      "title": "Gantt-excluded-days-within.png",
+      "href": "Gantt-excluded-days-within.png"
+    },
+    {
+      "type": "blob",
+      "title": "Gantt-long-weekend-look.png",
+      "href": "Gantt-long-weekend-look.png"
+    },
+    {
+      "type": "blob",
+      "title": "zenuml-participant-annotators.png",
+      "href": "zenuml-participant-annotators.png"
+    }
+  ]
+}

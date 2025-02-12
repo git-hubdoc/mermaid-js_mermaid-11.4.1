@@ -1,0 +1,35 @@
+{
+  "title": "/packages/mermaid/scripts",
+  "files": [
+    {
+      "type": "blob",
+      "title": "create-types-from-json-schema.mts",
+      "href": "create-types-from-json-schema.mts"
+    },
+    {
+      "type": "blob",
+      "title": "docs.cli.mts",
+      "href": "docs.cli.mts"
+    },
+    {
+      "type": "blob",
+      "title": "docs.mts",
+      "href": "docs.mts"
+    },
+    {
+      "type": "blob",
+      "title": "docs.spec.ts",
+      "href": "docs.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "loadHook.mjs",
+      "href": "loadHook.mjs"
+    },
+    {
+      "type": "blob",
+      "title": "update-release-version.mts",
+      "href": "update-release-version.mts"
+    }
+  ]
+}

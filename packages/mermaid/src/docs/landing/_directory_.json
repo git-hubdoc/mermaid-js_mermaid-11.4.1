@@ -1,0 +1,45 @@
+{
+  "title": "/packages/mermaid/src/docs/landing",
+  "files": [
+    {
+      "type": "blob",
+      "title": "class.png",
+      "href": "class.png"
+    },
+    {
+      "type": "blob",
+      "title": "cover.jpg",
+      "href": "cover.jpg"
+    },
+    {
+      "type": "blob",
+      "title": "er.png",
+      "href": "er.png"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart.png",
+      "href": "flowchart.png"
+    },
+    {
+      "type": "blob",
+      "title": "gantt.png",
+      "href": "gantt.png"
+    },
+    {
+      "type": "blob",
+      "title": "index.html",
+      "href": "index.html"
+    },
+    {
+      "type": "blob",
+      "title": "sequence-diagram.png",
+      "href": "sequence-diagram.png"
+    },
+    {
+      "type": "blob",
+      "title": "state.png",
+      "href": "state.png"
+    }
+  ]
+}

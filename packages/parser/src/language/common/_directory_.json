@@ -1,0 +1,30 @@
+{
+  "title": "/packages/parser/src/language/common",
+  "files": [
+    {
+      "type": "blob",
+      "title": "common.langium",
+      "href": "common.langium"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "matcher.ts",
+      "href": "matcher.ts"
+    },
+    {
+      "type": "blob",
+      "title": "tokenBuilder.ts",
+      "href": "tokenBuilder.ts"
+    },
+    {
+      "type": "blob",
+      "title": "valueConverter.ts",
+      "href": "valueConverter.ts"
+    }
+  ]
+}

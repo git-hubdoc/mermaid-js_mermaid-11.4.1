@@ -1,0 +1,699 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="gantt-diagrams"><a aria-hidden="true" tabindex="-1" href="#gantt-diagrams"><span class="icon icon-link"></span></a>Gantt diagrams</h1>
+          <blockquote>
+            <p>A Gantt chart is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate number of days between the start and finish dates of the terminal elements and summary elements of a project.</p>
+          </blockquote>
+          <h2 id="a-note-to-users"><a aria-hidden="true" tabindex="-1" href="#a-note-to-users"><span class="icon icon-link"></span></a>A note to users</h2>
+          <p>Gantt Charts will record each scheduled task as one continuous bar that extends from the left to the right. The x axis represents time and the y records the different tasks and the order in which they are to be completed.</p>
+          <p>
+            It is important to remember that when a date, day, or collection of dates specific to a task are "excluded", the Gantt Chart will accommodate those changes by extending an equal number of days, towards the right, not by creating a gap inside the task.
+            As shown here 
+            <img src="./img/Gantt-excluded-days-within.png" alt="">
+          </p>
+          <p>
+            However, if the excluded dates are between two tasks that are set to start consecutively, the excluded dates will be skipped graphically and left blank, and the following task will begin after the end of the excluded dates.
+            As shown here 
+            <img src="./img/Gantt-long-weekend-look.png" alt="">
+          </p>
+          <p>A Gantt chart is useful for tracking the amount of time it would take before a project is finished, but it can also be used to graphically represent "non-working days", with a few tweaks.</p>
+          <p>Mermaid can render Gantt diagrams as SVG, PNG or a MarkDown link that can be pasted into docs.</p>
+          <pre><code class="language-mermaid-example">gantt
+    title A Gantt Diagram
+    dateFormat YYYY-MM-DD
+    section Section
+        A task          :a1, 2014-01-01, 30d
+        Another task    :after a1, 20d
+    section Another
+        Task in Another :2014-01-12, 12d
+        another task    :24d
+</code></pre>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <pre><code class="language-mermaid-example">gantt
+    dateFormat  YYYY-MM-DD
+    title       Adding GANTT diagram functionality to mermaid
+    excludes    weekends
+    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
+
+    section A section
+    Completed task            :done,    des1, 2014-01-06,2014-01-08
+    Active task               :active,  des2, 2014-01-09, 3d
+    Future task               :         des3, after des2, 5d
+    Future task2              :         des4, after des3, 5d
+
+    section Critical tasks
+    Completed task in the critical line :crit, done, 2014-01-06,24h
+    Implement parser and jison          :crit, done, after des1, 2d
+    Create tests for parser             :crit, active, 3d
+    Future task in critical line        :crit, 5d
+    Create tests for renderer           :2d
+    Add to mermaid                      :until isadded
+    Functionality added                 :milestone, isadded, 2014-01-25, 0d
+
+    section Documentation
+    Describe gantt syntax               :active, a1, after des1, 3d
+    Add gantt diagram to demo page      :after a1  , 20h
+    Add another diagram to demo page    :doc1, after a1  , 48h
+
+    section Last section
+    Describe gantt syntax               :after doc1, 3d
+    Add gantt diagram to demo page      :20h
+    Add another diagram to demo page    :48h
+</code></pre>
+          <p>Tasks are by default sequential. A task start date defaults to the end date of the preceding task.</p>
+          <p>
+            A colon, <code>:</code>, separates the task title from its metadata.
+            Metadata items are separated by a comma, <code>,</code>. Valid tags are <code>active</code>, <code>done</code>, <code>crit</code>, and <code>milestone</code>. Tags are optional, but if used, they must be specified first.
+            After processing the tags, the remaining metadata items are interpreted as follows:
+          </p>
+          <ol>
+            <li>If a single item is specified, it determines when the task ends. It can either be a specific date/time or a duration. If a duration is specified, it is added to the start date of the task to determine the end date of the task, taking into account any exclusions.</li>
+            <li>If two items are specified, the last item is interpreted as in the previous case. The first item can either specify an explicit start date/time (in the format specified by <code>dateFormat</code>) or reference another task using <code>after &#x3C;otherTaskID> [[otherTaskID2 [otherTaskID3]]...]</code>. In the latter case, the start date of the task will be set according to the latest end date of any referenced task.</li>
+            <li>If three items are specified, the last two will be interpreted as in the previous case. The first item will denote the ID of the task, which can be referenced using the <code>later &#x3C;taskID></code> syntax.</li>
+          </ol>
+          <table>
+            <thead>
+              <tr>
+                <th>Metadata syntax</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&#x3C;taskID>, &#x3C;startDate>, &#x3C;endDate></code></td>
+                <td><code>startdate</code> as interpreted using <code>dateformat</code></td>
+                <td><code>endDate</code> as interpreted using <code>dateformat</code></td>
+                <td><code>taskID</code></td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;taskID>, &#x3C;startDate>, &#x3C;length></code></td>
+                <td><code>startdate</code> as interpreted using <code>dateformat</code></td>
+                <td>Start date + <code>length</code></td>
+                <td><code>taskID</code></td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;taskID>, after &#x3C;otherTaskId>, &#x3C;endDate></code></td>
+                <td>End date of previously specified task <code>otherTaskID</code></td>
+                <td><code>endDate</code> as interpreted using <code>dateformat</code></td>
+                <td><code>taskID</code></td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;taskID>, after &#x3C;otherTaskId>, &#x3C;length></code></td>
+                <td>End date of previously specified task <code>otherTaskID</code></td>
+                <td>Start date + <code>length</code></td>
+                <td><code>taskID</code></td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;taskID>, &#x3C;startDate>, until &#x3C;otherTaskId></code></td>
+                <td><code>startdate</code> as interpreted using <code>dateformat</code></td>
+                <td>Start date of previously specified task <code>otherTaskID</code></td>
+                <td><code>taskID</code></td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;taskID>, after &#x3C;otherTaskId>, until &#x3C;otherTaskId></code></td>
+                <td>End date of previously specified task <code>otherTaskID</code></td>
+                <td>Start date of previously specified task <code>otherTaskID</code></td>
+                <td><code>taskID</code></td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;startDate>, &#x3C;endDate></code></td>
+                <td><code>startdate</code> as interpreted using <code>dateformat</code></td>
+                <td><code>enddate</code> as interpreted using <code>dateformat</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;startDate>, &#x3C;length></code></td>
+                <td><code>startdate</code> as interpreted using <code>dateformat</code></td>
+                <td>Start date + <code>length</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>after &#x3C;otherTaskID>, &#x3C;endDate></code></td>
+                <td>End date of previously specified task <code>otherTaskID</code></td>
+                <td><code>enddate</code> as interpreted using <code>dateformat</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>after &#x3C;otherTaskID>, &#x3C;length></code></td>
+                <td>End date of previously specified task <code>otherTaskID</code></td>
+                <td>Start date + <code>length</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;startDate>, until &#x3C;otherTaskId></code></td>
+                <td><code>startdate</code> as interpreted using <code>dateformat</code></td>
+                <td>Start date of previously specified task <code>otherTaskID</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>after &#x3C;otherTaskId>, until &#x3C;otherTaskId></code></td>
+                <td>End date of previously specified task <code>otherTaskID</code></td>
+                <td>Start date of previously specified task <code>otherTaskID</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;endDate></code></td>
+                <td>End date of preceding task</td>
+                <td><code>enddate</code> as interpreted using <code>dateformat</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>&#x3C;length></code></td>
+                <td>End date of preceding task</td>
+                <td>Start date + <code>length</code></td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td><code>until &#x3C;otherTaskId></code></td>
+                <td>End date of preceding task</td>
+                <td>Start date of previously specified task <code>otherTaskID</code></td>
+                <td>n/a</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">Support for keyword `until` was added in (v10.9.0+). This can be used to define a task which is running until some other specific task or milestone starts.
+</code></pre>
+          <p>For simplicity, the table does not show the use of multiple tasks listed with the <code>after</code> keyword. Here is an example of how to use it and how it's interpreted:</p>
+          <pre><code class="language-mermaid-example">gantt
+    apple :a, 2017-07-20, 1w
+    banana :crit, b, 2017-07-23, 1d
+    cherry :active, c, after b a, 1d
+    kiwi   :d, 2017-07-20, until b c
+</code></pre>
+          <h3 id="title"><a aria-hidden="true" tabindex="-1" href="#title"><span class="icon icon-link"></span></a>Title</h3>
+          <p>The <code>title</code> is an <em>optional</em> string to be displayed at the top of the Gantt chart to describe the chart as a whole.</p>
+          <h3 id="excludes"><a aria-hidden="true" tabindex="-1" href="#excludes"><span class="icon icon-link"></span></a>Excludes</h3>
+          <p>
+            The <code>excludes</code> is an <em>optional</em> attribute that accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".
+            These date will be marked on the graph, and be excluded from the duration calculation of tasks. Meaning that if there are excluded dates during a task interval, the number of 'skipped' days will be added to the end of the task to ensure the duration is as specified in the code.
+          </p>
+          <h4 id="weekend-v1100"><a aria-hidden="true" tabindex="-1" href="#weekend-v1100"><span class="icon icon-link"></span></a>Weekend (v\11.0.0+)</h4>
+          <p>
+            When excluding weekends, it is possible to configure the weekends to be either Friday and Saturday or Saturday and Sunday. By default weekends are Saturday and Sunday.
+            To define the weekend start day, there is an <em>optional</em> attribute <code>weekend</code> that can be added in a new line followed by either <code>friday</code> or <code>saturday</code>.
+          </p>
+          <pre><code class="language-mermaid-example">gantt
+    title A Gantt Diagram Excluding Fri - Sat weekends
+    dateFormat YYYY-MM-DD
+    excludes weekends
+    weekend friday
+    section Section
+        A task          :a1, 2024-01-01, 30d
+        Another task    :after a1, 20d
+</code></pre>
+          <h3 id="section-statements"><a aria-hidden="true" tabindex="-1" href="#section-statements"><span class="icon icon-link"></span></a>Section statements</h3>
+          <p>You can divide the chart into various sections, for example to separate different parts of a project like development and documentation.</p>
+          <p>To do so, start a line with the <code>section</code> keyword and give it a name. (Note that unlike with the <a href="#title">title for the entire chart</a>, this name is <em>required</em>.</p>
+          <h3 id="milestones"><a aria-hidden="true" tabindex="-1" href="#milestones"><span class="icon icon-link"></span></a>Milestones</h3>
+          <p>You can add milestones to the diagrams. Milestones differ from tasks as they represent a single instant in time and are identified by the keyword <code>milestone</code>. Below is an example on how to use milestones. As you may notice, the exact location of the milestone is determined by the initial date for the milestone and the "duration" of the task this way: <em>initial date</em>+<em>duration</em>/2.</p>
+          <pre><code class="language-mermaid-example">gantt
+    dateFormat HH:mm
+    axisFormat %H:%M
+    Initial milestone : milestone, m1, 17:49, 2m
+    Task A : 10m
+    Task B : 5m
+    Final milestone : milestone, m2, 18:08, 4m
+</code></pre>
+          <h2 id="setting-dates"><a aria-hidden="true" tabindex="-1" href="#setting-dates"><span class="icon icon-link"></span></a>Setting dates</h2>
+          <p><code>dateFormat</code> defines the format of the date <strong>input</strong> of your gantt elements. How these dates are represented in the rendered chart <strong>output</strong> are defined by <code>axisFormat</code>.</p>
+          <h3 id="input-date-format"><a aria-hidden="true" tabindex="-1" href="#input-date-format"><span class="icon icon-link"></span></a>Input date format</h3>
+          <p>The default input date format is <code>YYYY-MM-DD</code>. You can define your custom <code>dateFormat</code>.</p>
+          <pre><code class="language-markdown">dateFormat YYYY-MM-DD
+</code></pre>
+          <p>The following formatting options are supported:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Input</th>
+                <th>Example</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>YYYY</code></td>
+                <td>2014</td>
+                <td>4 digit year</td>
+              </tr>
+              <tr>
+                <td><code>YY</code></td>
+                <td>14</td>
+                <td>2 digit year</td>
+              </tr>
+              <tr>
+                <td><code>Q</code></td>
+                <td>1..4</td>
+                <td>Quarter of year. Sets month to first month in quarter.</td>
+              </tr>
+              <tr>
+                <td><code>M MM</code></td>
+                <td>1..12</td>
+                <td>Month number</td>
+              </tr>
+              <tr>
+                <td><code>MMM MMMM</code></td>
+                <td>January..Dec</td>
+                <td>Month name in locale set by <code>dayjs.locale()</code></td>
+              </tr>
+              <tr>
+                <td><code>D DD</code></td>
+                <td>1..31</td>
+                <td>Day of month</td>
+              </tr>
+              <tr>
+                <td><code>Do</code></td>
+                <td>1st..31st</td>
+                <td>Day of month with ordinal</td>
+              </tr>
+              <tr>
+                <td><code>DDD DDDD</code></td>
+                <td>1..365</td>
+                <td>Day of year</td>
+              </tr>
+              <tr>
+                <td><code>X</code></td>
+                <td>1410715640.579</td>
+                <td>Unix timestamp</td>
+              </tr>
+              <tr>
+                <td><code>x</code></td>
+                <td>1410715640579</td>
+                <td>Unix ms timestamp</td>
+              </tr>
+              <tr>
+                <td><code>H HH</code></td>
+                <td>0..23</td>
+                <td>24 hour time</td>
+              </tr>
+              <tr>
+                <td><code>h hh</code></td>
+                <td>1..12</td>
+                <td>12 hour time used with <code>a A</code>.</td>
+              </tr>
+              <tr>
+                <td><code>a A</code></td>
+                <td>am pm</td>
+                <td>Post or ante meridiem</td>
+              </tr>
+              <tr>
+                <td><code>m mm</code></td>
+                <td>0..59</td>
+                <td>Minutes</td>
+              </tr>
+              <tr>
+                <td><code>s ss</code></td>
+                <td>0..59</td>
+                <td>Seconds</td>
+              </tr>
+              <tr>
+                <td><code>S</code></td>
+                <td>0..9</td>
+                <td>Tenths of a second</td>
+              </tr>
+              <tr>
+                <td><code>SS</code></td>
+                <td>0..99</td>
+                <td>Hundreds of a second</td>
+              </tr>
+              <tr>
+                <td><code>SSS</code></td>
+                <td>0..999</td>
+                <td>Thousandths of a second</td>
+              </tr>
+              <tr>
+                <td><code>Z ZZ</code></td>
+                <td>+12:00</td>
+                <td>Offset from UTC as +-HH:mm, +-HHmm, or Z</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>More info in: <a href="https://day.js.org/docs/en/parse/string-format/">https://day.js.org/docs/en/parse/string-format/</a></p>
+          <h3 id="output-date-format-on-the-axis"><a aria-hidden="true" tabindex="-1" href="#output-date-format-on-the-axis"><span class="icon icon-link"></span></a>Output date format on the axis</h3>
+          <p>The default output date format is <code>YYYY-MM-DD</code>. You can define your custom <code>axisFormat</code>, like <code>2020-Q1</code> for the first quarter of the year 2020.</p>
+          <pre><code class="language-markdown">axisFormat %Y-%m-%d
+</code></pre>
+          <p>The following formatting strings are supported:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Format</th>
+                <th>Definition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>%a</td>
+                <td>abbreviated weekday name</td>
+              </tr>
+              <tr>
+                <td>%A</td>
+                <td>full weekday name</td>
+              </tr>
+              <tr>
+                <td>%b</td>
+                <td>abbreviated month name</td>
+              </tr>
+              <tr>
+                <td>%B</td>
+                <td>full month name</td>
+              </tr>
+              <tr>
+                <td>%c</td>
+                <td>date and time, as "%a %b %e %H:%M:%S %Y"</td>
+              </tr>
+              <tr>
+                <td>%d</td>
+                <td>zero-padded day of the month as a decimal number [01,31]</td>
+              </tr>
+              <tr>
+                <td>%e</td>
+                <td>space-padded day of the month as a decimal number [ 1,31]; equivalent to %_d</td>
+              </tr>
+              <tr>
+                <td>%H</td>
+                <td>hour (24-hour clock) as a decimal number [00,23]</td>
+              </tr>
+              <tr>
+                <td>%I</td>
+                <td>hour (12-hour clock) as a decimal number [01,12]</td>
+              </tr>
+              <tr>
+                <td>%j</td>
+                <td>day of the year as a decimal number [001,366]</td>
+              </tr>
+              <tr>
+                <td>%m</td>
+                <td>month as a decimal number [01,12]</td>
+              </tr>
+              <tr>
+                <td>%M</td>
+                <td>minute as a decimal number [00,59]</td>
+              </tr>
+              <tr>
+                <td>%L</td>
+                <td>milliseconds as a decimal number [000, 999]</td>
+              </tr>
+              <tr>
+                <td>%p</td>
+                <td>either AM or PM</td>
+              </tr>
+              <tr>
+                <td>%S</td>
+                <td>second as a decimal number [00,61]</td>
+              </tr>
+              <tr>
+                <td>%U</td>
+                <td>week number of the year (Sunday as the first day of the week) as a decimal number [00,53]</td>
+              </tr>
+              <tr>
+                <td>%w</td>
+                <td>weekday as a decimal number [0(Sunday),6]</td>
+              </tr>
+              <tr>
+                <td>%W</td>
+                <td>week number of the year (Monday as the first day of the week) as a decimal number [00,53]</td>
+              </tr>
+              <tr>
+                <td>%x</td>
+                <td>date, as "%m/%d/%Y"</td>
+              </tr>
+              <tr>
+                <td>%X</td>
+                <td>time, as "%H:%M:%S"</td>
+              </tr>
+              <tr>
+                <td>%y</td>
+                <td>year without century as a decimal number [00,99]</td>
+              </tr>
+              <tr>
+                <td>%Y</td>
+                <td>year with century as a decimal number</td>
+              </tr>
+              <tr>
+                <td>%Z</td>
+                <td>time zone offset, such as "-0700"</td>
+              </tr>
+              <tr>
+                <td>%%</td>
+                <td>a literal "%" character</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>More info in: <a href="https://github.com/d3/d3-time-format/tree/v4.0.0#locale_format">https://github.com/d3/d3-time-format/tree/v4.0.0#locale_format</a></p>
+          <h3 id="axis-ticks-v1030"><a aria-hidden="true" tabindex="-1" href="#axis-ticks-v1030"><span class="icon icon-link"></span></a>Axis ticks (v10.3.0+)</h3>
+          <p>The default output ticks are auto. You can custom your <code>tickInterval</code>, like <code>1day</code> or <code>1week</code>.</p>
+          <pre><code class="language-markdown">tickInterval 1day
+</code></pre>
+          <p>The pattern is:</p>
+          <pre><code class="language-javascript"><span class="pl-k">/^</span>([<span class="pl-c1">1</span><span class="pl-k">-</span><span class="pl-c1">9</span>][<span class="pl-c1">0</span><span class="pl-k">-</span><span class="pl-c1">9</span>]<span class="pl-k">*</span>)(millisecond<span class="pl-k">|</span>second<span class="pl-k">|</span>minute<span class="pl-k">|</span>hour<span class="pl-k">|</span>day<span class="pl-k">|</span>week<span class="pl-k">|</span>month)$<span class="pl-k">/</span>;
+</code></pre>
+          <p>More info in: <a href="https://github.com/d3/d3-time#interval_every">https://github.com/d3/d3-time#interval_every</a></p>
+          <p>Week-based <code>tickInterval</code>s start the week on sunday by default. If you wish to specify another weekday on which the <code>tickInterval</code> should start, use the <code>weekday</code> option:</p>
+          <pre><code class="language-mermaid-example">gantt
+  tickInterval 1week
+  weekday monday
+</code></pre>
+          <pre><code class="language-warning">`millisecond` and `second` support was added in v10.3.0
+</code></pre>
+          <h2 id="output-in-compact-mode"><a aria-hidden="true" tabindex="-1" href="#output-in-compact-mode"><span class="icon icon-link"></span></a>Output in compact mode</h2>
+          <p>The compact mode allows you to display multiple tasks in the same row. Compact mode can be enabled for a gantt chart by setting the display mode of the graph via preceding YAML settings.</p>
+          <pre><code class="language-mermaid">---
+displayMode: compact
+---
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :a2, 2014-01-20, 25d
+    Another one      :a3, 2014-02-10, 20d
+</code></pre>
+          <h2 id="comments"><a aria-hidden="true" tabindex="-1" href="#comments"><span class="icon icon-link"></span></a>Comments</h2>
+          <p>Comments can be entered within a gantt chart, which will be ignored by the parser. Comments need to be on their own line and must be prefaced with <code>%%</code> (double percent signs). Any text after the start of the comment to the next newline will be treated as a comment, including any diagram syntax.</p>
+          <pre><code class="language-mermaid">gantt
+    title A Gantt Diagram
+    %% This is a comment
+    dateFormat YYYY-MM-DD
+    section Section
+        A task          :a1, 2014-01-01, 30d
+        Another task    :after a1, 20d
+    section Another
+        Task in Another :2014-01-12, 12d
+        another task    :24d
+</code></pre>
+          <h2 id="styling"><a aria-hidden="true" tabindex="-1" href="#styling"><span class="icon icon-link"></span></a>Styling</h2>
+          <p>Styling of the Gantt diagram is done by defining a number of CSS classes. During rendering, these classes are extracted from the file located at src/diagrams/gantt/styles.js</p>
+          <h3 id="classes-used"><a aria-hidden="true" tabindex="-1" href="#classes-used"><span class="icon icon-link"></span></a>Classes used</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>grid.tick</td>
+                <td>Styling for the Grid Lines</td>
+              </tr>
+              <tr>
+                <td>grid.path</td>
+                <td>Styling for the Grid's borders</td>
+              </tr>
+              <tr>
+                <td>.taskText</td>
+                <td>Task Text Styling</td>
+              </tr>
+              <tr>
+                <td>.taskTextOutsideRight</td>
+                <td>Styling for Task Text that exceeds the activity bar towards the right.</td>
+              </tr>
+              <tr>
+                <td>.taskTextOutsideLeft</td>
+                <td>Styling for Task Text that exceeds the activity bar, towards the left.</td>
+              </tr>
+              <tr>
+                <td>todayMarker</td>
+                <td>Toggle and Styling for the "Today Marker"</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="sample-stylesheet"><a aria-hidden="true" tabindex="-1" href="#sample-stylesheet"><span class="icon icon-link"></span></a>Sample stylesheet</h3>
+          <pre><code class="language-css"><span class="pl-e">.grid</span> <span class="pl-e">.tick</span> {
+  <span class="pl-c1">stroke</span>: <span class="pl-c1">lightgrey</span>;
+  <span class="pl-c1">opacity</span>: <span class="pl-c1">0.3</span>;
+  <span class="pl-c1">shape-rendering</span>: <span class="pl-c1">crispEdges</span>;
+}
+<span class="pl-e">.grid</span> <span class="pl-ent">path</span> {
+  <span class="pl-c1">stroke-width</span>: <span class="pl-c1">0</span>;
+}
+
+<span class="pl-e">#tag</span> {
+  <span class="pl-c1">color</span>: <span class="pl-c1">white</span>;
+  <span class="pl-c1">background</span>: <span class="pl-c1">#fa283d</span>;
+  <span class="pl-c1">width</span>: <span class="pl-c1">150</span><span class="pl-k">px</span>;
+  <span class="pl-c1">position</span>: <span class="pl-c1">absolute</span>;
+  <span class="pl-c1">display</span>: <span class="pl-c1">none</span>;
+  <span class="pl-c1">padding</span>: <span class="pl-c1">3</span><span class="pl-k">px</span> <span class="pl-c1">6</span><span class="pl-k">px</span>;
+  <span class="pl-c1">margin-left</span>: <span class="pl-c1">-80</span><span class="pl-k">px</span>;
+  <span class="pl-c1">font-size</span>: <span class="pl-c1">11</span><span class="pl-k">px</span>;
+}
+
+<span class="pl-e">#tag:before</span> {
+  <span class="pl-c1">border</span>: <span class="pl-c1">solid</span> <span class="pl-c1">transparent</span>;
+  <span class="pl-c1">content</span>: <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span>;
+  <span class="pl-c1">height</span>: <span class="pl-c1">0</span>;
+  <span class="pl-c1">left</span>: <span class="pl-c1">50</span><span class="pl-k">%</span>;
+  <span class="pl-c1">margin-left</span>: <span class="pl-c1">-5</span><span class="pl-k">px</span>;
+  <span class="pl-c1">position</span>: <span class="pl-c1">absolute</span>;
+  <span class="pl-c1">width</span>: <span class="pl-c1">0</span>;
+  <span class="pl-c1">border-width</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
+  <span class="pl-c1">border-bottom-color</span>: <span class="pl-c1">#fa283d</span>;
+  <span class="pl-c1">top</span>: <span class="pl-c1">-20</span><span class="pl-k">px</span>;
+}
+<span class="pl-e">.taskText</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">white</span>;
+  <span class="pl-c1">text-anchor</span>: <span class="pl-c1">middle</span>;
+}
+<span class="pl-e">.taskTextOutsideRight</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">text-anchor</span>: <span class="pl-c1">start</span>;
+}
+<span class="pl-e">.taskTextOutsideLeft</span> {
+  <span class="pl-c1">fill</span>: <span class="pl-c1">black</span>;
+  <span class="pl-c1">text-anchor</span>: <span class="pl-c1">end</span>;
+}
+</code></pre>
+          <h2 id="today-marker"><a aria-hidden="true" tabindex="-1" href="#today-marker"><span class="icon icon-link"></span></a>Today marker</h2>
+          <p>You can style or hide the marker for the current date. To style it, add a value for the <code>todayMarker</code> key.</p>
+          <pre><code>todayMarker stroke-width:5px,stroke:#0f0,opacity:0.5
+</code></pre>
+          <p>To hide the marker, set <code>todayMarker</code> to <code>off</code>.</p>
+          <pre><code>todayMarker off
+</code></pre>
+          <h2 id="configuration"><a aria-hidden="true" tabindex="-1" href="#configuration"><span class="icon icon-link"></span></a>Configuration</h2>
+          <p>It is possible to adjust the margins for rendering the gantt diagram.</p>
+          <p>
+            This is done by defining the <code>ganttConfig</code> part of the configuration object.
+            How to use the CLI is described in the <a href="config/mermaidCLI.html">mermaidCLI</a> page.
+          </p>
+          <p>mermaid.ganttConfig can be set to a JSON string with config parameters or the corresponding object.</p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-smi">ganttConfig</span> <span class="pl-k">=</span> {
+  titleTopMargin<span class="pl-k">:</span> <span class="pl-c1">25</span>, <span class="pl-c">// Margin top for the text over the diagram</span>
+  barHeight<span class="pl-k">:</span> <span class="pl-c1">20</span>, <span class="pl-c">// The height of the bars in the graph</span>
+  barGap<span class="pl-k">:</span> <span class="pl-c1">4</span>, <span class="pl-c">// The margin between the different activities in the gantt diagram</span>
+  topPadding<span class="pl-k">:</span> <span class="pl-c1">75</span>, <span class="pl-c">// Margin between title and gantt diagram and between axis and gantt diagram.</span>
+  rightPadding<span class="pl-k">:</span> <span class="pl-c1">75</span>, <span class="pl-c">// The space allocated for the section name to the right of the activities</span>
+  leftPadding<span class="pl-k">:</span> <span class="pl-c1">75</span>, <span class="pl-c">// The space allocated for the section name to the left of the activities</span>
+  gridLineStartPadding<span class="pl-k">:</span> <span class="pl-c1">10</span>, <span class="pl-c">// Vertical starting position of the grid lines</span>
+  fontSize<span class="pl-k">:</span> <span class="pl-c1">12</span>, <span class="pl-c">// Font size</span>
+  sectionFontSize<span class="pl-k">:</span> <span class="pl-c1">24</span>, <span class="pl-c">// Font size for sections</span>
+  numberSectionStyles<span class="pl-k">:</span> <span class="pl-c1">1</span>, <span class="pl-c">// The number of alternating section styles</span>
+  axisFormat<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>%d/%m<span class="pl-pds">'</span></span>, <span class="pl-c">// Date/time format of the axis</span>
+  tickInterval<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 week<span class="pl-pds">'</span></span>, <span class="pl-c">// Axis ticks</span>
+  topAxis<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-c">// When this flag is set, date labels will be added to the top of the chart</span>
+  displayMode<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>, <span class="pl-c">// Turns compact mode on</span>
+  weekday<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>sunday<span class="pl-pds">'</span></span>, <span class="pl-c">// On which day a week-based interval should start</span>
+};
+</code></pre>
+          <h3 id="possible-configuration-params"><a aria-hidden="true" tabindex="-1" href="#possible-configuration-params"><span class="icon icon-link"></span></a>Possible configuration params:</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Param</th>
+                <th>Description</th>
+                <th>Default value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>mirrorActor</td>
+                <td>Turns on/off the rendering of actors below the diagram as well as above it</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>bottomMarginAdj</td>
+                <td>Adjusts how far down the graph ended. Wide borders styles with css could generate unwanted clipping which is why this config param exists.</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="interaction"><a aria-hidden="true" tabindex="-1" href="#interaction"><span class="icon icon-link"></span></a>Interaction</h2>
+          <p>It is possible to bind a click event to a task. The click can lead to either a javascript callback or to a link which will be opened in the current browser tab. <strong>Note</strong>: This functionality is disabled when using <code>securityLevel='strict'</code> and enabled when using <code>securityLevel='loose'</code>.</p>
+          <pre><code>click taskId call callback(arguments)
+click taskId href URL
+</code></pre>
+          <ul>
+            <li>taskId is the id of the task</li>
+            <li>callback is the name of a javascript function defined on the page displaying the graph, the function will be called with the taskId as the parameter if no other arguments are specified.</li>
+          </ul>
+          <p>Beginner's tip—a full example using interactive links in an html context:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">body</span>>
+  &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+    gantt
+      dateFormat  YYYY-MM-DD
+
+      section Clickable
+      Visit mermaidjs         :active, cl1, 2014-01-07, 3d
+      Print arguments         :cl2, after cl1, 3d
+      Print task              :cl3, after cl2, 3d
+
+      click cl1 href "https://mermaidjs.github.io/"
+      click cl2 call printArguments("test1", "test2", test3)
+      click cl3 call printTask()
+  &#x3C;/<span class="pl-ent">pre</span>>
+
+  &#x3C;<span class="pl-ent">script</span>>
+    <span class="pl-k">const</span> <span class="pl-c1">printArguments</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">arg1</span>, <span class="pl-smi">arg2</span>, <span class="pl-smi">arg3</span>) {
+      <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>printArguments called with arguments: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> arg1 <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>, <span class="pl-pds">'</span></span> <span class="pl-k">+</span> arg2 <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>, <span class="pl-pds">'</span></span> <span class="pl-k">+</span> arg3);
+    };
+    <span class="pl-k">const</span> <span class="pl-c1">printTask</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">taskId</span>) {
+      <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>taskId: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> taskId);
+    };
+    <span class="pl-k">const</span> <span class="pl-c1">config</span> <span class="pl-k">=</span> {
+      startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+      securityLevel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>loose<span class="pl-pds">'</span></span>,
+    };
+    <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>(config);
+  &#x3C;/<span class="pl-ent">script</span>>
+&#x3C;/<span class="pl-ent">body</span>>
+</code></pre>
+          <h2 id="examples"><a aria-hidden="true" tabindex="-1" href="#examples"><span class="icon icon-link"></span></a>Examples</h2>
+          <h3 id="bar-chart-using-gantt-chart"><a aria-hidden="true" tabindex="-1" href="#bar-chart-using-gantt-chart"><span class="icon icon-link"></span></a>Bar chart (using gantt chart)</h3>
+          <pre><code class="language-mermaid-example">gantt
+    title Git Issues - days since last update
+    dateFormat X
+    axisFormat %s
+    section Issue19062
+    71   : 0, 71
+    section Issue19401
+    36   : 0, 36
+    section Issue193
+    34   : 0, 34
+    section Issue7441
+    9    : 0, 9
+    section Issue1300
+    5    : 0, 5
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

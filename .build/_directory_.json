@@ -1,0 +1,30 @@
+{
+  "title": "/.build",
+  "files": [
+    {
+      "type": "blob",
+      "title": "common.ts",
+      "href": "common.ts"
+    },
+    {
+      "type": "blob",
+      "title": "generateLangium.ts",
+      "href": "generateLangium.ts"
+    },
+    {
+      "type": "blob",
+      "title": "jisonTransformer.ts",
+      "href": "jisonTransformer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "jsonSchema.ts",
+      "href": "jsonSchema.ts"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    }
+  ]
+}

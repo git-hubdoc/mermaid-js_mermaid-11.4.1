@@ -1,0 +1,10 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1",
+  "files": [
+    {
+      "type": "folder",
+      "title": "es5",
+      "href": "es5"
+    }
+  ]
+}

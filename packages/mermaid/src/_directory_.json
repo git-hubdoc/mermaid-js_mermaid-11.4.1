@@ -1,0 +1,180 @@
+{
+  "title": "/packages/mermaid/src",
+  "files": [
+    {
+      "type": "blob",
+      "title": "accessibility.spec.ts",
+      "href": "accessibility.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "accessibility.ts",
+      "href": "accessibility.ts"
+    },
+    {
+      "type": "blob",
+      "title": "assignWithDepth.ts",
+      "href": "assignWithDepth.ts"
+    },
+    {
+      "type": "blob",
+      "title": "config.spec.ts",
+      "href": "config.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "config.ts",
+      "href": "config.ts"
+    },
+    {
+      "type": "blob",
+      "title": "config.type.ts",
+      "href": "config.type.ts"
+    },
+    {
+      "type": "folder",
+      "title": "dagre-wrapper",
+      "href": "dagre-wrapper"
+    },
+    {
+      "type": "blob",
+      "title": "defaultConfig.ts",
+      "href": "defaultConfig.ts"
+    },
+    {
+      "type": "folder",
+      "title": "diagram-api",
+      "href": "diagram-api"
+    },
+    {
+      "type": "blob",
+      "title": "diagram.spec.ts",
+      "href": "diagram.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "Diagram.ts",
+      "href": "Diagram.ts"
+    },
+    {
+      "type": "folder",
+      "title": "diagrams",
+      "href": "diagrams"
+    },
+    {
+      "type": "folder",
+      "title": "docs",
+      "href": "docs"
+    },
+    {
+      "type": "blob",
+      "title": "errors.ts",
+      "href": "errors.ts"
+    },
+    {
+      "type": "blob",
+      "title": "interactionDb.ts",
+      "href": "interactionDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "internals.ts",
+      "href": "internals.ts"
+    },
+    {
+      "type": "blob",
+      "title": "logger.ts",
+      "href": "logger.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.spec.ts",
+      "href": "mermaid.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ts",
+      "href": "mermaid.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mermaidAPI.spec.ts",
+      "href": "mermaidAPI.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mermaidAPI.ts",
+      "href": "mermaidAPI.ts"
+    },
+    {
+      "type": "blob",
+      "title": "preprocess.ts",
+      "href": "preprocess.ts"
+    },
+    {
+      "type": "folder",
+      "title": "rendering-util",
+      "href": "rendering-util"
+    },
+    {
+      "type": "folder",
+      "title": "schemas",
+      "href": "schemas"
+    },
+    {
+      "type": "blob",
+      "title": "setupGraphViewbox.js",
+      "href": "setupGraphViewbox.js"
+    },
+    {
+      "type": "blob",
+      "title": "setupGraphViewbox.spec.js",
+      "href": "setupGraphViewbox.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "styles.spec.ts",
+      "href": "styles.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "styles.ts",
+      "href": "styles.ts"
+    },
+    {
+      "type": "folder",
+      "title": "tests",
+      "href": "tests"
+    },
+    {
+      "type": "folder",
+      "title": "themes",
+      "href": "themes"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    },
+    {
+      "type": "folder",
+      "title": "utils",
+      "href": "utils"
+    },
+    {
+      "type": "blob",
+      "title": "utils.spec.ts",
+      "href": "utils.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "utils.ts",
+      "href": "utils.ts"
+    },
+    {
+      "type": "folder",
+      "title": "__mocks__",
+      "href": "__mocks__"
+    }
+  ]
+}

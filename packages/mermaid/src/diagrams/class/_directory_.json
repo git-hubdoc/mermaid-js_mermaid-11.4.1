@@ -1,0 +1,90 @@
+{
+  "title": "/packages/mermaid/src/diagrams/class",
+  "files": [
+    {
+      "type": "blob",
+      "title": "classDb.ts",
+      "href": "classDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classDetector-V2.ts",
+      "href": "classDetector-V2.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classDetector.ts",
+      "href": "classDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram-styles.spec.js",
+      "href": "classDiagram-styles.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram-v2.ts",
+      "href": "classDiagram-v2.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram.spec.ts",
+      "href": "classDiagram.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram.ts",
+      "href": "classDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classRenderer-v2.ts",
+      "href": "classRenderer-v2.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classRenderer-v3-unified.ts",
+      "href": "classRenderer-v3-unified.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classRenderer.js",
+      "href": "classRenderer.js"
+    },
+    {
+      "type": "blob",
+      "title": "classTypes.spec.ts",
+      "href": "classTypes.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classTypes.ts",
+      "href": "classTypes.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "shapeUtil.ts",
+      "href": "shapeUtil.ts"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.js",
+      "href": "svgDraw.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.spec.js",
+      "href": "svgDraw.spec.js"
+    }
+  ]
+}

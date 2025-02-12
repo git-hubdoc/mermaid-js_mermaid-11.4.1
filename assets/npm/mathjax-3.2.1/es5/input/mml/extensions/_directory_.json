@@ -1,0 +1,15 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/input/mml/extensions",
+  "files": [
+    {
+      "type": "blob",
+      "title": "mml3.js",
+      "href": "mml3.js"
+    },
+    {
+      "type": "blob",
+      "title": "mml3.sef.json",
+      "href": "mml3.sef.json"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/github.com/mermaid-js/mermaid/actions",
+  "files": [
+    {
+      "type": "folder",
+      "title": "workflows",
+      "href": "workflows"
+    }
+  ]
+}

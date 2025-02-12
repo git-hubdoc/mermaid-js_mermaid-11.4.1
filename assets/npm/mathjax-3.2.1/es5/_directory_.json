@@ -1,0 +1,20 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5",
+  "files": [
+    {
+      "type": "folder",
+      "title": "input",
+      "href": "input"
+    },
+    {
+      "type": "folder",
+      "title": "output",
+      "href": "output"
+    },
+    {
+      "type": "blob",
+      "title": "tex-mml-chtml.js",
+      "href": "tex-mml-chtml.js"
+    }
+  ]
+}

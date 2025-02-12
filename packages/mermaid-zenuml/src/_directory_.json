@@ -1,0 +1,30 @@
+{
+  "title": "/packages/mermaid-zenuml/src",
+  "files": [
+    {
+      "type": "blob",
+      "title": "detector.ts",
+      "href": "detector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mermaidUtils.ts",
+      "href": "mermaidUtils.ts"
+    },
+    {
+      "type": "blob",
+      "title": "parser.ts",
+      "href": "parser.ts"
+    },
+    {
+      "type": "blob",
+      "title": "zenuml-definition.ts",
+      "href": "zenuml-definition.ts"
+    },
+    {
+      "type": "blob",
+      "title": "zenumlRenderer.ts",
+      "href": "zenumlRenderer.ts"
+    }
+  ]
+}

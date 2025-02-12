@@ -1,0 +1,115 @@
+{
+  "title": "/docs/config/setup/interfaces",
+  "files": [
+    {
+      "type": "blob",
+      "title": "mermaid.DetailedError.html",
+      "href": "mermaid.DetailedError.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.DetailedError.md",
+      "href": "mermaid.DetailedError.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ExternalDiagramDefinition.html",
+      "href": "mermaid.ExternalDiagramDefinition.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ExternalDiagramDefinition.md",
+      "href": "mermaid.ExternalDiagramDefinition.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.LayoutData.html",
+      "href": "mermaid.LayoutData.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.LayoutData.md",
+      "href": "mermaid.LayoutData.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.LayoutLoaderDefinition.html",
+      "href": "mermaid.LayoutLoaderDefinition.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.LayoutLoaderDefinition.md",
+      "href": "mermaid.LayoutLoaderDefinition.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.Mermaid.html",
+      "href": "mermaid.Mermaid.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.Mermaid.md",
+      "href": "mermaid.Mermaid.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.MermaidConfig.html",
+      "href": "mermaid.MermaidConfig.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.MermaidConfig.md",
+      "href": "mermaid.MermaidConfig.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ParseOptions.html",
+      "href": "mermaid.ParseOptions.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ParseOptions.md",
+      "href": "mermaid.ParseOptions.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ParseResult.html",
+      "href": "mermaid.ParseResult.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.ParseResult.md",
+      "href": "mermaid.ParseResult.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.RenderOptions.html",
+      "href": "mermaid.RenderOptions.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.RenderOptions.md",
+      "href": "mermaid.RenderOptions.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.RenderResult.html",
+      "href": "mermaid.RenderResult.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.RenderResult.md",
+      "href": "mermaid.RenderResult.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.RunOptions.html",
+      "href": "mermaid.RunOptions.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.RunOptions.md",
+      "href": "mermaid.RunOptions.md"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "title": "/packages/mermaid/src/diagram-api",
+  "files": [
+    {
+      "type": "blob",
+      "title": "comments.spec.ts",
+      "href": "comments.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "comments.ts",
+      "href": "comments.ts"
+    },
+    {
+      "type": "blob",
+      "title": "detectType.ts",
+      "href": "detectType.ts"
+    },
+    {
+      "type": "blob",
+      "title": "diagram-orchestration.spec.ts",
+      "href": "diagram-orchestration.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "diagram-orchestration.ts",
+      "href": "diagram-orchestration.ts"
+    },
+    {
+      "type": "blob",
+      "title": "diagramAPI.spec.ts",
+      "href": "diagramAPI.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "diagramAPI.ts",
+      "href": "diagramAPI.ts"
+    },
+    {
+      "type": "blob",
+      "title": "frontmatter.spec.ts",
+      "href": "frontmatter.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "frontmatter.ts",
+      "href": "frontmatter.ts"
+    },
+    {
+      "type": "blob",
+      "title": "loadDiagram.ts",
+      "href": "loadDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "regexes.ts",
+      "href": "regexes.ts"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/user-journey/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "journey.jison",
+      "href": "journey.jison"
+    },
+    {
+      "type": "blob",
+      "title": "journey.spec.js",
+      "href": "journey.spec.js"
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="zenuml"><a aria-hidden="true" tabindex="-1" href="#zenuml"><span class="icon icon-link"></span></a>ZenUML</h1>
+          <blockquote>
+            <p>A Sequence diagram is an interaction diagram that shows how processes operate with one another and in what order.</p>
+          </blockquote>
+          <p>
+            Mermaid can render sequence diagrams with <a href="https://zenuml.com/">ZenUML</a>. Note that ZenUML uses a different
+            syntax than the original Sequence Diagram in mermaid.
+          </p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Demo
+    Alice->John: Hello John, how are you?
+    John->Alice: Great!
+    Alice->John: See you later!
+</code></pre>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <h3 id="participants"><a aria-hidden="true" tabindex="-1" href="#participants"><span class="icon icon-link"></span></a>Participants</h3>
+          <p>
+            The participants can be defined implicitly as in the first example on this page. The participants or actors are
+            rendered in order of appearance in the diagram source text. Sometimes you might want to show the participants in a
+            different order than how they appear in the first message. It is possible to specify the actor's order of
+            appearance by doing the following:
+          </p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Declare participant (optional)
+    Bob
+    Alice
+    Alice->Bob: Hi Bob
+    Bob->Alice: Hi Alice
+</code></pre>
+          <h3 id="annotators"><a aria-hidden="true" tabindex="-1" href="#annotators"><span class="icon icon-link"></span></a>Annotators</h3>
+          <p>If you specifically want to use symbols instead of just rectangles with text you can do so by using the annotator syntax to declare participants as per below.</p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Annotators
+    @Actor Alice
+    @Database Bob
+    Alice->Bob: Hi Bob
+    Bob->Alice: Hi Alice
+</code></pre>
+          <p>
+            Here are the available annotators:
+            
+            <img src="img/zenuml-participant-annotators.png" alt="img.png">
+          </p>
+          <h3 id="aliases"><a aria-hidden="true" tabindex="-1" href="#aliases"><span class="icon icon-link"></span></a>Aliases</h3>
+          <p>The participants can have a convenient identifier and a descriptive label.</p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Aliases
+    A as Alice
+    J as John
+    A->J: Hello John, how are you?
+    J->A: Great!
+</code></pre>
+          <h2 id="messages"><a aria-hidden="true" tabindex="-1" href="#messages"><span class="icon icon-link"></span></a>Messages</h2>
+          <p>Messages can be one of:</p>
+          <ol>
+            <li>Sync message</li>
+            <li>Async message</li>
+            <li>Creation message</li>
+            <li>Reply message</li>
+          </ol>
+          <h3 id="sync-message"><a aria-hidden="true" tabindex="-1" href="#sync-message"><span class="icon icon-link"></span></a>Sync message</h3>
+          <p>You can think of a sync (blocking) method in a programming language.</p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Sync message
+    A.SyncMessage
+    A.SyncMessage(with, parameters) {
+      B.nestedSyncMessage()
+    }
+</code></pre>
+          <h3 id="async-message"><a aria-hidden="true" tabindex="-1" href="#async-message"><span class="icon icon-link"></span></a>Async message</h3>
+          <p>
+            You can think of an async (non-blocking) method in a programming language.
+            Fire an event and forget about it.
+          </p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Async message
+    Alice->Bob: How are you?
+</code></pre>
+          <h3 id="creation-message"><a aria-hidden="true" tabindex="-1" href="#creation-message"><span class="icon icon-link"></span></a>Creation message</h3>
+          <p>We use <code>new</code> keyword to create an object.</p>
+          <pre><code class="language-mermaid-example">zenuml
+    new A1
+    new A2(with, parameters)
+</code></pre>
+          <h3 id="reply-message"><a aria-hidden="true" tabindex="-1" href="#reply-message"><span class="icon icon-link"></span></a>Reply message</h3>
+          <p>There are three ways to express a reply message:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    // 1. assign a variable from a sync message.
+    a = A.SyncMessage()
+
+    // 1.1. optionally give the variable a type
+    SomeType a = A.SyncMessage()
+
+    // 2. use return keyword
+    A.SyncMessage() {
+    return result
+    }
+
+    // 3. use @return or @reply annotator on an async message
+    @return
+    A->B: result
+</code></pre>
+          <p>The third way <code>@return</code> is rarely used, but it is useful when you want to return to one level up.</p>
+          <pre><code class="language-mermaid-example">zenuml
+    title Reply message
+    Client->A.method() {
+      B.method() {
+        if(condition) {
+          return x1
+          // return early
+          @return
+          A->Client: x11
+        }
+      }
+      return x2
+    }
+</code></pre>
+          <h2 id="nesting"><a aria-hidden="true" tabindex="-1" href="#nesting"><span class="icon icon-link"></span></a>Nesting</h2>
+          <p>Sync messages and Creation messages are naturally nestable with <code>{}</code>.</p>
+          <pre><code class="language-mermaid-example">zenuml
+    A.method() {
+      B.nested_sync_method()
+      B->C: nested async message
+    }
+</code></pre>
+          <h2 id="comments"><a aria-hidden="true" tabindex="-1" href="#comments"><span class="icon icon-link"></span></a>Comments</h2>
+          <p>
+            It is possible to add comments to a sequence diagram with <code>// comment</code> syntax.
+            Comments will be rendered above the messages or fragments. Comments on other places
+            are ignored. Markdown is supported.
+          </p>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    // a comment on a participant will not be rendered
+    BookService
+    // a comment on a message.
+    // **Markdown** is supported.
+    BookService.getBook()
+</code></pre>
+          <h2 id="loops"><a aria-hidden="true" tabindex="-1" href="#loops"><span class="icon icon-link"></span></a>Loops</h2>
+          <p>
+            It is possible to express loops in a ZenUML diagram. This is done by any of the
+            following notations:
+          </p>
+          <ol>
+            <li>while</li>
+            <li>for</li>
+            <li>forEach, foreach</li>
+            <li>loop</li>
+          </ol>
+          <pre><code class="language-zenuml">while(condition) {
+    ...statements...
+}
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    Alice->John: Hello John, how are you?
+    while(true) {
+      John->Alice: Great!
+    }
+</code></pre>
+          <h2 id="alt"><a aria-hidden="true" tabindex="-1" href="#alt"><span class="icon icon-link"></span></a>Alt</h2>
+          <p>It is possible to express alternative paths in a sequence diagram. This is done by the notation</p>
+          <pre><code class="language-zenuml">if(condition1) {
+    ...statements...
+} else if(condition2) {
+    ...statements...
+} else {
+    ...statements...
+}
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    Alice->Bob: Hello Bob, how are you?
+    if(is_sick) {
+      Bob->Alice: Not so good :(
+    } else {
+      Bob->Alice: Feeling fresh like a daisy
+    }
+</code></pre>
+          <h2 id="opt"><a aria-hidden="true" tabindex="-1" href="#opt"><span class="icon icon-link"></span></a>Opt</h2>
+          <p>It is possible to render an <code>opt</code> fragment. This is done by the notation</p>
+          <pre><code class="language-zenuml">opt {
+  ...statements...
+}
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    Alice->Bob: Hello Bob, how are you?
+    Bob->Alice: Not so good :(
+    opt {
+      Bob->Alice: Thanks for asking
+    }
+</code></pre>
+          <h2 id="parallel"><a aria-hidden="true" tabindex="-1" href="#parallel"><span class="icon icon-link"></span></a>Parallel</h2>
+          <p>It is possible to show actions that are happening in parallel.</p>
+          <p>This is done by the notation</p>
+          <pre><code class="language-zenuml">par {
+  statement1
+  statement2
+  statement3
+}
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    par {
+        Alice->Bob: Hello guys!
+        Alice->John: Hello guys!
+    }
+</code></pre>
+          <h2 id="trycatchfinally-break"><a aria-hidden="true" tabindex="-1" href="#trycatchfinally-break"><span class="icon icon-link"></span></a>Try/Catch/Finally (Break)</h2>
+          <p>It is possible to indicate a stop of the sequence within the flow (usually used to model exceptions).</p>
+          <p>This is done by the notation</p>
+          <pre><code>try {
+  ...statements...
+} catch {
+  ...statements...
+} finally {
+  ...statements...
+}
+</code></pre>
+          <p>See the example below:</p>
+          <pre><code class="language-mermaid-example">zenuml
+    try {
+      Consumer->API: Book something
+      API->BookingService: Start booking process
+    } catch {
+      API->Consumer: show failure
+    } finally {
+      API->BookingService: rollback status
+    }
+</code></pre>
+          <h2 id="integrating-with-your-librarywebsite"><a aria-hidden="true" tabindex="-1" href="#integrating-with-your-librarywebsite"><span class="icon icon-link"></span></a>Integrating with your library/website.</h2>
+          <p>Zenuml uses the experimental lazy loading &#x26; async rendering features which could change in the future.</p>
+          <p>You can use this method to add mermaid including the zenuml diagram to a web page:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-k">import</span> <span class="pl-smi">zenuml</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-zenuml@0.1.0/dist/mermaid-zenuml.esm.min.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">registerExternalDiagrams</span>([zenuml]);
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

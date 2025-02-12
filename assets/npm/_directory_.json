@@ -1,0 +1,15 @@
+{
+  "title": "/assets/npm",
+  "files": [
+    {
+      "type": "folder",
+      "title": "mathjax-3.2.1",
+      "href": "mathjax-3.2.1"
+    },
+    {
+      "type": "folder",
+      "title": "mermaid-11.4.1",
+      "href": "mermaid-11.4.1"
+    }
+  ]
+}

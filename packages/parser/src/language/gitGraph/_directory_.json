@@ -1,0 +1,25 @@
+{
+  "title": "/packages/parser/src/language/gitGraph",
+  "files": [
+    {
+      "type": "blob",
+      "title": "gitGraph.langium",
+      "href": "gitGraph.langium"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "module.ts",
+      "href": "module.ts"
+    },
+    {
+      "type": "blob",
+      "title": "tokenBuilder.ts",
+      "href": "tokenBuilder.ts"
+    }
+  ]
+}

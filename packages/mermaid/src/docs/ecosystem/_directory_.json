@@ -1,0 +1,50 @@
+{
+  "title": "/packages/mermaid/src/docs/ecosystem",
+  "files": [
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "blob",
+      "title": "integrations-community.html",
+      "href": "integrations-community.html"
+    },
+    {
+      "type": "blob",
+      "title": "integrations-community.md",
+      "href": "integrations-community.md"
+    },
+    {
+      "type": "blob",
+      "title": "integrations-create.html",
+      "href": "integrations-create.html"
+    },
+    {
+      "type": "blob",
+      "title": "integrations-create.md",
+      "href": "integrations-create.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-chart.html",
+      "href": "mermaid-chart.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-chart.md",
+      "href": "mermaid-chart.md"
+    },
+    {
+      "type": "blob",
+      "title": "tutorials.html",
+      "href": "tutorials.html"
+    },
+    {
+      "type": "blob",
+      "title": "tutorials.md",
+      "href": "tutorials.md"
+    }
+  ]
+}

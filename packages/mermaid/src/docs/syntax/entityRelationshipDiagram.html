@@ -1,0 +1,330 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="entity-relationship-diagrams"><a aria-hidden="true" tabindex="-1" href="#entity-relationship-diagrams"><span class="icon icon-link"></span></a>Entity Relationship Diagrams</h1>
+          <blockquote>
+            <p>An entity–relationship model (or ER model) describes interrelated things of interest in a specific domain of knowledge. A basic ER model is composed of entity types (which classify the things of interest) and specifies relationships that can exist between entities (instances of those entity types) <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">Wikipedia</a>.</p>
+          </blockquote>
+          <p>Note that practitioners of ER modelling almost always refer to <em>entity types</em> simply as <em>entities</em>. For example the <code>CUSTOMER</code> entity <em>type</em> would be referred to simply as the <code>CUSTOMER</code> entity. This is so common it would be inadvisable to do anything else, but technically an entity is an abstract <em>instance</em> of an entity type, and this is what an ER diagram shows - abstract instances, and the relationships between them. This is why entities are always named using singular nouns.</p>
+          <p>Mermaid can render ER diagrams</p>
+          <pre><code class="language-mermaid-example">---
+title: Order example
+---
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+</code></pre>
+          <p>Entity names are often capitalised, although there is no accepted standard on this, and it is not required in Mermaid.</p>
+          <p>Relationships between entities are represented by lines with end markers representing cardinality. Mermaid uses the most popular crow's foot notation. The crow's foot intuitively conveys the possibility of many instances of the entity that it connects to.</p>
+          <p>ER diagrams can be used for various purposes, ranging from abstract logical models devoid of any implementation details, through to physical models of relational database tables. It can be useful to include attribute definitions on ER diagrams to aid comprehension of the purpose and meaning of entities. These do not necessarily need to be exhaustive; often a small subset of attributes is enough. Mermaid allows them to be defined in terms of their <em>type</em> and <em>name</em>.</p>
+          <pre><code class="language-mermaid-example">erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER {
+        string name
+        string custNumber
+        string sector
+    }
+    ORDER ||--|{ LINE-ITEM : contains
+    ORDER {
+        int orderNumber
+        string deliveryAddress
+    }
+    LINE-ITEM {
+        string productCode
+        int quantity
+        float pricePerUnit
+    }
+</code></pre>
+          <p>When including attributes on ER diagrams, you must decide whether to include foreign keys as attributes. This probably depends on how closely you are trying to represent relational table structures. If your diagram is a <em>logical</em> model which is not meant to imply a relational implementation, then it is better to leave these out because the associative relationships already convey the way that entities are associated. For example, a JSON data structure can implement a one-to-many relationship without the need for foreign key properties, using arrays. Similarly an object-oriented programming language may use pointers or references to collections. Even for models that are intended for relational implementation, you might decide that inclusion of foreign key attributes duplicates information already portrayed by the relationships, and does not add meaning to entities. Ultimately, it's your choice.</p>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <h3 id="entities-and-relationships"><a aria-hidden="true" tabindex="-1" href="#entities-and-relationships"><span class="icon icon-link"></span></a>Entities and Relationships</h3>
+          <p>Mermaid syntax for ER diagrams is compatible with PlantUML, with an extension to label the relationship. Each statement consists of the following parts:</p>
+          <pre><code>    &#x3C;first-entity> [&#x3C;relationship> &#x3C;second-entity> : &#x3C;relationship-label>]
+</code></pre>
+          <p>Where:</p>
+          <ul>
+            <li><code>first-entity</code> is the name of an entity. Names must begin with an alphabetic character or an underscore (from v10.5.0+), and may also contain digits and hyphens.</li>
+            <li><code>relationship</code> describes the way that both entities inter-relate. See below.</li>
+            <li><code>second-entity</code> is the name of the other entity.</li>
+            <li><code>relationship-label</code> describes the relationship from the perspective of the first entity.</li>
+          </ul>
+          <p>For example:</p>
+          <pre><code>    PROPERTY ||--|{ ROOM : contains
+</code></pre>
+          <p>This statement can be read as <em>a property contains one or more rooms, and a room is part of one and only one property</em>. You can see that the label here is from the first entity's perspective: a property contains a room, but a room does not contain a property. When considered from the perspective of the second entity, the equivalent label is usually very easy to infer. (Some ER diagrams label relationships from both perspectives, but this is not supported here, and is usually superfluous).</p>
+          <p>Only the <code>first-entity</code> part of a statement is mandatory. This makes it possible to show an entity with no relationships, which can be useful during iterative construction of diagrams. If any other parts of a statement are specified, then all parts are mandatory.</p>
+          <h3 id="relationship-syntax"><a aria-hidden="true" tabindex="-1" href="#relationship-syntax"><span class="icon icon-link"></span></a>Relationship Syntax</h3>
+          <p>The <code>relationship</code> part of each statement can be broken down into three sub-components:</p>
+          <ul>
+            <li>the cardinality of the first entity with respect to the second</li>
+            <li>whether the relationship confers identity on a 'child' entity</li>
+            <li>the cardinality of the second entity with respect to the first</li>
+          </ul>
+          <p>Cardinality is a property that describes how many elements of another entity can be related to the entity in question. In the above example a <code>PROPERTY</code> can have one or more <code>ROOM</code> instances associated to it, whereas a <code>ROOM</code> can only be associated with one <code>PROPERTY</code>. In each cardinality marker there are two characters. The outermost character represents a maximum value, and the innermost character represents a minimum value. The table below summarises possible cardinalities.</p>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">Value (left)</th>
+                <th align="center">Value (right)</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><code>|o</code></td>
+                <td align="center"><code>o|</code></td>
+                <td>Zero or one</td>
+              </tr>
+              <tr>
+                <td align="center"><code>||</code></td>
+                <td align="center"><code>||</code></td>
+                <td>Exactly one</td>
+              </tr>
+              <tr>
+                <td align="center"><code>}o</code></td>
+                <td align="center"><code>o{</code></td>
+                <td>Zero or more (no upper limit)</td>
+              </tr>
+              <tr>
+                <td align="center"><code>}|</code></td>
+                <td align="center"><code>|{</code></td>
+                <td>One or more (no upper limit)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><strong>Aliases</strong></p>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">Value (left)</th>
+                <th align="center">Value (right)</th>
+                <th>Alias for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">one or zero</td>
+                <td align="center">one or zero</td>
+                <td>Zero or one</td>
+              </tr>
+              <tr>
+                <td align="center">zero or one</td>
+                <td align="center">zero or one</td>
+                <td>Zero or one</td>
+              </tr>
+              <tr>
+                <td align="center">one or more</td>
+                <td align="center">one or more</td>
+                <td>One or more</td>
+              </tr>
+              <tr>
+                <td align="center">one or many</td>
+                <td align="center">one or many</td>
+                <td>One or more</td>
+              </tr>
+              <tr>
+                <td align="center">many(1)</td>
+                <td align="center">many(1)</td>
+                <td>One or more</td>
+              </tr>
+              <tr>
+                <td align="center">1+</td>
+                <td align="center">1+</td>
+                <td>One or more</td>
+              </tr>
+              <tr>
+                <td align="center">zero or more</td>
+                <td align="center">zero or more</td>
+                <td>Zero or more</td>
+              </tr>
+              <tr>
+                <td align="center">zero or many</td>
+                <td align="center">zero or many</td>
+                <td>Zero or more</td>
+              </tr>
+              <tr>
+                <td align="center">many(0)</td>
+                <td align="center">many(0)</td>
+                <td>Zero or more</td>
+              </tr>
+              <tr>
+                <td align="center">0+</td>
+                <td align="center">0+</td>
+                <td>Zero or more</td>
+              </tr>
+              <tr>
+                <td align="center">only one</td>
+                <td align="center">only one</td>
+                <td>Exactly one</td>
+              </tr>
+              <tr>
+                <td align="center">1</td>
+                <td align="center">1</td>
+                <td>Exactly one</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="identification"><a aria-hidden="true" tabindex="-1" href="#identification"><span class="icon icon-link"></span></a>Identification</h3>
+          <p>Relationships may be classified as either <em>identifying</em> or <em>non-identifying</em> and these are rendered with either solid or dashed lines respectively. This is relevant when one of the entities in question can not have independent existence without the other. For example a firm that insures people to drive cars might need to store data on <code>NAMED-DRIVER</code>s. In modelling this we might start out by observing that a <code>CAR</code> can be driven by many <code>PERSON</code> instances, and a <code>PERSON</code> can drive many <code>CAR</code>s - both entities can exist without the other, so this is a non-identifying relationship that we might specify in Mermaid as: <code>PERSON }|..|{ CAR : "driver"</code>. Note the two dots in the middle of the relationship that will result in a dashed line being drawn between the two entities. But when this many-to-many relationship is resolved into two one-to-many relationships, we observe that a <code>NAMED-DRIVER</code> cannot exist without both a <code>PERSON</code> and a <code>CAR</code> - the relationships become identifying and would be specified using hyphens, which translate to a solid line:</p>
+          <p><strong>Aliases</strong></p>
+          <table>
+            <thead>
+              <tr>
+                <th align="center">Value</th>
+                <th align="center">Alias for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">to</td>
+                <td align="center"><em>identifying</em></td>
+              </tr>
+              <tr>
+                <td align="center">optionally to</td>
+                <td align="center"><em>non-identifying</em></td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-mermaid">erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    PERSON ||--o{ NAMED-DRIVER : is
+</code></pre>
+          <h3 id="attributes"><a aria-hidden="true" tabindex="-1" href="#attributes"><span class="icon icon-link"></span></a>Attributes</h3>
+          <p>Attributes can be defined for entities by specifying the entity name followed by a block containing multiple <code>type name</code> pairs, where a block is delimited by an opening <code>{</code> and a closing <code>}</code>. The attributes are rendered inside the entity boxes. For example:</p>
+          <pre><code class="language-mermaid-example">erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    CAR {
+        string registrationNumber
+        string make
+        string model
+    }
+    PERSON ||--o{ NAMED-DRIVER : is
+    PERSON {
+        string firstName
+        string lastName
+        int age
+    }
+</code></pre>
+          <p>The <code>type</code> values must begin with an alphabetic character and may contain digits, hyphens, underscores, parentheses and square brackets. The <code>name</code> values follow a similar format to <code>type</code>, but may start with an asterisk as another option to indicate an attribute is a primary key. Other than that, there are no restrictions, and there is no implicit set of valid data types.</p>
+          <h3 id="entity-name-aliases-v1050"><a aria-hidden="true" tabindex="-1" href="#entity-name-aliases-v1050"><span class="icon icon-link"></span></a>Entity Name Aliases (v10.5.0+)</h3>
+          <p>An alias can be added to an entity using square brackets. If provided, the alias will be showed in the diagram instead of the entity name.</p>
+          <pre><code class="language-mermaid-example">erDiagram
+    p[Person] {
+        string firstName
+        string lastName
+    }
+    a["Customer Account"] {
+        string email
+    }
+    p ||--o| a : has
+</code></pre>
+          <h4 id="attribute-keys-and-comments"><a aria-hidden="true" tabindex="-1" href="#attribute-keys-and-comments"><span class="icon icon-link"></span></a>Attribute Keys and Comments</h4>
+          <p>Attributes may also have a <code>key</code> or comment defined. Keys can be <code>PK</code>, <code>FK</code> or <code>UK</code>, for Primary Key, Foreign Key or Unique Key. To specify multiple key constraints on a single attribute, separate them with a comma (e.g., <code>PK, FK</code>). A <code>comment</code> is defined by double quotes at the end of an attribute. Comments themselves cannot have double-quote characters in them.</p>
+          <pre><code class="language-mermaid-example">erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    CAR {
+        string registrationNumber PK
+        string make
+        string model
+        string[] parts
+    }
+    PERSON ||--o{ NAMED-DRIVER : is
+    PERSON {
+        string driversLicense PK "The license #"
+        string(99) firstName "Only 99 characters are allowed"
+        string lastName
+        string phone UK
+        int age
+    }
+    NAMED-DRIVER {
+        string carRegistrationNumber PK, FK
+        string driverLicence PK, FK
+    }
+    MANUFACTURER only one to zero or more CAR : makes
+</code></pre>
+          <h3 id="other-things"><a aria-hidden="true" tabindex="-1" href="#other-things"><span class="icon icon-link"></span></a>Other Things</h3>
+          <ul>
+            <li>If you want the relationship label to be more than one word, you must use double quotes around the phrase</li>
+            <li>If you don't want a label at all on a relationship, you must use an empty double-quoted string</li>
+            <li>(v11.1.0+) If you want a multi-line label on a relationship, use <code>&#x3C;br /></code> between the two lines (<code>"first line&#x3C;br />second line"</code>)</li>
+          </ul>
+          <h2 id="styling"><a aria-hidden="true" tabindex="-1" href="#styling"><span class="icon icon-link"></span></a>Styling</h2>
+          <h3 id="config-options"><a aria-hidden="true" tabindex="-1" href="#config-options"><span class="icon icon-link"></span></a>Config options</h3>
+          <p>For simple color customization:</p>
+          <table>
+            <thead>
+              <tr>
+                <th align="left">Name</th>
+                <th align="left">Used as</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left"><code>fill</code></td>
+                <td align="left">Background color of an entity or attribute</td>
+              </tr>
+              <tr>
+                <td align="left"><code>stroke</code></td>
+                <td align="left">Border color of an entity or attribute, line color of a relationship</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="classes-used"><a aria-hidden="true" tabindex="-1" href="#classes-used"><span class="icon icon-link"></span></a>Classes used</h3>
+          <p>The following CSS class selectors are available for richer styling:</p>
+          <table>
+            <thead>
+              <tr>
+                <th align="left">Selector</th>
+                <th align="left">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left"><code>.er.attributeBoxEven</code></td>
+                <td align="left">The box containing attributes on even-numbered rows</td>
+              </tr>
+              <tr>
+                <td align="left"><code>.er.attributeBoxOdd</code></td>
+                <td align="left">The box containing attributes on odd-numbered rows</td>
+              </tr>
+              <tr>
+                <td align="left"><code>.er.entityBox</code></td>
+                <td align="left">The box representing an entity</td>
+              </tr>
+              <tr>
+                <td align="left"><code>.er.entityLabel</code></td>
+                <td align="left">The label for an entity</td>
+              </tr>
+              <tr>
+                <td align="left"><code>.er.relationshipLabel</code></td>
+                <td align="left">The label for a relationship</td>
+              </tr>
+              <tr>
+                <td align="left"><code>.er.relationshipLabelBox</code></td>
+                <td align="left">The box surrounding a relationship label</td>
+              </tr>
+              <tr>
+                <td align="left"><code>.er.relationshipLine</code></td>
+                <td align="left">The line representing a relationship between entities</td>
+              </tr>
+            </tbody>
+          </table>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

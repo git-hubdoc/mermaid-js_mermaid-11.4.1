@@ -1,0 +1,80 @@
+{
+  "title": "/packages/mermaid/src/rendering-util",
+  "files": [
+    {
+      "type": "blob",
+      "title": "createText.spec.ts",
+      "href": "createText.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "createText.ts",
+      "href": "createText.ts"
+    },
+    {
+      "type": "blob",
+      "title": "handle-markdown-text.spec.ts",
+      "href": "handle-markdown-text.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "handle-markdown-text.ts",
+      "href": "handle-markdown-text.ts"
+    },
+    {
+      "type": "blob",
+      "title": "icons.ts",
+      "href": "icons.ts"
+    },
+    {
+      "type": "blob",
+      "title": "insertElementsForSize.js",
+      "href": "insertElementsForSize.js"
+    },
+    {
+      "type": "folder",
+      "title": "layout-algorithms",
+      "href": "layout-algorithms"
+    },
+    {
+      "type": "blob",
+      "title": "render.ts",
+      "href": "render.ts"
+    },
+    {
+      "type": "folder",
+      "title": "rendering-elements",
+      "href": "rendering-elements"
+    },
+    {
+      "type": "blob",
+      "title": "selectSvgElement.ts",
+      "href": "selectSvgElement.ts"
+    },
+    {
+      "type": "blob",
+      "title": "setupViewPortForSVG.ts",
+      "href": "setupViewPortForSVG.ts"
+    },
+    {
+      "type": "blob",
+      "title": "splitText.spec.ts",
+      "href": "splitText.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "splitText.ts",
+      "href": "splitText.ts"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    },
+    {
+      "type": "blob",
+      "title": "uid.ts",
+      "href": "uid.ts"
+    }
+  ]
+}

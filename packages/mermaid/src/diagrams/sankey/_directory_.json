@@ -1,0 +1,35 @@
+{
+  "title": "/packages/mermaid/src/diagrams/sankey",
+  "files": [
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "sankeyDB.ts",
+      "href": "sankeyDB.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sankeyDetector.ts",
+      "href": "sankeyDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sankeyDiagram.ts",
+      "href": "sankeyDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sankeyRenderer.ts",
+      "href": "sankeyRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sankeyUtils.ts",
+      "href": "sankeyUtils.ts"
+    }
+  ]
+}

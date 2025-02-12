@@ -1,0 +1,65 @@
+{
+  "title": "/packages/mermaid/src/diagrams/flowchart",
+  "files": [
+    {
+      "type": "folder",
+      "title": "elk",
+      "href": "elk"
+    },
+    {
+      "type": "blob",
+      "title": "flowChartShapes.js",
+      "href": "flowChartShapes.js"
+    },
+    {
+      "type": "blob",
+      "title": "flowChartShapes.spec.js",
+      "href": "flowChartShapes.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "flowDb.spec.ts",
+      "href": "flowDb.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flowDb.ts",
+      "href": "flowDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flowDetector-v2.ts",
+      "href": "flowDetector-v2.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flowDetector.ts",
+      "href": "flowDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flowDiagram.ts",
+      "href": "flowDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flowRenderer-v3-unified.ts",
+      "href": "flowRenderer-v3-unified.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.ts",
+      "href": "styles.ts"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    }
+  ]
+}

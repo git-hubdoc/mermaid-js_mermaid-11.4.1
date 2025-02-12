@@ -1,0 +1,10 @@
+{
+  "title": "/cypress/platform/regression",
+  "files": [
+    {
+      "type": "blob",
+      "title": "issue-1874.html",
+      "href": "issue-1874.html"
+    }
+  ]
+}

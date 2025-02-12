@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/diagrams/gantt",
+  "files": [
+    {
+      "type": "blob",
+      "title": "ganttDb.js",
+      "href": "ganttDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "ganttDb.spec.ts",
+      "href": "ganttDb.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "ganttDetector.ts",
+      "href": "ganttDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "ganttDiagram.ts",
+      "href": "ganttDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "ganttRenderer.js",
+      "href": "ganttRenderer.js"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    }
+  ]
+}

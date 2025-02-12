@@ -1,0 +1,35 @@
+{
+  "title": "/docs/config/setup/modules",
+  "files": [
+    {
+      "type": "blob",
+      "title": "config.html",
+      "href": "config.html"
+    },
+    {
+      "type": "blob",
+      "title": "config.md",
+      "href": "config.md"
+    },
+    {
+      "type": "blob",
+      "title": "defaultConfig.html",
+      "href": "defaultConfig.html"
+    },
+    {
+      "type": "blob",
+      "title": "defaultConfig.md",
+      "href": "defaultConfig.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.html",
+      "href": "mermaid.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid.md",
+      "href": "mermaid.md"
+    }
+  ]
+}

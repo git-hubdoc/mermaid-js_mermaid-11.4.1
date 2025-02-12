@@ -1,0 +1,405 @@
+{
+  "title": "/cypress/platform",
+  "files": [
+    {
+      "type": "blob",
+      "title": "architecture-external.html",
+      "href": "architecture-external.html"
+    },
+    {
+      "type": "blob",
+      "title": "ashish2.html",
+      "href": "ashish2.html"
+    },
+    {
+      "type": "blob",
+      "title": "bundle-test.js",
+      "href": "bundle-test.js"
+    },
+    {
+      "type": "blob",
+      "title": "class.html",
+      "href": "class.html"
+    },
+    {
+      "type": "blob",
+      "title": "click_security_loose.html",
+      "href": "click_security_loose.html"
+    },
+    {
+      "type": "blob",
+      "title": "click_security_other.html",
+      "href": "click_security_other.html"
+    },
+    {
+      "type": "blob",
+      "title": "click_security_sandbox.html",
+      "href": "click_security_sandbox.html"
+    },
+    {
+      "type": "blob",
+      "title": "click_security_strict.html",
+      "href": "click_security_strict.html"
+    },
+    {
+      "type": "blob",
+      "title": "css1.html",
+      "href": "css1.html"
+    },
+    {
+      "type": "blob",
+      "title": "current.html",
+      "href": "current.html"
+    },
+    {
+      "type": "blob",
+      "title": "current2.html",
+      "href": "current2.html"
+    },
+    {
+      "type": "blob",
+      "title": "e2e.html",
+      "href": "e2e.html"
+    },
+    {
+      "type": "blob",
+      "title": "empty.html",
+      "href": "empty.html"
+    },
+    {
+      "type": "blob",
+      "title": "exploit.js",
+      "href": "exploit.js"
+    },
+    {
+      "type": "blob",
+      "title": "external-diagrams-example-diagram.html",
+      "href": "external-diagrams-example-diagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "flow-elk.html",
+      "href": "flow-elk.html"
+    },
+    {
+      "type": "blob",
+      "title": "flow.html",
+      "href": "flow.html"
+    },
+    {
+      "type": "blob",
+      "title": "flow2.html",
+      "href": "flow2.html"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-refactor.html",
+      "href": "flowchart-refactor.html"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-sate.html",
+      "href": "flowchart-sate.html"
+    },
+    {
+      "type": "blob",
+      "title": "ghsa1.html",
+      "href": "ghsa1.html"
+    },
+    {
+      "type": "blob",
+      "title": "ghsa2.html",
+      "href": "ghsa2.html"
+    },
+    {
+      "type": "blob",
+      "title": "ghsa3.html",
+      "href": "ghsa3.html"
+    },
+    {
+      "type": "blob",
+      "title": "git-graph.html",
+      "href": "git-graph.html"
+    },
+    {
+      "type": "blob",
+      "title": "gitgraph.html",
+      "href": "gitgraph.html"
+    },
+    {
+      "type": "blob",
+      "title": "gitgraph2.html",
+      "href": "gitgraph2.html"
+    },
+    {
+      "type": "blob",
+      "title": "huge.html",
+      "href": "huge.html"
+    },
+    {
+      "type": "blob",
+      "title": "iife.html",
+      "href": "iife.html"
+    },
+    {
+      "type": "blob",
+      "title": "interaction.html",
+      "href": "interaction.html"
+    },
+    {
+      "type": "blob",
+      "title": "knsv-4442.html",
+      "href": "knsv-4442.html"
+    },
+    {
+      "type": "blob",
+      "title": "knsv.html",
+      "href": "knsv.html"
+    },
+    {
+      "type": "blob",
+      "title": "knsv2.html",
+      "href": "knsv2.html"
+    },
+    {
+      "type": "blob",
+      "title": "knsv3.html",
+      "href": "knsv3.html"
+    },
+    {
+      "type": "blob",
+      "title": "marker_unique_id.html",
+      "href": "marker_unique_id.html"
+    },
+    {
+      "type": "blob",
+      "title": "per.html",
+      "href": "per.html"
+    },
+    {
+      "type": "folder",
+      "title": "regression",
+      "href": "regression"
+    },
+    {
+      "type": "blob",
+      "title": "render-after-error.html",
+      "href": "render-after-error.html"
+    },
+    {
+      "type": "blob",
+      "title": "rerender.html",
+      "href": "rerender.html"
+    },
+    {
+      "type": "blob",
+      "title": "saurabh.html",
+      "href": "saurabh.html"
+    },
+    {
+      "type": "blob",
+      "title": "showcase_base.html",
+      "href": "showcase_base.html"
+    },
+    {
+      "type": "blob",
+      "title": "showcase_base_dark.html",
+      "href": "showcase_base_dark.html"
+    },
+    {
+      "type": "blob",
+      "title": "showcase_dark.html",
+      "href": "showcase_dark.html"
+    },
+    {
+      "type": "blob",
+      "title": "showcase_default.html",
+      "href": "showcase_default.html"
+    },
+    {
+      "type": "blob",
+      "title": "showcase_forest.html",
+      "href": "showcase_forest.html"
+    },
+    {
+      "type": "blob",
+      "title": "showcase_neutral.html",
+      "href": "showcase_neutral.html"
+    },
+    {
+      "type": "blob",
+      "title": "sidv.html",
+      "href": "sidv.html"
+    },
+    {
+      "type": "blob",
+      "title": "state-refactor.html",
+      "href": "state-refactor.html"
+    },
+    {
+      "type": "blob",
+      "title": "subgraph.html",
+      "href": "subgraph.html"
+    },
+    {
+      "type": "blob",
+      "title": "suppressError.html",
+      "href": "suppressError.html"
+    },
+    {
+      "type": "blob",
+      "title": "theme-directives.html",
+      "href": "theme-directives.html"
+    },
+    {
+      "type": "blob",
+      "title": "user-journey.html",
+      "href": "user-journey.html"
+    },
+    {
+      "type": "blob",
+      "title": "vertices.html",
+      "href": "vertices.html"
+    },
+    {
+      "type": "blob",
+      "title": "viewer.js",
+      "href": "viewer.js"
+    },
+    {
+      "type": "blob",
+      "title": "xss.html",
+      "href": "xss.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss.png",
+      "href": "xss.png"
+    },
+    {
+      "type": "blob",
+      "title": "xss10.html",
+      "href": "xss10.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss11.html",
+      "href": "xss11.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss12.html",
+      "href": "xss12.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss13.html",
+      "href": "xss13.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss14.html",
+      "href": "xss14.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss15.html",
+      "href": "xss15.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss16.html",
+      "href": "xss16.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss17.html",
+      "href": "xss17.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss18.html",
+      "href": "xss18.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss19.html",
+      "href": "xss19.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss2.html",
+      "href": "xss2.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss20.html",
+      "href": "xss20.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss21.html",
+      "href": "xss21.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss22.html",
+      "href": "xss22.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss23-css.html",
+      "href": "xss23-css.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss24.html",
+      "href": "xss24.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss25.html",
+      "href": "xss25.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss3.html",
+      "href": "xss3.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss4.html",
+      "href": "xss4.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss5.html",
+      "href": "xss5.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss6.html",
+      "href": "xss6.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss7.html",
+      "href": "xss7.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss8.html",
+      "href": "xss8.html"
+    },
+    {
+      "type": "blob",
+      "title": "xss9.html",
+      "href": "xss9.html"
+    },
+    {
+      "type": "blob",
+      "title": "yari.html",
+      "href": "yari.html"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "title": "/packages/mermaid/src/docs/intro",
+  "files": [
+    {
+      "type": "blob",
+      "title": "examples.html",
+      "href": "examples.html"
+    },
+    {
+      "type": "blob",
+      "title": "examples.md",
+      "href": "examples.md"
+    },
+    {
+      "type": "blob",
+      "title": "getting-started.html",
+      "href": "getting-started.html"
+    },
+    {
+      "type": "blob",
+      "title": "getting-started.md",
+      "href": "getting-started.md"
+    },
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "blob",
+      "title": "index.html",
+      "href": "index.html"
+    },
+    {
+      "type": "blob",
+      "title": "index.md",
+      "href": "index.md"
+    },
+    {
+      "type": "blob",
+      "title": "syntax-reference.html",
+      "href": "syntax-reference.html"
+    },
+    {
+      "type": "blob",
+      "title": "syntax-reference.md",
+      "href": "syntax-reference.md"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "/packages/mermaid-example-diagram",
+  "files": [
+    {
+      "type": "blob",
+      "title": "package.json",
+      "href": "package.json"
+    },
+    {
+      "type": "folder",
+      "title": "src",
+      "href": "src"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.eslint.json",
+      "href": "tsconfig.eslint.json"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.json",
+      "href": "tsconfig.json"
+    }
+  ]
+}

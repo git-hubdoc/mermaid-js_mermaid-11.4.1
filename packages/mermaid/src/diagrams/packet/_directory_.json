@@ -1,0 +1,45 @@
+{
+  "title": "/packages/mermaid/src/diagrams/packet",
+  "files": [
+    {
+      "type": "blob",
+      "title": "db.ts",
+      "href": "db.ts"
+    },
+    {
+      "type": "blob",
+      "title": "detector.ts",
+      "href": "detector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "diagram.ts",
+      "href": "diagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "packet.spec.ts",
+      "href": "packet.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "parser.ts",
+      "href": "parser.ts"
+    },
+    {
+      "type": "blob",
+      "title": "renderer.ts",
+      "href": "renderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "styles.ts",
+      "href": "styles.ts"
+    },
+    {
+      "type": "blob",
+      "title": "types.ts",
+      "href": "types.ts"
+    }
+  ]
+}

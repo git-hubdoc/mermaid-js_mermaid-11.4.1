@@ -1,0 +1,20 @@
+{
+  "title": "/cypress/support",
+  "files": [
+    {
+      "type": "blob",
+      "title": "commands.js",
+      "href": "commands.js"
+    },
+    {
+      "type": "blob",
+      "title": "e2e.js",
+      "href": "e2e.js"
+    },
+    {
+      "type": "blob",
+      "title": "eyes-index.d.ts",
+      "href": "eyes-index.d.ts"
+    }
+  ]
+}

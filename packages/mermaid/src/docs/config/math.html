@@ -1,0 +1,75 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="math-configuration-v1090"><a aria-hidden="true" tabindex="-1" href="#math-configuration-v1090"><span class="icon icon-link"></span></a>Math Configuration (v10.9.0+)</h1>
+          <p>Mermaid supports rendering mathematical expressions through the <a href="https://katex.org/">KaTeX</a> typesetter.</p>
+          <h2 id="usage"><a aria-hidden="true" tabindex="-1" href="#usage"><span class="icon icon-link"></span></a>Usage</h2>
+          <p>To render math within a diagram, surround the mathematical expression with the <code>$$</code> delimiter.</p>
+          <p>Note that at the moment, the only supported diagrams are below:</p>
+          <h3 id="flowcharts"><a aria-hidden="true" tabindex="-1" href="#flowcharts"><span class="icon icon-link"></span></a>Flowcharts</h3>
+          <pre><code class="language-mermaid"> graph LR
+      A["$$x^2$$"] -->|"$$\sqrt{x+3}$$"| B("$$\frac{1}{2}$$")
+      A -->|"$$\overbrace{a+b+c}^{\text{note}}$$"| C("$$\pi r^2$$")
+      B --> D("$$x = \begin{cases} a &#x26;\text{if } b \\ c &#x26;\text{if } d \end{cases}$$")
+      C --> E("$$x(t)=c_1\begin{bmatrix}-\cos{t}+\sin{t}\\ 2\cos{t} \end{bmatrix}e^{2t}$$")
+</code></pre>
+          <h3 id="sequence"><a aria-hidden="true" tabindex="-1" href="#sequence"><span class="icon icon-link"></span></a>Sequence</h3>
+          <pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    participant 1 as $$\alpha$$
+    participant 2 as $$\beta$$
+    1->>2: Solve: $$\sqrt{2+2}$$
+    2-->>1: Answer: $$2$$
+    Note right of 2: $$\sqrt{2+2}=\sqrt{4}=2$$
+</code></pre>
+          <h2 id="legacy-support"><a aria-hidden="true" tabindex="-1" href="#legacy-support"><span class="icon icon-link"></span></a>Legacy Support</h2>
+          <p>By default, MathML is used for rendering mathematical expressions. If you have users on <a href="https://caniuse.com/?search=mathml">unsupported browsers</a>, <code>legacyMathML</code> can be set in the config to fall back to CSS rendering. Note that <strong>you must provide KaTeX's stylesheets on your own</strong> as they do not come bundled with Mermaid.</p>
+          <p>Example with legacy mode enabled (the latest version of KaTeX's stylesheet can be found on their <a href="https://katex.org/docs/browser.html">docs</a>):</p>
+          <pre><code class="language-html">&#x3C;!doctype html>
+<span class="pl-c">&#x3C;!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly --></span>
+&#x3C;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>>
+  &#x3C;<span class="pl-ent">head</span>>
+    <span class="pl-c">&#x3C;!-- Please ensure the stylesheet's version matches with the KaTeX version in your package-lock --></span>
+    &#x3C;<span class="pl-ent">link</span>
+      <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span>
+      <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>https://cdn.jsdelivr.net/npm/katex@{version_number}/dist/katex.min.css<span class="pl-pds">"</span></span>
+      <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-{hash}<span class="pl-pds">"</span></span>
+      <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>
+    />
+  &#x3C;/<span class="pl-ent">head</span>>
+
+  &#x3C;<span class="pl-ent">body</span>>
+    &#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+      <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./mermaid.esm.mjs<span class="pl-pds">'</span></span>;
+      <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({
+        legacyMathML<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+      });
+    &#x3C;/<span class="pl-ent">script</span>>
+  &#x3C;/<span class="pl-ent">body</span>>
+&#x3C;/<span class="pl-ent">html</span>>
+</code></pre>
+          <h2 id="handling-rendering-differences"><a aria-hidden="true" tabindex="-1" href="#handling-rendering-differences"><span class="icon icon-link"></span></a>Handling Rendering Differences</h2>
+          <p>Due to differences between default fonts across operating systems and browser's MathML implementations, inconsistent results can be seen across platforms. If having consistent results are important, or the most optimal rendered results are desired, <code>forceLegacyMathML</code> can be enabled in the config.</p>
+          <p>This option will always use KaTeX's stylesheet instead of only when MathML is not supported (as with <code>legacyMathML</code>). Note that only <code>forceLegacyMathML</code> needs to be set.</p>
+          <p>If including KaTeX's stylesheet is not a concern, enabling this option is recommended to avoid scenarios where no MathML implementation within a browser provides the desired output (as seen below).</p>
+          <p>
+            <img src="img/mathMLDifferences.png" alt="Image showing differences between Browsers">
+          </p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

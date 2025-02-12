@@ -1,0 +1,35 @@
+{
+  "title": "/.cspell",
+  "files": [
+    {
+      "type": "blob",
+      "title": "code-terms.txt",
+      "href": "code-terms.txt"
+    },
+    {
+      "type": "blob",
+      "title": "contributors.txt",
+      "href": "contributors.txt"
+    },
+    {
+      "type": "blob",
+      "title": "cspell.config.yaml",
+      "href": "cspell.config.yaml"
+    },
+    {
+      "type": "blob",
+      "title": "libraries.txt",
+      "href": "libraries.txt"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-terms.txt",
+      "href": "mermaid-terms.txt"
+    },
+    {
+      "type": "blob",
+      "title": "misc-terms.txt",
+      "href": "misc-terms.txt"
+    }
+  ]
+}

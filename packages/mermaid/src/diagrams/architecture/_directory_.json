@@ -1,0 +1,50 @@
+{
+  "title": "/packages/mermaid/src/diagrams/architecture",
+  "files": [
+    {
+      "type": "blob",
+      "title": "architectureDb.ts",
+      "href": "architectureDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureDetector.ts",
+      "href": "architectureDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureDiagram.ts",
+      "href": "architectureDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureIcons.ts",
+      "href": "architectureIcons.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureParser.ts",
+      "href": "architectureParser.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureRenderer.ts",
+      "href": "architectureRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureStyles.ts",
+      "href": "architectureStyles.ts"
+    },
+    {
+      "type": "blob",
+      "title": "architectureTypes.ts",
+      "href": "architectureTypes.ts"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.ts",
+      "href": "svgDraw.ts"
+    }
+  ]
+}

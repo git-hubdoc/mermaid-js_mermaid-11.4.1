@@ -1,0 +1,40 @@
+{
+  "title": "/vendors/img.shields.io",
+  "files": [
+    {
+      "type": "folder",
+      "title": "badge",
+      "href": "badge"
+    },
+    {
+      "type": "folder",
+      "title": "bundlephobia",
+      "href": "bundlephobia"
+    },
+    {
+      "type": "folder",
+      "title": "github",
+      "href": "github"
+    },
+    {
+      "type": "folder",
+      "title": "jsdelivr",
+      "href": "jsdelivr"
+    },
+    {
+      "type": "folder",
+      "title": "npm",
+      "href": "npm"
+    },
+    {
+      "type": "folder",
+      "title": "static",
+      "href": "static"
+    },
+    {
+      "type": "folder",
+      "title": "twitter",
+      "href": "twitter"
+    }
+  ]
+}

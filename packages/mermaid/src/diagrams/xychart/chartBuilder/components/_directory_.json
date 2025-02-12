@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid/src/diagrams/xychart/chartBuilder/components",
+  "files": [
+    {
+      "type": "folder",
+      "title": "axis",
+      "href": "axis"
+    },
+    {
+      "type": "blob",
+      "title": "chartTitle.ts",
+      "href": "chartTitle.ts"
+    },
+    {
+      "type": "folder",
+      "title": "plot",
+      "href": "plot"
+    }
+  ]
+}

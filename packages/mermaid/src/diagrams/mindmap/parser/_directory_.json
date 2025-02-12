@@ -1,0 +1,10 @@
+{
+  "title": "/packages/mermaid/src/diagrams/mindmap/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "mindmap.jison",
+      "href": "mindmap.jison"
+    }
+  ]
+}

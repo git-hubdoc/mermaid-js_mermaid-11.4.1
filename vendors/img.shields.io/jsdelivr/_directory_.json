@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/img.shields.io/jsdelivr",
+  "files": [
+    {
+      "type": "folder",
+      "title": "npm",
+      "href": "npm"
+    }
+  ]
+}

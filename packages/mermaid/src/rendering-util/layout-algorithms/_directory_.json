@@ -1,0 +1,10 @@
+{
+  "title": "/packages/mermaid/src/rendering-util/layout-algorithms",
+  "files": [
+    {
+      "type": "folder",
+      "title": "dagre",
+      "href": "dagre"
+    }
+  ]
+}

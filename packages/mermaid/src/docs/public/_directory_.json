@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/docs/public",
+  "files": [
+    {
+      "type": "blob",
+      "title": ".nojekyll",
+      "href": ".nojekyll"
+    },
+    {
+      "type": "blob",
+      "title": "favicon.ico",
+      "href": "favicon.ico"
+    },
+    {
+      "type": "blob",
+      "title": "favicon.png",
+      "href": "favicon.png"
+    },
+    {
+      "type": "blob",
+      "title": "favicon.svg",
+      "href": "favicon.svg"
+    },
+    {
+      "type": "blob",
+      "title": "header.png",
+      "href": "header.png"
+    },
+    {
+      "type": "blob",
+      "title": "manifest.json",
+      "href": "manifest.json"
+    },
+    {
+      "type": "blob",
+      "title": "mermaid-logo.svg",
+      "href": "mermaid-logo.svg"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/diagrams/requirement",
+  "files": [
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "requirementDb.js",
+      "href": "requirementDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "requirementDetector.ts",
+      "href": "requirementDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "requirementDiagram.ts",
+      "href": "requirementDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "requirementMarkers.js",
+      "href": "requirementMarkers.js"
+    },
+    {
+      "type": "blob",
+      "title": "requirementRenderer.js",
+      "href": "requirementRenderer.js"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    }
+  ]
+}

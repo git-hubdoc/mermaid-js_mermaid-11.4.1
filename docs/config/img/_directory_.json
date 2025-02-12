@@ -1,0 +1,35 @@
+{
+  "title": "/docs/config/img",
+  "files": [
+    {
+      "type": "blob",
+      "title": "accessibility-div-example-2.png",
+      "href": "accessibility-div-example-2.png"
+    },
+    {
+      "type": "blob",
+      "title": "accessibility-div-example.png",
+      "href": "accessibility-div-example.png"
+    },
+    {
+      "type": "blob",
+      "title": "assignWithDepth.png",
+      "href": "assignWithDepth.png"
+    },
+    {
+      "type": "blob",
+      "title": "mathMLDifferences.png",
+      "href": "mathMLDifferences.png"
+    },
+    {
+      "type": "blob",
+      "title": "object.assign without depth.png",
+      "href": "object.assign without depth.png"
+    },
+    {
+      "type": "blob",
+      "title": "wrapped text.png",
+      "href": "wrapped text.png"
+    }
+  ]
+}

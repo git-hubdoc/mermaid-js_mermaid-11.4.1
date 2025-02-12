@@ -1,0 +1,35 @@
+{
+  "title": "/packages/mermaid/src/diagrams/xychart",
+  "files": [
+    {
+      "type": "folder",
+      "title": "chartBuilder",
+      "href": "chartBuilder"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "xychartDb.ts",
+      "href": "xychartDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "xychartDetector.ts",
+      "href": "xychartDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "xychartDiagram.ts",
+      "href": "xychartDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "xychartRenderer.ts",
+      "href": "xychartRenderer.ts"
+    }
+  ]
+}

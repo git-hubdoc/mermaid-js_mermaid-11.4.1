@@ -1,0 +1,115 @@
+{
+  "title": "/docs/config",
+  "files": [
+    {
+      "type": "blob",
+      "title": "8.6.0_docs.html",
+      "href": "8.6.0_docs.html"
+    },
+    {
+      "type": "blob",
+      "title": "8.6.0_docs.md",
+      "href": "8.6.0_docs.md"
+    },
+    {
+      "type": "blob",
+      "title": "accessibility.html",
+      "href": "accessibility.html"
+    },
+    {
+      "type": "blob",
+      "title": "accessibility.md",
+      "href": "accessibility.md"
+    },
+    {
+      "type": "blob",
+      "title": "configuration.html",
+      "href": "configuration.html"
+    },
+    {
+      "type": "blob",
+      "title": "configuration.md",
+      "href": "configuration.md"
+    },
+    {
+      "type": "blob",
+      "title": "directives.html",
+      "href": "directives.html"
+    },
+    {
+      "type": "blob",
+      "title": "directives.md",
+      "href": "directives.md"
+    },
+    {
+      "type": "blob",
+      "title": "faq.html",
+      "href": "faq.html"
+    },
+    {
+      "type": "blob",
+      "title": "faq.md",
+      "href": "faq.md"
+    },
+    {
+      "type": "blob",
+      "title": "icons.html",
+      "href": "icons.html"
+    },
+    {
+      "type": "blob",
+      "title": "icons.md",
+      "href": "icons.md"
+    },
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "blob",
+      "title": "math.html",
+      "href": "math.html"
+    },
+    {
+      "type": "blob",
+      "title": "math.md",
+      "href": "math.md"
+    },
+    {
+      "type": "blob",
+      "title": "mermaidCLI.html",
+      "href": "mermaidCLI.html"
+    },
+    {
+      "type": "blob",
+      "title": "mermaidCLI.md",
+      "href": "mermaidCLI.md"
+    },
+    {
+      "type": "folder",
+      "title": "setup",
+      "href": "setup"
+    },
+    {
+      "type": "blob",
+      "title": "theming.html",
+      "href": "theming.html"
+    },
+    {
+      "type": "blob",
+      "title": "theming.md",
+      "href": "theming.md"
+    },
+    {
+      "type": "blob",
+      "title": "usage.html",
+      "href": "usage.html"
+    },
+    {
+      "type": "blob",
+      "title": "usage.md",
+      "href": "usage.md"
+    }
+  ]
+}

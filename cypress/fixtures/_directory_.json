@@ -1,0 +1,10 @@
+{
+  "title": "/cypress/fixtures",
+  "files": [
+    {
+      "type": "blob",
+      "title": "example.json",
+      "href": "example.json"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/diagrams/c4/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "c4Boundary.spec.js",
+      "href": "c4Boundary.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4Container.spec.js",
+      "href": "c4Container.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4Diagram.jison",
+      "href": "c4Diagram.jison"
+    },
+    {
+      "type": "blob",
+      "title": "c4Diagram.spec.js",
+      "href": "c4Diagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4Person.spec.js",
+      "href": "c4Person.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4PersonExt.spec.js",
+      "href": "c4PersonExt.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4System.spec.js",
+      "href": "c4System.spec.js"
+    }
+  ]
+}

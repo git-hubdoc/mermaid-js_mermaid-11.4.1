@@ -1,0 +1,10 @@
+{
+  "title": "/packages/mermaid/src/diagrams/sequence/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "sequenceDiagram.jison",
+      "href": "sequenceDiagram.jison"
+    }
+  ]
+}

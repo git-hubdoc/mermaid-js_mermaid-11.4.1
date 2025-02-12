@@ -1,0 +1,10 @@
+{
+  "title": "/.github/codeql",
+  "files": [
+    {
+      "type": "blob",
+      "title": "codeql-config.yml",
+      "href": "codeql-config.yml"
+    }
+  ]
+}

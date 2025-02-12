@@ -1,0 +1,338 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="usage"><a aria-hidden="true" tabindex="-1" href="#usage"><span class="icon icon-link"></span></a>Usage</h1>
+          <p>Mermaid is a JavaScript tool that makes use of a Markdown based syntax to render customizable diagrams, charts and visualizations.</p>
+          <p>Diagrams can be re-rendered/modified by modifying their descriptions.</p>
+          <h3 id="cdn"><a aria-hidden="true" tabindex="-1" href="#cdn"><span class="icon icon-link"></span></a>CDN</h3>
+          <p><a href="https://www.jsdelivr.com/package/npm/mermaid">https://www.jsdelivr.com/package/npm/mermaid</a></p>
+          <p>Please note that you can switch versions through the dropdown box at the top right.</p>
+          <h2 id="using-mermaid"><a aria-hidden="true" tabindex="-1" href="#using-mermaid"><span class="icon icon-link"></span></a>Using mermaid</h2>
+          <p>For the majority of users, Using the <a href="https://mermaid.live/">Live Editor</a> would be sufficient, however you may also opt to deploy mermaid as a dependency or using the <a href="setup/README.html">Mermaid API</a>.</p>
+          <p>We have compiled some Video <a href="ecosystem/tutorials.html">Tutorials</a> on how to use the Mermaid Live Editor.</p>
+          <h3 id="installing-and-hosting-mermaid-on-a-webpage"><a aria-hidden="true" tabindex="-1" href="#installing-and-hosting-mermaid-on-a-webpage"><span class="icon icon-link"></span></a>Installing and Hosting Mermaid on a Webpage</h3>
+          <p><strong>Using the npm package:</strong></p>
+          <p>Requirements:</p>
+          <ul>
+            <li>Node >= 16</li>
+          </ul>
+          <pre><code class="language-bash"><span class="pl-c"># NPM</span>
+npm install mermaid
+<span class="pl-c"># Yarn</span>
+yarn add mermaid
+<span class="pl-c"># PNPM</span>
+pnpm add mermaid
+</code></pre>
+          <p><strong>Hosting mermaid on a web page:</strong></p>
+          <blockquote>
+            <p>Note: This topic is explored in greater depth in the <a href="intro/getting-started.html">User Guide for Beginners</a></p>
+          </blockquote>
+          <p>The easiest way to integrate mermaid on a web page requires two elements:</p>
+          <ul>
+            <li>A graph definition, inside <code>&#x3C;pre></code> tags labeled <code>class=mermaid</code>.</li>
+          </ul>
+          <p>Example:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+    graph LR
+    A --- B
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+&#x3C;/<span class="pl-ent">pre</span>>
+</code></pre>
+          <ul>
+            <li>The mermaid js script. Added using a <code>script</code> tag as an ESM import.</li>
+          </ul>
+          <p>Example:</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <p><strong>Following these directions, mermaid starts at page load and (when the page has loaded) it will locate the graph definitions inside the <code>pre</code> tags with <code>class="mermaid"</code> and return diagrams in SVG form, following given definitions.</strong></p>
+          <h2 id="simple-full-example"><a aria-hidden="true" tabindex="-1" href="#simple-full-example"><span class="icon icon-link"></span></a>Simple full example:</h2>
+          <pre><code class="language-html">&#x3C;!doctype html>
+&#x3C;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>>
+  &#x3C;<span class="pl-ent">body</span>>
+    &#x3C;<span class="pl-ent">pre</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid<span class="pl-pds">"</span></span>>
+  graph LR
+      A --- B
+      B-->C[fa:fa-ban forbidden]
+      B-->D(fa:fa-spinner);
+    &#x3C;/<span class="pl-ent">pre</span>>
+    &#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+      <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+    &#x3C;/<span class="pl-ent">script</span>>
+  &#x3C;/<span class="pl-ent">body</span>>
+&#x3C;/<span class="pl-ent">html</span>>
+</code></pre>
+          <h2 id="notes"><a aria-hidden="true" tabindex="-1" href="#notes"><span class="icon icon-link"></span></a>Notes:</h2>
+          <p>An id attribute is also added to mermaid tags without one.</p>
+          <p>Mermaid can load multiple diagrams, in the same page.</p>
+          <blockquote>
+            <p>
+              Try it out, save this code as HTML and load it using any browser.
+              (Except Internet Explorer, please don't use Internet Explorer.)
+            </p>
+          </blockquote>
+          <h2 id="enabling-click-event-and-tags-in-nodes"><a aria-hidden="true" tabindex="-1" href="#enabling-click-event-and-tags-in-nodes"><span class="icon icon-link"></span></a>Enabling Click Event and Tags in Nodes</h2>
+          <p>A <code>securityLevel</code> configuration has to first be cleared. <code>securityLevel</code> sets the level of trust for the parsed diagrams and limits click functionality. This was introduced in version 8.2 as a security improvement, aimed at preventing malicious use.</p>
+          <p><strong>It is the site owner's responsibility to discriminate between trustworthy and untrustworthy user-bases and we encourage the use of discretion.</strong></p>
+          <h2 id="securitylevel"><a aria-hidden="true" tabindex="-1" href="#securitylevel"><span class="icon icon-link"></span></a>securityLevel</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>securityLevel</td>
+                <td>Level of trust for parsed diagram</td>
+                <td>String</td>
+                <td>Optional</td>
+                <td>'sandbox', 'strict', 'loose', 'antiscript'</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Values:</p>
+          <ul>
+            <li><strong>strict</strong>: (<strong>default</strong>) HTML tags in the text are encoded and click functionality is disabled.</li>
+            <li><strong>antiscript</strong>: HTML tags in text are allowed (only script elements are removed) and click functionality is enabled.</li>
+            <li><strong>loose</strong>: HTML tags in text are allowed and click functionality is enabled.</li>
+            <li><strong>sandbox</strong>: With this security level, all rendering takes place in a sandboxed iframe. This prevents any JavaScript from running in the context. This may hinder interactive functionality of the diagram, like scripts, popups in the sequence diagram, links to other tabs or targets, etc.</li>
+          </ul>
+          <pre><code class="language-note">This changes the default behaviour of mermaid so that after upgrade to 8.2, unless the `securityLevel` is not changed, tags in flowcharts are encoded as tags and clicking is disabled.
+**sandbox** security level is still in the beta version.
+</code></pre>
+          <p><strong>If you are taking responsibility for the diagram source security you can set the <code>securityLevel</code> to a value of your choosing. This allows clicks and tags are allowed.</strong></p>
+          <p><strong>To change <code>securityLevel</code>, you have to call <code>mermaid.initialize</code>:</strong></p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({
+  securityLevel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>loose<span class="pl-pds">'</span></span>,
+});
+</code></pre>
+          <h3 id="labels-out-of-bounds"><a aria-hidden="true" tabindex="-1" href="#labels-out-of-bounds"><span class="icon icon-link"></span></a>Labels out of bounds</h3>
+          <p>If you use dynamically loaded fonts that are loaded through CSS, such as fonts, mermaid should wait for the whole page to load (dom + assets, particularly the fonts file).</p>
+          <pre><code class="language-javascript"><span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">ready</span>(<span class="pl-k">function</span> () {
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>();
+});
+</code></pre>
+          <p>Not doing so will most likely result in mermaid rendering graphs that have labels out of bounds. The default integration in mermaid uses the window.load event to start rendering.</p>
+          <p>If your page has other fonts in its body those might be used instead of the mermaid font. Specifying the font in your styling is a workaround for this.</p>
+          <pre><code class="language-css"><span class="pl-ent">pre</span><span class="pl-e">.mermaid</span> {
+  <span class="pl-c1">font-family</span>: <span class="pl-s"><span class="pl-pds">'</span>trebuchet ms<span class="pl-pds">'</span></span>, <span class="pl-c1">verdana</span>, <span class="pl-c1">arial</span>;
+}
+</code></pre>
+          <h3 id="using-mermaidrun"><a aria-hidden="true" tabindex="-1" href="#using-mermaidrun"><span class="icon icon-link"></span></a>Using <code>mermaid.run</code></h3>
+          <p>
+            mermaid.run was added in v10 and is the preferred way of handling more complex integration.
+            By default, <code>mermaid.run</code> will be called when the document is ready, rendering all elements with <code>class="mermaid"</code>.
+          </p>
+          <p>You can customize that behavior by calling <code>await mermaid.run(&#x3C;config>)</code>.</p>
+          <p><code>mermaid.initialize({startOnLoad: false})</code> will prevent <code>mermaid.run</code> from being called automatically after load.</p>
+          <p>Render all elements with querySelector ".someOtherClass"</p>
+          <pre><code class="language-js"><span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">false</span> });
+<span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">run</span>({
+  querySelector<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.someOtherClass<span class="pl-pds">'</span></span>,
+});
+</code></pre>
+          <p>Render all elements passed as an array</p>
+          <pre><code class="language-js"><span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">false</span> });
+<span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">run</span>({
+  nodes<span class="pl-k">:</span> [<span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>someId<span class="pl-pds">'</span></span>), <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>anotherId<span class="pl-pds">'</span></span>)],
+});
+<span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">run</span>({
+  nodes<span class="pl-k">:</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">'</span>.yetAnotherClass<span class="pl-pds">'</span></span>),
+});
+</code></pre>
+          <p>Render all <code>.mermaid</code> elements while suppressing any error</p>
+          <pre><code class="language-js"><span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">false</span> });
+<span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">run</span>({
+  suppressErrors<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+});
+</code></pre>
+          <h3 id="calling-mermaidinit---deprecated"><a aria-hidden="true" tabindex="-1" href="#calling-mermaidinit---deprecated"><span class="icon icon-link"></span></a>Calling <code>mermaid.init</code> - Deprecated</h3>
+          <pre><code class="language-warning">mermaid.init is deprecated in v10 and will be removed in a future release. Please use mermaid.run instead.
+</code></pre>
+          <p>
+            By default, <code>mermaid.init</code> will be called when the document is ready, finding all elements with
+            <code>class="mermaid"</code>. If you are adding content after mermaid is loaded, or otherwise need
+            finer-grained control of this behavior, you can call <code>init</code> yourself with:
+          </p>
+          <ul>
+            <li>a configuration object</li>
+            <li>some nodes, as
+              <ul>
+                <li>a node</li>
+                <li>an array-like of nodes</li>
+                <li>or W3C selector that will find your nodes</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Example:</p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-en">init</span>({ noteMargin<span class="pl-k">:</span> <span class="pl-c1">10</span> }, <span class="pl-s"><span class="pl-pds">'</span>.someOtherClass<span class="pl-pds">'</span></span>);
+</code></pre>
+          <p>Or with no config object, and a jQuery selection:</p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-en">init</span>(<span class="pl-c1">undefined</span>, <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#someId .yetAnotherClass<span class="pl-pds">'</span></span>));
+</code></pre>
+          <h2 id="usage-with-webpack"><a aria-hidden="true" tabindex="-1" href="#usage-with-webpack"><span class="icon icon-link"></span></a>Usage with webpack</h2>
+          <p>mermaid fully supports webpack. Here is a <a href="https://github.com/mermaidjs/mermaid-webpack-demo">working demo</a>.</p>
+          <h2 id="api-usage"><a aria-hidden="true" tabindex="-1" href="#api-usage"><span class="icon icon-link"></span></a>API usage</h2>
+          <p>The main idea of the API is to be able to call a render function with the graph definition as a string. The render function will render the graph and call a callback with the resulting SVG code. With this approach it is up to the site creator to fetch the graph definition from the site (perhaps from a textarea), render it and place the graph somewhere in the site.</p>
+          <p>The example below shows an example of how this could be used. The example just logs the resulting SVG to the JavaScript console.</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./mermaid.esm.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">false</span> });
+
+  <span class="pl-c">// Example of using the render function</span>
+  <span class="pl-k">const</span> <span class="pl-c1">drawDiagram</span> <span class="pl-k">=</span> <span class="pl-k">async</span> <span class="pl-k">function</span> () {
+    element <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">'</span>#graphDiv<span class="pl-pds">'</span></span>);
+    <span class="pl-k">const</span> <span class="pl-c1">graphDefinition</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>graph TB<span class="pl-cce">\n</span>a-->b<span class="pl-pds">'</span></span>;
+    <span class="pl-k">const</span> { <span class="pl-c1">svg</span> } <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">render</span>(<span class="pl-s"><span class="pl-pds">'</span>graphDiv<span class="pl-pds">'</span></span>, graphDefinition);
+    <span class="pl-smi">element</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">=</span> svg;
+  };
+
+  <span class="pl-k">await</span> <span class="pl-en">drawDiagram</span>();
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <p>To determine the type of diagram present in a given text, you can utilize the <code>mermaid.detectType</code> function, as demonstrated in the example below.</p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./mermaid.esm.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-k">const</span> <span class="pl-c1">graphDefinition</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">`</span>sequenceDiagram</span>
+<span class="pl-s">    Pumbaa->>Timon:I ate like a pig.</span>
+<span class="pl-s">    Timon->>Pumbaa:Pumbaa, you ARE a pig.<span class="pl-pds">`</span></span>;
+  <span class="pl-k">try</span> {
+    <span class="pl-k">const</span> <span class="pl-c1">type</span> <span class="pl-k">=</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">detectType</span>(graphDefinition);
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(type); <span class="pl-c">// 'sequence'</span>
+  } <span class="pl-k">catch</span> (error) {
+    <span class="pl-c">// UnknownDiagramError</span>
+  }
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <h3 id="binding-events"><a aria-hidden="true" tabindex="-1" href="#binding-events"><span class="icon icon-link"></span></a>Binding events</h3>
+          <p>
+            Sometimes the generated graph also has defined interactions like tooltip and click events. When using the API one must
+            add those events after the graph has been inserted into the DOM.
+          </p>
+          <p>
+            The example code below is an extract of what mermaid does when using the API. The example shows how it is possible to
+            bind events to an SVG when using the API for rendering.
+          </p>
+          <pre><code class="language-javascript"><span class="pl-c">// Example of using the bindFunctions</span>
+<span class="pl-k">const</span> <span class="pl-c1">drawDiagram</span> <span class="pl-k">=</span> <span class="pl-k">async</span> <span class="pl-k">function</span> () {
+  element <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">'</span>#graphDiv<span class="pl-pds">'</span></span>);
+  <span class="pl-k">const</span> <span class="pl-c1">graphDefinition</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>graph TB<span class="pl-cce">\n</span>a-->b<span class="pl-pds">'</span></span>;
+  <span class="pl-k">const</span> { <span class="pl-c1">svg</span>, <span class="pl-c1">bindFunctions</span> } <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-en">render</span>(<span class="pl-s"><span class="pl-pds">'</span>graphDiv<span class="pl-pds">'</span></span>, graphDefinition);
+  <span class="pl-smi">element</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">=</span> svg;
+  <span class="pl-c">// This can also be written as `bindFunctions?.(element);` using the `?` shorthand.</span>
+  <span class="pl-k">if</span> (bindFunctions) {
+    <span class="pl-en">bindFunctions</span>(element);
+  }
+};
+</code></pre>
+          <ol>
+            <li>The graph is generated using the render call.</li>
+            <li>After generation the render function calls the provided callback function, in this case it's called insertSvg.</li>
+            <li>The callback function is called with two parameters, the SVG code of the generated graph and a function. This function binds events to the SVG <strong>after</strong> it is inserted into the DOM.</li>
+            <li>Insert the SVG code into the DOM for presentation.</li>
+            <li>Call the binding function that binds the events.</li>
+          </ol>
+          <h2 id="example-of-a-marked-renderer"><a aria-hidden="true" tabindex="-1" href="#example-of-a-marked-renderer"><span class="icon icon-link"></span></a>Example of a marked renderer</h2>
+          <p>This is the renderer used for transforming the documentation from Markdown to html with mermaid diagrams in the html.</p>
+          <pre><code class="language-javascript"><span class="pl-k">const</span> <span class="pl-c1">renderer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">marked.Renderer</span>();
+<span class="pl-smi">renderer</span>.<span class="pl-en">code</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">code</span>, <span class="pl-smi">language</span>) {
+  <span class="pl-k">if</span> (<span class="pl-smi">code</span>.<span class="pl-c1">match</span>(<span class="pl-k">/^</span>sequenceDiagram<span class="pl-k">/</span>) <span class="pl-k">||</span> <span class="pl-smi">code</span>.<span class="pl-c1">match</span>(<span class="pl-k">/^</span>graph<span class="pl-k">/</span>)) {
+    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;pre class="mermaid"><span class="pl-pds">'</span></span> <span class="pl-k">+</span> code <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;/pre><span class="pl-pds">'</span></span>;
+  } <span class="pl-k">else</span> {
+    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;pre>&#x3C;code><span class="pl-pds">'</span></span> <span class="pl-k">+</span> code <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;/code>&#x3C;/pre><span class="pl-pds">'</span></span>;
+  }
+};
+</code></pre>
+          <p>Another example in CoffeeScript that also includes the mermaid script tag in the generated markup.</p>
+          <pre><code class="language-coffee">marked = require 'marked'
+
+module.exports = (options) ->
+  hasMermaid = false
+  renderer = new marked.Renderer()
+  renderer.defaultCode = renderer.code
+  renderer.code = (code, language) ->
+    if language is 'mermaid'
+      html = ''
+      if not hasMermaid
+        hasMermaid = true
+        html += '&#x3C;script src="'+options.mermaidPath+'">&#x3C;/script>'
+      html + '&#x3C;pre class="mermaid">'+code+'&#x3C;/pre>'
+    else
+      @defaultCode(code, language)
+
+  renderer
+</code></pre>
+          <h2 id="advanced-usage"><a aria-hidden="true" tabindex="-1" href="#advanced-usage"><span class="icon icon-link"></span></a>Advanced usage</h2>
+          <h3 id="syntax-validation-without-rendering"><a aria-hidden="true" tabindex="-1" href="#syntax-validation-without-rendering"><span class="icon icon-link"></span></a>Syntax validation without rendering</h3>
+          <p>The <code>mermaid.parse(text, parseOptions)</code> function validates graph definitions without rendering a graph.</p>
+          <p>The function <code>mermaid.parse(text, parseOptions)</code>, takes a text string as an argument and returns <code>{ diagramType: string }</code> if the definition follows mermaid's syntax.</p>
+          <p>If the definition is invalid, the function returns <code>false</code> if <code>parseOptions.suppressErrors</code> is set to <code>true</code>. Otherwise, it throws an error.</p>
+          <p>The parseError function will be called when the parse function throws an error. It will not be called if <code>parseOptions.suppressErrors</code> is set to <code>true</code>.</p>
+          <p>It is possible to override this function in order to handle the error in an application-specific way.</p>
+          <p>The code-example below in meta code illustrates how this could work:</p>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-en">parseError</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">err</span>, <span class="pl-smi">hash</span>) {
+  <span class="pl-en">displayErrorInGui</span>(err);
+};
+
+<span class="pl-k">const</span> <span class="pl-c1">textFieldUpdated</span> <span class="pl-k">=</span> <span class="pl-k">async</span> <span class="pl-k">function</span> () {
+  <span class="pl-k">const</span> <span class="pl-c1">textStr</span> <span class="pl-k">=</span> <span class="pl-en">getTextFromFormField</span>(<span class="pl-s"><span class="pl-pds">'</span>code<span class="pl-pds">'</span></span>);
+
+  <span class="pl-k">if</span> (<span class="pl-k">await</span> <span class="pl-smi">mermaid</span>.<span class="pl-c1">parse</span>(textStr)) {
+    <span class="pl-en">reRender</span>(textStr);
+  }
+};
+
+<span class="pl-en">bindEventHandler</span>(<span class="pl-s"><span class="pl-pds">'</span>change<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>code<span class="pl-pds">'</span></span>, textFieldUpdated);
+</code></pre>
+          <h2 id="configuration"><a aria-hidden="true" tabindex="-1" href="#configuration"><span class="icon icon-link"></span></a>Configuration</h2>
+          <p>
+            You can pass the required configuration to the <code>mermaid.initialize</code> call. This is the preferred way of configuring mermaid.
+            The list of configuration objects are described <a href="setup/README.html">in the mermaidAPI documentation</a>.
+          </p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./mermaid.esm.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-k">let</span> config <span class="pl-k">=</span> { startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span>, flowchart<span class="pl-k">:</span> { useMaxWidth<span class="pl-k">:</span> <span class="pl-c1">false</span>, htmlLabels<span class="pl-k">:</span> <span class="pl-c1">true</span> } };
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>(config);
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <pre><code class="language-note">This is the preferred way of configuring mermaid.
+</code></pre>
+          <h3 id="the-following-methods-are-deprecated-and-are-kept-only-for-backwards-compatibility"><a aria-hidden="true" tabindex="-1" href="#the-following-methods-are-deprecated-and-are-kept-only-for-backwards-compatibility"><span class="icon icon-link"></span></a>The following methods are deprecated and are kept only for backwards compatibility.</h3>
+          <h2 id="using-the-mermaid-object"><a aria-hidden="true" tabindex="-1" href="#using-the-mermaid-object"><span class="icon icon-link"></span></a>Using the mermaid object</h2>
+          <p>
+            It is possible to set some configuration via the mermaid object. The two parameters that are supported using this
+            approach are:
+          </p>
+          <ul>
+            <li>mermaid.startOnLoad</li>
+            <li>mermaid.htmlLabels</li>
+          </ul>
+          <pre><code class="language-javascript"><span class="pl-smi">mermaid</span>.<span class="pl-smi">startOnLoad</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+</code></pre>
+          <pre><code class="language-warning">This way of setting the configuration is deprecated. Instead the preferred way is to use the initialize method. This functionality is only kept for backwards compatibility.
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

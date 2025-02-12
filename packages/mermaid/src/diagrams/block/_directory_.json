@@ -1,0 +1,60 @@
+{
+  "title": "/packages/mermaid/src/diagrams/block",
+  "files": [
+    {
+      "type": "blob",
+      "title": "blockDB.ts",
+      "href": "blockDB.ts"
+    },
+    {
+      "type": "blob",
+      "title": "blockDetector.ts",
+      "href": "blockDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "blockDiagram.ts",
+      "href": "blockDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "blockRenderer.ts",
+      "href": "blockRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "blockTypes.ts",
+      "href": "blockTypes.ts"
+    },
+    {
+      "type": "blob",
+      "title": "blockUtils.ts",
+      "href": "blockUtils.ts"
+    },
+    {
+      "type": "blob",
+      "title": "layout.spec.ts",
+      "href": "layout.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "layout.ts",
+      "href": "layout.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "renderHelpers.ts",
+      "href": "renderHelpers.ts"
+    },
+    {
+      "type": "blob",
+      "title": "styles.ts",
+      "href": "styles.ts"
+    }
+  ]
+}

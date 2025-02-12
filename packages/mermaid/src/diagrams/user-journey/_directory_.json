@@ -1,0 +1,45 @@
+{
+  "title": "/packages/mermaid/src/diagrams/user-journey",
+  "files": [
+    {
+      "type": "blob",
+      "title": "journeyDb.js",
+      "href": "journeyDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "journeyDb.spec.js",
+      "href": "journeyDb.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "journeyDetector.ts",
+      "href": "journeyDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "journeyDiagram.ts",
+      "href": "journeyDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "journeyRenderer.ts",
+      "href": "journeyRenderer.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.js",
+      "href": "svgDraw.js"
+    }
+  ]
+}

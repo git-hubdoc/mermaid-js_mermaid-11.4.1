@@ -1,0 +1,20 @@
+{
+  "title": "/vendors/img.shields.io/github",
+  "files": [
+    {
+      "type": "folder",
+      "title": "commit-activity",
+      "href": "commit-activity"
+    },
+    {
+      "type": "folder",
+      "title": "contributors",
+      "href": "contributors"
+    },
+    {
+      "type": "folder",
+      "title": "labels",
+      "href": "labels"
+    }
+  ]
+}

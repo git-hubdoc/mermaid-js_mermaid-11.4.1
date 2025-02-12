@@ -1,0 +1,55 @@
+{
+  "title": "/packages/mermaid/src/diagrams/kanban",
+  "files": [
+    {
+      "type": "blob",
+      "title": "detector.ts",
+      "href": "detector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "kanban-definition.ts",
+      "href": "kanban-definition.ts"
+    },
+    {
+      "type": "blob",
+      "title": "kanban.spec.ts",
+      "href": "kanban.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "kanbanDb.ts",
+      "href": "kanbanDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "kanbanRenderer.ts",
+      "href": "kanbanRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "kanbanTypes.ts",
+      "href": "kanbanTypes.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "samples.html",
+      "href": "samples.html"
+    },
+    {
+      "type": "blob",
+      "title": "samples.md",
+      "href": "samples.md"
+    },
+    {
+      "type": "blob",
+      "title": "styles.ts",
+      "href": "styles.ts"
+    }
+  ]
+}

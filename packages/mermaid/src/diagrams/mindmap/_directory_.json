@@ -1,0 +1,50 @@
+{
+  "title": "/packages/mermaid/src/diagrams/mindmap",
+  "files": [
+    {
+      "type": "blob",
+      "title": "detector.ts",
+      "href": "detector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mindmap-definition.ts",
+      "href": "mindmap-definition.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mindmap.spec.ts",
+      "href": "mindmap.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mindmapDb.ts",
+      "href": "mindmapDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mindmapRenderer.ts",
+      "href": "mindmapRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "mindmapTypes.ts",
+      "href": "mindmapTypes.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.ts",
+      "href": "styles.ts"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.ts",
+      "href": "svgDraw.ts"
+    }
+  ]
+}

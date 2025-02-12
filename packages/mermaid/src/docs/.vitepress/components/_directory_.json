@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid/src/docs/.vitepress/components",
+  "files": [
+    {
+      "type": "blob",
+      "title": "Contributors.vue",
+      "href": "Contributors.vue"
+    },
+    {
+      "type": "blob",
+      "title": "HomePage.vue",
+      "href": "HomePage.vue"
+    },
+    {
+      "type": "blob",
+      "title": "TopBar.vue",
+      "href": "TopBar.vue"
+    }
+  ]
+}

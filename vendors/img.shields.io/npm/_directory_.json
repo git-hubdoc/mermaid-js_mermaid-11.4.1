@@ -1,0 +1,15 @@
+{
+  "title": "/vendors/img.shields.io/npm",
+  "files": [
+    {
+      "type": "folder",
+      "title": "dm",
+      "href": "dm"
+    },
+    {
+      "type": "folder",
+      "title": "v",
+      "href": "v"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="mermaid-jslayout-elk"><a aria-hidden="true" tabindex="-1" href="#mermaid-jslayout-elk"><span class="icon icon-link"></span></a>@mermaid-js/layout-elk</h1>
+          <p>This package provides a layout engine for Mermaid based on the <a href="https://www.eclipse.org/elk/">ELK</a> layout engine.</p>
+          <blockquote>
+            <p>
+              [!NOTE]<br>The ELK Layout engine will not be available in all providers that support mermaid by default.
+              The websites will have to install the <code>@mermaid-js/layout-elk</code> package to use the ELK layout engine.
+            </p>
+          </blockquote>
+          <h2 id="usage"><a aria-hidden="true" tabindex="-1" href="#usage"><span class="icon icon-link"></span></a>Usage</h2>
+          <pre><code>flowchart-elk TD
+  A --> B
+  A --> C
+</code></pre>
+          <pre><code>---
+config:
+  layout: elk
+---
+
+flowchart TD
+  A --> B
+  A --> C
+</code></pre>
+          <pre><code>---
+config:
+  layout: elk.stress
+---
+
+flowchart TD
+  A --> B
+  A --> C
+</code></pre>
+          <h3 id="with-bundlers"><a aria-hidden="true" tabindex="-1" href="#with-bundlers"><span class="icon icon-link"></span></a>With bundlers</h3>
+          <pre><code class="language-sh">npm install @mermaid-js/layout-elk
+</code></pre>
+          <pre><code class="language-ts"><span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>mermaid<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">elkLayouts</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>@mermaid-js/layout-elk<span class="pl-pds">'</span></span>;
+
+<span class="pl-smi">mermaid</span>.<span class="pl-en">registerLayoutLoaders</span>(<span class="pl-smi">elkLayouts</span>);
+</code></pre>
+          <h3 id="with-cdn"><a aria-hidden="true" tabindex="-1" href="#with-cdn"><span class="icon icon-link"></span></a>With CDN</h3>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-k">import</span> <span class="pl-smi">elkLayouts</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@11/dist/mermaid-layout-elk.esm.min.mjs<span class="pl-pds">'</span></span>;
+
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">registerLayoutLoaders</span>(elkLayouts);
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <h2 id="supported-layouts"><a aria-hidden="true" tabindex="-1" href="#supported-layouts"><span class="icon icon-link"></span></a>Supported layouts</h2>
+          <ul>
+            <li><code>elk</code>: The default layout, which is <code>elk.layered</code>.</li>
+            <li><code>elk.layered</code>: Layered layout</li>
+            <li><code>elk.stress</code>: Stress layout</li>
+            <li><code>elk.force</code>: Force layout</li>
+            <li><code>elk.mrtree</code>: Multi-root tree layout</li>
+            <li><code>elk.sporeOverlap</code>: Spore overlap layout</li>
+          </ul>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

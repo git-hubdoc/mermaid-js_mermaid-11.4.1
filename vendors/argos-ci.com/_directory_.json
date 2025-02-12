@@ -1,0 +1,15 @@
+{
+  "title": "/vendors/argos-ci.com",
+  "files": [
+    {
+      "type": "blob",
+      "title": "badge-large.svg",
+      "href": "badge-large.svg"
+    },
+    {
+      "type": "blob",
+      "title": "badge.svg",
+      "href": "badge.svg"
+    }
+  ]
+}

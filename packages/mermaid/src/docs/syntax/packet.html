@@ -1,0 +1,70 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="packet-diagram-v1100"><a aria-hidden="true" tabindex="-1" href="#packet-diagram-v1100"><span class="icon icon-link"></span></a>Packet Diagram (v11.0.0+)</h1>
+          <h2 id="introduction"><a aria-hidden="true" tabindex="-1" href="#introduction"><span class="icon icon-link"></span></a>Introduction</h2>
+          <p>A packet diagram is a visual representation used to illustrate the structure and contents of a network packet. Network packets are the fundamental units of data transferred over a network.</p>
+          <h2 id="usage"><a aria-hidden="true" tabindex="-1" href="#usage"><span class="icon icon-link"></span></a>Usage</h2>
+          <p>This diagram type is particularly useful for developers, network engineers, educators, and students who require a clear and concise way to represent the structure of network packets.</p>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <pre><code class="language-md">packet-beta
+start: "Block name" %% Single-bit block
+start-end: "Block name" %% Multi-bit blocks
+... More Fields ...
+</code></pre>
+          <h2 id="examples"><a aria-hidden="true" tabindex="-1" href="#examples"><span class="icon icon-link"></span></a>Examples</h2>
+          <pre><code class="language-mermaid-example">---
+title: "TCP Packet"
+---
+packet-beta
+0-15: "Source Port"
+16-31: "Destination Port"
+32-63: "Sequence Number"
+64-95: "Acknowledgment Number"
+96-99: "Data Offset"
+100-105: "Reserved"
+106: "URG"
+107: "ACK"
+108: "PSH"
+109: "RST"
+110: "SYN"
+111: "FIN"
+112-127: "Window"
+128-143: "Checksum"
+144-159: "Urgent Pointer"
+160-191: "(Options and Padding)"
+192-255: "Data (variable length)"
+</code></pre>
+          <pre><code class="language-mermaid-example">packet-beta
+title UDP Packet
+0-15: "Source Port"
+16-31: "Destination Port"
+32-47: "Length"
+48-63: "Checksum"
+64-95: "Data (variable length)"
+</code></pre>
+          <h2 id="details-of-syntax"><a aria-hidden="true" tabindex="-1" href="#details-of-syntax"><span class="icon icon-link"></span></a>Details of Syntax</h2>
+          <ul>
+            <li><strong>Ranges</strong>: Each line after the title represents a different field in the packet. The range (e.g., <code>0-15</code>) indicates the bit positions in the packet.</li>
+            <li><strong>Field Description</strong>: A brief description of what the field represents, enclosed in quotes.</li>
+          </ul>
+          <h2 id="configuration"><a aria-hidden="true" tabindex="-1" href="#configuration"><span class="icon icon-link"></span></a>Configuration</h2>
+          <p>Please refer to the <a href="/config/schema-docs/config-defs-packet-diagram-config.html">configuration</a> guide for details.</p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "title": "/.husky",
+  "files": [
+    {
+      "type": "blob",
+      "title": "pre-commit",
+      "href": "pre-commit"
+    }
+  ]
+}

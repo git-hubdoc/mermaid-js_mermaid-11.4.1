@@ -1,0 +1,60 @@
+{
+  "title": "/packages/mermaid/src/rendering-util/rendering-elements",
+  "files": [
+    {
+      "type": "blob",
+      "title": "clusters.js",
+      "href": "clusters.js"
+    },
+    {
+      "type": "blob",
+      "title": "createLabel.js",
+      "href": "createLabel.js"
+    },
+    {
+      "type": "blob",
+      "title": "edgeMarker.spec.ts",
+      "href": "edgeMarker.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "edgeMarker.ts",
+      "href": "edgeMarker.ts"
+    },
+    {
+      "type": "blob",
+      "title": "edges.js",
+      "href": "edges.js"
+    },
+    {
+      "type": "folder",
+      "title": "intersect",
+      "href": "intersect"
+    },
+    {
+      "type": "blob",
+      "title": "markers.js",
+      "href": "markers.js"
+    },
+    {
+      "type": "blob",
+      "title": "nodes.spec.ts",
+      "href": "nodes.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "nodes.ts",
+      "href": "nodes.ts"
+    },
+    {
+      "type": "folder",
+      "title": "shapes",
+      "href": "shapes"
+    },
+    {
+      "type": "blob",
+      "title": "shapes.ts",
+      "href": "shapes.ts"
+    }
+  ]
+}

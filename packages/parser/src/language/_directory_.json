@@ -1,0 +1,40 @@
+{
+  "title": "/packages/parser/src/language",
+  "files": [
+    {
+      "type": "folder",
+      "title": "architecture",
+      "href": "architecture"
+    },
+    {
+      "type": "folder",
+      "title": "common",
+      "href": "common"
+    },
+    {
+      "type": "folder",
+      "title": "gitGraph",
+      "href": "gitGraph"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "folder",
+      "title": "info",
+      "href": "info"
+    },
+    {
+      "type": "folder",
+      "title": "packet",
+      "href": "packet"
+    },
+    {
+      "type": "folder",
+      "title": "pie",
+      "href": "pie"
+    }
+  ]
+}

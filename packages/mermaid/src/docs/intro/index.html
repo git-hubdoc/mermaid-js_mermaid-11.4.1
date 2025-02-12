@@ -1,0 +1,166 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="about-mermaid"><a aria-hidden="true" tabindex="-1" href="#about-mermaid"><span class="icon icon-link"></span></a>About Mermaid</h1>
+          <p><strong>Mermaid lets you create diagrams and visualizations using text and code.</strong></p>
+          <p>It is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.</p>
+          <blockquote>
+            <p>If you are familiar with Markdown you should have no problem learning <a href="syntax-reference.html">Mermaid's Syntax</a>.</p>
+          </blockquote>
+          <p>
+            <a href="https://github.com/mermaid-js/mermaid/actions/workflows/build.yml"><img src="/vendors/github.com/mermaid-js/mermaid/actions/workflows/build.yml/badge.svg" alt="Build CI Status"></a>
+            <a href="https://www.npmjs.com/package/mermaid"><img src="/vendors/img.shields.io/npm/v/mermaid" alt="NPM"></a>
+            <a href="https://bundlephobia.com/package/mermaid"><img src="/vendors/img.shields.io/bundlephobia/minzip/mermaid" alt="npm minified gzipped bundle size"></a>
+            <a href="https://coveralls.io/github/mermaid-js/mermaid?branch=master"><img src="https://coveralls.io/repos/github/mermaid-js/mermaid/badge.svg?branch=master" alt="Coverage Status"></a>
+            <a href="https://www.jsdelivr.com/package/npm/mermaid"><img src="/vendors/img.shields.io/jsdelivr/npm/hm/mermaid" alt="CDN Status"></a>
+            <a href="https://www.npmjs.com/package/mermaid"><img src="/vendors/img.shields.io/npm/dm/mermaid" alt="NPM"></a>
+            <a href="https://discord.gg/AgrbSrBer3"><img src="/vendors/img.shields.io/static/v1%25(63)message=join%20chat&#x26;color=9cf&#x26;logo=discord&#x26;label=discord" alt="Join our Discord!"></a>
+            <a href="https://twitter.com/mermaidjs_"><img src="/vendors/img.shields.io/twitter/follow/mermaidjs_%25(63)style=social" alt="Twitter Follow"></a>
+          </p>
+          <p><a href="https://mermaid-js.github.io/mermaid/landing/"><img src="img/book-banner-post-release.jpg" alt="Explore Mermaid.js in depth, with real-world examples, tips &#x26; tricks from the creator... The first official book on Mermaid is available for purchase. Check it out!"></a></p>
+          <p>Mermaid is a JavaScript based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development.</p>
+          <blockquote>
+            <p>Doc-Rot is a Catch-22 that Mermaid helps to solve.</p>
+          </blockquote>
+          <p>
+            Diagramming and documentation costs precious developer time and gets outdated quickly.
+            But not having diagrams or docs ruins productivity and hurts organizational learning.
+            Mermaid addresses this problem by enabling users to create easily modifiable diagrams, it can also be made part of production scripts (and other pieces of code).
+            Mermaid allows even non-programmers to easily create detailed and diagrams through the <a href="https://mermaid.live/">Mermaid Live Editor</a>.
+            <a href="ecosystem/tutorials.html">Tutorials</a> has video tutorials.
+          </p>
+          <p>Use Mermaid with your favorite applications, check out the list of <a href="ecosystem/integrations-community.html">Community Integrations</a>.</p>
+          <p>For a more detailed introduction to Mermaid and some of its more basic uses, look to the <a href="intro/getting-started.html">Beginner's Guide</a> and <a href="config/usage.html">Usage</a>.</p>
+          <p>🌐 <a href="https://www.jsdelivr.com/package/npm/mermaid">CDN</a> | 📖 <a href="https://mermaidjs.github.io/">Documentation</a> | 🙌 <a href="community/contributing.html">Contribution</a> | 🔌 <a href="ecosystem/integrations-community.html">Plug-Ins</a></p>
+          <blockquote>
+            <p>🖖 Keep a steady pulse: mermaid needs more Collaborators, <a href="https://github.com/knsv/mermaid/issues/866">Read More</a>.</p>
+          </blockquote>
+          <p>:trophy: <strong>Mermaid was nominated and won the <a href="https://osawards.com/javascript/#nominees">JS Open Source Awards (2019)</a> in the category "The most exciting use of technology"!!!</strong></p>
+          <p><strong>Thanks to all involved, people committing pull requests, people answering questions and special thanks to Tyler Long who is helping me maintain the project 🙏</strong></p>
+          <p>Our PR Visual Regression Testing is powered by <a href="https://argos-ci.com/?utm_source=mermaid&#x26;utm_campaign=oss">Argos</a> with their generous Open Source plan. It makes the process of reviewing PRs with visual changes a breeze.</p>
+          <p><a href="https://argos-ci.com/?utm_source=mermaid&#x26;utm_campaign=oss"><img src="/vendors/argos-ci.com/badge-large.svg" alt="Covered by Argos Visual Testing"></a></p>
+          <p>In our release process we rely heavily on visual regression tests using <a href="https://applitools.com/">applitools</a>. Applitools is a great service which has been easy to use and integrate with our tests.</p>
+          <h2 id="installation"><a aria-hidden="true" tabindex="-1" href="#installation"><span class="icon icon-link"></span></a>Installation</h2>
+          <p><strong>In depth guides and examples can be found at <a href="getting-started.html">Getting Started</a> and <a href="config/usage.html">Usage</a>.</strong></p>
+          <p><strong>It would also be helpful to learn more about mermaid's <a href="syntax-reference.html">Syntax</a>.</strong></p>
+          <h3 id="cdn"><a aria-hidden="true" tabindex="-1" href="#cdn"><span class="icon icon-link"></span></a>CDN</h3>
+          <pre><code>&#x3C;CDN_URL>/mermaid@&#x3C;version>/dist/
+</code></pre>
+          <p>To select a version:</p>
+          <p>Replace <code>&#x3C;version></code> with the desired version number.</p>
+          <p>Latest Version: [&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>](&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>)</p>
+          <h2 id="deploying-mermaid"><a aria-hidden="true" tabindex="-1" href="#deploying-mermaid"><span class="icon icon-link"></span></a>Deploying Mermaid</h2>
+          <p>To Deploy Mermaid:</p>
+          <ol>
+            <li>You will need to install node v16, which would have npm</li>
+            <li>Install mermaid
+              <ul>
+                <li>NPM: <code>npm i mermaid</code></li>
+                <li>Yarn: <code>yarn add mermaid</code></li>
+                <li>Pnpm: <code>pnpm add mermaid</code></li>
+              </ul>
+            </li>
+          </ol>
+          <h3 id="mermaid-api"><a aria-hidden="true" tabindex="-1" href="#mermaid-api"><span class="icon icon-link"></span></a><a href="config/setup/README.html">Mermaid API</a>:</h3>
+          <p><strong>To deploy mermaid without a bundler, insert a <code>script</code> tag with an absolute address and a <code>mermaid.initialize</code> call into the HTML using the following example:</strong></p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>module<span class="pl-pds">"</span></span>>
+  <span class="pl-k">import</span> <span class="pl-smi">mermaid</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>&#x3C;CDN_URL>/mermaid@&#x3C;MERMAID_VERSION>/dist/mermaid.esm.min.mjs<span class="pl-pds">'</span></span>;
+  <span class="pl-smi">mermaid</span>.<span class="pl-en">initialize</span>({ startOnLoad<span class="pl-k">:</span> <span class="pl-c1">true</span> });
+&#x3C;/<span class="pl-ent">script</span>>
+</code></pre>
+          <p><strong>Doing so commands the mermaid parser to look for the <code>&#x3C;div></code> or <code>&#x3C;pre></code> tags with <code>class="mermaid"</code>. From these tags, mermaid tries to read the diagram/chart definitions and render them into SVG charts.</strong></p>
+          <p><strong>Examples can be found in</strong> <a href="syntax/examples.html">Other examples</a></p>
+          <h2 id="sibling-projects"><a aria-hidden="true" tabindex="-1" href="#sibling-projects"><span class="icon icon-link"></span></a>Sibling projects</h2>
+          <ul>
+            <li><a href="https://github.com/mermaid-js/mermaid-live-editor">Mermaid Live Editor</a></li>
+            <li><a href="https://github.com/mermaid-js/mermaid-cli">Mermaid CLI</a></li>
+            <li><a href="https://github.com/mermaidjs/mermaid-webpack-demo">Mermaid Webpack Demo</a></li>
+            <li><a href="https://github.com/mermaidjs/mermaid-parcel-demo">Mermaid Parcel Demo</a></li>
+          </ul>
+          <h2 id="request-for-assistance"><a aria-hidden="true" tabindex="-1" href="#request-for-assistance"><span class="icon icon-link"></span></a>Request for Assistance</h2>
+          <p>
+            Things are piling up and I have a hard time keeping up. It would be great if we could form a core team of developers to cooperate
+            with the future development of mermaid.
+          </p>
+          <p>
+            As part of this team you would get write access to the repository and would
+            represent the project when answering questions and issues.
+          </p>
+          <p>Together we could continue the work with things like:</p>
+          <ul>
+            <li>Adding more types of diagrams like mindmaps, ert diagrams, etc.</li>
+            <li>Improving existing diagrams</li>
+          </ul>
+          <p>Don't hesitate to contact me if you want to get involved!</p>
+          <h2 id="contributors"><a aria-hidden="true" tabindex="-1" href="#contributors"><span class="icon icon-link"></span></a>Contributors</h2>
+          <p>
+            <a href="https://github.com/mermaid-js/mermaid/issues?q=is%3Aissue+is%3Aopen+label%3A%22Good+first+issue%21%22"><img src="/vendors/img.shields.io/github/labels/mermaid-js/mermaid/Good%20first%20issue%21" alt="Good first issue"></a>
+            <a href="https://github.com/mermaid-js/mermaid/graphs/contributors"><img src="/vendors/img.shields.io/github/contributors/mermaid-js/mermaid" alt="Contributors"></a>
+            <a href="https://github.com/mermaid-js/mermaid/graphs/contributors"><img src="/vendors/img.shields.io/github/commit-activity/m/mermaid-js/mermaid" alt="Commits"></a>
+          </p>
+          <p>Mermaid is a growing community and is always accepting new contributors. There's a lot of different ways to help out and we're always looking for extra hands! Look at <a href="https://github.com/mermaid-js/mermaid/issues/866">this issue</a> if you want to know where to start helping out.</p>
+          <p>Detailed information about how to contribute can be found in the <a href="community/contributing.html">contribution guideline</a>.</p>
+          <h3 id="requirements"><a aria-hidden="true" tabindex="-1" href="#requirements"><span class="icon icon-link"></span></a>Requirements</h3>
+          <ul>
+            <li><a href="https://volta.sh/">volta</a> to manage node versions.</li>
+            <li><a href="https://nodejs.org/en/">Node.js</a>. <code>volta install node</code></li>
+            <li><a href="https://pnpm.io/">pnpm</a> package manager. <code>volta install pnpm</code></li>
+          </ul>
+          <h3 id="development-installation"><a aria-hidden="true" tabindex="-1" href="#development-installation"><span class="icon icon-link"></span></a>Development Installation</h3>
+          <pre><code class="language-bash">git clone git@github.com:mermaid-js/mermaid.git
+<span class="pl-c1">cd</span> mermaid
+<span class="pl-c"># npx is required for first install as volta support for pnpm is not added yet.</span>
+npx pnpm install
+pnpm <span class="pl-c1">test</span>
+</code></pre>
+          <h3 id="lint"><a aria-hidden="true" tabindex="-1" href="#lint"><span class="icon icon-link"></span></a>Lint</h3>
+          <pre><code class="language-sh">pnpm lint
+</code></pre>
+          <p>
+            We use <a href="https://eslint.org/">eslint</a>.
+            We recommend you to install <a href="https://eslint.org/docs/user-guide/integrations">editor plugins</a> to get real time lint result.
+          </p>
+          <h3 id="test"><a aria-hidden="true" tabindex="-1" href="#test"><span class="icon icon-link"></span></a>Test</h3>
+          <pre><code class="language-sh">pnpm <span class="pl-c1">test</span>
+</code></pre>
+          <p>Manual test in browser: open <code>dist/index.html</code></p>
+          <h3 id="release"><a aria-hidden="true" tabindex="-1" href="#release"><span class="icon icon-link"></span></a>Release</h3>
+          <p>For those who have the permission to do so:</p>
+          <p>Update version number in <code>package.json</code>.</p>
+          <pre><code class="language-sh">npm publish
+</code></pre>
+          <p>The above command generates files into the <code>dist</code> folder and publishes them to <a href="https://www.npmjs.com/">npmjs.com</a>.</p>
+          <h2 id="security-and-safe-diagrams"><a aria-hidden="true" tabindex="-1" href="#security-and-safe-diagrams"><span class="icon icon-link"></span></a>Security and safe diagrams</h2>
+          <p>For public sites, it can be precarious to retrieve text from users on the internet, storing that content for presentation in a browser at a later stage. The reason is that the user content can contain embedded malicious scripts that will run when the data is presented. For Mermaid this is a risk, specially as mermaid diagrams contain many characters that are used in html which makes the standard sanitation unusable as it also breaks the diagrams. We still make an effort to sanitize the incoming code and keep refining the process but it is hard to guarantee that there are no loop holes.</p>
+          <p>As an extra level of security for sites with external users we are happy to introduce a new security level in which the diagram is rendered in a sandboxed iframe preventing JavaScript in the code from being executed. This is a great step forward for better security.</p>
+          <p><em>Unfortunately you can not have a cake and eat it at the same time which in this case means that some of the interactive functionality gets blocked along with the possible malicious code.</em></p>
+          <h2 id="reporting-vulnerabilities"><a aria-hidden="true" tabindex="-1" href="#reporting-vulnerabilities"><span class="icon icon-link"></span></a>Reporting vulnerabilities</h2>
+          <p>To report a vulnerability, please e-mail <a href="mailto:security@mermaid.live">security@mermaid.live</a> with a description of the issue, the steps you took to create the issue, affected versions, and if known, mitigations for the issue.</p>
+          <h2 id="appreciation"><a aria-hidden="true" tabindex="-1" href="#appreciation"><span class="icon icon-link"></span></a>Appreciation</h2>
+          <p>A quick note from Knut Sveidqvist:</p>
+          <blockquote>
+            <p><em>Many thanks to the <a href="https://d3js.org/">d3</a> and <a href="https://github.com/cpettitt/dagre-d3">dagre-d3</a> projects for providing the graphical layout and drawing libraries!</em></p>
+            <p><em>Thanks also to the <a href="https://bramp.github.io/js-sequence-diagrams">js-sequence-diagram</a> project for usage of the grammar for the sequence diagrams. Thanks to Jessica Peter for inspiration and starting point for gantt rendering.</em></p>
+            <p><em>Thank you to <a href="https://github.com/tylerlong">Tyler Long</a> who has been a collaborator since April 2017.</em></p>
+            <p><em>Thank you to the ever-growing list of <a href="https://github.com/knsv/mermaid/graphs/contributors">contributors</a> that brought the project this far!</em></p>
+          </blockquote>
+          <hr>
+          <p><em>Mermaid was created by Knut Sveidqvist for easier documentation.</em></p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

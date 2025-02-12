@@ -1,0 +1,30 @@
+{
+  "title": "/packages/mermaid/src/diagrams/xychart/chartBuilder",
+  "files": [
+    {
+      "type": "folder",
+      "title": "components",
+      "href": "components"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "interfaces.ts",
+      "href": "interfaces.ts"
+    },
+    {
+      "type": "blob",
+      "title": "orchestrator.ts",
+      "href": "orchestrator.ts"
+    },
+    {
+      "type": "blob",
+      "title": "textDimensionCalculator.ts",
+      "href": "textDimensionCalculator.ts"
+    }
+  ]
+}

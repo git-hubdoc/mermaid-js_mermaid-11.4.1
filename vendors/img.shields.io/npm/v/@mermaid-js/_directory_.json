@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/img.shields.io/npm/v/@mermaid-js",
+  "files": [
+    {
+      "type": "blob",
+      "title": "parser",
+      "href": "parser"
+    }
+  ]
+}

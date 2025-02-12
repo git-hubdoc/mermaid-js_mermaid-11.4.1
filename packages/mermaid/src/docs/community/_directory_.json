@@ -1,0 +1,70 @@
+{
+  "title": "/packages/mermaid/src/docs/community",
+  "files": [
+    {
+      "type": "blob",
+      "title": "contributing.html",
+      "href": "contributing.html"
+    },
+    {
+      "type": "blob",
+      "title": "contributing.md",
+      "href": "contributing.md"
+    },
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "blob",
+      "title": "intro.html",
+      "href": "intro.html"
+    },
+    {
+      "type": "blob",
+      "title": "intro.md",
+      "href": "intro.md"
+    },
+    {
+      "type": "blob",
+      "title": "new-diagram-jison.html",
+      "href": "new-diagram-jison.html"
+    },
+    {
+      "type": "blob",
+      "title": "new-diagram-jison.md",
+      "href": "new-diagram-jison.md"
+    },
+    {
+      "type": "blob",
+      "title": "new-diagram.html",
+      "href": "new-diagram.html"
+    },
+    {
+      "type": "blob",
+      "title": "new-diagram.md",
+      "href": "new-diagram.md"
+    },
+    {
+      "type": "blob",
+      "title": "questions-and-suggestions.html",
+      "href": "questions-and-suggestions.html"
+    },
+    {
+      "type": "blob",
+      "title": "questions-and-suggestions.md",
+      "href": "questions-and-suggestions.md"
+    },
+    {
+      "type": "blob",
+      "title": "security.html",
+      "href": "security.html"
+    },
+    {
+      "type": "blob",
+      "title": "security.md",
+      "href": "security.md"
+    }
+  ]
+}

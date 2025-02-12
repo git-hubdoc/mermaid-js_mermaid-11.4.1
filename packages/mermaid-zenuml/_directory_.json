@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid-zenuml",
+  "files": [
+    {
+      "type": "blob",
+      "title": "package.json",
+      "href": "package.json"
+    },
+    {
+      "type": "folder",
+      "title": "src",
+      "href": "src"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.json",
+      "href": "tsconfig.json"
+    }
+  ]
+}

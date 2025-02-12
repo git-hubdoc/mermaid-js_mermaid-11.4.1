@@ -1,0 +1,10 @@
+{
+  "title": "/__mocks__",
+  "files": [
+    {
+      "type": "blob",
+      "title": "d3.ts",
+      "href": "d3.ts"
+    }
+  ]
+}

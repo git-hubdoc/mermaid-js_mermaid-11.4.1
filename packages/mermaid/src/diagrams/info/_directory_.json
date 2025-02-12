@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/diagrams/info",
+  "files": [
+    {
+      "type": "blob",
+      "title": "info.spec.ts",
+      "href": "info.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "infoDb.ts",
+      "href": "infoDb.ts"
+    },
+    {
+      "type": "blob",
+      "title": "infoDetector.ts",
+      "href": "infoDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "infoDiagram.ts",
+      "href": "infoDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "infoParser.ts",
+      "href": "infoParser.ts"
+    },
+    {
+      "type": "blob",
+      "title": "infoRenderer.ts",
+      "href": "infoRenderer.ts"
+    },
+    {
+      "type": "blob",
+      "title": "infoTypes.ts",
+      "href": "infoTypes.ts"
+    }
+  ]
+}

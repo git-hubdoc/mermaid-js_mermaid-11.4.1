@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/quadrant-chart/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "quadrant.jison",
+      "href": "quadrant.jison"
+    },
+    {
+      "type": "blob",
+      "title": "quadrant.jison.spec.ts",
+      "href": "quadrant.jison.spec.ts"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="architecture-diagrams-documentation-v1110"><a aria-hidden="true" tabindex="-1" href="#architecture-diagrams-documentation-v1110"><span class="icon icon-link"></span></a>Architecture Diagrams Documentation (v11.1.0+)</h1>
+          <blockquote>
+            <p>In the context of mermaid-js, the architecture diagram is used to show the relationship between services and resources commonly found within the Cloud or CI/CD deployments. In an architecture diagram, services (nodes) are connected by edges. Related services can be placed within groups to better illustrate how they are organized.</p>
+          </blockquote>
+          <h2 id="example"><a aria-hidden="true" tabindex="-1" href="#example"><span class="icon icon-link"></span></a>Example</h2>
+          <pre><code class="language-mermaid-example">architecture-beta
+    group api(cloud)[API]
+
+    service db(database)[Database] in api
+    service disk1(disk)[Storage] in api
+    service disk2(disk)[Storage] in api
+    service server(server)[Server] in api
+
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
+</code></pre>
+          <h2 id="syntax"><a aria-hidden="true" tabindex="-1" href="#syntax"><span class="icon icon-link"></span></a>Syntax</h2>
+          <p>The building blocks of an architecture are <code>groups</code>, <code>services</code>, <code>edges</code>, and <code>junctions</code>.</p>
+          <p>For supporting components, icons are declared by surrounding the icon name with <code>()</code>, while labels are declared by surrounding the text with <code>[]</code>.</p>
+          <p>To begin an architecture diagram, use the keyword <code>architecture-beta</code>, followed by your groups, services, edges, and junctions. While each of the 3 building blocks can be declared in any order, care must be taken to ensure the identifier was previously declared by another component.</p>
+          <h3 id="groups"><a aria-hidden="true" tabindex="-1" href="#groups"><span class="icon icon-link"></span></a>Groups</h3>
+          <p>The syntax for declaring a group is:</p>
+          <pre><code>group {group id}({icon name})[{title}] (in {parent id})?
+</code></pre>
+          <p>Put together:</p>
+          <pre><code>group public_api(cloud)[Public API]
+</code></pre>
+          <p>creates a group identified as <code>public_api</code>, uses the icon <code>cloud</code>, and has the label <code>Public API</code>.</p>
+          <p>Additionally, groups can be placed within a group using the optional <code>in</code> keyword</p>
+          <pre><code>group private_api(cloud)[Private API] in public_api
+</code></pre>
+          <h3 id="services"><a aria-hidden="true" tabindex="-1" href="#services"><span class="icon icon-link"></span></a>Services</h3>
+          <p>The syntax for declaring a service is:</p>
+          <pre><code>service {service id}({icon name})[{title}] (in {parent id})?
+</code></pre>
+          <p>Put together:</p>
+          <pre><code>service database1(database)[My Database]
+</code></pre>
+          <p>creates the service identified as <code>database1</code>, using the icon <code>database</code>, with the label <code>My Database</code>.</p>
+          <p>If the service belongs to a group, it can be placed inside it through the optional <code>in</code> keyword</p>
+          <pre><code>service database1(database)[My Database] in private_api
+</code></pre>
+          <h3 id="edges"><a aria-hidden="true" tabindex="-1" href="#edges"><span class="icon icon-link"></span></a>Edges</h3>
+          <p>The syntax for declaring an edge is:</p>
+          <pre><code>{serviceId}{{group}}?:{T|B|L|R} {&#x3C;}?--{>}? {T|B|L|R}:{serviceId}{{group}}?
+</code></pre>
+          <h4 id="edge-direction"><a aria-hidden="true" tabindex="-1" href="#edge-direction"><span class="icon icon-link"></span></a>Edge Direction</h4>
+          <p>The side of the service the edge comes out of is specified by adding a colon (<code>:</code>) to the side of the service connecting to the arrow and adding <code>L|R|T|B</code></p>
+          <p>For example:</p>
+          <pre><code>db:R -- L:server
+</code></pre>
+          <p>creates an edge between the services <code>db</code> and <code>server</code>, with the edge coming out of the right of <code>db</code> and the left of <code>server</code>.</p>
+          <pre><code>db:T -- L:server
+</code></pre>
+          <p>creates a 90 degree edge between the services <code>db</code> and <code>server</code>, with the edge coming out of the top of <code>db</code> and the left of <code>server</code>.</p>
+          <h4 id="arrows"><a aria-hidden="true" tabindex="-1" href="#arrows"><span class="icon icon-link"></span></a>Arrows</h4>
+          <p>Arrows can be added to each side of an edge by adding <code>&#x3C;</code> before the direction on the left, and/or <code>></code> after the direction on the right.</p>
+          <p>For example:</p>
+          <pre><code>subnet:R --> L:gateway
+</code></pre>
+          <p>creates an edge with the arrow going into the <code>gateway</code> service</p>
+          <h4 id="edges-out-of-groups"><a aria-hidden="true" tabindex="-1" href="#edges-out-of-groups"><span class="icon icon-link"></span></a>Edges out of Groups</h4>
+          <p>To have an edge go from a group to another group or service within another group, the <code>{group}</code> modifier can be added after the <code>serviceId</code>.</p>
+          <p>For example:</p>
+          <pre><code>service server[Server] in groupOne
+service subnet[Subnet] in groupTwo
+
+server{group}:B --> T:subnet{group}
+</code></pre>
+          <p>creates an edge going out of <code>groupOne</code>, adjacent to <code>server</code>, and into <code>groupTwo</code>, adjacent to <code>subnet</code>.</p>
+          <p>It's important to note that <code>groupId</code>s cannot be used for specifying edges and the <code>{group}</code> modifier can only be used for services within a group.</p>
+          <h3 id="junctions"><a aria-hidden="true" tabindex="-1" href="#junctions"><span class="icon icon-link"></span></a>Junctions</h3>
+          <p>Junctions are a special type of node which acts as a potential 4-way split between edges.</p>
+          <p>The syntax for declaring a junction is:</p>
+          <pre><code>junction {junction id} (in {parent id})?
+</code></pre>
+          <pre><code class="language-mermaid-example">architecture-beta
+    service left_disk(disk)[Disk]
+    service top_disk(disk)[Disk]
+    service bottom_disk(disk)[Disk]
+    service top_gateway(internet)[Gateway]
+    service bottom_gateway(internet)[Gateway]
+    junction junctionCenter
+    junction junctionRight
+
+    left_disk:R -- L:junctionCenter
+    top_disk:B -- T:junctionCenter
+    bottom_disk:T -- B:junctionCenter
+    junctionCenter:R -- L:junctionRight
+    top_gateway:B -- T:junctionRight
+    bottom_gateway:T -- B:junctionRight
+</code></pre>
+          <h2 id="icons"><a aria-hidden="true" tabindex="-1" href="#icons"><span class="icon icon-link"></span></a>Icons</h2>
+          <p>
+            By default, architecture diagram supports the following icons: <code>cloud</code>, <code>database</code>, <code>disk</code>, <code>internet</code>, <code>server</code>.
+            Users can use any of the 200,000+ icons available in iconify.design, or add their own custom icons, by following the steps <a href="config/icons.html">here</a>.
+          </p>
+          <p>After the icons are installed, they can be used in the architecture diagram by using the format "name:icon-name", where name is the value used when registering the icon pack.</p>
+          <pre><code class="language-mermaid-example">architecture-beta
+    group api(logos:aws-lambda)[API]
+
+    service db(logos:aws-aurora)[Database] in api
+    service disk1(logos:aws-glacier)[Storage] in api
+    service disk2(logos:aws-s3)[Storage] in api
+    service server(logos:aws-ec2)[Server] in api
+
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

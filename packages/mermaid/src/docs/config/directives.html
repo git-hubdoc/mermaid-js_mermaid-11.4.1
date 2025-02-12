@@ -1,0 +1,220 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="directives"><a aria-hidden="true" tabindex="-1" href="#directives"><span class="icon icon-link"></span></a>Directives</h1>
+          <pre><code class="language-warning">Directives are deprecated from v10.5.0. Please use the `config` key in frontmatter to pass configuration. See [Configuration](./configuration.md) for more details.
+</code></pre>
+          <h2 id="directives-1"><a aria-hidden="true" tabindex="-1" href="#directives-1"><span class="icon icon-link"></span></a>Directives</h2>
+          <p>Directives give a diagram author the capability to alter the appearance of a diagram before rendering by changing the applied configuration.</p>
+          <p>The significance of having directives is that you have them available while writing the diagram, and can modify the default global and diagram-specific configurations. So, directives are applied on top of the default configuration. The beauty of directives is that you can use them to alter configuration settings for a specific diagram, i.e. at an individual level.</p>
+          <p>While directives allow you to change most of the default configuration settings, there are some that are not available, for security reasons. Also, you have the <em>option to define the set of configurations</em> that you wish to allow diagram authors to override with directives.</p>
+          <h2 id="types-of-directives-options"><a aria-hidden="true" tabindex="-1" href="#types-of-directives-options"><span class="icon icon-link"></span></a>Types of Directives options</h2>
+          <p>Mermaid basically supports two types of configuration options to be overridden by directives.</p>
+          <ol>
+            <li>
+              <p><em>General/Top Level configurations</em> : These are the configurations that are available and applied to all the diagram. <strong>Some of the most important top-level</strong> configurations are:</p>
+              <ul>
+                <li>theme</li>
+                <li>fontFamily</li>
+                <li>logLevel</li>
+                <li>securityLevel</li>
+                <li>startOnLoad</li>
+                <li>secure</li>
+              </ul>
+            </li>
+            <li>
+              <p>
+                <em>Diagram-specific configurations</em> : These are the configurations that are available and applied to a specific diagram. For each diagram there are specific configuration that will alter how that particular diagram looks and behaves.
+                For example, <code>mirrorActors</code> is a configuration that is specific to the <code>SequenceDiagram</code> and alters whether the actors are mirrored or not. So this config is available only for the <code>SequenceDiagram</code> type.
+              </p>
+            </li>
+          </ol>
+          <p><strong>NOTE:</strong> Not all configuration options are listed here. To get hold of all the configuration options, please refer to the <a href="/packages/mermaid/src/defaultConfig.ts">defaultConfig.ts</a> in the source code.</p>
+          <pre><code class="language-note">We plan to publish a complete list of top-level configurations &#x26; diagram-specific configurations with their possible values in the docs soon.
+</code></pre>
+          <h2 id="declaring-directives"><a aria-hidden="true" tabindex="-1" href="#declaring-directives"><span class="icon icon-link"></span></a>Declaring directives</h2>
+          <p>
+            Now that we have defined the types of configurations that are available, we can learn how to declare directives.
+            A directive always starts and ends with <code>%%</code> signs with directive text in between, like <code>%% {directive_text} %%</code>.
+          </p>
+          <p>Here the structure of a directive text is like a nested key-value pair map or a JSON object with root being <em>init</em>. Where all the general configurations are defined in the top level, and all the diagram specific configurations are defined one level deeper with diagram type as key/root for that section.</p>
+          <p>The following code snippet shows the structure of a directive:</p>
+          <pre><code>%%{
+  init: {
+    "theme": "dark",
+    "fontFamily": "monospace",
+    "logLevel": "info",
+    "flowchart": {
+      "htmlLabels": true,
+      "curve": "linear"
+    },
+    "sequence": {
+      "mirrorActors": true
+    }
+  }
+}%%
+</code></pre>
+          <p>You can also define the directives in a single line, like this:</p>
+          <pre><code>%%{init: { **insert configuration options here** } }%%
+</code></pre>
+          <p>For example, the following code snippet:</p>
+          <pre><code>%%{init: { "sequence": { "mirrorActors":false }}}%%
+</code></pre>
+          <p>
+            <strong>Notes:</strong>
+            The JSON object that is passed as {<strong>argument</strong>} must be valid key value pairs and encased in quotation marks or it will be ignored.
+            Valid Key Value pairs can be found in config.
+          </p>
+          <p>Example with a simple graph:</p>
+          <pre><code class="language-mermaid-example">%%{init: { 'logLevel': 'debug', 'theme': 'dark' } }%%
+graph LR
+A-->B
+</code></pre>
+          <p>Here the directive declaration will set the <code>logLevel</code> to <code>debug</code> and the <code>theme</code> to <code>dark</code> for a rendered mermaid diagram, changing the appearance of the diagram itself.</p>
+          <p>Note: You can use 'init' or 'initialize' as both are acceptable as init directives. Also note that <code>%%init%%</code> and <code>%%initialize%%</code> directives will be grouped together after they are parsed.</p>
+          <pre><code class="language-mermaid">%%{init: { 'logLevel': 'debug', 'theme': 'forest' } }%%
+%%{initialize: { 'logLevel': 'fatal', "theme":'dark', 'startOnLoad': true } }%%
+...
+</code></pre>
+          <p>For example, parsing the above generates a single <code>%%init%%</code> JSON object below, combining the two directives and carrying over the last value given for <code>loglevel</code>:</p>
+          <pre><code class="language-json">{
+  <span class="pl-ent">"logLevel"</span>: <span class="pl-s"><span class="pl-pds">"</span>fatal<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"theme"</span>: <span class="pl-s"><span class="pl-pds">"</span>dark<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"startOnLoad"</span>: <span class="pl-c1">true</span>
+}
+</code></pre>
+          <p>This will then be sent to <code>mermaid.initialize(...)</code> for rendering.</p>
+          <h2 id="directive-examples"><a aria-hidden="true" tabindex="-1" href="#directive-examples"><span class="icon icon-link"></span></a>Directive Examples</h2>
+          <p>Now that the concept of directives has been explained, let us see some more examples of directive usage:</p>
+          <h3 id="changing-theme-via-directive"><a aria-hidden="true" tabindex="-1" href="#changing-theme-via-directive"><span class="icon icon-link"></span></a>Changing theme via directive</h3>
+          <p>The following code snippet changes <code>theme</code> to <code>forest</code>:</p>
+          <p><code>%%{init: { "theme": "forest" } }%%</code></p>
+          <p>
+            Possible theme values are: <code>default</code>, <code>base</code>, <code>dark</code>, <code>forest</code> and <code>neutral</code>.
+            Default Value is <code>default</code>.
+          </p>
+          <p>Example:</p>
+          <pre><code class="language-mermaid-example">%%{init: { "theme": "forest" } }%%
+graph TD
+A(Forest) --> B[/Another/]
+A --> C[End]
+  subgraph section
+  B
+  C
+  end
+
+</code></pre>
+          <h3 id="changing-fontfamily-via-directive"><a aria-hidden="true" tabindex="-1" href="#changing-fontfamily-via-directive"><span class="icon icon-link"></span></a>Changing fontFamily via directive</h3>
+          <p>The following code snippet changes fontFamily to Trebuchet MS, Verdana, Arial, Sans-Serif:</p>
+          <p><code>%%{init: { "fontFamily": "Trebuchet MS, Verdana, Arial, Sans-Serif" } }%%</code></p>
+          <p>Example:</p>
+          <pre><code class="language-mermaid-example">%%{init: { "fontFamily": "Trebuchet MS, Verdana, Arial, Sans-Serif" } }%%
+graph TD
+A(Forest) --> B[/Another/]
+A --> C[End]
+  subgraph section
+  B
+  C
+  end
+
+</code></pre>
+          <h3 id="changing-loglevel-via-directive"><a aria-hidden="true" tabindex="-1" href="#changing-loglevel-via-directive"><span class="icon icon-link"></span></a>Changing logLevel via directive</h3>
+          <p>The following code snippet changes <code>logLevel</code> to <code>2</code>:</p>
+          <p><code>%%{init: { "logLevel": 2 } }%%</code></p>
+          <p>Possible <code>logLevel</code> values are:</p>
+          <ul>
+            <li><code>1</code> for <em>debug</em>,</li>
+            <li><code>2</code> for <em>info</em></li>
+            <li><code>3</code> for <em>warn</em></li>
+            <li><code>4</code> for <em>error</em></li>
+            <li><code>5</code> for <em>only fatal errors</em></li>
+          </ul>
+          <p>Default Value is <code>5</code>.</p>
+          <p>Example:</p>
+          <pre><code class="language-mermaid-example">%%{init: { "logLevel": 2 } }%%
+graph TD
+A(Forest) --> B[/Another/]
+A --> C[End]
+  subgraph section
+  B
+  C
+  end
+</code></pre>
+          <h3 id="changing-flowchart-config-via-directive"><a aria-hidden="true" tabindex="-1" href="#changing-flowchart-config-via-directive"><span class="icon icon-link"></span></a>Changing flowchart config via directive</h3>
+          <p>Some common flowchart configurations are:</p>
+          <ul>
+            <li><em>htmlLabels</em>: true/false</li>
+            <li><em>curve</em>: linear/curve</li>
+            <li><em>diagramPadding</em>: number</li>
+            <li><em>useMaxWidth</em>: number</li>
+          </ul>
+          <p>
+            For a complete list of flowchart configurations, see <a href="/packages/mermaid/src/defaultConfig.ts">defaultConfig.ts</a> in the source code.
+            <em>Soon we plan to publish a complete list of all diagram-specific configurations updated in the docs.</em>
+          </p>
+          <p>The following code snippet changes flowchart config:</p>
+          <p><code>%%{init: { "flowchart": { "htmlLabels": true, "curve": "linear" } } }%%</code></p>
+          <p>Here we are overriding only the flowchart config, and not the general config, setting <code>htmlLabels</code> to <code>true</code> and <code>curve</code> to <code>linear</code>.</p>
+          <pre><code class="language-mermaid-example">%%{init: { "flowchart": { "htmlLabels": true, "curve": "linear" } } }%%
+graph TD
+A(Forest) --> B[/Another/]
+A --> C[End]
+  subgraph section
+  B
+  C
+  end
+</code></pre>
+          <h3 id="changing-sequence-diagram-config-via-directive"><a aria-hidden="true" tabindex="-1" href="#changing-sequence-diagram-config-via-directive"><span class="icon icon-link"></span></a>Changing Sequence diagram config via directive</h3>
+          <p>Some common sequence diagram configurations are:</p>
+          <ul>
+            <li><em>width</em>: number</li>
+            <li><em>height</em>: number</li>
+            <li><em>messageAlign</em>: left, center, right</li>
+            <li><em>mirrorActors</em>: boolean</li>
+            <li><em>useMaxWidth</em>: boolean</li>
+            <li><em>rightAngles</em>: boolean</li>
+            <li><em>showSequenceNumbers</em>: boolean</li>
+            <li><em>wrap</em>: boolean</li>
+          </ul>
+          <p>
+            For a complete list of sequence diagram configurations, see <a href="/packages/mermaid/src/defaultConfig.ts">defaultConfig.ts</a> in the source code.
+            <em>Soon we plan to publish a complete list of all diagram-specific configurations updated in the docs.</em>
+          </p>
+          <p>So, <code>wrap</code> by default has a value of <code>false</code> for sequence diagrams.</p>
+          <p>Let us see an example:</p>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+
+Alice->Bob: Hello Bob, how are you?
+Bob->Alice: Fine, how did your mother like the book I suggested? And did you catch the new book about alien invasion?
+Alice->Bob: Good.
+Bob->Alice: Cool
+</code></pre>
+          <p>Now let us enable wrap for sequence diagrams.</p>
+          <p>The following code snippet changes sequence diagram config for <code>wrap</code> to <code>true</code>:</p>
+          <p><code>%%{init: { "sequence": { "wrap": true} } }%%</code></p>
+          <p>By applying that snippet to the diagram above, <code>wrap</code> will be enabled:</p>
+          <pre><code class="language-mermaid-example">%%{init: { "sequence": { "wrap": true, "width":300 } } }%%
+sequenceDiagram
+Alice->Bob: Hello Bob, how are you?
+Bob->Alice: Fine, how did your mother like the book I suggested? And did you catch the new book about alien invasion?
+Alice->Bob: Good.
+Bob->Alice: Cool
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="accessibility-options"><a aria-hidden="true" tabindex="-1" href="#accessibility-options"><span class="icon icon-link"></span></a>Accessibility Options</h1>
+          <h2 id="accessibility"><a aria-hidden="true" tabindex="-1" href="#accessibility"><span class="icon icon-link"></span></a>Accessibility</h2>
+          <p>Now with Mermaid library in much wider use, we have started to work towards more accessible features, based on the feedback from the community.</p>
+          <p>
+            Adding accessibility means that the rich information communicated by visual diagrams can be made available to those using assistive technologies (and of course to search engines).
+            <a href="https://www.w3.org/WAI/standards-guidelines/aria/">Read more about Accessible Rich Internet Applications and the W3 standards.</a>
+          </p>
+          <p>Mermaid will automatically insert the <a href="#aria-roledescription">aria-roledescription</a> and, if provided in the diagram text by the diagram author, the <a href="#accessible-title-and-description">accessible title and description.</a></p>
+          <h3 id="aria-roledescription"><a aria-hidden="true" tabindex="-1" href="#aria-roledescription"><span class="icon icon-link"></span></a>aria-roledescription</h3>
+          <p>The <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-roledescription">aria-roledescription</a> for the SVG HTML element is set to the diagram type key. (Note this may be slightly different than the keyword used for the diagram in the diagram text.)</p>
+          <p>For example: The diagram type key for a state diagram is "stateDiagram". Here (a part of) the HTML of the SVG tag that shows the automatically inserted aria-roledescription set to "stateDiagram". <em>(Note that some of the SVG attributes and the SVG contents are omitted for clarity.):</em></p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">svg</span>
+  <span class="pl-e">aria-roledescription</span>=<span class="pl-s"><span class="pl-pds">"</span>stateDiagram<span class="pl-pds">"</span></span>
+  <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>statediagram<span class="pl-pds">"</span></span>
+  <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2000/svg<span class="pl-pds">"</span></span>
+  <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>
+  <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid-1668720491568<span class="pl-pds">"</span></span>
+>&#x3C;/<span class="pl-ent">svg</span>>
+</code></pre>
+          <h3 id="accessible-title-and-description"><a aria-hidden="true" tabindex="-1" href="#accessible-title-and-description"><span class="icon icon-link"></span></a>Accessible Title and Description</h3>
+          <p>Support for accessible titles and descriptions is available for all diagrams/chart types. We have tried to keep the same keywords and format for all diagrams so that it is easy to understand and maintain.</p>
+          <p>The accessible title and description will add <code>&#x3C;title></code> and <code>&#x3C;desc></code> elements within the SVG element and the <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby</a> and <a href="https://www.w3.org/TR/wai-aria/#aria-describedby">aria-describedby</a> attributes in the SVG tag.</p>
+          <p>
+            Here is HTML that is generated, showing that the SVG element is labelled by the accessible title (id = <code>chart-title-mermaid-1668725057758</code>)
+            and described by the accessible description (id = <code>chart-desc-mermaid-1668725057758</code> );
+            and the accessible title element (text = "This is the accessible title")
+            and the accessible description element (text = "This is an accessible description").
+          </p>
+          <p><em>(Note that some of the SVG attributes and the SVG contents are omitted for clarity.)</em></p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">svg</span>
+  <span class="pl-e">aria-labelledby</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-title-mermaid-1668725057758<span class="pl-pds">"</span></span>
+  <span class="pl-e">aria-describedby</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-desc-mermaid-1668725057758<span class="pl-pds">"</span></span>
+  <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2000/svg<span class="pl-pds">"</span></span>
+  <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>
+  <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid-1668725057758<span class="pl-pds">"</span></span>
+>
+  &#x3C;<span class="pl-ent">title</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-title-mermaid-1668725057758<span class="pl-pds">"</span></span>>This is the accessible title&#x3C;/<span class="pl-ent">title</span>>
+  &#x3C;<span class="pl-ent">desc</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-desc-mermaid-1668725057758<span class="pl-pds">"</span></span>>This is an accessible description&#x3C;/<span class="pl-ent">desc</span>>
+&#x3C;/<span class="pl-ent">svg</span>>
+</code></pre>
+          <p>Details for the syntax follow.</p>
+          <h4 id="accessible-title"><a aria-hidden="true" tabindex="-1" href="#accessible-title"><span class="icon icon-link"></span></a>accessible title</h4>
+          <p>
+            The <strong>accessible title</strong> is specified with the <strong>accTitle</strong> <em>keyword</em>, followed by a colon (<code>:</code>), and the string value for the title.
+            The string value ends at the end of the line. (It can only be a single line.)
+          </p>
+          <p>Ex: <code>accTitle: This is a single line title</code></p>
+          <p>See <a href="#acctitle-and-accdescr-usage-examples">the accTitle and accDescr usage examples</a> for how this can be used in a diagram and the resulting HTML generated.</p>
+          <h4 id="accessible-description"><a aria-hidden="true" tabindex="-1" href="#accessible-description"><span class="icon icon-link"></span></a>accessible description</h4>
+          <p>An accessible description can be 1 line long (a single line) or many lines long.</p>
+          <p>The <strong>single line accessible description</strong> is specified with the <strong>accDescr</strong> <em>keyword</em>, followed by a colon (<code>:</code>), followed by the string value for the description.</p>
+          <p>Ex: <code>accDescr: This is a single line description.</code></p>
+          <p>A <strong>multiple line accessible description</strong> <em>does not have a colon (<code>:</code>) after the accDescr keyword</em> and is surrounded by curly brackets (<code>{}</code>).</p>
+          <p>Ex:</p>
+          <pre><code class="language-markdown">accDescr {
+This is a multiple line accessible description.
+It does not have a colon and is surrounded by curly brackets.
+}
+</code></pre>
+          <p>See <a href="#acctitle-and-accdescr-usage-examples">the accTitle and accDescr usage examples</a> for how this can be used in a diagram and the resulting HTML generated.</p>
+          <h4 id="acctitle-and-accdescr-usage-examples"><a aria-hidden="true" tabindex="-1" href="#acctitle-and-accdescr-usage-examples"><span class="icon icon-link"></span></a>accTitle and accDescr Usage Examples</h4>
+          <ul>
+            <li>Flowchart with the accessible title "Big Decisions" and the single-line accessible description "Bob's Burgers process for making big decisions"</li>
+          </ul>
+          <pre><code class="language-mermaid-example">  graph LR
+      accTitle: Big Decisions
+      accDescr: Bob's Burgers process for making big decisions
+      A[Identify Big Decision] --> B{Make Big Decision}
+      B --> D[Be done]
+</code></pre>
+          <p>Here is the HTML generated for the SVG element: <em>(Note that some of the SVG attributes and the SVG contents are omitted for clarity.):</em></p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">svg</span>
+  <span class="pl-e">aria-labelledby</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-title-mermaid_382ee221<span class="pl-pds">"</span></span>
+  <span class="pl-e">aria-describedby</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-desc-mermaid_382ee221<span class="pl-pds">"</span></span>
+  <span class="pl-e">aria-roledescription</span>=<span class="pl-s"><span class="pl-pds">"</span>flowchart-v2<span class="pl-pds">"</span></span>
+  <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2000/svg<span class="pl-pds">"</span></span>
+  <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>
+  <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid_382ee221<span class="pl-pds">"</span></span>
+>
+  &#x3C;<span class="pl-ent">title</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-title-mermaid_382ee221<span class="pl-pds">"</span></span>>Big decisions&#x3C;/<span class="pl-ent">title</span>>
+  &#x3C;<span class="pl-ent">desc</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-desc-mermaid_382ee221<span class="pl-pds">"</span></span>>Bob's Burgers process for making big decisions&#x3C;/<span class="pl-ent">desc</span>>
+&#x3C;/<span class="pl-ent">svg</span>>
+</code></pre>
+          <ul>
+            <li>
+              Flowchart with the accessible title "Bob's Burger's Making Big Decisions" and the multiple line accessible description "The official Bob's Burgers corporate processes that are used
+              for making very, very big decisions.
+              This is actually a very simple flow: identify the big decision and then make the big decision."
+            </li>
+          </ul>
+          <pre><code class="language-mermaid-example">  graph LR
+      accTitle: Bob's Burger's Making Big Decisions
+      accDescr {
+        The official Bob's Burgers corporate processes that are used
+        for making very, very big decisions.
+        This is actually a very simple flow: identify the big decision and then make the big decision.
+         }
+      A[Identify Big Decision] --> B{Make Big Decision}
+      B --> D[Be done]
+</code></pre>
+          <p>Here is the HTML generated for the SVG element: <em>(Note that some of the SVG attributes and the SVG contents are omitted for clarity.):</em></p>
+          <pre><code class="language-html">&#x3C;<span class="pl-ent">svg</span>
+  <span class="pl-e">aria-labelledby</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-title-mermaid_382ee221<span class="pl-pds">"</span></span>
+  <span class="pl-e">aria-describedby</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-desc-mermaid_382ee221<span class="pl-pds">"</span></span>
+  <span class="pl-e">aria-roledescription</span>=<span class="pl-s"><span class="pl-pds">"</span>flowchart-v2<span class="pl-pds">"</span></span>
+  <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2000/svg<span class="pl-pds">"</span></span>
+  <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>
+  <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>mermaid_382ee221<span class="pl-pds">"</span></span>
+>
+  &#x3C;<span class="pl-ent">title</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-title-mermaid_382ee221<span class="pl-pds">"</span></span>>Big decisions&#x3C;/<span class="pl-ent">title</span>>
+  &#x3C;<span class="pl-ent">desc</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>chart-desc-mermaid_382ee221<span class="pl-pds">"</span></span>>
+    The official Bob's Burgers corporate processes that are used for making very, very big
+    decisions. This is actually a very simple flow: identify the big decision and then make the big
+    decision.
+  &#x3C;/<span class="pl-ent">desc</span>>
+&#x3C;/<span class="pl-ent">svg</span>>
+</code></pre>
+          <h4 id="sample-code-snippets-for-other-diagram-types"><a aria-hidden="true" tabindex="-1" href="#sample-code-snippets-for-other-diagram-types"><span class="icon icon-link"></span></a>Sample Code Snippets for other diagram types</h4>
+          <h5 id="class-diagram"><a aria-hidden="true" tabindex="-1" href="#class-diagram"><span class="icon icon-link"></span></a>Class Diagram</h5>
+          <pre><code class="language-mermaid-example">   classDiagram
+      accTitle: My Class Diagram
+      accDescr: My Class Diagram Description
+
+      Vehicle &#x3C;|-- Car
+</code></pre>
+          <h5 id="entity-relationship-diagram"><a aria-hidden="true" tabindex="-1" href="#entity-relationship-diagram"><span class="icon icon-link"></span></a>Entity Relationship Diagram</h5>
+          <pre><code class="language-mermaid-example">   erDiagram
+      accTitle: My Entity Relationship Diagram
+      accDescr: My Entity Relationship Diagram Description
+
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+
+</code></pre>
+          <h5 id="gantt-chart"><a aria-hidden="true" tabindex="-1" href="#gantt-chart"><span class="icon icon-link"></span></a>Gantt Chart</h5>
+          <pre><code class="language-mermaid-example">   gantt
+      accTitle: My Gantt Chart Accessibility Title
+      accDescr: My Gantt Chart Accessibility Description
+
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+
+</code></pre>
+          <h5 id="gitgraph"><a aria-hidden="true" tabindex="-1" href="#gitgraph"><span class="icon icon-link"></span></a>Gitgraph</h5>
+          <pre><code class="language-mermaid-example">  gitGraph
+      accTitle: My Gitgraph Accessibility Title
+      accDescr: My Gitgraph Accessibility Description
+
+     commit
+     commit
+     branch develop
+     checkout develop
+     commit
+     commit
+     checkout main
+     merge develop
+     commit
+     commit
+
+</code></pre>
+          <h5 id="pie-chart"><a aria-hidden="true" tabindex="-1" href="#pie-chart"><span class="icon icon-link"></span></a>Pie Chart</h5>
+          <pre><code class="language-mermaid-example">   pie
+      accTitle: My Pie Chart Accessibility Title
+      accDescr: My Pie Chart Accessibility Description
+
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5
+
+</code></pre>
+          <h5 id="requirement-diagram"><a aria-hidden="true" tabindex="-1" href="#requirement-diagram"><span class="icon icon-link"></span></a>Requirement Diagram</h5>
+          <pre><code class="language-mermaid-example">  requirementDiagram
+      accTitle: My Requirement Diagram
+      accDescr: My Requirement Diagram Description
+
+       requirement test_req {
+  id: 1
+  text: the test text.
+  risk: high
+  verifymethod: test
+  }
+
+  element test_entity {
+  type: simulation
+  }
+
+  test_entity - satisfies -> test_req
+
+</code></pre>
+          <h5 id="sequence-diagram"><a aria-hidden="true" tabindex="-1" href="#sequence-diagram"><span class="icon icon-link"></span></a>Sequence Diagram</h5>
+          <pre><code class="language-mermaid-example">   sequenceDiagram
+      accTitle: My Sequence Diagram
+      accDescr: My Sequence Diagram Description
+
+      Alice->>John: Hello John, how are you?
+      John-->>Alice: Great!
+      Alice-)John: See you later!
+</code></pre>
+          <h5 id="state-diagram"><a aria-hidden="true" tabindex="-1" href="#state-diagram"><span class="icon icon-link"></span></a>State Diagram</h5>
+          <pre><code class="language-mermaid-example">   stateDiagram
+      accTitle: My State Diagram
+      accDescr: My State Diagram Description
+
+       s1 --> s2
+
+</code></pre>
+          <h5 id="user-journey-diagram"><a aria-hidden="true" tabindex="-1" href="#user-journey-diagram"><span class="icon icon-link"></span></a>User Journey Diagram</h5>
+          <pre><code class="language-mermaid-example">  journey
+      accTitle: My User Journey Diagram
+      accDescr: My User Journey Diagram Description
+
+      title My working day
+      section Go to work
+        Make tea: 5: Me
+        Go upstairs: 3: Me
+        Do work: 1: Me, Cat
+      section Go home
+        Go downstairs: 5: Me
+        Sit down: 5: Me
+
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/requirement/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "requirementDiagram.jison",
+      "href": "requirementDiagram.jison"
+    },
+    {
+      "type": "blob",
+      "title": "requirementDiagram.spec.js",
+      "href": "requirementDiagram.spec.js"
+    }
+  ]
+}

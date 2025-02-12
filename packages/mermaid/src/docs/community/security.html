@@ -1,0 +1,33 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="security"><a aria-hidden="true" tabindex="-1" href="#security"><span class="icon icon-link"></span></a>Security</h1>
+          <p>The Mermaid team takes the security of Mermaid and the applications that use Mermaid seriously. This page describes how to report any vulnerabilities you may find, and lists best practices to minimize the risk of introducing a vulnerability.</p>
+          <h2 id="reporting-vulnerabilities"><a aria-hidden="true" tabindex="-1" href="#reporting-vulnerabilities"><span class="icon icon-link"></span></a>Reporting vulnerabilities</h2>
+          <p>To report a vulnerability, please e-mail <a href="mailto:security@mermaid.live">security@mermaid.live</a> with a description of the issue, the steps you took to create the issue, affected versions, and if known, mitigations for the issue.</p>
+          <p>We aim to reply within three working days, probably much sooner.</p>
+          <p>You should expect a close collaboration as we work to resolve the issue you have reported. Please reach out to <a href="mailto:security@mermaid.live">security@mermaid.live</a> again if you do not receive prompt attention and regular updates.</p>
+          <p>You may also reach out to the team via our public Discord chat channels; however, please make sure to e-mail <a href="mailto:security@mermaid.live">security@mermaid.live</a> when reporting an issue, and avoid revealing information about vulnerabilities in public as that could that could put users at risk.</p>
+          <h2 id="best-practices"><a aria-hidden="true" tabindex="-1" href="#best-practices"><span class="icon icon-link"></span></a>Best practices</h2>
+          <p>Keep current with the latest Mermaid releases. We regularly update Mermaid, and these updates may fix security defects discovered in previous versions. Check the Mermaid release notes for security-related updates.</p>
+          <p>Keep your application’s dependencies up to date. Make sure you upgrade your package dependencies to keep the dependencies up to date. Avoid pinning to specific versions for your dependencies and, if you do, make sure you check periodically to see if your dependencies have had security updates, and update the pin accordingly.</p>
+          <h2 id="configuring-dompurify"><a aria-hidden="true" tabindex="-1" href="#configuring-dompurify"><span class="icon icon-link"></span></a>Configuring DomPurify</h2>
+          <p>By default Mermaid uses a baseline <a href="https://github.com/cure53/DOMPurify">DOMPurify</a> config. It is possible to override the options passed to DOMPurify by adding a <code>dompurifyConfig</code> key to the Mermaid options. This could potentially break the output of Mermaid so use this with caution.</p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/input",
+  "files": [
+    {
+      "type": "blob",
+      "title": "asciimath.js",
+      "href": "asciimath.js"
+    },
+    {
+      "type": "folder",
+      "title": "mml",
+      "href": "mml"
+    },
+    {
+      "type": "blob",
+      "title": "mml.js",
+      "href": "mml.js"
+    },
+    {
+      "type": "folder",
+      "title": "tex",
+      "href": "tex"
+    },
+    {
+      "type": "blob",
+      "title": "tex-base.js",
+      "href": "tex-base.js"
+    },
+    {
+      "type": "blob",
+      "title": "tex-full.js",
+      "href": "tex-full.js"
+    },
+    {
+      "type": "blob",
+      "title": "tex.js",
+      "href": "tex.js"
+    }
+  ]
+}

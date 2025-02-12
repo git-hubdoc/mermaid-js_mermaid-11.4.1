@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid/src/diagrams/state/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "state-parser.spec.js",
+      "href": "state-parser.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "state-style.spec.js",
+      "href": "state-style.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram.jison",
+      "href": "stateDiagram.jison"
+    }
+  ]
+}

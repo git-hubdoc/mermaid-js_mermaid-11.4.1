@@ -1,0 +1,20 @@
+{
+  "title": "/.changeset",
+  "files": [
+    {
+      "type": "blob",
+      "title": "config.json",
+      "href": "config.json"
+    },
+    {
+      "type": "blob",
+      "title": "README.html",
+      "href": "README.html"
+    },
+    {
+      "type": "blob",
+      "title": "README.md",
+      "href": "README.md"
+    }
+  ]
+}

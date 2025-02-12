@@ -1,0 +1,40 @@
+{
+  "title": "/packages/mermaid/src/diagrams/c4",
+  "files": [
+    {
+      "type": "blob",
+      "title": "c4Db.js",
+      "href": "c4Db.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4Detector.ts",
+      "href": "c4Detector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "c4Diagram.ts",
+      "href": "c4Diagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "c4Renderer.js",
+      "href": "c4Renderer.js"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.js",
+      "href": "svgDraw.js"
+    }
+  ]
+}

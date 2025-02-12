@@ -1,0 +1,45 @@
+{
+  "title": "/packages/mermaid/src/diagrams/er",
+  "files": [
+    {
+      "type": "blob",
+      "title": "erDb.js",
+      "href": "erDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "erDetector.ts",
+      "href": "erDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "erDiagram.ts",
+      "href": "erDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "erMarkers.js",
+      "href": "erMarkers.js"
+    },
+    {
+      "type": "blob",
+      "title": "erRenderer.js",
+      "href": "erRenderer.js"
+    },
+    {
+      "type": "blob",
+      "title": "erRenderer.spec.ts",
+      "href": "erRenderer.spec.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    }
+  ]
+}

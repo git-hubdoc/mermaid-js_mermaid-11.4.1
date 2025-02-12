@@ -1,0 +1,359 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="mermaid-contributing-guide"><a aria-hidden="true" tabindex="-1" href="#mermaid-contributing-guide"><span class="icon icon-link"></span></a>Mermaid Contributing Guide</h1>
+          <p>You decided to take part in the development? Welcome!</p>
+          <p>We are trying to make our guidelines for you as explicit and detailed as possible.</p>
+          <h2 id="initial-setup"><a aria-hidden="true" tabindex="-1" href="#initial-setup"><span class="icon icon-link"></span></a>Initial Setup</h2>
+          <p>Initial setup consists of 3 main steps:</p>
+          <pre><code class="language-mermaid-nocode">flowchart LR
+  source --> requirements --> setup
+
+  source[Get the Source Code]
+  requirements[Install the Requirements]
+  setup[Install Packages]
+</code></pre>
+          <h3 id="get-the-source-code"><a aria-hidden="true" tabindex="-1" href="#get-the-source-code"><span class="icon icon-link"></span></a>Get the Source Code</h3>
+          <p>In GitHub, you first <a href="https://github.com/mermaid-js/mermaid/fork"><strong>fork a mermaid repository</strong></a> when you are going to make changes and submit pull requests.</p>
+          <p>Then you <strong>clone</strong> a copy to your local development machine (e.g. where you code) to make a copy with all the files to work with.</p>
+          <pre><code class="language-tip">[Here is a GitHub document that gives an overview of the process](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+</code></pre>
+          <pre><code class="language-bash">git clone git@github.com/your-fork/mermaid
+</code></pre>
+          <p>Once you have cloned the repository onto your development machine, change into the <code>mermaid</code> project folder (the top level directory of the mermaid project repository)</p>
+          <pre><code class="language-bash"><span class="pl-c1">cd</span> mermaid
+</code></pre>
+          <h3 id="install-requirements"><a aria-hidden="true" tabindex="-1" href="#install-requirements"><span class="icon icon-link"></span></a>Install Requirements</h3>
+          <p>We support <strong>development within Docker</strong> environment along with <strong>host setup</strong>. You may choose it up to your preferences.</p>
+          <p><strong>Host</strong></p>
+          <p>These are the tools we use for working with the code and documentation:</p>
+          <ul>
+            <li><a href="https://nodejs.org/en/">Node.js</a>.</li>
+            <li><a href="https://pnpm.io/">pnpm</a> package manager.</li>
+          </ul>
+          <p>The following commands must be sufficient enough to start with:</p>
+          <pre><code class="language-bash">curl -fsSL https://get.pnpm.io/install.sh <span class="pl-k">|</span> sh -
+pnpm env use --global 20
+</code></pre>
+          <p>You may also need to reload <code>.shrc</code> or <code>.bashrc</code> afterwards.</p>
+          <p><strong>Docker</strong></p>
+          <p><a href="https://docs.docker.com/engine/install/">Install Docker</a>. And that is pretty much all you need.</p>
+          <p>
+            Optionally, to run GUI (Cypress) within Docker you will also need an X11 server installed.
+            You might already have it installed, so check this by running:
+          </p>
+          <pre><code class="language-bash"><span class="pl-c1">echo</span> <span class="pl-smi">$DISPLAY</span>
+</code></pre>
+          <p>If the <code>$DISPLAY</code> variable is not empty, then an X11 server is running. Otherwise you may need to install one.</p>
+          <h3 id="install-packages"><a aria-hidden="true" tabindex="-1" href="#install-packages"><span class="icon icon-link"></span></a>Install Packages</h3>
+          <p><strong>Host</strong></p>
+          <p>Install packages:</p>
+          <pre><code class="language-bash">pnpm install
+</code></pre>
+          <p><strong>Docker</strong></p>
+          <p>For development using Docker there is a self-documented <code>run</code> bash script, which provides convenient aliases for <code>docker compose</code> commands.</p>
+          <p>Make sure that <code>./run</code> script is executable:</p>
+          <pre><code class="language-bash">chmod +x run
+</code></pre>
+          <pre><code class="language-tip">To get detailed help simply type `./run` or `./run help`.
+
+It also has short _Development quick start guide_ embedded.
+</code></pre>
+          <p>Then install packages:</p>
+          <pre><code class="language-bash">./run pnpm install
+</code></pre>
+          <h3 id="verify-everything-works"><a aria-hidden="true" tabindex="-1" href="#verify-everything-works"><span class="icon icon-link"></span></a>Verify Everything Works</h3>
+          <p>This step is optional, but it helps to make sure that everything in development branch was OK before you started making any changes.</p>
+          <p>You can run the <code>test</code> script to verify that pnpm is working <em>and</em> that the repository has been cloned correctly:</p>
+          <p><strong>Host</strong></p>
+          <pre><code class="language-bash">pnpm <span class="pl-c1">test</span>
+</code></pre>
+          <p><strong>Docker</strong></p>
+          <pre><code class="language-bash">./run pnpm <span class="pl-c1">test</span>
+</code></pre>
+          <p>The <code>test</code> script and others are in the top-level <code>package.json</code> file.</p>
+          <p>All tests should run successfully without any errors or failures.</p>
+          <pre><code class="language-note">You might see _lint_ or _formatting_ warnings. Those are ok during this step.
+</code></pre>
+          <h2 id="workflow"><a aria-hidden="true" tabindex="-1" href="#workflow"><span class="icon icon-link"></span></a>Workflow</h2>
+          <p>Contributing process is very simple and straightforward:</p>
+          <pre><code class="language-mermaid-nocode">  flowchart LR
+
+  branch --> changes --> submit
+  branch[Checkout a New Branch]
+  changes[Make Changes]
+  submit[Submit a PR]
+</code></pre>
+          <p>Mermaid uses a <a href="https://guides.github.com/introduction/flow/">Git Flow</a>–inspired approach to branching.</p>
+          <p>Development is done in the <code>develop</code> branch.</p>
+          <pre><code class="language-mermaid-nocode">---
+config:
+  gitGraph:
+    mainBranchName: develop
+---
+gitGraph LR:
+  commit
+  commit
+  branch "docs/2910_update-guidelines" order: 1
+  commit
+  commit
+  commit
+  checkout develop
+  merge "docs/2910_update-guidelines"
+  commit
+</code></pre>
+          <p>To prepare a new version for release the maintainers create a <code>release/vX.X.X</code> branch from <code>develop</code> for testing. Once the release happens we add a tag to the <code>release</code> branch and merge it with <code>master</code>. The live product and on-line documentation are what is in the <code>master</code> branch.</p>
+          <h2 id="checkout-a-new-branch"><a aria-hidden="true" tabindex="-1" href="#checkout-a-new-branch"><span class="icon icon-link"></span></a>Checkout a New Branch</h2>
+          <pre><code class="language-tip">All new work should be based on the `develop` branch.
+</code></pre>
+          <p>Make sure you have the most up-to-date version of the <code>develop</code> branch.</p>
+          <p>Check out the <code>develop</code> branch, then <code>fetch</code> or <code>pull</code> to update it:</p>
+          <pre><code class="language-bash">git checkout develop
+git fetch <span class="pl-c"># or `git pull`</span>
+</code></pre>
+          <p>Create a new branch for your work:</p>
+          <pre><code class="language-bash">git checkout -b docs/2910_update-contributing-guidelines
+</code></pre>
+          <p>We use the following naming convention for branches:</p>
+          <pre><code class="language-txt">[feature | bug | chore | docs]/[issue number]_[short-description]
+</code></pre>
+          <p>You can always check current <a href="/.github/pr-labeler.yml">configuration of labelling and branch prefixes</a></p>
+          <ul>
+            <li>The first part is the <strong>type</strong> of change: a <code>feature</code>, <code>bug</code>, <code>chore</code>, <code>docs</code></li>
+            <li>followed by a <strong>slash</strong> (<code>/</code>),which helps to group like types together in many git tools</li>
+            <li>followed by the <strong>issue number</strong>, e.g. <code>2910</code></li>
+            <li>followed by an <strong>underscore</strong> (<code>_</code>)</li>
+            <li>followed by a <strong>short description</strong> with dashes (<code>-</code>) or underscores (<code>_</code>) instead of spaces</li>
+          </ul>
+          <pre><code class="language-mermaid-nocode">flowchart LR
+  feature --> slash
+  bug --> slash
+  chore --> slash
+  docs --> slash
+  slash --> 2945 --> underscore
+  slash --> 1123 --> underscore
+  underscore --> short_description_1
+  underscore --> short_description_2
+
+  underscore["_"]
+  slash["/"]
+
+  short_description_1["state-diagram-new-arrow-florbs"]
+  short_description_2["fix_random_ugly_red_text"]
+</code></pre>
+          <p>If your work is specific to a single diagram type, it is a good idea to put the diagram type at the start of the description. This will help us keep release notes organized by a diagram type.</p>
+          <pre><code class="language-note">A new feature described in issue 2945 that adds a new arrow type called 'florbs' to state diagrams
+
+`feature/2945_state-diagram-new-arrow-florbs`
+</code></pre>
+          <pre><code class="language-tip">A bug described in issue 1123 that causes random ugly red text in multiple diagram types
+
+`bug/1123_fix_random_ugly_red_text`
+</code></pre>
+          <h2 id="contributing-code"><a aria-hidden="true" tabindex="-1" href="#contributing-code"><span class="icon icon-link"></span></a>Contributing Code</h2>
+          <p>Code is the heart of every software project. We strive to make it better. Who if not us?</p>
+          <h3 id="where-is-the-code-located"><a aria-hidden="true" tabindex="-1" href="#where-is-the-code-located"><span class="icon icon-link"></span></a>Where is the Code Located?</h3>
+          <p>The core of Mermaid is located under <code>packages/mermaid/src</code>.</p>
+          <h3 id="running-mermaid-locally"><a aria-hidden="true" tabindex="-1" href="#running-mermaid-locally"><span class="icon icon-link"></span></a>Running Mermaid Locally</h3>
+          <p><strong>Host</strong></p>
+          <pre><code class="language-bash">pnpm run dev
+</code></pre>
+          <p><strong>Docker</strong></p>
+          <pre><code class="language-bash">./run dev
+</code></pre>
+          <p>After starting the dev server open <a href="http://localhost:9000/">http://localhost:9000</a> in your browser.</p>
+          <p>Now you are ready to make your changes!</p>
+          <h3 id="make-changes"><a aria-hidden="true" tabindex="-1" href="#make-changes"><span class="icon icon-link"></span></a>Make Changes</h3>
+          <p>Have a look at <a href="http://localhost:9000/">http://localhost:9000</a>. There is a list of demos that can be used to see and test your changes.</p>
+          <p>If you need a specific diagram, you can duplicate the <code>example.html</code> file in <code>/demos/dev</code> and add your own mermaid code to your copy.</p>
+          <p>
+            That will be served at <a href="http://localhost:9000/dev/your-file-name.html">http://localhost:9000/dev/your-file-name.html</a>.
+            After making code changes, the dev server will rebuild the mermaid library and automatically reload the page.
+          </p>
+          <p>Edit files in <code>packages/mermaid/src</code> as required.</p>
+          <h3 id="write-tests"><a aria-hidden="true" tabindex="-1" href="#write-tests"><span class="icon icon-link"></span></a>Write Tests</h3>
+          <p>Tests ensure that each function, module, or part of code does what it says it will do. This is critically important when other changes are made to ensure that existing code is not broken (no regression).</p>
+          <p>
+            Just as important, the tests act as <em>specifications:</em> they specify what the code does (or should do).
+            Whenever someone is new to a section of code, they should be able to read the tests to get a thorough understanding of what it does and why.
+          </p>
+          <p>
+            If you are fixing a bug, you should add tests to ensure that your code has actually fixed the bug, to specify/describe what the code is doing, and to ensure the bug doesn't happen again.
+            (If there had been a test for the situation, the bug never would have happened in the first place.)
+            You may need to change existing tests if they were inaccurate.
+          </p>
+          <p>If you are adding a feature, you will definitely need to add tests. Depending on the size of your feature, you may need to add integration tests.</p>
+          <h4 id="unit-tests"><a aria-hidden="true" tabindex="-1" href="#unit-tests"><span class="icon icon-link"></span></a>Unit Tests</h4>
+          <p>Unit tests are tests that test a single function or module. They are the easiest to write and the fastest to run.</p>
+          <p>Unit tests are mandatory for all code except the renderers. (The renderers are tested with integration tests.)</p>
+          <p>We use <a href="https://vitest.dev/">Vitest</a> to run unit tests.</p>
+          <p><strong>Host</strong></p>
+          <p>You can use the following command to run the unit tests:</p>
+          <pre><code class="language-sh">pnpm <span class="pl-c1">test</span>
+</code></pre>
+          <p>When writing new tests, it's easier to have the tests automatically run as you make changes. You can do this by running the following command:</p>
+          <pre><code class="language-sh">pnpm test:watch
+</code></pre>
+          <p><strong>Docker</strong></p>
+          <p>When using Docker prepend your command with <code>./run</code>:</p>
+          <pre><code class="language-sh">./run pnpm <span class="pl-c1">test</span>
+</code></pre>
+          <h4 id="integration--end-to-end-e2e-tests"><a aria-hidden="true" tabindex="-1" href="#integration--end-to-end-e2e-tests"><span class="icon icon-link"></span></a>Integration / End-to-End (E2E) Tests</h4>
+          <p>These test the rendering and visual appearance of the diagrams.</p>
+          <p>This ensures that the rendering of that feature in the E2E will be reviewed in the release process going forward. Less chance that it breaks!</p>
+          <p>To start working with the E2E tests:</p>
+          <p><strong>Host</strong></p>
+          <ul>
+            <li>Run <code>pnpm dev</code> to start the dev server</li>
+            <li>Start <strong>Cypress</strong> by running <code>pnpm cypress:open</code></li>
+          </ul>
+          <p><strong>Docker</strong></p>
+          <ul>
+            <li>Enable local connections for x11 server <code>xhost +local:</code></li>
+            <li>Run <code>./run pnpm dev</code> to start the dev server</li>
+            <li>Start <strong>Cypress</strong> by running <code>./run pnpm cypress:open --project .</code></li>
+          </ul>
+          <p>The rendering tests are very straightforward to create. There is a function <code>imgSnapshotTest</code>, which takes a diagram in text form and the mermaid options, and it renders that diagram in Cypress.</p>
+          <p>When running in CI it will take a snapshot of the rendered diagram and compare it with the snapshot from last build and flag it for review if it differs.</p>
+          <p>This is what a rendering test looks like:</p>
+          <pre><code class="language-js"><span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">'</span>should render forks and joins<span class="pl-pds">'</span></span>, () <span class="pl-k">=></span> {
+  <span class="pl-en">imgSnapshotTest</span>(
+    <span class="pl-s"><span class="pl-pds">`</span></span>
+<span class="pl-s">    stateDiagram</span>
+<span class="pl-s">    state fork_state &#x26;lt;&#x26;lt;fork&#x26;gt;&#x26;gt;</span>
+<span class="pl-s">      [*] --> fork_state</span>
+<span class="pl-s">      fork_state --> State2</span>
+<span class="pl-s">      fork_state --> State3</span>
+<span class="pl-s"></span>
+<span class="pl-s">      state join_state &#x26;lt;&#x26;lt;join&#x26;gt;&#x26;gt;</span>
+<span class="pl-s">      State2 --> join_state</span>
+<span class="pl-s">      State3 --> join_state</span>
+<span class="pl-s">      join_state --> State4</span>
+<span class="pl-s">      State4 --> [*]</span>
+<span class="pl-s">    <span class="pl-pds">`</span></span>,
+    { logLevel<span class="pl-k">:</span> <span class="pl-c1">0</span> }
+  );
+});
+</code></pre>
+          <h3 id="update-documentation"><a aria-hidden="true" tabindex="-1" href="#update-documentation"><span class="icon icon-link"></span></a>Update Documentation</h3>
+          <pre><code class="language-tip">Our documentation is managed in `packages/mermaid/src/docs`. Details on how to edit is in the [documentation section](#contributing-documentation)
+</code></pre>
+          <p>
+            If the users have no way to know that things have changed, then you haven't really <em>fixed</em> anything for the users; you've just added to making Mermaid feel broken.
+            Likewise, if users don't know that there is a new feature that you've implemented, it will forever remain unknown and unused.
+          </p>
+          <p>
+            The documentation has to be updated for users to know that things have been changed and added!
+            If you are adding a new feature, add <code>(v&#x3C;MERMAID_RELEASE_VERSION>+)</code> in the title or description. It will be replaced automatically with the current version number when the release happens.
+          </p>
+          <p>eg: <code># Feature Name (v&#x3C;MERMAID_RELEASE_VERSION>+)</code></p>
+          <p>We know it can sometimes be hard to code <em>and</em> write user documentation.</p>
+          <p>
+            Create another issue specifically for the documentation.
+            You will need to help with the PR, but definitely ask for help if you feel stuck.
+            When it feels hard to write stuff out, explaining it to someone and having that person ask you clarifying questions can often be 80% of the work!
+          </p>
+          <p>When in doubt, write up and submit what you can. It can be clarified and refined later. (With documentation, something is better than nothing!)</p>
+          <h2 id="contributing-documentation"><a aria-hidden="true" tabindex="-1" href="#contributing-documentation"><span class="icon icon-link"></span></a>Contributing Documentation</h2>
+          <p>If it is not in the documentation, it's like it never happened. Wouldn't that be sad? With all the effort that was put into the feature?</p>
+          <h3 id="where-is-the-documentation-located"><a aria-hidden="true" tabindex="-1" href="#where-is-the-documentation-located"><span class="icon icon-link"></span></a>Where is the Documentation Located?</h3>
+          <pre><code class="language-warning">DO NOT CHANGE FILES IN `/docs`
+
+The `docs` folder will be automatically generated when committing to `packages/mermaid/src/docs` and **should not** be edited manually.
+</code></pre>
+          <p>Documentation is located in the <a href="/packages/mermaid/src/docs"><code>packages/mermaid/src/docs</code></a> folder. Just pick the right section and start typing.</p>
+          <p>The contents of <a href="https://mermaid.js.org/">mermaid.js.org</a> are based on the docs from the <code>master</code> branch. Updates committed to the <code>master</code> branch are reflected in the <a href="https://mermaid.js.org/">Mermaid Docs</a> once published.</p>
+          <pre><code class="language-mermaid">flowchart LR
+  classDef default fill:#fff,color:black,stroke:black
+
+  source["Edit /packages/mermaid/src/docs"] -- automatic processing--> published["View /docs which will be published on Official Website"]
+</code></pre>
+          <h3 id="running-the-documentation-website-locally"><a aria-hidden="true" tabindex="-1" href="#running-the-documentation-website-locally"><span class="icon icon-link"></span></a>Running the Documentation Website Locally</h3>
+          <p><strong><a href="https://mermaid.js.org/">The mermaid documentation site</a> is powered by <a href="https://vitepress.vuejs.org/">Vitepress</a>.</strong></p>
+          <p>Start development server for the documentation site</p>
+          <p><strong>Host</strong></p>
+          <pre><code class="language-bash">pnpm --filter mermaid run docs:dev
+</code></pre>
+          <p>or</p>
+          <pre><code class="language-bash"><span class="pl-c1">cd</span> packages/mermaid
+pnpm docs:dev
+</code></pre>
+          <p><strong>Docker</strong></p>
+          <pre><code class="language-bash">./run docs:dev
+</code></pre>
+          <p>Open <a href="http://localhost:3333/">http://localhost:3333/</a> in your browser.</p>
+          <h3 id="formatting"><a aria-hidden="true" tabindex="-1" href="#formatting"><span class="icon icon-link"></span></a>Formatting</h3>
+          <p>The documentation is written in Markdown. To get acquainted with its syntax <a href="https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">see the GitHub Markdown help page</a>.</p>
+          <p>You can use <code>note</code>, <code>tip</code>, <code>warning</code> and <code>danger</code> in triple backticks to add a note, tip, warning or danger box.</p>
+          <pre><code class="language-danger">Do not use vitepress specific markdown syntax `::: warning` as it will not be processed correctly.
+</code></pre>
+          <p>Here are a few examples:</p>
+          <pre><code class="language-markdown"><span class="pl-s">```</span><span class="pl-en">note</span>
+<span class="pl-c1">This is a note</span>
+<span class="pl-s">```</span>
+
+<span class="pl-s">```</span><span class="pl-en">tip</span>
+<span class="pl-c1">This is a tip</span>
+<span class="pl-s">```</span>
+
+<span class="pl-s">```</span><span class="pl-en">warning</span>
+<span class="pl-c1">This is a warning</span>
+<span class="pl-s">```</span>
+
+<span class="pl-s">```</span><span class="pl-en">danger</span>
+<span class="pl-c1">This is a danger alert</span>
+<span class="pl-s">```</span>
+</code></pre>
+          <pre><code class="language-note">This is a note
+</code></pre>
+          <pre><code class="language-tip">This is a tip
+</code></pre>
+          <pre><code class="language-warning">This is a warning
+</code></pre>
+          <pre><code class="language-danger">This is a danger alert
+</code></pre>
+          <h3 id="navigation"><a aria-hidden="true" tabindex="-1" href="#navigation"><span class="icon icon-link"></span></a>Navigation</h3>
+          <p>If you want to propose changes to how the documentation is <em>organized</em>, such as adding a new section or re-arranging or renaming a section, you must update the <strong>sidebar navigation</strong>, which is defined in <a href=".vitepress/config.ts">the vitepress config</a>. The same goes to <strong>topbar</strong>.</p>
+          <h3 id="build-docs"><a aria-hidden="true" tabindex="-1" href="#build-docs"><span class="icon icon-link"></span></a>Build Docs</h3>
+          <p>The content of <code>/docs</code> folder is built with Github Actions.</p>
+          <pre><code class="language-warning">So as to allow automatic compilation of documentation pages you have to enable Github Actions on your fork first
+</code></pre>
+          <h2 id="submit-your-pull-request"><a aria-hidden="true" tabindex="-1" href="#submit-your-pull-request"><span class="icon icon-link"></span></a>Submit your pull request</h2>
+          <pre><code class="language-note">Do not forget to push your changes
+
+```bash
+git push -u origin docs/2910_update-guidelines
+```
+</code></pre>
+          <p>We make all changes via Pull Requests (PRs). Open a new one.</p>
+          <p>Right now we are not following any strict rules about naming PRs. Give it a representative title and short description. There is also a <a href="/.github/pull_request_template.html">pull request template</a> which will help you with it.</p>
+          <p>In case in its description contains a <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue">magic comment</a> your PR will be automatically attached to the issue:</p>
+          <pre><code class="language-markdown">Resolves #&#x3C;<span class="pl-ent">your</span> <span class="pl-e">issue</span> <span class="pl-e">ID</span> <span class="pl-e">here</span>>
+</code></pre>
+          <h2 id="congratulations"><a aria-hidden="true" tabindex="-1" href="#congratulations"><span class="icon icon-link"></span></a>Congratulations</h2>
+          <p>You have successfully submitted your improvements! What is next?</p>
+          <ul>
+            <li>PRs will be reviewed by active maintainers, who will provide feedback and request changes as needed.</li>
+            <li>The maintainers will request a review from <em>knsv</em>, if necessary.</li>
+            <li>Once the PR is approved, the maintainers will merge the PR into the <code>develop</code> branch.</li>
+            <li>When a release is ready, the <code>release/x.x.x</code> branch will be created, extensively tested and knsv will be in charge of the release process.</li>
+          </ul>
+          <p>Thanks for you help!</p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="cluster-handling"><a aria-hidden="true" tabindex="-1" href="#cluster-handling"><span class="icon icon-link"></span></a>Cluster handling</h1>
+          <p>Dagre does not support edges between nodes and clusters or between clusters to other clusters. In order to remedy this shortcoming the dagre wrapper implements a few workarounds.</p>
+          <p>In the diagram below there are two clusters and there are no edges to nodes outside the own cluster.</p>
+          <pre><code class="language-mermaid">flowchart
+  subgraph C1
+    a --> b
+  end
+  subgraph C2
+    c
+  end
+  C1 --> C2
+</code></pre>
+          <p>In this case the dagre-wrapper will transform the graph to the graph below.</p>
+          <pre><code class="language-mermaid">flowchart
+  C1 --> C2
+</code></pre>
+          <p>The new nodes C1 and C2 are a special type of nodes, clusterNodes. ClusterNodes have have the nodes in the cluster including the cluster attached in a graph object.</p>
+          <p>When rendering this diagram it is being rendered recursively. The diagram is rendered by the dagre-mermaid:render function which in turn will be used to render the node C1 and the node C2. The result of those renderings will be inserted as nodes in the "root" diagram. With this recursive approach it would be possible to have different layout direction for each cluster.</p>
+          <pre><code>{ clusterNode: true, graph }
+</code></pre>
+          <p><em>Data for a clusterNode</em></p>
+          <p>When a cluster has edges to or from some of its nodes leading outside the cluster the approach of recursive rendering can not be used as the layout of the graph needs to take responsibility for nodes outside of the cluster.</p>
+          <pre><code class="language-mermaid">flowchart
+  subgraph C1
+    a
+  end
+  subgraph C2
+    b
+  end
+  a --> C2
+</code></pre>
+          <p>To handle this case a special type of edge is inserted. The edge to/from the cluster is replaced with an edge to/from a node in the cluster which is tagged with toCluster/fromCluster. When rendering this edge the intersection between the edge and the border of the cluster is calculated making the edge start/stop there. In practice this renders like an edge to/from the cluster.</p>
+          <p>In the diagram above the root diagram would be rendered with C1 whereas C2 would be rendered recursively.</p>
+          <p>Of these two approaches the top one renders better and is used when possible. When this is not possible, ie an edge is added crossing the border the non recursive approach is used.</p>
+          <h1 id="graph-objects-and-their-properties"><a aria-hidden="true" tabindex="-1" href="#graph-objects-and-their-properties"><span class="icon icon-link"></span></a>Graph objects and their properties</h1>
+          <p>Explains the representation of various objects used to render the flow charts and what the properties mean. This ofc from the perspective of the dagre-wrapper.</p>
+          <h2 id="node"><a aria-hidden="true" tabindex="-1" href="#node"><span class="icon icon-link"></span></a>node</h2>
+          <p>Sample object:</p>
+          <pre><code class="language-json">{
+  <span class="pl-ent">"shape"</span>: <span class="pl-s"><span class="pl-pds">"</span>rect<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"labelText"</span>: <span class="pl-s"><span class="pl-pds">"</span>Test<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"rx"</span>: <span class="pl-c1">0</span>,
+  <span class="pl-ent">"ry"</span>: <span class="pl-c1">0</span>,
+  <span class="pl-ent">"class"</span>: <span class="pl-s"><span class="pl-pds">"</span>default<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"style"</span>: <span class="pl-s"><span class="pl-pds">""</span></span>,
+  <span class="pl-ent">"id"</span>: <span class="pl-s"><span class="pl-pds">"</span>Test<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>group<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"padding"</span>: <span class="pl-c1">15</span>
+}
+</code></pre>
+          <p>This is set by the renderer of the diagram and insert the data that the wrapper needs for rendering.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>property</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>labelStyle</td>
+                <td>Css styles for the label. User for instance for styling the labels for clusters</td>
+              </tr>
+              <tr>
+                <td>shape</td>
+                <td>The shape of the node.</td>
+              </tr>
+              <tr>
+                <td>labelText</td>
+                <td>The text on the label</td>
+              </tr>
+              <tr>
+                <td>rx</td>
+                <td>The corner radius - maybe part of the shape instead? Used for rects.</td>
+              </tr>
+              <tr>
+                <td>ry</td>
+                <td>The corner radius - maybe part of the shape instead? Used for rects.</td>
+              </tr>
+              <tr>
+                <td>classes</td>
+                <td>Classes to be set for the shape. Not used</td>
+              </tr>
+              <tr>
+                <td>style</td>
+                <td>Css styles for the actual shape</td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>id of the shape</td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>if set to group then this node indicates <em>a cluster</em>.</td>
+              </tr>
+              <tr>
+                <td>padding</td>
+                <td>Padding. Passed from the render as this might differ between different diagrams. Maybe obsolete.</td>
+              </tr>
+              <tr>
+                <td>data</td>
+                <td>Non-generic data specific to the shape.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 id="edge"><a aria-hidden="true" tabindex="-1" href="#edge"><span class="icon icon-link"></span></a>edge</h1>
+          <p>arrowType sets the type of arrows to use. The following arrow types are currently supported:</p>
+          <p>
+            arrow_cross
+            double_arrow_cross
+            arrow_point
+            double_arrow_point
+            arrow_circle
+            double_arrow_circle
+          </p>
+          <p>Lets try to make these types semantic free so that diagram type semantics does not find its way in to this more generic layer.</p>
+          <p>Required edgeData for proper rendering:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>property</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>Id of the edge</td>
+              </tr>
+              <tr>
+                <td>arrowHead</td>
+                <td>overlap between arrowHead and arrowType?</td>
+              </tr>
+              <tr>
+                <td>arrowType</td>
+                <td>overlap between arrowHead and arrowType?</td>
+              </tr>
+              <tr>
+                <td>style</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>labelStyle</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>overlap between label and labelText?</td>
+              </tr>
+              <tr>
+                <td>labelPos</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>labelType</td>
+                <td>overlap between label and labelText?</td>
+              </tr>
+              <tr>
+                <td>thickness</td>
+                <td>Sets the thickness of the edge. Can be ['normal', 'thick']</td>
+              </tr>
+              <tr>
+                <td>pattern</td>
+                <td>Sets the pattern of the edge. Can be ['solid', 'dotted', 'dashed']</td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 id="markers"><a aria-hidden="true" tabindex="-1" href="#markers"><span class="icon icon-link"></span></a>Markers</h1>
+          <p>Define what markers that should be included in the diagram with the insert markers function. The function takes two arguments, first the element in which the markers should be included and a list of the markers that should be added.</p>
+          <p>
+            Ex:
+            insertMarkers(el, ['point', 'circle'])
+          </p>
+          <p>The example above adds the markers point and cross. This means that edges with the arrowTypes arrow_cross, double_arrow_cross, arrow_point and double_arrow_cross will get the corresponding markers but arrowType arrow_cross will have no impact.</p>
+          <p>Current markers:</p>
+          <ul>
+            <li>point - the standard arrow from flowcharts</li>
+            <li>circle - Arrows ending with circle</li>
+            <li>cross - arrows starting and ending with a cross</li>
+          </ul>
+          <p>// Todo - in case of common renderer</p>
+          <h1 id="common-functions-used-by-the-renderer-to-be-implemented-by-the-db"><a aria-hidden="true" tabindex="-1" href="#common-functions-used-by-the-renderer-to-be-implemented-by-the-db"><span class="icon icon-link"></span></a>Common functions used by the renderer to be implemented by the Db</h1>
+          <p>
+            getDirection
+            getClasses
+          </p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

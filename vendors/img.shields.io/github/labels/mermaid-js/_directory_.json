@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/img.shields.io/github/labels/mermaid-js",
+  "files": [
+    {
+      "type": "folder",
+      "title": "mermaid",
+      "href": "mermaid"
+    }
+  ]
+}

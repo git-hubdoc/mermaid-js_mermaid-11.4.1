@@ -1,0 +1,10 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/input/tex",
+  "files": [
+    {
+      "type": "folder",
+      "title": "extensions",
+      "href": "extensions"
+    }
+  ]
+}

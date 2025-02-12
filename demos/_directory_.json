@@ -1,0 +1,135 @@
+{
+  "title": "/demos",
+  "files": [
+    {
+      "type": "blob",
+      "title": "architecture.html",
+      "href": "architecture.html"
+    },
+    {
+      "type": "blob",
+      "title": "block.html",
+      "href": "block.html"
+    },
+    {
+      "type": "blob",
+      "title": "c4context.html",
+      "href": "c4context.html"
+    },
+    {
+      "type": "blob",
+      "title": "classchart.html",
+      "href": "classchart.html"
+    },
+    {
+      "type": "blob",
+      "title": "dataflowchart.html",
+      "href": "dataflowchart.html"
+    },
+    {
+      "type": "folder",
+      "title": "dev",
+      "href": "dev"
+    },
+    {
+      "type": "blob",
+      "title": "er.html",
+      "href": "er.html"
+    },
+    {
+      "type": "blob",
+      "title": "error.html",
+      "href": "error.html"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-elk.html",
+      "href": "flowchart-elk.html"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart.html",
+      "href": "flowchart.html"
+    },
+    {
+      "type": "blob",
+      "title": "gantt.html",
+      "href": "gantt.html"
+    },
+    {
+      "type": "blob",
+      "title": "git.html",
+      "href": "git.html"
+    },
+    {
+      "type": "blob",
+      "title": "index.html",
+      "href": "index.html"
+    },
+    {
+      "type": "blob",
+      "title": "info.html",
+      "href": "info.html"
+    },
+    {
+      "type": "blob",
+      "title": "journey.html",
+      "href": "journey.html"
+    },
+    {
+      "type": "blob",
+      "title": "mindmap.html",
+      "href": "mindmap.html"
+    },
+    {
+      "type": "blob",
+      "title": "packet.html",
+      "href": "packet.html"
+    },
+    {
+      "type": "blob",
+      "title": "pie.html",
+      "href": "pie.html"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantchart.html",
+      "href": "quadrantchart.html"
+    },
+    {
+      "type": "blob",
+      "title": "requirements.html",
+      "href": "requirements.html"
+    },
+    {
+      "type": "blob",
+      "title": "sankey.html",
+      "href": "sankey.html"
+    },
+    {
+      "type": "blob",
+      "title": "sequence.html",
+      "href": "sequence.html"
+    },
+    {
+      "type": "blob",
+      "title": "state.html",
+      "href": "state.html"
+    },
+    {
+      "type": "blob",
+      "title": "timeline.html",
+      "href": "timeline.html"
+    },
+    {
+      "type": "blob",
+      "title": "xychart.html",
+      "href": "xychart.html"
+    },
+    {
+      "type": "blob",
+      "title": "zenuml.html",
+      "href": "zenuml.html"
+    }
+  ]
+}

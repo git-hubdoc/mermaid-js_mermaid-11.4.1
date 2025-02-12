@@ -1,0 +1,10 @@
+{
+  "title": "/packages/mermaid/src/schemas",
+  "files": [
+    {
+      "type": "blob",
+      "title": "config.schema.yaml",
+      "href": "config.schema.yaml"
+    }
+  ]
+}

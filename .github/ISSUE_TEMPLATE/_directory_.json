@@ -1,0 +1,30 @@
+{
+  "title": "/.github/ISSUE_TEMPLATE",
+  "files": [
+    {
+      "type": "blob",
+      "title": "bug_report.yml",
+      "href": "bug_report.yml"
+    },
+    {
+      "type": "blob",
+      "title": "config.yml",
+      "href": "config.yml"
+    },
+    {
+      "type": "blob",
+      "title": "diagram_proposal.yml",
+      "href": "diagram_proposal.yml"
+    },
+    {
+      "type": "blob",
+      "title": "syntax_proposal.yml",
+      "href": "syntax_proposal.yml"
+    },
+    {
+      "type": "blob",
+      "title": "theme_proposal.yml",
+      "href": "theme_proposal.yml"
+    }
+  ]
+}

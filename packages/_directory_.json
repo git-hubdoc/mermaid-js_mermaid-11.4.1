@@ -1,0 +1,30 @@
+{
+  "title": "/packages",
+  "files": [
+    {
+      "type": "folder",
+      "title": "mermaid",
+      "href": "mermaid"
+    },
+    {
+      "type": "folder",
+      "title": "mermaid-example-diagram",
+      "href": "mermaid-example-diagram"
+    },
+    {
+      "type": "folder",
+      "title": "mermaid-layout-elk",
+      "href": "mermaid-layout-elk"
+    },
+    {
+      "type": "folder",
+      "title": "mermaid-zenuml",
+      "href": "mermaid-zenuml"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    }
+  ]
+}

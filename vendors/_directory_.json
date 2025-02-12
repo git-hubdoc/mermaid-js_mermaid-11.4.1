@@ -1,0 +1,30 @@
+{
+  "title": "/vendors",
+  "files": [
+    {
+      "type": "folder",
+      "title": "argos-ci.com",
+      "href": "argos-ci.com"
+    },
+    {
+      "type": "folder",
+      "title": "codecov.io",
+      "href": "codecov.io"
+    },
+    {
+      "type": "folder",
+      "title": "github.com",
+      "href": "github.com"
+    },
+    {
+      "type": "folder",
+      "title": "img.shields.io",
+      "href": "img.shields.io"
+    },
+    {
+      "type": "folder",
+      "title": "media.giphy.com",
+      "href": "media.giphy.com"
+    }
+  ]
+}

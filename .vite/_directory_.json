@@ -1,0 +1,25 @@
+{
+  "title": "/.vite",
+  "files": [
+    {
+      "type": "blob",
+      "title": "build.ts",
+      "href": "build.ts"
+    },
+    {
+      "type": "blob",
+      "title": "jisonPlugin.ts",
+      "href": "jisonPlugin.ts"
+    },
+    {
+      "type": "blob",
+      "title": "jsonSchemaPlugin.ts",
+      "href": "jsonSchemaPlugin.ts"
+    },
+    {
+      "type": "blob",
+      "title": "server.ts",
+      "href": "server.ts"
+    }
+  ]
+}

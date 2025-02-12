@@ -1,0 +1,15 @@
+{
+  "title": "/cypress/integration",
+  "files": [
+    {
+      "type": "folder",
+      "title": "other",
+      "href": "other"
+    },
+    {
+      "type": "folder",
+      "title": "rendering",
+      "href": "rendering"
+    }
+  ]
+}

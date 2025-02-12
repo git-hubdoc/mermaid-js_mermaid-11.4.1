@@ -1,0 +1,40 @@
+{
+  "title": "/cypress/integration/other",
+  "files": [
+    {
+      "type": "blob",
+      "title": "configuration.spec.js",
+      "href": "configuration.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "external-diagrams.spec.js",
+      "href": "external-diagrams.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "ghsa.spec.js",
+      "href": "ghsa.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "iife.spec.js",
+      "href": "iife.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "interaction.spec.js",
+      "href": "interaction.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "rerender.spec.js",
+      "href": "rerender.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "xss.spec.js",
+      "href": "xss.spec.js"
+    }
+  ]
+}

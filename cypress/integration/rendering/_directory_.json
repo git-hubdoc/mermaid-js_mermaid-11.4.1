@@ -1,0 +1,215 @@
+{
+  "title": "/cypress/integration/rendering",
+  "files": [
+    {
+      "type": "blob",
+      "title": "appli.spec.js",
+      "href": "appli.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "architecture.spec.ts",
+      "href": "architecture.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "block.spec.js",
+      "href": "block.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "c4.spec.js",
+      "href": "c4.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram-elk-v3.spec.js",
+      "href": "classDiagram-elk-v3.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram-handDrawn-v3.spec.js",
+      "href": "classDiagram-handDrawn-v3.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram-v2.spec.js",
+      "href": "classDiagram-v2.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram-v3.spec.js",
+      "href": "classDiagram-v3.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram.spec.js",
+      "href": "classDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "conf-and-directives.spec.js",
+      "href": "conf-and-directives.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "current.spec.js",
+      "href": "current.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "erDiagram.spec.js",
+      "href": "erDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "errorDiagram.spec.js",
+      "href": "errorDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-elk.spec.js",
+      "href": "flowchart-elk.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-handDrawn.spec.js",
+      "href": "flowchart-handDrawn.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-shape-alias.spec.ts",
+      "href": "flowchart-shape-alias.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart-v2.spec.js",
+      "href": "flowchart-v2.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "flowchart.spec.js",
+      "href": "flowchart.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "gantt.spec.js",
+      "href": "gantt.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "gitGraph.spec.js",
+      "href": "gitGraph.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "iconShape.spec.ts",
+      "href": "iconShape.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "imageShape.spec.ts",
+      "href": "imageShape.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "info.spec.ts",
+      "href": "info.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "journey.spec.js",
+      "href": "journey.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "kanban.spec.ts",
+      "href": "kanban.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "katex.spec.js",
+      "href": "katex.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "marker_unique_id.spec.js",
+      "href": "marker_unique_id.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "mindmap.spec.ts",
+      "href": "mindmap.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "newShapes.spec.ts",
+      "href": "newShapes.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "oldShapes.spec.ts",
+      "href": "oldShapes.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "packet.spec.ts",
+      "href": "packet.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "pie.spec.ts",
+      "href": "pie.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "quadrantChart.spec.js",
+      "href": "quadrantChart.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "requirement.spec.js",
+      "href": "requirement.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "sankey.spec.ts",
+      "href": "sankey.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "sequencediagram.spec.js",
+      "href": "sequencediagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram-v2.spec.js",
+      "href": "stateDiagram-v2.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram.spec.js",
+      "href": "stateDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "theme.spec.js",
+      "href": "theme.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "timeline.spec.ts",
+      "href": "timeline.spec.ts"
+    },
+    {
+      "type": "blob",
+      "title": "xyChart.spec.js",
+      "href": "xyChart.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "zenuml.spec.js",
+      "href": "zenuml.spec.js"
+    }
+  ]
+}

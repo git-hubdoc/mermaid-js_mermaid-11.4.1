@@ -1,0 +1,35 @@
+{
+  "title": "/scripts",
+  "files": [
+    {
+      "type": "blob",
+      "title": "coverage.ts",
+      "href": "coverage.ts"
+    },
+    {
+      "type": "blob",
+      "title": "editor.bash",
+      "href": "editor.bash"
+    },
+    {
+      "type": "blob",
+      "title": "fixCSpell.ts",
+      "href": "fixCSpell.ts"
+    },
+    {
+      "type": "folder",
+      "title": "jison",
+      "href": "jison"
+    },
+    {
+      "type": "blob",
+      "title": "size.ts",
+      "href": "size.ts"
+    },
+    {
+      "type": "blob",
+      "title": "tsc-check.ts",
+      "href": "tsc-check.ts"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "title": "/packages/mermaid",
+  "files": [
+    {
+      "type": "blob",
+      "title": ".gitignore",
+      "href": ".gitignore"
+    },
+    {
+      "type": "blob",
+      "title": ".lintstagedrc.mjs",
+      "href": ".lintstagedrc.mjs"
+    },
+    {
+      "type": "blob",
+      "title": ".madgerc",
+      "href": ".madgerc"
+    },
+    {
+      "type": "blob",
+      "title": "CHANGELOG.html",
+      "href": "CHANGELOG.html"
+    },
+    {
+      "type": "blob",
+      "title": "CHANGELOG.md",
+      "href": "CHANGELOG.md"
+    },
+    {
+      "type": "blob",
+      "title": "package.json",
+      "href": "package.json"
+    },
+    {
+      "type": "folder",
+      "title": "scripts",
+      "href": "scripts"
+    },
+    {
+      "type": "folder",
+      "title": "src",
+      "href": "src"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.eslint.json",
+      "href": "tsconfig.eslint.json"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.json",
+      "href": "tsconfig.json"
+    },
+    {
+      "type": "blob",
+      "title": "typedoc.json",
+      "href": "typedoc.json"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "/packages/mermaid/src/diagrams/xychart/chartBuilder/components/plot",
+  "files": [
+    {
+      "type": "blob",
+      "title": "barPlot.ts",
+      "href": "barPlot.ts"
+    },
+    {
+      "type": "blob",
+      "title": "index.ts",
+      "href": "index.ts"
+    },
+    {
+      "type": "blob",
+      "title": "linePlot.ts",
+      "href": "linePlot.ts"
+    }
+  ]
+}

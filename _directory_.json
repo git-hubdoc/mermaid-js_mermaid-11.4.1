@@ -1,0 +1,280 @@
+{
+  "title": "/",
+  "files": [
+    {
+      "type": "blob",
+      "title": ".ackrc",
+      "href": ".ackrc"
+    },
+    {
+      "type": "folder",
+      "title": ".build",
+      "href": ".build"
+    },
+    {
+      "type": "folder",
+      "title": ".changeset",
+      "href": ".changeset"
+    },
+    {
+      "type": "folder",
+      "title": ".cspell",
+      "href": ".cspell"
+    },
+    {
+      "type": "blob",
+      "title": ".editorconfig",
+      "href": ".editorconfig"
+    },
+    {
+      "type": "folder",
+      "title": ".esbuild",
+      "href": ".esbuild"
+    },
+    {
+      "type": "blob",
+      "title": ".gitattributes",
+      "href": ".gitattributes"
+    },
+    {
+      "type": "folder",
+      "title": ".github",
+      "href": ".github"
+    },
+    {
+      "type": "blob",
+      "title": ".gitignore",
+      "href": ".gitignore"
+    },
+    {
+      "type": "blob",
+      "title": ".hadolint.yaml",
+      "href": ".hadolint.yaml"
+    },
+    {
+      "type": "folder",
+      "title": ".husky",
+      "href": ".husky"
+    },
+    {
+      "type": "blob",
+      "title": ".lintstagedrc.mjs",
+      "href": ".lintstagedrc.mjs"
+    },
+    {
+      "type": "blob",
+      "title": ".node-version",
+      "href": ".node-version"
+    },
+    {
+      "type": "blob",
+      "title": ".npmrc",
+      "href": ".npmrc"
+    },
+    {
+      "type": "blob",
+      "title": ".prettierignore",
+      "href": ".prettierignore"
+    },
+    {
+      "type": "blob",
+      "title": ".prettierrc.json",
+      "href": ".prettierrc.json"
+    },
+    {
+      "type": "folder",
+      "title": ".vite",
+      "href": ".vite"
+    },
+    {
+      "type": "folder",
+      "title": ".vscode",
+      "href": ".vscode"
+    },
+    {
+      "type": "folder",
+      "title": "assets",
+      "href": "assets"
+    },
+    {
+      "type": "blob",
+      "title": "CHANGELOG.html",
+      "href": "CHANGELOG.html"
+    },
+    {
+      "type": "blob",
+      "title": "CHANGELOG.md",
+      "href": "CHANGELOG.md"
+    },
+    {
+      "type": "blob",
+      "title": "CITATION.cff",
+      "href": "CITATION.cff"
+    },
+    {
+      "type": "blob",
+      "title": "CODE_OF_CONDUCT.html",
+      "href": "CODE_OF_CONDUCT.html"
+    },
+    {
+      "type": "blob",
+      "title": "CODE_OF_CONDUCT.md",
+      "href": "CODE_OF_CONDUCT.md"
+    },
+    {
+      "type": "blob",
+      "title": "cspell.config.yaml",
+      "href": "cspell.config.yaml"
+    },
+    {
+      "type": "folder",
+      "title": "cypress",
+      "href": "cypress"
+    },
+    {
+      "type": "blob",
+      "title": "cypress.config.ts",
+      "href": "cypress.config.ts"
+    },
+    {
+      "type": "folder",
+      "title": "demos",
+      "href": "demos"
+    },
+    {
+      "type": "blob",
+      "title": "docker-compose.yml",
+      "href": "docker-compose.yml"
+    },
+    {
+      "type": "blob",
+      "title": "Dockerfile",
+      "href": "Dockerfile"
+    },
+    {
+      "type": "folder",
+      "title": "docs",
+      "href": "docs"
+    },
+    {
+      "type": "blob",
+      "title": "eslint.config.js",
+      "href": "eslint.config.js"
+    },
+    {
+      "type": "blob",
+      "title": "FUNDING.json",
+      "href": "FUNDING.json"
+    },
+    {
+      "type": "folder",
+      "title": "img",
+      "href": "img"
+    },
+    {
+      "type": "blob",
+      "title": "LICENSE",
+      "href": "LICENSE"
+    },
+    {
+      "type": "blob",
+      "title": "netlify.toml",
+      "href": "netlify.toml"
+    },
+    {
+      "type": "blob",
+      "title": "package.json",
+      "href": "package.json"
+    },
+    {
+      "type": "folder",
+      "title": "packages",
+      "href": "packages"
+    },
+    {
+      "type": "folder",
+      "title": "patches",
+      "href": "patches"
+    },
+    {
+      "type": "blob",
+      "title": "pnpm-lock.yaml",
+      "href": "pnpm-lock.yaml"
+    },
+    {
+      "type": "blob",
+      "title": "pnpm-workspace.yaml",
+      "href": "pnpm-workspace.yaml"
+    },
+    {
+      "type": "blob",
+      "title": "README.html",
+      "href": "README.html"
+    },
+    {
+      "type": "blob",
+      "title": "README.md",
+      "href": "README.md"
+    },
+    {
+      "type": "blob",
+      "title": "README.zh-CN.html",
+      "href": "README.zh-CN.html"
+    },
+    {
+      "type": "blob",
+      "title": "README.zh-CN.md",
+      "href": "README.zh-CN.md"
+    },
+    {
+      "type": "blob",
+      "title": "renovate.json",
+      "href": "renovate.json"
+    },
+    {
+      "type": "blob",
+      "title": "run",
+      "href": "run"
+    },
+    {
+      "type": "folder",
+      "title": "scripts",
+      "href": "scripts"
+    },
+    {
+      "type": "folder",
+      "title": "tests",
+      "href": "tests"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.eslint.json",
+      "href": "tsconfig.eslint.json"
+    },
+    {
+      "type": "blob",
+      "title": "tsconfig.json",
+      "href": "tsconfig.json"
+    },
+    {
+      "type": "folder",
+      "title": "vendors",
+      "href": "vendors"
+    },
+    {
+      "type": "blob",
+      "title": "vite.config.ts",
+      "href": "vite.config.ts"
+    },
+    {
+      "type": "blob",
+      "title": "vitest.workspace.js",
+      "href": "vitest.workspace.js"
+    },
+    {
+      "type": "folder",
+      "title": "__mocks__",
+      "href": "__mocks__"
+    }
+  ]
+}

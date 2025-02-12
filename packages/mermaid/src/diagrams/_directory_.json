@@ -1,0 +1,120 @@
+{
+  "title": "/packages/mermaid/src/diagrams",
+  "files": [
+    {
+      "type": "folder",
+      "title": "architecture",
+      "href": "architecture"
+    },
+    {
+      "type": "folder",
+      "title": "block",
+      "href": "block"
+    },
+    {
+      "type": "folder",
+      "title": "c4",
+      "href": "c4"
+    },
+    {
+      "type": "folder",
+      "title": "class",
+      "href": "class"
+    },
+    {
+      "type": "folder",
+      "title": "common",
+      "href": "common"
+    },
+    {
+      "type": "folder",
+      "title": "er",
+      "href": "er"
+    },
+    {
+      "type": "folder",
+      "title": "error",
+      "href": "error"
+    },
+    {
+      "type": "folder",
+      "title": "flowchart",
+      "href": "flowchart"
+    },
+    {
+      "type": "folder",
+      "title": "gantt",
+      "href": "gantt"
+    },
+    {
+      "type": "folder",
+      "title": "git",
+      "href": "git"
+    },
+    {
+      "type": "folder",
+      "title": "info",
+      "href": "info"
+    },
+    {
+      "type": "folder",
+      "title": "kanban",
+      "href": "kanban"
+    },
+    {
+      "type": "folder",
+      "title": "mindmap",
+      "href": "mindmap"
+    },
+    {
+      "type": "folder",
+      "title": "packet",
+      "href": "packet"
+    },
+    {
+      "type": "folder",
+      "title": "pie",
+      "href": "pie"
+    },
+    {
+      "type": "folder",
+      "title": "quadrant-chart",
+      "href": "quadrant-chart"
+    },
+    {
+      "type": "folder",
+      "title": "requirement",
+      "href": "requirement"
+    },
+    {
+      "type": "folder",
+      "title": "sankey",
+      "href": "sankey"
+    },
+    {
+      "type": "folder",
+      "title": "sequence",
+      "href": "sequence"
+    },
+    {
+      "type": "folder",
+      "title": "state",
+      "href": "state"
+    },
+    {
+      "type": "folder",
+      "title": "timeline",
+      "href": "timeline"
+    },
+    {
+      "type": "folder",
+      "title": "user-journey",
+      "href": "user-journey"
+    },
+    {
+      "type": "folder",
+      "title": "xychart",
+      "href": "xychart"
+    }
+  ]
+}

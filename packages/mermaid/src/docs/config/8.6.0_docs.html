@@ -1,0 +1,349 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="version-860-changes"><a aria-hidden="true" tabindex="-1" href="#version-860-changes"><span class="icon icon-link"></span></a>Version 8.6.0 Changes</h1>
+          <h2 id="new-mermaid-live-editor-beta"><a aria-hidden="true" tabindex="-1" href="#new-mermaid-live-editor-beta"><span class="icon icon-link"></span></a><a href="https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoiJSV7aW5pdDoge1widGhlbWVcIjogXCJmb3Jlc3RcIiwgXCJsb2dMZXZlbFwiOiAxIH19JSVcbmdyYXBoIFREXG4gIEFbQ2hyaXN0bWFzXSAtLT58R2V0IG1vbmV5fCBCKEdvIHNob3BwaW5nKVxuICBCIC0tPiBDe0xldCBtZSB0aGlua31cbiAgQyAtLT58T25lfCBEW0xhcHRvcF1cbiAgQyAtLT58VHdvfCBFW2lQaG9uZV1cbiAgQyAtLT58VGhyZWV8IEZbZmE6ZmEtY2FyIENhcl1cblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGFyayJ9fQ">New Mermaid Live-Editor Beta</a></h2>
+          <h2 id="cdn"><a aria-hidden="true" tabindex="-1" href="#cdn"><span class="icon icon-link"></span></a><a href="https://www.jsdelivr.com/package/npm/mermaid">CDN</a></h2>
+          <p>With version 8.6.0 comes the release of directives for mermaid, a new system for modifying configurations, with the aim of establishing centralized, sane defaults and simple implementation.</p>
+          <p>
+            <code>directives</code> allow for a single-use overwriting of <code>config</code>, as it has been discussed in <a href="config/configuration.html">Configurations</a>.
+            This allows site Diagram Authors to instantiate temporary modifications to <code>config</code> through the use of <a href="directives.html">Directives</a>, which are parsed before rendering diagram definitions. This allows the Diagram Authors to alter the appearance of the diagrams.
+          </p>
+          <p><strong>A likely application for this is in the creation of diagrams/charts inside company/organizational webpages, that rely on mermaid for diagram and chart rendering.</strong></p>
+          <p>the <code>init</code> directive is the main method of configuration for Site and Current Levels.</p>
+          <p>The three levels of are Configuration, Global, Site and Current.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Level of Configuration</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Global Configuration</td>
+                <td>Default Mermaid Configurations</td>
+              </tr>
+              <tr>
+                <td>Site Configuration</td>
+                <td>Configurations made by site owner</td>
+              </tr>
+              <tr>
+                <td>Current Configuration</td>
+                <td>Configurations made by Implementors</td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 id="limits-to-modifying-configurations"><a aria-hidden="true" tabindex="-1" href="#limits-to-modifying-configurations"><span class="icon icon-link"></span></a>Limits to Modifying Configurations</h1>
+          <p><strong>secure Array</strong></p>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>secure</td>
+                <td>Array of parameters excluded from init directive</td>
+                <td>Array</td>
+                <td>Required</td>
+                <td>Any parameters</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>The modifiable parts of the Configuration are limited by the secure array, which is an array of immutable parameters, this array can be expanded by site owners.</p>
+          <p><strong>Notes</strong>: secure arrays work like nesting dolls, with the Global Configurations’ secure array holding the default and immutable list of immutable parameters, or the smallest doll, to which site owners may add to, but implementors may not modify it.</p>
+          <h1 id="secure-arrays"><a aria-hidden="true" tabindex="-1" href="#secure-arrays"><span class="icon icon-link"></span></a>Secure Arrays</h1>
+          <p>
+            Site owners can add to the <strong>secure</strong> array using this command:
+            mermaidAPI.initialize( { startOnLoad: true, secure: ['parameter1', 'parameter2'] } );
+          </p>
+          <p>Default values for the <code>secure array</code> consists of: ['secure', 'securityLevel', 'startOnLoad', 'maxTextSize']. These default values are immutable.</p>
+          <p>Implementors can only modify configurations using directives, and cannot change the <code>secure</code> array.</p>
+          <h1 id="modifying-configurations-and-directives"><a aria-hidden="true" tabindex="-1" href="#modifying-configurations-and-directives"><span class="icon icon-link"></span></a>Modifying Configurations and directives:</h1>
+          <p>The Two types of directives: are <code>init</code> (or <code>initialize</code>) and <code>wrap</code>.</p>
+          <pre><code class="language-note">All directives are enclosed in `%%{ }%%`
+</code></pre>
+          <p>Older versions of mermaid will not parse directives because <code>%%</code> will comment out the directive. This makes the update backwards-compatible.</p>
+          <h1 id="init"><a aria-hidden="true" tabindex="-1" href="#init"><span class="icon icon-link"></span></a>Init</h1>
+          <p><code>init</code>, or <code>initialize</code>: this directive gives the user the ability to overwrite and change the values for any configuration parameters not set in the secure array.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>init</td>
+                <td>modifies configurations</td>
+                <td>Directive</td>
+                <td>Optional</td>
+                <td>Any parameters not included in the secure array</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">init would be an argument-directive: `%%{init: { **insert argument here**}}%%`
+
+The json object that is passed as {**argument** } must be valid, quoted json or it will be ignored.
+**for example**:
+
+`%%{init: {"theme": "default", "logLevel": 1 }}%%`
+
+Configurations that are passed through init cannot change the parameters in a secure array at a higher level. In the event of a collision, mermaid will give priority to secure arrays and parse the request without changing the values of those parameters in conflict.
+
+When deployed within code, init is called before the graph/diagram description.
+</code></pre>
+          <p><strong>for example</strong>:</p>
+          <pre><code class="language-mermaid">%%{init: {"theme": "default", "logLevel": 1 }}%%
+ graph LR
+  a-->b
+  b-->c
+  c-->d
+  d-->e
+  e-->f
+  f-->g
+  g-->
+</code></pre>
+          <h1 id="wrap"><a aria-hidden="true" tabindex="-1" href="#wrap"><span class="icon icon-link"></span></a>Wrap</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>wrap</td>
+                <td>a callable text-wrap function</td>
+                <td>Directive</td>
+                <td>Optional</td>
+                <td>%%{wrap}%%</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">Wrap is a function that is currently only deployable for sequence diagrams.
+
+`Wrap respects a manually added &#x3C;br>, so if the user wants to break up their text, they have full control over line breaks by adding &#x3C;br> tags.`
+
+It is a non-argument directive and can be executed thusly:
+
+`%%{wrap}%%` .
+</code></pre>
+          <p><strong>An example of text wrapping in a sequence diagram</strong>:</p>
+          <p>![Image showing wrapped text](img/wrapped text.png)</p>
+          <h1 id="resetting-configurations"><a aria-hidden="true" tabindex="-1" href="#resetting-configurations"><span class="icon icon-link"></span></a>Resetting Configurations:</h1>
+          <p>There are two more functions in the mermaidAPI that can be called by site owners: <strong>reset</strong> and <strong>globalReset</strong>.</p>
+          <p><strong>reset</strong>: resets the configuration to whatever the last configuration was. This can be done to undo more recent changes set from the last mermaidAPI.initialize({...}) configuration.</p>
+          <p><strong>globalReset</strong> will reset both the current configuration AND the site configuration back to the global defaults.</p>
+          <p><strong>Notes</strong>: Both <code>reset</code> and <code>globalReset</code> are only available to site owners, and as such implementors have to edit their configs using <code>init</code>.</p>
+          <h1 id="additional-utils-to-mermaid"><a aria-hidden="true" tabindex="-1" href="#additional-utils-to-mermaid"><span class="icon icon-link"></span></a>Additional Utils to mermaid</h1>
+          <p>• <strong>memoize</strong>: simple caching for computationally expensive functions, reducing rendering time by about 90%.</p>
+          <p>• <strong>assignWithDepth</strong> - an improvement on previous functions with config.js and <code>Object.assign</code>. The purpose of this function is to provide a sane mechanism for merging objects, similar to <code>object.assign</code>, but with depth.</p>
+          <p>Example of <strong>assignWithDepth</strong>:</p>
+          <p>
+            <img src="img/assignWithDepth.png" alt="Image showing assignWithDepth">
+          </p>
+          <p>Example of <strong>object.Assign</strong>:</p>
+          <p>![Image showing object.assign without depth](img/object.assign without depth.png)</p>
+          <p>• <strong>calculateTextDimensions</strong>, <strong>calculateTextWidth</strong>， and <strong>calculateTextHeight</strong> - for measuring text dimensions, width and height.</p>
+          <p><strong>Notes</strong>: For more information on usage, parameters, and return info for these new functions take a look at the jsdocs for them in the utils package.</p>
+          <h1 id="new-api-requests-introduced-in-version-860"><a aria-hidden="true" tabindex="-1" href="#new-api-requests-introduced-in-version-860"><span class="icon icon-link"></span></a>New API Requests Introduced in Version 8.6.0</h1>
+          <h2 id="setsiteconfig"><a aria-hidden="true" tabindex="-1" href="#setsiteconfig"><span class="icon icon-link"></span></a>setSiteConfig</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Values</th>
+                <th>Parameters</th>
+                <th>Returns</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>setSiteConfig</code></td>
+                <td>Sets the siteConfig to desired values</td>
+                <td>Put Request</td>
+                <td>Any Values, except ones in secure array</td>
+                <td>conf</td>
+                <td>siteConfig</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">Sets the siteConfig. The siteConfig is a protected configuration for repeat use. Calls to reset() will reset
+the currentConfig to siteConfig. Calls to reset(configApi.defaultConfig) will reset siteConfig and currentConfig
+to the defaultConfig
+Note: currentConfig is set in this function。
+Default value: will mirror Global Config
+</code></pre>
+          <h2 id="getsiteconfig"><a aria-hidden="true" tabindex="-1" href="#getsiteconfig"><span class="icon icon-link"></span></a>getSiteConfig</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>getSiteConfig</code></td>
+                <td>Returns the current <code>siteConfig</code> base configuration</td>
+                <td>Get Request</td>
+                <td>Returns Any Values in <code>siteConfig</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">Returns any values in siteConfig.
+</code></pre>
+          <h2 id="setconfig"><a aria-hidden="true" tabindex="-1" href="#setconfig"><span class="icon icon-link"></span></a>setConfig</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Values</th>
+                <th>Parameters</th>
+                <th>Returns</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>setConfig</code></td>
+                <td>Sets the <code>currentConfig</code> to desired values</td>
+                <td>Put Request</td>
+                <td>Any Values, those in secure array</td>
+                <td>conf</td>
+                <td><code>currentConfig</code> merged with the sanitized conf</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">Sets the currentConfig. The parameter conf is sanitized based on the siteConfig.secure keys. Any
+values found in conf with key found in siteConfig.secure will be replaced with the corresponding
+siteConfig value.
+</code></pre>
+          <h2 id="getconfig"><a aria-hidden="true" tabindex="-1" href="#getconfig"><span class="icon icon-link"></span></a>getConfig</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Return Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>getConfig</code></td>
+                <td>Obtains the <code>currentConfig</code></td>
+                <td>Get Request</td>
+                <td>Any Values from <code>currentConfig</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">Returns any values in currentConfig.
+</code></pre>
+          <h2 id="sanitize"><a aria-hidden="true" tabindex="-1" href="#sanitize"><span class="icon icon-link"></span></a>sanitize</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>sanitize</code></td>
+                <td>Sets the <code>siteConfig</code> to desired values.</td>
+                <td>Put Request(?)</td>
+                <td>None</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">modifies options in-place
+Ensures options parameter does not attempt to override siteConfig secure keys.
+</code></pre>
+          <h2 id="reset"><a aria-hidden="true" tabindex="-1" href="#reset"><span class="icon icon-link"></span></a>reset</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Values</th>
+                <th>Parameter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>reset</code></td>
+                <td>Resets <code>currentConfig</code> to conf</td>
+                <td>Put Request</td>
+                <td>Required</td>
+                <td>None</td>
+                <td>conf</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="conf"><a aria-hidden="true" tabindex="-1" href="#conf"><span class="icon icon-link"></span></a>conf</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>conf</code></td>
+                <td>base set of values, which <code>currentConfig</code> could be reset to.</td>
+                <td>Dictionary</td>
+                <td>Required</td>
+                <td>Any Values, with respect to the secure Array</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="language-note">default: current siteConfig (optional, default `getSiteConfig()`)
+</code></pre>
+          <h2 id="for-more-information-read-setup"><a aria-hidden="true" tabindex="-1" href="#for-more-information-read-setup"><span class="icon icon-link"></span></a>For more information, read <a href="setup/README.html">Setup</a>.</h2>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

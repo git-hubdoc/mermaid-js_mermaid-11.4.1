@@ -1,0 +1,150 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="examples"><a aria-hidden="true" tabindex="-1" href="#examples"><span class="icon icon-link"></span></a>Examples</h1>
+          <p>This page contains a collection of examples of diagrams and charts that can be created through mermaid and its myriad applications.</p>
+          <p><strong>If you wish to learn how to support mermaid on your webpage, read the <a href="config/usage.html?id=usage">Beginner's Guide</a>.</strong></p>
+          <p><strong>If you wish to learn about mermaid's syntax, Read the <a href="syntax/flowchart.html?id=flowcharts-basic-syntax">Diagram Syntax</a> section.</strong></p>
+          <h2 id="basic-pie-chart"><a aria-hidden="true" tabindex="-1" href="#basic-pie-chart"><span class="icon icon-link"></span></a>Basic Pie Chart</h2>
+          <pre><code class="language-mermaid-example">pie title NETFLIX
+         "Time spent looking for movie" : 90
+         "Time spent watching it" : 10
+</code></pre>
+          <pre><code class="language-mermaid-example">pie title What Voldemort doesn't have?
+         "FRIENDS" : 2
+         "FAMILY" : 3
+         "NOSE" : 45
+</code></pre>
+          <h2 id="basic-sequence-diagram"><a aria-hidden="true" tabindex="-1" href="#basic-sequence-diagram"><span class="icon icon-link"></span></a>Basic sequence diagram</h2>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    Alice ->> Bob: Hello Bob, how are you?
+    Bob-->>John: How about you John?
+    Bob--x Alice: I am good thanks!
+    Bob-x John: I am good thanks!
+    Note right of John: Bob thinks a long&#x3C;br/>long time, so long&#x3C;br/>that the text does&#x3C;br/>not fit on a row.
+
+    Bob-->Alice: Checking with John...
+    Alice->John: Yes... John, how are you?
+</code></pre>
+          <h2 id="basic-flowchart"><a aria-hidden="true" tabindex="-1" href="#basic-flowchart"><span class="icon icon-link"></span></a>Basic flowchart</h2>
+          <pre><code class="language-mermaid-example">graph LR
+    A[Square Rect] -- Link text --> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> D
+</code></pre>
+          <h2 id="larger-flowchart-with-some-styling"><a aria-hidden="true" tabindex="-1" href="#larger-flowchart-with-some-styling"><span class="icon icon-link"></span></a>Larger flowchart with some styling</h2>
+          <pre><code class="language-mermaid-example">graph TB
+    sq[Square shape] --> ci((Circle shape))
+
+    subgraph A
+        od>Odd shape]-- Two line&#x3C;br/>edge comment --> ro
+        di{Diamond with &#x3C;br/> line break} -.-> ro(Rounded&#x3C;br>square&#x3C;br>shape)
+        di==>ro2(Rounded square shape)
+    end
+
+    %% Notice that no text in shape are added here instead that is appended further down
+    e --> od3>Really long text with linebreak&#x3C;br>in an Odd shape]
+
+    %% Comments after double percent signs
+    e((Inner / circle&#x3C;br>and some odd &#x3C;br>special characters)) --> f(,.?!+-*ز)
+
+    cyr[Cyrillic]-->cyr2((Circle shape Начало));
+
+     classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+     classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+     class sq,e green
+     class di orange
+</code></pre>
+          <h2 id="sequencediagram-loops-alt-and-opt"><a aria-hidden="true" tabindex="-1" href="#sequencediagram-loops-alt-and-opt"><span class="icon icon-link"></span></a>SequenceDiagram: Loops, alt and opt</h2>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    loop Daily query
+        Alice->>Bob: Hello Bob, how are you?
+        alt is sick
+            Bob->>Alice: Not so good :(
+        else is well
+            Bob->>Alice: Feeling fresh like a daisy
+        end
+
+        opt Extra response
+            Bob->>Alice: Thanks for asking
+        end
+    end
+</code></pre>
+          <h2 id="sequencediagram-message-to-self-in-loop"><a aria-hidden="true" tabindex="-1" href="#sequencediagram-message-to-self-in-loop"><span class="icon icon-link"></span></a>SequenceDiagram: Message to self in loop</h2>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop HealthCheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts&#x3C;br/>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+</code></pre>
+          <h2 id="sequence-diagram-blogging-app-service-communication"><a aria-hidden="true" tabindex="-1" href="#sequence-diagram-blogging-app-service-communication"><span class="icon icon-link"></span></a>Sequence Diagram: Blogging app service communication</h2>
+          <pre><code class="language-mermaid-example">sequenceDiagram
+    participant web as Web Browser
+    participant blog as Blog Service
+    participant account as Account Service
+    participant mail as Mail Service
+    participant db as Storage
+
+    Note over web,db: The user must be logged in to submit blog posts
+    web->>+account: Logs in using credentials
+    account->>db: Query stored accounts
+    db->>account: Respond with query result
+
+    alt Credentials not found
+        account->>web: Invalid credentials
+    else Credentials found
+        account->>-web: Successfully logged in
+
+        Note over web,db: When the user is authenticated, they can now submit new posts
+        web->>+blog: Submit new post
+        blog->>db: Store post data
+
+        par Notifications
+            blog--)mail: Send mail to blog subscribers
+            blog--)db: Store in-site notifications
+        and Response
+            blog-->>-web: Successfully posted
+        end
+    end
+
+</code></pre>
+          <h2 id="a-commit-flow-diagram"><a aria-hidden="true" tabindex="-1" href="#a-commit-flow-diagram"><span class="icon icon-link"></span></a>A commit flow diagram.</h2>
+          <pre><code class="language-mermaid">gitGraph:
+    commit "Ashish"
+    branch newbranch
+    checkout newbranch
+    commit id:"1111"
+    commit tag:"test"
+    checkout main
+    commit type: HIGHLIGHT
+    commit
+    merge newbranch
+    commit
+    branch b2
+    commit
+</code></pre>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

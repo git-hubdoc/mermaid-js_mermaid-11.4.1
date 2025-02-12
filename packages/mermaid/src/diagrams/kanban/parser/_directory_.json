@@ -1,0 +1,10 @@
+{
+  "title": "/packages/mermaid/src/diagrams/kanban/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "kanban.jison",
+      "href": "kanban.jison"
+    }
+  ]
+}

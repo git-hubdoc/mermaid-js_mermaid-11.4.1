@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/xychart/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "xychart.jison",
+      "href": "xychart.jison"
+    },
+    {
+      "type": "blob",
+      "title": "xychart.jison.spec.ts",
+      "href": "xychart.jison.spec.ts"
+    }
+  ]
+}

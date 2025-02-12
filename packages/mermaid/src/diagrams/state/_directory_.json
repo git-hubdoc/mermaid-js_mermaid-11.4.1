@@ -1,0 +1,85 @@
+{
+  "title": "/packages/mermaid/src/diagrams/state",
+  "files": [
+    {
+      "type": "blob",
+      "title": "dataFetcher.js",
+      "href": "dataFetcher.js"
+    },
+    {
+      "type": "blob",
+      "title": "id-cache.js",
+      "href": "id-cache.js"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "shapes.js",
+      "href": "shapes.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateCommon.ts",
+      "href": "stateCommon.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateDb.js",
+      "href": "stateDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDb.spec.js",
+      "href": "stateDb.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDetector-V2.ts",
+      "href": "stateDetector-V2.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateDetector.ts",
+      "href": "stateDetector.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram-v2.spec.js",
+      "href": "stateDiagram-v2.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram-v2.ts",
+      "href": "stateDiagram-v2.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram.spec.js",
+      "href": "stateDiagram.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "stateDiagram.ts",
+      "href": "stateDiagram.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateRenderer-v3-unified.ts",
+      "href": "stateRenderer-v3-unified.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateRenderer.js",
+      "href": "stateRenderer.js"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    }
+  ]
+}

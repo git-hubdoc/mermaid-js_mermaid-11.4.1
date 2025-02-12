@@ -1,0 +1,45 @@
+{
+  "title": "/packages/mermaid/src/diagrams/timeline",
+  "files": [
+    {
+      "type": "blob",
+      "title": "detector.ts",
+      "href": "detector.ts"
+    },
+    {
+      "type": "folder",
+      "title": "parser",
+      "href": "parser"
+    },
+    {
+      "type": "blob",
+      "title": "styles.js",
+      "href": "styles.js"
+    },
+    {
+      "type": "blob",
+      "title": "svgDraw.js",
+      "href": "svgDraw.js"
+    },
+    {
+      "type": "blob",
+      "title": "timeline-definition.ts",
+      "href": "timeline-definition.ts"
+    },
+    {
+      "type": "blob",
+      "title": "timeline.spec.js",
+      "href": "timeline.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "timelineDb.js",
+      "href": "timelineDb.js"
+    },
+    {
+      "type": "blob",
+      "title": "timelineRenderer.ts",
+      "href": "timelineRenderer.ts"
+    }
+  ]
+}

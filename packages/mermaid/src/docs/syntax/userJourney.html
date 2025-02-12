@@ -1,0 +1,41 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/stylesheets/github-markdown.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/code-block.css">
+  </head>
+  <body>
+    <article class="markdown-body">
+      <html>
+        <head></head>
+        <body>
+          <h1 id="user-journey-diagram"><a aria-hidden="true" tabindex="-1" href="#user-journey-diagram"><span class="icon icon-link"></span></a>User Journey Diagram</h1>
+          <blockquote>
+            <p>User journeys describe at a high level of detail exactly what steps different users take to complete a specific task within a system, application or website. This technique shows the current (as-is) user workflow, and reveals areas of improvement for the to-be workflow. (Wikipedia)</p>
+          </blockquote>
+          <p>Mermaid can render user journey diagrams:</p>
+          <pre><code class="language-mermaid-example">journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+</code></pre>
+          <p>
+            Each user journey is split into sections, these describe the part of the task
+            the user is trying to complete.
+          </p>
+          <p>Tasks syntax is <code>Task name: &#x3C;score>: &#x3C;comma separated list of actors></code></p>
+        </body>
+      </html>
+    </article>
+    <script src="/assets/js/code-block.js"></script>
+    <script src="/assets/js/mathjax.js"></script>
+    <script src="/assets/js/mermaid.js"></script>
+  </body>
+</html>

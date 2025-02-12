@@ -1,0 +1,180 @@
+{
+  "title": "/assets/npm/mathjax-3.2.1/es5/input/tex/extensions",
+  "files": [
+    {
+      "type": "blob",
+      "title": "action.js",
+      "href": "action.js"
+    },
+    {
+      "type": "blob",
+      "title": "all-packages.js",
+      "href": "all-packages.js"
+    },
+    {
+      "type": "blob",
+      "title": "ams.js",
+      "href": "ams.js"
+    },
+    {
+      "type": "blob",
+      "title": "amscd.js",
+      "href": "amscd.js"
+    },
+    {
+      "type": "blob",
+      "title": "autoload.js",
+      "href": "autoload.js"
+    },
+    {
+      "type": "blob",
+      "title": "bbox.js",
+      "href": "bbox.js"
+    },
+    {
+      "type": "blob",
+      "title": "boldsymbol.js",
+      "href": "boldsymbol.js"
+    },
+    {
+      "type": "blob",
+      "title": "braket.js",
+      "href": "braket.js"
+    },
+    {
+      "type": "blob",
+      "title": "bussproofs.js",
+      "href": "bussproofs.js"
+    },
+    {
+      "type": "blob",
+      "title": "cancel.js",
+      "href": "cancel.js"
+    },
+    {
+      "type": "blob",
+      "title": "cases.js",
+      "href": "cases.js"
+    },
+    {
+      "type": "blob",
+      "title": "centernot.js",
+      "href": "centernot.js"
+    },
+    {
+      "type": "blob",
+      "title": "color.js",
+      "href": "color.js"
+    },
+    {
+      "type": "blob",
+      "title": "colortbl.js",
+      "href": "colortbl.js"
+    },
+    {
+      "type": "blob",
+      "title": "colorv2.js",
+      "href": "colorv2.js"
+    },
+    {
+      "type": "blob",
+      "title": "configmacros.js",
+      "href": "configmacros.js"
+    },
+    {
+      "type": "blob",
+      "title": "empheq.js",
+      "href": "empheq.js"
+    },
+    {
+      "type": "blob",
+      "title": "enclose.js",
+      "href": "enclose.js"
+    },
+    {
+      "type": "blob",
+      "title": "extpfeil.js",
+      "href": "extpfeil.js"
+    },
+    {
+      "type": "blob",
+      "title": "gensymb.js",
+      "href": "gensymb.js"
+    },
+    {
+      "type": "blob",
+      "title": "html.js",
+      "href": "html.js"
+    },
+    {
+      "type": "blob",
+      "title": "mathtools.js",
+      "href": "mathtools.js"
+    },
+    {
+      "type": "blob",
+      "title": "mhchem.js",
+      "href": "mhchem.js"
+    },
+    {
+      "type": "blob",
+      "title": "newcommand.js",
+      "href": "newcommand.js"
+    },
+    {
+      "type": "blob",
+      "title": "noerrors.js",
+      "href": "noerrors.js"
+    },
+    {
+      "type": "blob",
+      "title": "noundefined.js",
+      "href": "noundefined.js"
+    },
+    {
+      "type": "blob",
+      "title": "physics.js",
+      "href": "physics.js"
+    },
+    {
+      "type": "blob",
+      "title": "require.js",
+      "href": "require.js"
+    },
+    {
+      "type": "blob",
+      "title": "setoptions.js",
+      "href": "setoptions.js"
+    },
+    {
+      "type": "blob",
+      "title": "tagformat.js",
+      "href": "tagformat.js"
+    },
+    {
+      "type": "blob",
+      "title": "textcomp.js",
+      "href": "textcomp.js"
+    },
+    {
+      "type": "blob",
+      "title": "textmacros.js",
+      "href": "textmacros.js"
+    },
+    {
+      "type": "blob",
+      "title": "unicode.js",
+      "href": "unicode.js"
+    },
+    {
+      "type": "blob",
+      "title": "upgreek.js",
+      "href": "upgreek.js"
+    },
+    {
+      "type": "blob",
+      "title": "verb.js",
+      "href": "verb.js"
+    }
+  ]
+}

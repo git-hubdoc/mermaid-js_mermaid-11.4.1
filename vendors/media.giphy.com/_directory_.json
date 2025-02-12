@@ -1,0 +1,10 @@
+{
+  "title": "/vendors/media.giphy.com",
+  "files": [
+    {
+      "type": "folder",
+      "title": "media",
+      "href": "media"
+    }
+  ]
+}

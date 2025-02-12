@@ -1,0 +1,15 @@
+{
+  "title": "/packages/mermaid/src/diagrams/class/parser",
+  "files": [
+    {
+      "type": "blob",
+      "title": "class.spec.js",
+      "href": "class.spec.js"
+    },
+    {
+      "type": "blob",
+      "title": "classDiagram.jison",
+      "href": "classDiagram.jison"
+    }
+  ]
+}

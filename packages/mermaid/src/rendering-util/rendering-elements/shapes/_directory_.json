@@ -1,0 +1,325 @@
+{
+  "title": "/packages/mermaid/src/rendering-util/rendering-elements/shapes",
+  "files": [
+    {
+      "type": "blob",
+      "title": "anchor.ts",
+      "href": "anchor.ts"
+    },
+    {
+      "type": "blob",
+      "title": "bowTieRect.ts",
+      "href": "bowTieRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "card.ts",
+      "href": "card.ts"
+    },
+    {
+      "type": "blob",
+      "title": "choice.ts",
+      "href": "choice.ts"
+    },
+    {
+      "type": "blob",
+      "title": "circle.ts",
+      "href": "circle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "classBox.ts",
+      "href": "classBox.ts"
+    },
+    {
+      "type": "blob",
+      "title": "crossedCircle.ts",
+      "href": "crossedCircle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "curlyBraceLeft.ts",
+      "href": "curlyBraceLeft.ts"
+    },
+    {
+      "type": "blob",
+      "title": "curlyBraceRight.ts",
+      "href": "curlyBraceRight.ts"
+    },
+    {
+      "type": "blob",
+      "title": "curlyBraces.ts",
+      "href": "curlyBraces.ts"
+    },
+    {
+      "type": "blob",
+      "title": "curvedTrapezoid.ts",
+      "href": "curvedTrapezoid.ts"
+    },
+    {
+      "type": "blob",
+      "title": "cylinder.ts",
+      "href": "cylinder.ts"
+    },
+    {
+      "type": "blob",
+      "title": "dividedRect.ts",
+      "href": "dividedRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "document.ts",
+      "href": "document.ts"
+    },
+    {
+      "type": "blob",
+      "title": "doubleCircle.ts",
+      "href": "doubleCircle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "drawRect.ts",
+      "href": "drawRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "filledCircle.ts",
+      "href": "filledCircle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "flippedTriangle.ts",
+      "href": "flippedTriangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "forkJoin.ts",
+      "href": "forkJoin.ts"
+    },
+    {
+      "type": "blob",
+      "title": "halfRoundedRectangle.ts",
+      "href": "halfRoundedRectangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "handDrawnShapeStyles.ts",
+      "href": "handDrawnShapeStyles.ts"
+    },
+    {
+      "type": "blob",
+      "title": "hexagon.ts",
+      "href": "hexagon.ts"
+    },
+    {
+      "type": "blob",
+      "title": "hourglass.ts",
+      "href": "hourglass.ts"
+    },
+    {
+      "type": "blob",
+      "title": "icon.ts",
+      "href": "icon.ts"
+    },
+    {
+      "type": "blob",
+      "title": "iconCircle.ts",
+      "href": "iconCircle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "iconRounded.ts",
+      "href": "iconRounded.ts"
+    },
+    {
+      "type": "blob",
+      "title": "iconSquare.ts",
+      "href": "iconSquare.ts"
+    },
+    {
+      "type": "blob",
+      "title": "imageSquare.ts",
+      "href": "imageSquare.ts"
+    },
+    {
+      "type": "blob",
+      "title": "insertPolygonShape.ts",
+      "href": "insertPolygonShape.ts"
+    },
+    {
+      "type": "blob",
+      "title": "invertedTrapezoid.ts",
+      "href": "invertedTrapezoid.ts"
+    },
+    {
+      "type": "blob",
+      "title": "kanbanItem.ts",
+      "href": "kanbanItem.ts"
+    },
+    {
+      "type": "blob",
+      "title": "labelRect.ts",
+      "href": "labelRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "leanLeft.ts",
+      "href": "leanLeft.ts"
+    },
+    {
+      "type": "blob",
+      "title": "leanRight.ts",
+      "href": "leanRight.ts"
+    },
+    {
+      "type": "blob",
+      "title": "lightningBolt.ts",
+      "href": "lightningBolt.ts"
+    },
+    {
+      "type": "blob",
+      "title": "linedCylinder.ts",
+      "href": "linedCylinder.ts"
+    },
+    {
+      "type": "blob",
+      "title": "linedWaveEdgedRect.ts",
+      "href": "linedWaveEdgedRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "multiRect.ts",
+      "href": "multiRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "multiWaveEdgedRectangle.ts",
+      "href": "multiWaveEdgedRectangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "note.ts",
+      "href": "note.ts"
+    },
+    {
+      "type": "blob",
+      "title": "question.ts",
+      "href": "question.ts"
+    },
+    {
+      "type": "blob",
+      "title": "rectLeftInvArrow.ts",
+      "href": "rectLeftInvArrow.ts"
+    },
+    {
+      "type": "blob",
+      "title": "rectWithTitle.ts",
+      "href": "rectWithTitle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "roundedRect.ts",
+      "href": "roundedRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "roundedRectPath.ts",
+      "href": "roundedRectPath.ts"
+    },
+    {
+      "type": "blob",
+      "title": "shadedProcess.ts",
+      "href": "shadedProcess.ts"
+    },
+    {
+      "type": "blob",
+      "title": "slopedRect.ts",
+      "href": "slopedRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "squareRect.ts",
+      "href": "squareRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stadium.ts",
+      "href": "stadium.ts"
+    },
+    {
+      "type": "blob",
+      "title": "state.ts",
+      "href": "state.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateEnd.ts",
+      "href": "stateEnd.ts"
+    },
+    {
+      "type": "blob",
+      "title": "stateStart.ts",
+      "href": "stateStart.ts"
+    },
+    {
+      "type": "blob",
+      "title": "subroutine.ts",
+      "href": "subroutine.ts"
+    },
+    {
+      "type": "blob",
+      "title": "taggedRect.ts",
+      "href": "taggedRect.ts"
+    },
+    {
+      "type": "blob",
+      "title": "taggedWaveEdgedRectangle.ts",
+      "href": "taggedWaveEdgedRectangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "text.ts",
+      "href": "text.ts"
+    },
+    {
+      "type": "blob",
+      "title": "tiltedCylinder.ts",
+      "href": "tiltedCylinder.ts"
+    },
+    {
+      "type": "blob",
+      "title": "trapezoid.ts",
+      "href": "trapezoid.ts"
+    },
+    {
+      "type": "blob",
+      "title": "trapezoidalPentagon.ts",
+      "href": "trapezoidalPentagon.ts"
+    },
+    {
+      "type": "blob",
+      "title": "triangle.ts",
+      "href": "triangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "util.ts",
+      "href": "util.ts"
+    },
+    {
+      "type": "blob",
+      "title": "waveEdgedRectangle.ts",
+      "href": "waveEdgedRectangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "waveRectangle.ts",
+      "href": "waveRectangle.ts"
+    },
+    {
+      "type": "blob",
+      "title": "windowPane.ts",
+      "href": "windowPane.ts"
+    }
+  ]
+}
