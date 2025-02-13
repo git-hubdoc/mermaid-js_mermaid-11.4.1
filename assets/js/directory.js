@@ -1,5 +1,14 @@
+function getPath() {
+  let {pathname} = window.location;
+  let path = (arr => (arr.pop(), arr.join('/')))(pathname.split('/'));
+  return path;
+}
+
 function addLink(elemParent, {type, title, href}) {
   let elemLink = document.createElement('a');
+  if (type === 'blob' && !(/\.html$/.exec(href))) {
+    href = `/_blob_?file=${getPath()}/${href}`;
+  }
   elemLink.setAttribute('href', href);
   elemLink.setAttribute('title', title);
   if (type === 'folder')
@@ -12,7 +21,11 @@ function addLink(elemParent, {type, title, href}) {
   elemLink.innerHTML = title;
   elemParent.appendChild(elemLink);
 }
-window.onload = () => {
+window.onload = ((onload, nextOnload) => ev => {
+  if (onload)
+    onload(ev);
+  nextOnload(ev);
+})(window.onload, ev => {
   fetch('_directory_.json')
     .then(_ => _.json())
     .catch(() => [])
@@ -45,4 +58,5 @@ window.onload = () => {
         }
       })
     })
-};
+    .catch(console.error);
+});
