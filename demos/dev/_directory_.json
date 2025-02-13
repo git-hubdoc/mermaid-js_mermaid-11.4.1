@@ -1,0 +1,15 @@
+{
+  "title": "/demos/dev",
+  "files": [
+    {
+      "type": "blob",
+      "title": "example.html",
+      "href": "example.html"
+    },
+    {
+      "type": "blob",
+      "title": "reload.js",
+      "href": "reload.js"
+    }
+  ]
+}

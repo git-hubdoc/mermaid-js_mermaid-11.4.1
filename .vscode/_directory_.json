@@ -1,0 +1,15 @@
+{
+  "title": "/.vscode",
+  "files": [
+    {
+      "type": "blob",
+      "title": "extensions.json",
+      "href": "extensions.json"
+    },
+    {
+      "type": "blob",
+      "title": "launch.json",
+      "href": "launch.json"
+    }
+  ]
+}
